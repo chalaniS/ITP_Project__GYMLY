@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Roboto:wght@300&family=Source+Sans+Pro:ital,wght@1,200&display=swap');
+
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+/*Footer Section*/
+footer {
+    color: #fff;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: #fff;
+    font-weight: bold;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+/*Footer Section*/
+
+/*add this to avoid underlining when hover link*/
+a {
+    text-decoration: none;
+    color: #fff;
+}

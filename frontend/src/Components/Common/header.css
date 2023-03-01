@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Roboto:wght@300&family=Source+Sans+Pro:ital,wght@1,200&display=swap');
+
+body{
+    font-family: 'Nunito', sans-serif;
+}
+
+/*add this to avoid underlining when hover link*/
+a{
+    text-decoration: none;
+    color: #fff;
+}
+
+/*default button style*/
+#Button{
+    width: 120px;
+    border-radius: 40px;
+    color: #fff;
+    font-size: 18px;
+}
+#Button:hover{
+    background-image: url(https://i.gifer.com/6J79.gif);
+    color: lavender;
+    font-weight: bold;
+    font-size: 19px;
+}
+/*default button style*/
