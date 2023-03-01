@@ -30,6 +30,7 @@ const Router = () => {
             <Route path="/confirmation" element={<InstructorConfirmOM />} />
 
 
+
             {/* package */}
             <Route path="/standardpackages" element={<standardPackages />} />
             <Route path="/editstandard" element={<editStandard />} />
