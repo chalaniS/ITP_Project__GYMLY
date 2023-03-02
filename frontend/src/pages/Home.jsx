@@ -9,6 +9,10 @@ const Home = () => {
     <div id='home-body'>
         <div className='container-fluid text-center' id='title'>
             <h1 id='title-text'>Welcome to GYMLY</h1>
+            <div className="container" id='title-btn-section'>
+                <Button variant="outline-light" id='title-button'>Membership</Button>
+                <Button variant="outline-light" id='title-button'>Team GYMLY</Button>
+            </div>
         </div>
 
    
