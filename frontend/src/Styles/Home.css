@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap'); /*Font of title*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); /*Font of body*/
+
+#home-body{
+    background-image:url('../images/LandingPage/bodybg.png');
+    background-color: #cccccc; /* Used if the image is unavailable */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+#title{
+    background-image:url('../images/LandingPage/Home-cover.png');
+    background-color: #cccccc; /* Used if the image is unavailable */
+    height: 800px; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+#title-text{
+    color: white;
+    font-size: 120px;
+    font-family: 'Anton', sans-serif;
+    text-align: center;
+    padding-top: 280px;
+    text-shadow: 4px 4px 8px black;
+}
+
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+#about{
+    padding: 50px;
+    
+}
+
+#aboutus-texts-section{
+    color: white;
+    font-family: 'Anton', sans-serif;
+    text-align: left;
+    padding-top: 10px;
+    text-shadow: 4px 4px 8px black;
+}
+
+#about-title{
+    font-size: 60px;
+    padding-bottom: 5px;
+}
+
+#about-discription{
+    font-size: 20px;
+    padding-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+#aboutus-img-section{
+    padding-right: 20px;
+}
+
+#boutus-img{
+    width:"500px";
+    height:"100%";
+}
