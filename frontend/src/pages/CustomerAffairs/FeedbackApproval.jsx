@@ -1,6 +1,5 @@
 import { Container, Row, Table } from 'reactstrap'
 import '../../Styles/CustomerAffairs/FeedbackApproval.css'
-import '../../App.css'
 
 
 const FeedbackApproval = () => {
