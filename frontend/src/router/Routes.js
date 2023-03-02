@@ -7,11 +7,11 @@ import EditTimeSlot from '../pages/schedule/scheduleEdit/EditTimeSlot'
 import ScheduleTable from '../pages/schedule/ScheduleTable'
 import InstructorConfirmOM from '../pages/schedule/InstructorConfirmOM'
 
-import standardPackages from '../pages/package/standardPackages'
-import editStandard from '../pages/package/editStandard'
-import promoPackages from '../pages/package/promoPackages'
-import addNewPromo from '../pages/package/addNewPromo'
-import promoApproval from '../pages/package/promoApproval'
+// import standardPackages from '../pages/Membership/standardPackages'
+// import editStandard from '../pages/Membership/editStandard'
+// import promoPackages from '../pages/Membership/promoPackages'
+// import addNewPromo from '../pages/Membership/addNewPromo'
+// import promoApproval from '../pages/Membership/promoApproval'
 
 import Login from '../pages/Users/Login'
 import Registation from '../pages/Users/Registation'
@@ -39,11 +39,11 @@ const Router = () => {
 
 
             {/* package */}
-            <Route path="/standardpackages" element={<standardPackages />} />
+            {/* <Route path="/standardpackages" element={<standardPackages />} />
             <Route path="/editstandard" element={<editStandard />} />
             <Route path="/promopackages" element={<promoPackages />} />
             <Route path="/newpromo" element={<addNewPromo />} />
-            <Route path="/promoapproval" element={<promoApproval />} />
+            <Route path="/promoapproval" element={<promoApproval />} /> */}
 
 
             {/*User Management*/}
@@ -51,8 +51,8 @@ const Router = () => {
             <Route path="/Registation" element={<Registation />} />
             <Route path="/Dashboard" element={<Dashboard />} />
             {/*User Management*/}
-            
-            
+
+
             {/*Customer Affairs Management*/}
             <Route path="/ServiceFeedbackform" element={<ServiceFeedbackform />} />
             <Route path="/InstructorFeedbackform" element={<InstructorFeedbackform />} />
