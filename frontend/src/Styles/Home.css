@@ -12,7 +12,7 @@
 #title{
     background-image:url('../images/LandingPage/Home-cover.png');
     background-color: #cccccc; /* Used if the image is unavailable */
-    height: 800px; /* You must set a specified height */
+    height: fit-content; /* You must set a specified height */
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */
@@ -23,9 +23,32 @@
     font-size: 120px;
     font-family: 'Anton', sans-serif;
     text-align: center;
-    padding-top: 280px;
+    padding-top: 200px;
     text-shadow: 4px 4px 8px black;
 }
+
+#title-btn-section{
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 150px;
+}
+
+#title-button{
+    border-radius: 40px;
+    margin: 30px;
+    padding: 10px 20px;
+    width: 200px;
+    background-color: aliceblue;
+    color: #000;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#title-button:hover{
+    background-color: #000;
+    color: aliceblue;
+}
+
 
 
 .col-centered{
