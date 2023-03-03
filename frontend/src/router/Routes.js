@@ -1,6 +1,8 @@
 import React from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 
+import OMHome from '../pages/OMdashboard/omHome'
+
 import Schedule from '../pages/schedule/Schedule'
 import EditInstructor from '../pages/schedule/scheduleEdit/EditInstructor'
 import EditTimeSlot from '../pages/schedule/scheduleEdit/EditTimeSlot'
@@ -33,6 +35,7 @@ const Router = () => {
     return (
         <Routes>
             <Route path="/" element={<Navigate to='/index' />} />
+            <Route path="/home" element={<OMHome />} />
 
             {/* Schedule pages routing */}
             <Route path="/schedule" element={<Schedule />} />
@@ -40,6 +43,18 @@ const Router = () => {
             <Route path="/changeinstrutor" element={<EditInstructor />} />
             <Route path="/trainings" element={<ScheduleTable />} />
             <Route path="/confirmation" element={<InstructorConfirmOM />} />
+
+
+            {/* package */}
+            <Route path="/standardpackages" element={<StandardPackages />} />
+            <Route path="/editstandard" element={<EditStandard />} />
+            <Route path="/promopackages" element={<PromoPackages />} />
+            <Route path="/newpromo" element={<AddNewPromo />} />
+            <Route path="/promoapproval" element={<PromoApproval />} />
+
+
+
+
 
             {/*User Management*/}
             <Route path="/Loging" element={<Login />} />
