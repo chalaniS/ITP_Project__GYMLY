@@ -70,7 +70,7 @@ const Router = () => {
             <Route path="/FeedbackOptions" element={<FeedbackOptions />} />
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/ContactUs" element={<ContactUs />} />
-            <<<<<<< Sithum
+
             <Route path="/SearchInstructor" element={<SearchInstructor />} />
 
 
