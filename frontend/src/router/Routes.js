@@ -9,11 +9,6 @@ import EditTimeSlot from '../pages/schedule/scheduleEdit/EditTimeSlot'
 import ScheduleTable from '../pages/schedule/ScheduleTable'
 import InstructorConfirmOM from '../pages/schedule/InstructorConfirmOM'
 
-import StandardPackages from '../pages/Membership/StandardPackages'
-import EditStandard from '../pages/Membership/EditStandard'
-import PromoPackages from '../pages/Membership/PromoPackages'
-import AddNewPromo from '../pages/Membership/AddNewPromo'
-import PromoApproval from '../pages/Membership/PromoApproval'
 
 import PaymentMethodsandPaymentType from '../pages/Payment/PaymentMethodsandPaymentType'
 import SaveCard from '../pages/Payment/SaveCard'
@@ -33,6 +28,7 @@ import FeedbackApproval from '../pages/CustomerAffairs/FeedbackApproval'
 import FeedbackOptions from '../pages/CustomerAffairs/FeedbackOptions'
 import AboutUs from '../pages/CustomerAffairs/AboutUs'
 import ContactUs from '../pages/CustomerAffairs/ContactUs'
+import SearchInstructor from '../pages/CustomerAffairs/SearchInstructor'
 
 
 const Router = () => {
@@ -58,6 +54,8 @@ const Router = () => {
 
 
 
+
+
             {/*User Management*/}
             <Route path="/Loging" element={<Login />} />
             <Route path="/Registation" element={<Registation />} />
@@ -72,6 +70,9 @@ const Router = () => {
             <Route path="/FeedbackOptions" element={<FeedbackOptions />} />
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/ContactUs" element={<ContactUs />} />
+            <<<<<<< Sithum
+            <Route path="/SearchInstructor" element={<SearchInstructor />} />
+
 
             {/*payment*/}
             <Route path="/PaymentMethodsandPaymentType" element={<PaymentMethodsandPaymentType />} />
@@ -80,6 +81,7 @@ const Router = () => {
             <Route path="/GetToken" element={<GetToken />} />
             <Route path="/PaymentHomepage" element={<PaymentHomepage />} />
             <Route path="/FinancialReport" element={<FinancialReport />} />
+
 
 
         </Routes>
