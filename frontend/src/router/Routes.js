@@ -7,11 +7,6 @@ import EditTimeSlot from '../pages/schedule/scheduleEdit/EditTimeSlot'
 import ScheduleTable from '../pages/schedule/ScheduleTable'
 import InstructorConfirmOM from '../pages/schedule/InstructorConfirmOM'
 
-// import standardPackages from '../pages/Membership/standardPackages'
-// import editStandard from '../pages/Membership/editStandard'
-// import promoPackages from '../pages/Membership/promoPackages'
-// import addNewPromo from '../pages/Membership/addNewPromo'
-// import promoApproval from '../pages/Membership/promoApproval'
 
 import PaymentMethodsandPaymentType from '../pages/Payment/PaymentMethodsandPaymentType'
 import SaveCard from '../pages/Payment/SaveCard'
@@ -31,6 +26,7 @@ import FeedbackApproval from '../pages/CustomerAffairs/FeedbackApproval'
 import FeedbackOptions from '../pages/CustomerAffairs/FeedbackOptions'
 import AboutUs from '../pages/CustomerAffairs/AboutUs'
 import ContactUs from '../pages/CustomerAffairs/ContactUs'
+import SearchInstructor from '../pages/CustomerAffairs/SearchInstructor'
 
 
 const Router = () => {
@@ -44,15 +40,6 @@ const Router = () => {
             <Route path="/changeinstrutor" element={<EditInstructor />} />
             <Route path="/trainings" element={<ScheduleTable />} />
             <Route path="/confirmation" element={<InstructorConfirmOM />} />
-
-
-            {/* package */}
-            {/* <Route path="/standardpackages" element={<standardPackages />} />
-            <Route path="/editstandard" element={<editStandard />} />
-            <Route path="/promopackages" element={<promoPackages />} />
-            <Route path="/newpromo" element={<addNewPromo />} />
-            <Route path="/promoapproval" element={<promoApproval />} /> */}
-
 
             {/*User Management*/}
             <Route path="/Loging" element={<Login />} />
@@ -68,6 +55,9 @@ const Router = () => {
             <Route path="/FeedbackOptions" element={<FeedbackOptions />} />
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/ContactUs" element={<ContactUs />} />
+            <<<<<<< Sithum
+            <Route path="/SearchInstructor" element={<SearchInstructor />} />
+
 
             {/*payment*/}
             <Route path="/PaymentMethodsandPaymentType" element={<PaymentMethodsandPaymentType />} />
@@ -76,6 +66,7 @@ const Router = () => {
             <Route path="/GetToken" element={<GetToken />} />
             <Route path="/PaymentHomepage" element={<PaymentHomepage />} />
             <Route path="/FinancialReport" element={<FinancialReport />} />
+
 
 
         </Routes>
