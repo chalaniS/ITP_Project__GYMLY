@@ -1,17 +1,19 @@
 import React from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 
+import OMHome from '../pages/OMdashboard/omHome'
+
 import Schedule from '../pages/schedule/Schedule'
 import EditInstructor from '../pages/schedule/scheduleEdit/EditInstructor'
 import EditTimeSlot from '../pages/schedule/scheduleEdit/EditTimeSlot'
 import ScheduleTable from '../pages/schedule/ScheduleTable'
 import InstructorConfirmOM from '../pages/schedule/InstructorConfirmOM'
 
-// import standardPackages from '../pages/package/standardPackages'
-// import editStandard from '../pages/package/editStandard'
-// import promoPackages from '../pages/package/promoPackages'
-// import addNewPromo from '../pages/package/addNewPromo'
-// import promoApproval from '../pages/package/promoApproval'
+import StandardPackages from '../pages/Membership/StandardPackages'
+import EditStandard from '../pages/Membership/EditStandard'
+import PromoPackages from '../pages/Membership/PromoPackages'
+import AddNewPromo from '../pages/Membership/AddNewPromo'
+import PromoApproval from '../pages/Membership/PromoApproval'
 
 import PaymentMethodsandPaymentType from '../pages/Payment/PaymentMethodsandPaymentType'
 import SaveCard from '../pages/Payment/SaveCard'
@@ -37,6 +39,7 @@ const Router = () => {
     return (
         <Routes>
             <Route path="/" element={<Navigate to='/index' />} />
+            <Route path="/home" element={<OMHome />} />
 
             {/* Schedule pages routing */}
             <Route path="/schedule" element={<Schedule />} />
@@ -47,11 +50,11 @@ const Router = () => {
 
 
             {/* package */}
-            {/* <Route path="/standardpackages" element={<standardPackages />} />
-            <Route path="/editstandard" element={<editStandard />} />
-            <Route path="/promopackages" element={<promoPackages />} />
-            <Route path="/newpromo" element={<addNewPromo />} />
-            <Route path="/promoapproval" element={<promoApproval />} /> */}
+            <Route path="/standardpackages" element={<StandardPackages />} />
+            <Route path="/editstandard" element={<EditStandard />} />
+            <Route path="/promopackages" element={<PromoPackages />} />
+            <Route path="/newpromo" element={<AddNewPromo />} />
+            <Route path="/promoapproval" element={<PromoApproval />} />
 
 
             {/*User Management*/}
