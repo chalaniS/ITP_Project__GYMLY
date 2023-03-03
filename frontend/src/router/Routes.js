@@ -57,6 +57,7 @@ const Router = () => {
             <Route path="/promoapproval" element={<PromoApproval />} />
 
 
+
             {/*User Management*/}
             <Route path="/Loging" element={<Login />} />
             <Route path="/Registation" element={<Registation />} />
