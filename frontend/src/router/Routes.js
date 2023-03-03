@@ -9,14 +9,12 @@ import EditTimeSlot from '../pages/schedule/scheduleEdit/EditTimeSlot'
 import ScheduleTable from '../pages/schedule/ScheduleTable'
 import InstructorConfirmOM from '../pages/schedule/InstructorConfirmOM'
 
-
 import PaymentMethodsandPaymentType from '../pages/Payment/PaymentMethodsandPaymentType'
 import SaveCard from '../pages/Payment/SaveCard'
 import Verification from '../pages/Payment/Verification'
 import GetToken from '../pages/Payment/GetToken'
 import PaymentHomepage from '../pages/Payment/PaymentHomepage'
 import FinancialReport from '../pages/Payment/FinancialReport'
-
 
 import Login from '../pages/Users/Login'
 import Registation from '../pages/Users/Registation'
@@ -29,6 +27,12 @@ import FeedbackOptions from '../pages/CustomerAffairs/FeedbackOptions'
 import AboutUs from '../pages/CustomerAffairs/AboutUs'
 import ContactUs from '../pages/CustomerAffairs/ContactUs'
 import SearchInstructor from '../pages/CustomerAffairs/SearchInstructor'
+
+import StandardPackages from '../pages/Membership/StandardPackages'
+import EditStandard from '../pages/Membership/EditStandard'
+import PromoPackages from '../pages/Membership/PromoPackages'
+import AddNewPromo from '../pages/Membership/AddNewPromo'
+import PromoApproval from '../pages/Membership/PromoApproval'
 
 
 const Router = () => {
@@ -70,7 +74,6 @@ const Router = () => {
             <Route path="/FeedbackOptions" element={<FeedbackOptions />} />
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/ContactUs" element={<ContactUs />} />
-
             <Route path="/SearchInstructor" element={<SearchInstructor />} />
 
 
