@@ -1,9 +1,16 @@
 import React from 'react'
+import { Container, Row, Col } from 'reactstrap'
 
-function omHome() {
+function OmHome() {
     return (
-        <div>omHome</div>
+        <body>
+            <section >
+                <Container>
+
+                </Container >
+            </section >
+        </body>
     )
 }
 
-export default omHome;
+export default OmHome

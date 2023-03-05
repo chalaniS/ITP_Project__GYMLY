@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.398da3d0.css",
+    "main.js": "/static/js/main.6e067ebe.js",
+    "static/media/backimg5.jpeg": "/static/media/backimg5.77c22071ef88d45e02d8.jpeg",
+    "static/media/image3.jpg": "/static/media/image3.7aceb0c6be202f90600e.jpg",
+    "static/media/backimg1.jpg": "/static/media/backimg1.106dede21da85c3c185f.jpg",
+    "static/media/backimg4.png": "/static/media/backimg4.384e16323560370aa83f.png",
+    "static/media/backimg3.jpg": "/static/media/backimg3.b0eb94692213f626bb9e.jpg",
+    "static/media/aboutus.jpg": "/static/media/aboutus.167f8bc68559e49e5c12.jpg",
+    "static/media/image1.jpg": "/static/media/image1.7c37a7d832f013fb5aca.jpg",
+    "static/media/image2.jpg": "/static/media/image2.30318bce51b172f9d067.jpg",
+    "static/media/logo.png": "/static/media/logo.87fc2a837dc569aa0283.png",
+    "static/media/fitnessInstructor.jpg": "/static/media/fitnessInstructor.0112e39c3319e9cde1ff.jpg",
+    "index.html": "/index.html",
+    "main.398da3d0.css.map": "/static/css/main.398da3d0.css.map",
+    "main.6e067ebe.js.map": "/static/js/main.6e067ebe.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.398da3d0.css",
+    "static/js/main.6e067ebe.js"
+  ]
+}

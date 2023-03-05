@@ -1,7 +1,7 @@
 import React from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 
-import OMHome from '../pages/OMdashboard/omHome'
+import OMHome from '../pages/OMdashboard/OmHome'
 
 import Schedule from '../pages/schedule/Schedule'
 import EditInstructor from '../pages/schedule/scheduleEdit/EditInstructor'
@@ -55,10 +55,6 @@ const Router = () => {
             <Route path="/promopackages" element={<PromoPackages />} />
             <Route path="/newpromo" element={<AddNewPromo />} />
             <Route path="/promoapproval" element={<PromoApproval />} />
-
-
-
-
 
             {/*User Management*/}
             <Route path="/Loging" element={<Login />} />
