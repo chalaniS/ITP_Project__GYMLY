@@ -72,7 +72,6 @@ const Router = () => {
             <Route path="/ContactUs" element={<ContactUs />} />
             <Route path="/SearchInstructor" element={<SearchInstructor />} />
 
-
             {/*payment*/}
             <Route path="/PaymentMethodsandPaymentType" element={<PaymentMethodsandPaymentType />} />
             <Route path="/SaveCard" element={<SaveCard />} />
@@ -80,6 +79,7 @@ const Router = () => {
             <Route path="/GetToken" element={<GetToken />} />
             <Route path="/PaymentHomepage" element={<PaymentHomepage />} />
             <Route path="/FinancialReport" element={<FinancialReport />} />
+
 
 
 
