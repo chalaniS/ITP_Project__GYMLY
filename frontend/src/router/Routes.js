@@ -24,6 +24,12 @@ import FeedbackOptions from '../pages/CustomerAffairs/FeedbackOptions'
 import AboutUs from '../pages/CustomerAffairs/AboutUs'
 import ContactUs from '../pages/CustomerAffairs/ContactUs'
 
+import Placeorder from '../pages/Supplements/Placeorder'
+import Salesmanagerreport from '../pages/Supplements/Salessmanagerreport'
+import SupplementstoreCashier from '../pages/Supplements/SupplementstoreCashier'
+import SupplementstoreUser from '../pages/Supplements/SupplementstoreUser'
+
+
 
 const Router = () => {
     return (
@@ -60,7 +66,21 @@ const Router = () => {
             <Route path="/FeedbackOptions" element={<FeedbackOptions />} />
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/ContactUs" element={<ContactUs />} />
-        </Routes>
+            
+            {/* Supplements pages routing*/}
+            <Route path="/order" element={<Placeorder/>} />
+            <Route path="/report" element={<Salesmanagerreport/>} />
+            <Route path="/storecashier" element={<SupplementstoreCashier/>} />
+            <Route path="/storeuser" element={<SupplementstoreUser />} />
+            
+
+
+
+
+
+      </Routes>
+
+             
     )
 }
 
