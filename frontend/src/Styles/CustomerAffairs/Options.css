@@ -1,4 +1,4 @@
-.optionssec{
+.optionssec {
     margin: 0%;
     padding: 0%;
     position: absolute;
@@ -7,50 +7,53 @@
     background: url(../../images/CustomerAffairs/backimg3.jpg);
     background-size: cover;
     background-position: absolute;
-    filter:blur(1px) brightness(80%)
+    filter: blur(1px) brightness(80%)
 }
-.Optionscontainer{
+
+.Optionscontainer {
     align-items: center;
     position: relative;
     top: 250px;
     margin: auto;
     justify-content: center;
-    height:400px;
+    height: 400px;
     width: 50%;
     background: #757070;
-    box-shadow: 0 0 8px rgba(250,250, 250, 0.6);
+    box-shadow: 0 0 8px rgba(250, 250, 250, 0.6);
     opacity: 0.6;
 
 }
-h1{
-    color:  #00fff0;
-    background: #222; 
+
+h1 {
+    color: #ffffff;
+    background: #222;
     border-radius: 6px;
 }
-.instbutton{
+
+.instbutton {
     margin-left: 90px;
     margin-top: 40px;
     border: none;
     background: #00fff0;
     color: #222;
     width: 75%;
-    height:50px;
-    font-size: 20px;
-    font-weight: 800;
-    cursor: pointer;
-    border-radius: 6px;
-}
-.servicebutton{
-    margin-left: 90px;
-    margin-top: 20px;
-    border: none;
-    background: #00fff0;
-    color: #222;
-    width: 75%;
-    height:50px;
+    height: 50px;
     font-size: 20px;
     font-weight: 800;
     cursor: pointer;
     border-radius: 6px;
 }
 
+.servicebutton {
+    margin-left: 90px;
+    margin-top: 20px;
+    border: none;
+    background: #00fff0;
+    color: #222;
+    width: 75%;
+    height: 50px;
+    font-size: 20px;
+    font-weight: 800;
+    cursor: pointer;
+    border-radius: 6px;
+}

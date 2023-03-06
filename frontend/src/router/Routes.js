@@ -1,7 +1,7 @@
 import React from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 
-import OMHome from '../pages/OMdashboard/OmHome'
+import OMHome from '../pages/OMdashboard/OMHome'
 
 import Schedule from '../pages/schedule/Schedule'
 import EditInstructor from '../pages/schedule/scheduleEdit/EditInstructor'
@@ -24,8 +24,13 @@ import ServiceFeedbackform from '../pages/CustomerAffairs/ServiceFeedbackform'
 import InstructorFeedbackform from '../pages/CustomerAffairs/InstructorFeedbackform'
 import FeedbackApproval from '../pages/CustomerAffairs/FeedbackApproval'
 import FeedbackOptions from '../pages/CustomerAffairs/FeedbackOptions'
+<<<<<<< HEAD
 import AddNewPromo from '../pages/Membership/AddNewPromo'
 import PromoApproval from '../pages/Membership/PromoApproval'
+=======
+import AboutUs from '../pages/CustomerAffairs/AboutUs'
+import ContactUs from '../pages/CustomerAffairs/ContactUs'
+>>>>>>> ab030dcc4b5b3daddca336b3fec00a0b06bf616f
 
 
 const Router = () => {
