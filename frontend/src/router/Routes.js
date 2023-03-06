@@ -23,6 +23,7 @@ import FeedbackApproval from '../pages/CustomerAffairs/FeedbackApproval'
 import FeedbackOptions from '../pages/CustomerAffairs/FeedbackOptions'
 import AboutUs from '../pages/CustomerAffairs/AboutUs'
 import ContactUs from '../pages/CustomerAffairs/ContactUs'
+import SearchInstructor from '../pages/CustomerAffairs/SearchInstructor'
 
 
 const Router = () => {
@@ -60,6 +61,7 @@ const Router = () => {
             <Route path="/FeedbackOptions" element={<FeedbackOptions />} />
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/ContactUs" element={<ContactUs />} />
+            <Route path="/SearchInstructor" element={<SearchInstructor />} />
         </Routes>
     )
 }
