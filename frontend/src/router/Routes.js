@@ -26,13 +26,6 @@ import FeedbackApproval from '../pages/CustomerAffairs/FeedbackApproval'
 import FeedbackOptions from '../pages/CustomerAffairs/FeedbackOptions'
 import AboutUs from '../pages/CustomerAffairs/AboutUs'
 import ContactUs from '../pages/CustomerAffairs/ContactUs'
-import SearchInstructor from '../pages/CustomerAffairs/SearchInstructor'
-
-import StandardPackages from '../pages/Membership/StandardPackages'
-import EditStandard from '../pages/Membership/EditStandard'
-import PromoPackages from '../pages/Membership/PromoPackages'
-import AddNewPromo from '../pages/Membership/AddNewPromo'
-import PromoApproval from '../pages/Membership/PromoApproval'
 
 
 const Router = () => {
@@ -72,6 +65,7 @@ const Router = () => {
             <Route path="/ContactUs" element={<ContactUs />} />
             <Route path="/SearchInstructor" element={<SearchInstructor />} />
 
+
             {/*payment*/}
             <Route path="/PaymentMethodsandPaymentType" element={<PaymentMethodsandPaymentType />} />
             <Route path="/SaveCard" element={<SaveCard />} />
@@ -79,7 +73,6 @@ const Router = () => {
             <Route path="/GetToken" element={<GetToken />} />
             <Route path="/PaymentHomepage" element={<PaymentHomepage />} />
             <Route path="/FinancialReport" element={<FinancialReport />} />
-
 
 
 
