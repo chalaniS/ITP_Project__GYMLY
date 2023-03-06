@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
-*{
+
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins',sans-serif;
+    font-family: 'Poppins', sans-serif;
     outline: none;
 }
-.instsection{
+
+.instsection {
     margin: 0%;
     padding: 0%;
     position: absolute;
@@ -14,41 +16,46 @@
     background: url(../../images/CustomerAffairs/backimg1.jpg);
     background-size: cover;
     background-position: absolute;
-    filter:blur(1px) brightness(80%)
+    filter: blur(1px) brightness(80%)
 }
 
-.feedbackcontainer{
+.feedbackcontainer {
     position: relative;
     top: 30px;
     margin: auto;
     justify-content: center;
-    height:50%;
+    height: 50%;
     width: 50%;
     background: #757070;
-    box-shadow: 0 0 8px rgba(250,250, 250, 0.6);
+    box-shadow: 0 0 8px rgba(250, 250, 250, 0.6);
     opacity: 0.6;
 
 }
-.feedbackcontainer form{
+
+.feedbackcontainer form {
     justify-self: center;
     width: 100%;
     text-align: center;
     padding: 25px 20px;
 }
-form h1{
-    color:#00fff0;
+
+form h1 {
+    color: #00fff0;
     padding: 10px 0;
     background: #000;
 }
-#rate{
+
+#rate {
     padding-right: 75px;
-    color:#00fff0;
+    color: #00fff0;
 }
-form .feedbackid{
+
+form .feedbackid {
     position: relative;
-   
+
 }
-.feedbackid i{
+
+.feedbackid i {
     color: #00fff0;
     position: relative;
     font-size: 20px;
@@ -56,7 +63,8 @@ form .feedbackid{
     right: 20px;
     transform: translateY(-20%);
 }
-form input{
+
+form input {
     width: 400px;
     height: 50px;
     margin: 4px;
@@ -66,42 +74,49 @@ form input{
     padding: 0 15px;
     padding-right: 45px;
     font-size: 20px;
-    color:#00fff0;
-    
+    color: #00fff0;
+
 }
-#ftins{
+
+#ftins {
     padding-left: 15px;
     padding-right: 30px;
-    color:#00fff0;
+    color: #00fff0;
 }
-form select{
-    
+
+form select {
+
     padding-right: 50px;
     width: 150px;
 }
-.FillStar{
+
+.FillStar {
     padding-left: 5px;
     height: 50px;
     font-size: 20px;
 }
-.OutlineStar{
+
+.OutlineStar {
     height: 50px;
     font-size: 20px;
 }
-.user{
-    height: 50px;
-    font-size: 20px;
-    color: #00fff0;
-    
-}
-.mail{
+
+.user {
     height: 50px;
     font-size: 20px;
     color: #00fff0;
-    
+
 }
-form textarea{
-    color:#00fff0;
+
+.mail {
+    height: 50px;
+    font-size: 20px;
+    color: #00fff0;
+
+}
+
+form textarea {
+    color: #00fff0;
     padding: 5px 15px;
     border: 1px solid #5c5c5c;
     border-radius: 3px;
@@ -110,7 +125,8 @@ form textarea{
     width: 420px;
     margin: 4px 0;
 }
-form button{
+
+form button {
     margin-top: 5px;
     border: none;
     background: #00fff0;
@@ -122,19 +138,22 @@ form button{
     cursor: pointer;
     border-radius: 6px;
 }
+
 form input:focus,
-form textarea :focus{
+form textarea :focus {
     border: 1px solid #00fff0;
     color: #00fff0;
     transition: all 0.3s ease;
 }
+
 form input:focus::placeholder,
-form textarea:focus::placeholder{
+form textarea:focus::placeholder {
     padding-left: 4px;
     color: #00fff0;
     transition: all 0.3s ease;
 }
-form input:focus + i{
+
+form input:focus+i {
     color: #00fff0;
     transition: all 0.3s ease;
 }
