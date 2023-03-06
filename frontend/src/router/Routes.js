@@ -63,6 +63,19 @@ const Router = () => {
             <Route path="/FeedbackOptions" element={<FeedbackOptions />} />
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/ContactUs" element={<ContactUs />} />
+            <Route path="/SearchInstructor" element={<SearchInstructor />} />
+
+
+            {/*payment*/}
+            <Route path="/PaymentMethodsandPaymentType" element={<PaymentMethodsandPaymentType />} />
+            <Route path="/SaveCard" element={<SaveCard />} />
+            <Route path="/Verification" element={<Verification />} />
+            <Route path="/GetToken" element={<GetToken />} />
+            <Route path="/PaymentHomepage" element={<PaymentHomepage />} />
+            <Route path="/FinancialReport" element={<FinancialReport />} />
+
+
+
         </Routes>
     )
 }
