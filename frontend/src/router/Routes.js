@@ -1,7 +1,7 @@
 import React from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 
-import OMHome from '../pages/OMdashboard/OmHome'
+import OMHome from '../pages/OMdashboard/OMHome'
 
 import Schedule from '../pages/schedule/Schedule'
 import EditInstructor from '../pages/schedule/scheduleEdit/EditInstructor'
