@@ -9,7 +9,7 @@ import EditTimeSlot from '../pages/schedule/scheduleEdit/EditTimeSlot'
 import ScheduleTable from '../pages/schedule/ScheduleTable'
 import InstructorConfirmOM from '../pages/schedule/InstructorConfirmOM'
 
-import PaymentMethodsandPaymentType from '../pages/Payment/PaymentMethodsandPaymentType'
+import PaymentMethodsandType from '../pages/Payment/PaymentMethodsandType'
 import SaveCard from '../pages/Payment/SaveCard'
 import Verification from '../pages/Payment/Verification'
 import GetToken from '../pages/Payment/GetToken'
@@ -24,13 +24,6 @@ import ServiceFeedbackform from '../pages/CustomerAffairs/ServiceFeedbackform'
 import InstructorFeedbackform from '../pages/CustomerAffairs/InstructorFeedbackform'
 import FeedbackApproval from '../pages/CustomerAffairs/FeedbackApproval'
 import FeedbackOptions from '../pages/CustomerAffairs/FeedbackOptions'
-import AboutUs from '../pages/CustomerAffairs/AboutUs'
-import ContactUs from '../pages/CustomerAffairs/ContactUs'
-import SearchInstructor from '../pages/CustomerAffairs/SearchInstructor'
-
-import StandardPackages from '../pages/Membership/StandardPackages'
-import EditStandard from '../pages/Membership/EditStandard'
-import PromoPackages from '../pages/Membership/PromoPackages'
 import AddNewPromo from '../pages/Membership/AddNewPromo'
 import PromoApproval from '../pages/Membership/PromoApproval'
 
@@ -74,7 +67,7 @@ const Router = () => {
 
 
             {/*payment*/}
-            <Route path="/PaymentMethodsandPaymentType" element={<PaymentMethodsandPaymentType />} />
+            <Route path="/PaymentMethodsandType" element={<PaymentMethodsandType />} />
             <Route path="/SaveCard" element={<SaveCard />} />
             <Route path="/Verification" element={<Verification />} />
             <Route path="/GetToken" element={<GetToken />} />
