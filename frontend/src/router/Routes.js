@@ -1,12 +1,13 @@
 import React from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 
+import OMHome from '../pages/OMdashboard/OMHome'
+
 import Schedule from '../pages/schedule/Schedule'
 import EditInstructor from '../pages/schedule/scheduleEdit/EditInstructor'
 import EditTimeSlot from '../pages/schedule/scheduleEdit/EditTimeSlot'
 import ScheduleTable from '../pages/schedule/ScheduleTable'
 import InstructorConfirmOM from '../pages/schedule/InstructorConfirmOM'
-
 
 import PaymentMethodsandPaymentType from '../pages/Payment/PaymentMethodsandPaymentType'
 import SaveCard from '../pages/Payment/SaveCard'
@@ -14,7 +15,6 @@ import Verification from '../pages/Payment/Verification'
 import GetToken from '../pages/Payment/GetToken'
 import PaymentHomepage from '../pages/Payment/PaymentHomepage'
 import FinancialReport from '../pages/Payment/FinancialReport'
-
 
 import Login from '../pages/Users/Login'
 import Registation from '../pages/Users/Registation'
@@ -28,11 +28,18 @@ import AboutUs from '../pages/CustomerAffairs/AboutUs'
 import ContactUs from '../pages/CustomerAffairs/ContactUs'
 import SearchInstructor from '../pages/CustomerAffairs/SearchInstructor'
 
+import StandardPackages from '../pages/Membership/StandardPackages'
+import EditStandard from '../pages/Membership/EditStandard'
+import PromoPackages from '../pages/Membership/PromoPackages'
+import AddNewPromo from '../pages/Membership/AddNewPromo'
+import PromoApproval from '../pages/Membership/PromoApproval'
+
 
 const Router = () => {
     return (
         <Routes>
             <Route path="/" element={<Navigate to='/index' />} />
+            <Route path="/home" element={<OMHome />} />
 
             {/* Schedule pages routing */}
             <Route path="/schedule" element={<Schedule />} />
@@ -40,6 +47,14 @@ const Router = () => {
             <Route path="/changeinstrutor" element={<EditInstructor />} />
             <Route path="/trainings" element={<ScheduleTable />} />
             <Route path="/confirmation" element={<InstructorConfirmOM />} />
+
+
+            {/* package */}
+            <Route path="/standardpackages" element={<StandardPackages />} />
+            <Route path="/editstandard" element={<EditStandard />} />
+            <Route path="/promopackages" element={<PromoPackages />} />
+            <Route path="/newpromo" element={<AddNewPromo />} />
+            <Route path="/promoapproval" element={<PromoApproval />} />
 
             {/*User Management*/}
             <Route path="/Loging" element={<Login />} />
@@ -55,12 +70,7 @@ const Router = () => {
             <Route path="/FeedbackOptions" element={<FeedbackOptions />} />
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/ContactUs" element={<ContactUs />} />
-
             <Route path="/SearchInstructor" element={<SearchInstructor />} />
-
-            
-            <Route path="/SearchInstructor" element={<SearchInstructor />} />
-
 
             {/*payment*/}
             <Route path="/PaymentMethodsandPaymentType" element={<PaymentMethodsandPaymentType />} />

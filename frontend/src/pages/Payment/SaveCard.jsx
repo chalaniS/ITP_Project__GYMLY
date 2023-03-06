@@ -40,12 +40,7 @@ const SaveCard = () => {
                                     <input type="text" placeholder="">
                                     </input>
                                 </div>
-
-
                             </div>
-
-
-
                         </div>
                     </div>
                 </form>
