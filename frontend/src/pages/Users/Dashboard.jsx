@@ -1,34 +1,42 @@
 import React from "react"
-import { Row } from "reactstrap"
-import { Col } from "reactstrap"
-import { Card } from "reactstrap"
-import { CardBody } from "reactstrap"
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container } from "react-bootstrap";
+
 import './Style/Dashboard.css'
 
 const Dashboard = () => {
     return (
       <div >
-      <h1 className="text-center">Dash Board</h1> 
-        <div className="Row">
-            <div className="col-md-4">
-
-            </div>
-            <div className="col-md-4">
-
-            </div>
-            <div className="col-md-4">
-
-            </div>
-            <div className="col-md-4">
-
-            </div>
-            <div className="col-md-4">
-
-            </div>
-            <div className="col-md-4">
-
+      <h1 className="text-center" id="dashboard-title">Dash Board</h1>
+       
+       <div className="Container text-center" id="cards">
+        <div className="row">
+            <div className="col">
+                <div className="dsbd-cards">
+                  Hello
+                </div>
             </div>
 
+            <div className="col">
+            <div className="dsbd-cards">
+                  Hello
+                </div>
+            </div>
+
+            <div className="col">
+            <div className="dsbd-cards">
+                  Hello
+                </div>
+            </div>
+
+            <div className="col">
+            <div className="dsbd-cards">
+                  Hello
+                </div>
+            </div>
+
+            
+          </div>
         </div>
       </div>
     )
