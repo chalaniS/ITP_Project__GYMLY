@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap'
 import aboutus from '../images/LandingPage/aboutus.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 const Home = () => {
     return (
     <div id='home-body'>
@@ -32,6 +33,23 @@ const Home = () => {
         </div>
         </div>
         {/* about us section end */}
+
+        {/*location section*/}
+        <div className="container">
+           <div className='container row text-center justify-content-center' id='location'>
+
+            <div className="container col-md-6 col-md-offset-3 " id='location-texts-section'>
+                <h1 id="location-title">Contact Us</h1>
+                <p  id="location-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+
+            <div className="container col-md-6 col-md-offset-3 how-img" id='location-img-section'> 
+                <img src={aboutus} className="rounded mx-auto d-block img-fluid" alt="aboutus" id='location-img'/>
+            </div>
+
+          </div>
+        </div>
+        {/*location section*/}
 
 
     </div>
