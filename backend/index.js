@@ -1,24 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import express from "express";
+import cors from "cors";
 
-function App() {
-    const [data, setData] = useState(null);
+const app = express();
+app.use(cors());
 
-    useEffect(() => {
-        axios.get('/api/endpoint')
-            .then(response => {
-                setData(response.data);
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    }, []);
+app.get("/getData", (req, res) => {
+    res.send("Hello, I'm from Backend");
+});
 
-    return (
-        <div>
-            <h1>{data ? data.message : 'Loading...'}</h1>
-        </div>
-    );
-}
-
-export default App;
+app.listen(5000, () => console.log("App is running")); 

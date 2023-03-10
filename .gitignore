@@ -6,3 +6,5 @@ frontend/build/
 frontend/build/asset-manifest.json
 frontend/build/asset-manifest.json
 frontend/build/index.html
+backend/node_modules/call-bind/.nycrc
+backend/node_modules/accepts/README.md
