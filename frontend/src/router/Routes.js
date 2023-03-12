@@ -61,11 +61,11 @@ const Router = () => {
 
 
             {/* package */}
-            <Route path="/standardpackages" element={<StandardPackages />} />
+            {/* <Route path="/standardpackages" element={<StandardPackages />} />
             <Route path="/editstandard" element={<EditStandard />} />
             <Route path="/promopackages" element={<PromoPackages />} />
             <Route path="/newpromo" element={<AddNewPromo />} />
-            <Route path="/promoapproval" element={<PromoApproval />} />
+            <Route path="/promoapproval" element={<PromoApproval />} /> */}
 
             {/*User Management*/}
             <Route path="/Loging" element={<Login />} />
@@ -81,7 +81,7 @@ const Router = () => {
             <Route path="/FeedbackOptions" element={<FeedbackOptions />} />
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/ContactUs" element={<ContactUs />} />
-            <Route path="/SearchInstructor" element={<SearchInstructor />} />
+            {/* <Route path="/SearchInstructor" element={<SearchInstructor />} /> */}
 
 
             {/*payment*/}
