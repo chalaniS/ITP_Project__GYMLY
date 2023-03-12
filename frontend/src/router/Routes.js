@@ -9,6 +9,14 @@ import EditTimeSlot from '../pages/schedule/scheduleEdit/EditTimeSlot'
 import ScheduleTable from '../pages/schedule/ScheduleTable'
 import InstructorConfirmOM from '../pages/schedule/InstructorConfirmOM'
 
+import Employee from '../pages/employeeMgt/Employee'
+import TblEmpSummary from '../pages/employeeMgt/TblEmpSummary'
+import EmpRegistration from '../pages/employeeMgt/EmpRegistration'
+import EmpUpdate from '../pages/employeeMgt/EmpUpdate'
+import EmpLeave from '../pages/employeeMgt/EmpLeave'
+import EmpSalary from '../pages/employeeMgt/EmpSalary'
+import EmpSalaryEdit from '../pages/employeeMgt/EmpSalaryEdit'
+
 import PaymentMethodsandPaymentType from '../pages/Payment/PaymentMethodsandPaymentType'
 import SaveCard from '../pages/Payment/SaveCard'
 import Verification from '../pages/Payment/Verification'
@@ -41,6 +49,15 @@ const Router = () => {
             <Route path="/changeinstrutor" element={<EditInstructor />} />
             <Route path="/trainings" element={<ScheduleTable />} />
             <Route path="/confirmation" element={<InstructorConfirmOM />} />
+
+            {/* Employee management pages routing */}
+            {/* <Route path="/employee" element={<Employee />} /> */}
+            <Route path="/employee-summary" element={<TblEmpSummary />} />
+            {/* <Route path="/employee-registration" element={<EmpRegistration />} />
+            <Route path="/employee-update" element={<EmpUpdate />} /> */}
+            <Route path="/employee-leave" element={<EmpLeave />} />
+            {/* <Route path="/employee-salary" element={<EmpSalary />} />
+            <Route path="/employee-salary-edit" element={<EmpSalaryEdit />} /> */}
 
 
             {/* package */}
