@@ -1,13 +1,20 @@
 import React from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 
-import OMHome from '../pages/OMdashboard/OMHome'
+import OMHome from '../pages/OMdashboard/omHome'
 
 import Schedule from '../pages/schedule/Schedule'
 import EditInstructor from '../pages/schedule/scheduleEdit/EditInstructor'
 import EditTimeSlot from '../pages/schedule/scheduleEdit/EditTimeSlot'
 import ScheduleTable from '../pages/schedule/ScheduleTable'
 import InstructorConfirmOM from '../pages/schedule/InstructorConfirmOM'
+
+import StandardPackages from '../pages/Membership/StandardPackages'
+import EditStandard from '../pages/Membership/EditStandard'
+import PromoPackages from '../pages/Membership/PromoPackages'
+import AddNewPromo from '../pages/Membership/AddNewPromo'
+import PromoApproval from '../pages/Membership/PromoApproval'
+import MMdashboard from '../pages/Membership/MMdashboard'
 
 import PaymentMethodsandPaymentType from '../pages/Payment/PaymentMethodsandPaymentType'
 import SaveCard from '../pages/Payment/SaveCard'
@@ -49,6 +56,7 @@ const Router = () => {
             <Route path="/promopackages" element={<PromoPackages />} />
             <Route path="/newpromo" element={<AddNewPromo />} />
             <Route path="/promoapproval" element={<PromoApproval />} />
+            <Route path="/mmdashboard" element={<MMdashboard />} />
 
             {/*User Management*/}
             <Route path="/Loging" element={<Login />} />
@@ -64,7 +72,7 @@ const Router = () => {
             <Route path="/FeedbackOptions" element={<FeedbackOptions />} />
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/ContactUs" element={<ContactUs />} />
-            <Route path="/SearchInstructor" element={<SearchInstructor />} />
+            {/* <Route path="/SearchInstructor" element={<SearchInstructor />} /> */}
 
 
             {/*payment*/}

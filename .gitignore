@@ -6,3 +6,4 @@ frontend/build/
 frontend/build/asset-manifest.json
 frontend/build/asset-manifest.json
 frontend/build/index.html
+frontend/package-lock.json
