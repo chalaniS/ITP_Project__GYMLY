@@ -133,7 +133,7 @@ const TblEmpSummary = () => {
                                 <td > </td>
                                 <td > </td>
                                 <td>
-                                    <button className='edit_btn '>Approv</button>
+                                    <button className='edit_btn '>Approve</button>
                                     <nbsp>  </nbsp>
                                     <button className='edit_btn '>Reject</button>
                                 </td>
