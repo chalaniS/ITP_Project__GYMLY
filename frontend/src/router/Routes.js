@@ -9,12 +9,22 @@ import EditTimeSlot from '../pages/schedule/scheduleEdit/EditTimeSlot'
 import ScheduleTable from '../pages/schedule/ScheduleTable'
 import InstructorConfirmOM from '../pages/schedule/InstructorConfirmOM'
 
+<<<<<<< HEAD
 import StandardPackages from '../pages/Membership/StandardPackages'
 import EditStandard from '../pages/Membership/EditStandard'
 import PromoPackages from '../pages/Membership/PromoPackages'
 import AddNewPromo from '../pages/Membership/AddNewPromo'
 import PromoApproval from '../pages/Membership/PromoApproval'
 import MMdashboard from '../pages/Membership/MMdashboard'
+=======
+import Employee from '../pages/employeeMgt/Employee'
+import TblEmpSummary from '../pages/employeeMgt/TblEmpSummary'
+import EmpRegistration from '../pages/employeeMgt/EmpRegistration'
+import EmpUpdate from '../pages/employeeMgt/EmpUpdate'
+import EmpLeave from '../pages/employeeMgt/EmpLeave'
+import EmpSalary from '../pages/employeeMgt/EmpSalary'
+import EmpSalaryEdit from '../pages/employeeMgt/EmpSalaryEdit'
+>>>>>>> main
 
 import PaymentMethodsandPaymentType from '../pages/Payment/PaymentMethodsandPaymentType'
 import SaveCard from '../pages/Payment/SaveCard'
@@ -49,14 +59,27 @@ const Router = () => {
             <Route path="/trainings" element={<ScheduleTable />} />
             <Route path="/confirmation" element={<InstructorConfirmOM />} />
 
+            {/* Employee management pages routing */}
+            {/* <Route path="/employee" element={<Employee />} /> */}
+            <Route path="/employee-summary" element={<TblEmpSummary />} />
+            {/* <Route path="/employee-registration" element={<EmpRegistration />} />
+            <Route path="/employee-update" element={<EmpUpdate />} /> */}
+            <Route path="/employee-leave" element={<EmpLeave />} />
+            {/* <Route path="/employee-salary" element={<EmpSalary />} />
+            <Route path="/employee-salary-edit" element={<EmpSalaryEdit />} /> */}
+
 
             {/* package */}
-            <Route path="/standardpackages" element={<StandardPackages />} />
+            {/* <Route path="/standardpackages" element={<StandardPackages />} />
             <Route path="/editstandard" element={<EditStandard />} />
             <Route path="/promopackages" element={<PromoPackages />} />
             <Route path="/newpromo" element={<AddNewPromo />} />
+<<<<<<< HEAD
             <Route path="/promoapproval" element={<PromoApproval />} />
             <Route path="/mmdashboard" element={<MMdashboard />} />
+=======
+            <Route path="/promoapproval" element={<PromoApproval />} /> */}
+>>>>>>> main
 
             {/*User Management*/}
             <Route path="/Loging" element={<Login />} />
