@@ -20,7 +20,6 @@ function App() {
     return (
         <>
             <Layout />
-
             <div>{data}</div>
 
         </>
