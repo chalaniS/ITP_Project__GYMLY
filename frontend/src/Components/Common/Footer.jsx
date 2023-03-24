@@ -3,7 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from '../../images/logo.png';
 import './footer.css'
 
-const Footer = () => <footer className="page-footer font-small blue pt-4 bg-dark">
+const Footer = () => {
+    return (
+<footer className="page-footer font-small blue pt-4 bg-dark">
     <div className="container text-center text-md-left">
         <div className="row">
             <div className="col-md-6 mt-md-0 mt-3">
@@ -42,5 +44,7 @@ const Footer = () => <footer className="page-footer font-small blue pt-4 bg-dark
     </div>
 
 </footer>
+    )}
+
 
 export default Footer;
