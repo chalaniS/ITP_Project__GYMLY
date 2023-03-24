@@ -9,7 +9,7 @@ const Home = () => {
     return (
     <div id='home-body'>
         <div className='container-fluid text-center' id='title'>
-            <h1 id='title-text'>Welcome to GYMLY</h1>
+            <div id='title-text'>Welcome to GYMLY</div>
             <div className="container" id='title-btn-section'>
                 <Button variant="outline-light" id='title-button'>Membership</Button>
                 <Button variant="outline-light" id='title-button'>Team GYMLY</Button>
@@ -26,8 +26,8 @@ const Home = () => {
             </div>
 
             <div className="container col-md-6 col-md-offset-3 " id='aboutus-texts-section'>
-                <h1 id="about-title">About Us</h1>
-                <p  id="about-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <div id="about-title">About Us</div>
+                <div  id="about-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
             </div>
 
         </div>
@@ -39,8 +39,8 @@ const Home = () => {
            <div className='container row text-center justify-content-center' id='location'>
 
             <div className="container col-md-6 col-md-offset-3 " id='location-texts-section'>
-                <h1 id="location-title">Contact Us</h1>
-                <p  id="location-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <div id="location-title">Contact Us</div>
+                <div id="location-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
             </div>
 
             <div className="container col-md-6 col-md-offset-3 how-img" id='location-img-section'> 
