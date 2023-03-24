@@ -13,7 +13,7 @@ const connect = async () => {
     // mongoose.set('strictQuery', true);
 
     mongoose
-        .connect(MONGODB_URL)
+        .connect("mongodb+srv://gymly:gymly123@gymly-db-cluster.sfmuyh9.mongodb.net/gymly-db?retryWrites=true&w=majority")
         .then((connection) => {
             database = connection;
             console.log("Database Synced");
