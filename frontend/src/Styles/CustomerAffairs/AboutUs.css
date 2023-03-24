@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+.about__section{
+    width:100%;
+    min-height: 100vh;
+    background-color: #ddd;
+}
+.about_container{
+    width: 100%;
+    display: block;
+    margin: auto;
+    padding-top: 100px;
+}
+.about_content-section{
+    float: left;
+    width:100%;
+}
+.about_content{
+    width:80%;
+    text-align: justify;
+}
+.about_content-section .about_title{
+    text-transform: uppercase;
+    font-size: 28px;
+}
+.about_imagesection{
+    margin-top: 60px;
+    margin-left: 10px;
+    width: 40%;
+}
+.about_imagesection img{
+    width: 100%;
+    height:auto
+}
+.about_content-section .about_content h3{
+    margin-top: 20px;
+    color: #5d5d5d;
+    font-size: 21px;
+}
+.about_content-section .about_content p{
+    margin-top: 10px;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+}
+.about_content-section .about_content .about_button{
+    margin-top: 30px;
+}
+button{
+    background-color: #3d3d3d;
+    padding: 12px 40px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 25px;
+    letter-spacing: 1.5px;
+}
+button:hover{
+    background-color: #a52a2a;
+    color:#fff
+}
+.about_content-section .about_socialmedia{
+    margin-left: 10px;
+}
+.about_socialmedia .icons{
+    color: #a52a2a;
+    font-size: 50px;
+    padding: 0px 10px;
+}
+.about_socialmedia .icons:hover{
+    color: #3d3d3d;
+}
+.alignment{
+    display: flex;
+}
+
+
