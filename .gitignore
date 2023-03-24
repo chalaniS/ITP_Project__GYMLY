@@ -2,3 +2,4 @@ backend/package-lock.json
 node_modules
 frontend/src/router/Routes.js
 backend\node_modules
+frontend\node_modules
