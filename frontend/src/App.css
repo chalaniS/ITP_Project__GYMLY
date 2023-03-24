@@ -3,6 +3,13 @@
   padding: 0;
 }
 
+Body {
+  background-image: url(./images/bg1.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
 
 :root {
   /* midnight blue  */
@@ -10,7 +17,7 @@
   /* denim blue  */
   --secondary-color: #6F8FAF;
   --heading-color: #E6E6FA;
-  --text-color: #c5c6ca;
+  --text-color: #ffffff;
   --font-name: "Montserrat", sans-serif;
   --subtitle-font-name: "Island Moments", cursive;
 }
@@ -48,13 +55,13 @@ ul {
 /* heading  */
 .title {
   margin: 1em 0 0.5em 0;
-  color: #9d9595;
+  color: #e2dede;
   text-align: center;
   font-family: 'Ultra', sans-serif;
   font-size: 1.8rem;
   line-height: 42px;
   text-transform: uppercase;
-  text-shadow: 0 2px rgb(255, 244, 244), 0 3px #777;
+  text-shadow: 0 2px rgb(107, 104, 104), 0 3px #777;
 }
 
 label {
@@ -62,16 +69,16 @@ label {
   font-family: 'Titillium Web', sans-serif;
   text-shadow: 0 -1px 1px rgba(21, 21, 21, 0.4);
   font-size: 1.2rem;
-  color: #c5c6ca;
+  color: #ffffff;
   text-transform: capitalize;
 }
 
 section {
   margin: 15px 50px 10px 50px;
   padding: 1px 80px 18px 70px;
-  background: rgb(21, 23, 30);
+  background: rgba(21, 23, 30, 0.9);
   border-radius: 30px;
-  box-shadow: rgba(2, 2, 2, 0.12) 0px 2px 4px 0px, rgba(0, 0, 0, 0.32) 0px 2px 16px 0px;
+  box-shadow: rgba(255, 255, 255, 0.12) 0px 2px 4px 0px, rgba(255, 255, 255, 0.32) 0px 2px 16px 0px;
 }
 
 
@@ -86,15 +93,16 @@ section {
   padding: 0.4rem 2rem !important;
   color: var(--text-color);
   font-size: 1rem;
+  font-weight: 800;
   text-transform: capitalize;
 }
 
 .primary__btn:hover {
-  background: var(--secondary-color) !important;
-  color: #000000 !important;
+  background: #0f0f44 !important;
+  color: #ffffff !important;
   border: 1px solid white !important;
   border-radius: 50px !important;
-  font-weight: 500 !important;
+  font-weight: 700 !important;
   padding: 0.4rem 2rem !important;
 
 }
@@ -104,16 +112,16 @@ section {
   color: #000000 !important;
   border: 1px solid white !important;
   border-radius: 50px;
-  font-weight: 500 !important;
+  font-weight: 700 !important;
   padding: 0.4rem 1.5rem !important;
 
 }
 
 .secondary__btn:hover {
-  background: var(--primary-color) !important;
+  background: #8eaece !important;
   border: 1px solid white !important;
   border-radius: 50px !important;
-  font-weight: 500 !important;
+  font-weight: 700 !important;
   padding: 0.4rem 1.5rem !important;
   color: white;
 }
@@ -134,7 +142,7 @@ section {
 
 .tertiary_btn:hover {
   color: var(--primary-color);
-  background: var(--secondary-color);
+  background: #000022;
 }
 
 /* radio button style */
@@ -147,19 +155,19 @@ section {
 select {
   padding: 3px 0 6px 15px;
   background: rgb(192, 196, 192);
-  color: rgb(26, 24, 24);
+  color: rgb(0, 0, 0);
   cursor: pointer;
   border: 1px solid black;
   border-radius: 7px;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   width: 247px;
   text-transform: capitalize;
 }
 
 option {
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 
@@ -172,7 +180,7 @@ input {
   border: 1px solid black;
   border-radius: 7px;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 700;
   width: 245px;
   text-transform: capitalize;
 }
