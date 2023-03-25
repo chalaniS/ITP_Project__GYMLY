@@ -6,6 +6,7 @@ function InstructorChart() {
         <div>
             <h1>My Page</h1>
             <InstructorChart />
+
         </div>
     );
 }
