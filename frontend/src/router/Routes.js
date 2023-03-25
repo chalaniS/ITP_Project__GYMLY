@@ -10,8 +10,13 @@ import EditTimeSlot from '../pages/schedule/scheduleEdit/EditTimeSlot'
 import ScheduleTable from '../pages/schedule/ScheduleTable'
 import InstructorConfirmOM from '../pages/schedule/InstructorConfirmOM'
 
-
-
+// Membership Package
+import StandardPackages from '../pages/Membership/StandardPackages'
+import EditStandard from '../pages/Membership/EditStandard'
+import PromoPackages from '../pages/Membership/PromoPackages'
+import AddNewPromo from '../pages/Membership/AddNewPromo'
+import PromoApproval from '../pages/Membership/PromoApproval'
+import MMdashboard from '../pages/Membership/MMdashboard'
 
 const Router = () => {
     return (
@@ -27,6 +32,14 @@ const Router = () => {
             <Route path="/changeinstrutor" element={<EditInstructor />} />
             <Route path="/trainings" element={<ScheduleTable />} />
             <Route path="/confirmation" element={<InstructorConfirmOM />} />
+
+            {/* membership package */}
+            <Route path="/standardpackages" element={<StandardPackages />} />
+            <Route path="/editstandard" element={<EditStandard />} />
+            <Route path="/promopackages" element={<PromoPackages />} />
+            <Route path="/newpromo" element={<AddNewPromo />} />
+            <Route path="/promoapproval" element={<PromoApproval />} />
+            <Route path="/mmdashboard" element={<MMdashboard />} />
 
         </Routes>
     )
