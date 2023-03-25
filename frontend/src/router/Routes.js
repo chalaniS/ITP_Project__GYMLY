@@ -33,6 +33,7 @@ import BMI from '../pages/Users/BmiTracker'
 import Userprofile from '../pages/Users/Userprofile'
 import Employeeprofile from '../pages/Users/Employees/Employeeprofile'
 import Editprofile from '../pages/Users/Editprofile'
+import ManagerDashboard from '../pages/Users/UserManager/ManagerDashboard'
 
 import ServiceFeedbackform from '../pages/CustomerAffairs/ServiceFeedbackform'
 import InstructorFeedbackform from '../pages/CustomerAffairs/InstructorFeedbackform'
@@ -84,6 +85,7 @@ const Router = () => {
             <Route path="/Userprofile" element={<Userprofile />} />
             <Route path="/Employeeprofile" element={<Employeeprofile />} />
             <Route path="/setting" element={<Editprofile />} />
+            <Route path="/ManagerDashboard" element={<ManagerDashboard />} />
             {/*User Management*/}
 
 
