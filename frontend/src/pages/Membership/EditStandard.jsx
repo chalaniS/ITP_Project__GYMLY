@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import '../../App.css'
 import '../../Styles/Membership/Membership.css'
 import '../../Styles/schedule/schedule.css'

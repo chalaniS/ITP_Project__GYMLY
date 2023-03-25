@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import '../../App.css'
-import '../../Styles/Membership/Membership.css'
-import '../../Styles/schedule/schedule.css'
+// import '../../Styles/Membership/Membership.css'
+// import '../../Styles/schedule/schedule.css'
 import { Container, Row, Col } from 'reactstrap'
 import { AiFillCalendar } from "react-icons/ai";
 
