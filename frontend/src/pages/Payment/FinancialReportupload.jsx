@@ -57,7 +57,7 @@ const FinancialReport = () => {
                                 <form>
                                     <label for="file-upload">Choose a file:</label>
                                     <input type="file" id="file-upload" name="file-upload"></input>
-                                    <button type="submit">Upload</button>
+                                    <button type='submit'className='primary__btn submit'>Upload</button>
                                 </form>
                                 </Row>
 

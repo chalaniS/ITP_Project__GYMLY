@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Row, Col } from 'reactstrap'
 import '../../Styles/Payment/Verification.js'
+import '../../Styles/Payment/Verification.css'
 
 
 const Verification = () => {
@@ -22,35 +23,16 @@ const Verification = () => {
                         <br/>
                         <br/>
                         <input type ="text"></input>
-                        <div class="countdown">
-                            <div class="time-section" id="seconds">
-                                <div class="time-group">
-                                    <div class="time-segment">
-                                        <div class="segment-display">
-                                            <div class="segment-display_top">2</div>
-                                            <div class="segmant-display_bottom">2</div>
-                                            <div class="segment-overlay">
-                                                <div class="segment-overlay_top">2</div>
-                                                <div class="segment-overlay_bottom">2</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="time-segment">
-                                        <div class="segment-display">
-                                            <div class="segment-display_top">2</div>
-                                            <div class="segmant-display_bottom">2</div>
-                                            <div class="segment-overlay">
-                                                <div class="segment-overlay_top">2</div>
-                                                <div class="segment-overlay_bottom">2</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <br/>
+                        <br/>
+                        <br/>
                         <div id="countdown-clock">
                          <span id="minutes"></span> : <span id="seconds"></span>
                          </div>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
                         <br/>
                         <input type="checkbox" value="lsRememberMe" id="rememberMe"></input> 
                         <label for="rememberMe">Remember me</label>

@@ -2,11 +2,7 @@ import React from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 
 
-import OMHome from '../pages/OMdashboard/omHome'
-
-
-import OMHome from '../pages/OMdashboard/OMHome'
-
+// import OMHome from '../pages/OMdashboard/omHome'
 
 
 
@@ -31,7 +27,7 @@ const Router = () => {
             {/* <Route path="/home" element={<OMHome />} /> */}
 
             {/* operation manager homepage */}
-            <Route path="/home" element={<OMHome />} />
+            {/* <Route path="/home" element={<OMHome />} /> */}
 
 
             {/* Schedule pages routing
@@ -75,7 +71,6 @@ const Router = () => {
             <Route path="/PaymentHomepage" element={<PaymentHomepage />} />
             <Route path="/FinancialReportupload" element={<FinancialReportupload />} />
             <Route path="/FinancialReportRetrieve" element={<FinancialReportRetrieve />} />
-
 
 
 
