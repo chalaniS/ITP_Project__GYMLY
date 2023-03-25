@@ -1,7 +1,13 @@
 import React from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 
+
 import OMHome from '../pages/OMdashboard/omHome'
+
+
+import OMHome from '../pages/OMdashboard/OMHome'
+
+
 
 
 import PaymentMethodsandPaymentType from '../pages/Payment/PaymentMethodsandType'
@@ -16,11 +22,17 @@ import FinancialReportRetrieve from '../pages/Payment/FinancialReportRetrieve'
 
 
 
+
 const Router = () => {
     return (
         <Routes>
             <Route path="/" element={<Navigate to='/index' />} />
+
             {/* <Route path="/home" element={<OMHome />} /> */}
+
+            {/* operation manager homepage */}
+            <Route path="/home" element={<OMHome />} />
+
 
             {/* Schedule pages routing
             <Route path="/schedule" element={<Schedule />} />
@@ -28,6 +40,7 @@ const Router = () => {
             <Route path="/changeinstrutor" element={<EditInstructor />} />
             <Route path="/trainings" element={<ScheduleTable />} />
             <Route path="/confirmation" element={<InstructorConfirmOM />} /> */}
+
 
 
             {/* package
@@ -62,6 +75,7 @@ const Router = () => {
             <Route path="/PaymentHomepage" element={<PaymentHomepage />} />
             <Route path="/FinancialReportupload" element={<FinancialReportupload />} />
             <Route path="/FinancialReportRetrieve" element={<FinancialReportRetrieve />} />
+
 
 
 
