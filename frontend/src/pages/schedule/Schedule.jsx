@@ -7,7 +7,7 @@ import image from '../../images/Schedule/image1.jpg'
 
 const Schedule = ({ paymentID }) => {
     return (
-        <body>
+        <body id='Body'>
 
             <section >
                 <Container>

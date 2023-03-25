@@ -9,8 +9,7 @@ import EditInstructor from '../pages/schedule/scheduleEdit/EditInstructor'
 import EditTimeSlot from '../pages/schedule/scheduleEdit/EditTimeSlot'
 import ScheduleTable from '../pages/schedule/ScheduleTable'
 import InstructorConfirmOM from '../pages/schedule/InstructorConfirmOM'
-
-
+import InstructurChart from '../pages/schedule/InstructorChart/InstructurChart'
 
 
 const Router = () => {
@@ -27,6 +26,7 @@ const Router = () => {
             <Route path="/changeinstrutor" element={<EditInstructor />} />
             <Route path="/trainings" element={<ScheduleTable />} />
             <Route path="/confirmation" element={<InstructorConfirmOM />} />
+            <Route path="/instchart" element={<InstructurChart />} />
 
         </Routes>
     )
