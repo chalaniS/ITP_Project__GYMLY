@@ -1,4 +1,4 @@
-import { Chart } from 'chart.js/auto';
+import Chart from 'chart.js/auto';
 
 // Get the canvas element
 const canvas = document.getElementById('myChart');

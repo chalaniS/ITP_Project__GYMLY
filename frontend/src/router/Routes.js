@@ -11,6 +11,13 @@ import ScheduleTable from '../pages/schedule/ScheduleTable'
 import InstructorConfirmOM from '../pages/schedule/InstructorConfirmOM'
 import InstructurChart from '../pages/schedule/InstructorChart/InstructurChart'
 
+import Employee from '../pages/employeeMgt/Employee'
+import TblEmpSummary from '../pages/employeeMgt/TblEmpSummary'
+import EmpRegistration from '../pages/employeeMgt/EmpRegistration'
+import EmpUpdate from '../pages/employeeMgt/EmpUpdate'
+import EmpLeave from '../pages/employeeMgt/EmpLeave'
+import EmpSalary from '../pages/employeeMgt/EmpSalary'
+import EmpSalaryEdit from '../pages/employeeMgt/EmpSalaryEdit'
 
 const Router = () => {
     return (
@@ -27,6 +34,10 @@ const Router = () => {
             <Route path="/trainings" element={<ScheduleTable />} />
             <Route path="/confirmation" element={<InstructorConfirmOM />} />
             <Route path="/instchart" element={<InstructurChart />} />
+
+            {/* Employee Management pages routing */}
+            <Route path="/employee-summary" element={<TblEmpSummary />} />
+            <Route path="/employee-leave" element={<EmpLeave />} />
 
         </Routes>
     )
