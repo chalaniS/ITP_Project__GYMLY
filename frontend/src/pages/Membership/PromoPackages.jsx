@@ -37,7 +37,7 @@ function PromoPackages() {
                             2 Kg Protein Supplement included with the package. <br /><br />
                             Valid until - 30/04/2023
                         </p>
-                        <p><button class="prm-edit-btn">Edit</button></p>
+                        <p><button class="prm-edit-btn">Delete</button></p>
                     </div>
                     <div class="prm-packages">
                         <br />
@@ -49,7 +49,7 @@ function PromoPackages() {
                             2 Kg Protein Supplement included with the package. <br /><br />
                             Valid until - 30/04/2023
                         </p>
-                        <p><button class="prm-edit-btn">Edit</button></p>
+                        <p><button class="prm-edit-btn">Delete</button></p>
                     </div>
                     <div class="prm-packages">
                         <br />
@@ -61,7 +61,7 @@ function PromoPackages() {
                             2 Kg Protein Supplement included with the package. <br /><br />
                             Valid until - 30/04/2023
                         </p>
-                        <p><button class="prm-edit-btn">Edit</button></p>
+                        <p><button class="prm-edit-btn">Delete</button></p>
                     </div>
                 </div>
                 <br />
@@ -76,7 +76,7 @@ function PromoPackages() {
                             2 Kg Protein Supplement included with the package. <br /><br />
                             Valid until - 30/04/2023
                         </p>
-                        <p><button class="prm-edit-btn">Edit</button></p>
+                        <p><button class="prm-edit-btn">Delete</button></p>
                     </div>
                     <div class="prm-packages">
                         <br />
@@ -88,7 +88,7 @@ function PromoPackages() {
                             2 Kg Protein Supplement included with the package. <br /><br />
                             Valid until - 30/04/2023
                         </p>
-                        <p><button class="prm-edit-btn">Edit</button></p>
+                        <p><button class="prm-edit-btn">Delete</button></p>
                     </div>
                     <div class="prm-packages">
                         <br />
@@ -100,7 +100,7 @@ function PromoPackages() {
                             2 Kg Protein Supplement included with the package. <br /><br />
                             Valid until - 30/04/2023
                         </p>
-                        <p><button class="prm-edit-btn">Edit</button></p>
+                        <p><button class="prm-edit-btn">Delete</button></p>
                     </div>
                 </div>
             </Container>
