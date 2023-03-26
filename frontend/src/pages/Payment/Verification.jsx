@@ -2,6 +2,7 @@ import React from 'react'
 import { Container, Row, Col } from 'reactstrap'
 import '../../Styles/Payment/Verification.js'
 import '../../Styles/Payment/Verification.css'
+import '../../Styles/Payment/payment.css'
 
 
 const Verification = () => {

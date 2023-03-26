@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Row, Col } from 'reactstrap'
-import '../../App.css'
+import '../../Styles/Payment/payment.css'
 import '../../Styles/Payment/Type.css'
 import image from '../../images/Schedule/image3.jpg'
 

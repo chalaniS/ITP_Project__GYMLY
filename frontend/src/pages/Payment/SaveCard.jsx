@@ -1,7 +1,7 @@
 import React from 'react'
-// import{container, row, col} from 'reactstrap'
+import{container, row, col} from 'reactstrap'
 import '../../Styles/Payment/Savecard.css'
-import '../../App.css'
+import '../../Styles/Payment/payment.css'
 
 const SaveCard = () => {
     return (

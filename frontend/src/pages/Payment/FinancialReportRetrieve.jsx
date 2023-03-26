@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Row, Col, Table } from 'reactstrap'
 import '../../Styles/schedule/schedule.css'
-import '../../App.css'
+import '../../Styles/Payment/payment.css'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { AiFillCalendar, AiOutlineSearch } from "react-icons/ai";
