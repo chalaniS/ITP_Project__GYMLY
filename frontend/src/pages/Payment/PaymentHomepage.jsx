@@ -37,8 +37,12 @@ const PaymentHomepage = () => {
                                 </Col>
                             </ Row>
                             <br />
-                            <input type="checkbox" value="lsRememberMe" id="rememberMe"></input> 
-                            <label for="rememberMe">Remember me</label>
+                            <Row>
+                                <Col>
+                                     <input type="checkbox" value="lsRememberMe" id="rememberMe"></input> 
+                                    <label for="rememberMe">Remember me</label>
+                                </Col>
+                            </Row>
                             < Row>
                                 <Col lg='10' className='LogIn'>
                                     <button type='LogIn' className='primary__btn LogIn'>Cancel</button>

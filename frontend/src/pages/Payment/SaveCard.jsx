@@ -1,12 +1,12 @@
 import React from 'react'
-import{container, row, col} from 'reactstrap'
+// import{container, row, col} from 'reactstrap'
 import '../../Styles/Payment/Savecard.css'
 import '../../App.css'
 
 const SaveCard = () => {
     return (
         <body>
-             <section>
+            <section>
                 <container>
                     <div className="form">
                         <div className="title code">Save the Card </div>
@@ -88,9 +88,6 @@ const SaveCard = () => {
                         </div>
                     </div>
                     <br/>
-                    <div id="countdown-clock">
-                    <span id="minutes"></span> : <span id="seconds"></span>
-                    </div>
                     <div class="row">
                         <col lg='10' className='Print'>
                         <button type='Upload' className='secondary__btn '>Upload</button>
@@ -105,8 +102,8 @@ const SaveCard = () => {
                 </form>
             </div>
             </div>
-             </container >
-            </section >
+                 </container >
+            </section>
         </body>
     )
 
