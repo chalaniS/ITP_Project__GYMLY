@@ -1,61 +1,14 @@
-h3 {
-  font-size: 1.5em;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-input[type="text"] {
-  width: 50%;
-  padding: 10px;
-  font-size: 1.2em;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  margin: 0 auto;
-  display: block;
-  text-align: center;
-}
-
 #countdown-clock {
-    font-size: 10px;
+    font-size: 48px;
     font-weight: bold;
     text-align: center;
   }
   
   #minutes, #seconds {
-    /* display: inline-block; */
-    height: 20px;
-    width: 20px;
+    display: inline-block;
+    width: 50px;
     background-color: #eee;
-    border-radius: 20px;
-    padding: 20px;
-    margin: 10px;
-  }
-
-  input[type="checkbox"] {
-    margin-right: 50px;
-    margin-left: auto;
-  }
-  
-  label {
-    font-size: 1.2em;
-    text-align: center;
-  }
-  
-  button {
-    padding: 10px 20px;
-    font-size: 1.2em;
-    background-color: #ccc;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    align-items: center;
-  }
-  
-  button.primary__btn {
-    background-color: #007bff;
-    color: #fff;
-  }
-  
-  button.primary__btn:hover {
-    background-color: #0069d9;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0 10px;
   }
