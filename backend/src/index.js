@@ -1,25 +1,17 @@
 import "dotenv/config";
 import mongoose from "mongoose";
-// import config from "./configs/config";
 import express from "express";
 import cors from "cors";
-// import { connect } from "./utils/dbconnect"
-
+import ScheduleModel from "./models/schedule/Schedule.js";
+// import scheduleRouter from './routes/schedule/scheduleRouter.js'
 
 const app = express();
 app.use(cors());
+app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
 
-
-//connect with frontend
-app.get("/getData", (req, res) => {
-    res.send("Hello I'm from backend");
-});
-
 let database;
-
-
 
 app.listen(PORT, () => {
 
@@ -36,5 +28,32 @@ app.listen(PORT, () => {
         .catch((err) => {
             console.log(err.message);
         });
+});
 
+//connect with frontend
+app.get("/getData", (req, res) => {
+    res.send("Hello I'm from backend");
+});
+
+// app.use('/schedule', scheduleRouter);
+app.post("/insert", async (req, res) => {
+
+    const timeslot = req.body.timeslot
+    const instructor = req.body.instructor
+    const section = req.body.section
+
+    console.log(timeslot + instructor + section)
+
+    const schedule = new ScheduleModel({ timeslot: timeslot, instructor: instructor, section: section });
+
+    console.log(timeslot + instructor + section)
+
+    try {
+        await schedule.save()
+        console.log("successfully data inserted")
+        res.status(200).send("Data inserted successfully");
+    } catch (err) {
+        console.log(err);
+        res.status(500).send("Error occurred while inserting data");
+    }
 });

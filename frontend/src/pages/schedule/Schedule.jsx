@@ -1,21 +1,54 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Container, Row, Col } from 'reactstrap'
 import '../../Styles/schedule/schedule.css'
 import '../../App.css'
 import image from '../../images/Schedule/image1.jpg'
+import Axios from 'axios'
 
 
 const Schedule = ({ paymentID }) => {
+
+    const [timeslot, setTimeslot] = useState('');
+    const [instructor, setInstructor] = useState('');
+    const [section, setSection] = useState('');
+
+    const addToList = () => {
+
+        console.log(timeslot + instructor + section);
+
+        Axios.post(
+            "http://localhost:5000/insert",
+            {
+                timeslot: timeslot,
+                instructor: instructor,
+                section: section
+            });
+
+
+    };
+
+    // const addToList = () => {
+    //     console.log(timeslot + instructor + section);
+
+    //     Axios.post("http://localhost:5000/insert", {
+    //         params: {
+    //             timeslot: timeslot,
+    //             instructor: instructor,
+    //             section: section
+    //         }
+    //     });
+    // };
+
+
     return (
         <body id='Body'>
-
             <section >
                 <Container>
                     <div className="form">
                         <div className="title code">Schedule Daily Training Time Slot</div>
 
                         <div className="inputs">
-                            <form action="">
+                            <form onSubmit={addToList}>
                                 <Row>
                                     <img src={image} alt="" className='images' />
                                 </Row>
@@ -36,10 +69,10 @@ const Schedule = ({ paymentID }) => {
                                     <Col>
                                         {/* Should change with payment id */}
                                         <div className="select">
-                                            <select name="timeslot" className="timeslot">
-                                                <option value="810">8.00pm - 10.00pm</option>
-                                                <option value="911">9.00pm - 11.00pm</option>
-                                                <option value="1012">10.00pm - 12.00pm</option>
+                                            <select name="timeslot" className="timeslot" onChange={(event) => setTimeslot(event.target.value)} value={timeslot}>
+                                                <option value="8-10">8.00pm - 10.00pm</option>
+                                                <option value="9-11">9.00pm - 11.00pm</option>
+                                                <option value="10-12">10.00pm - 12.00pm</option>
                                             </select>
                                         </div>
                                     </Col>
@@ -51,10 +84,10 @@ const Schedule = ({ paymentID }) => {
                                     </Col>
                                     <Col>
                                         <div className="select">:
-                                            <select name="instructor" id="timeslot">
-                                                <option value="810">mr.vije kulasuruya</option>
-                                                <option value="911">kanthi</option>
-                                                <option value="1012">wimalasiri</option>
+                                            <select name="instructor" id="timeslot" onChange={(event) => setInstructor(event.target.value)} value={instructor}>
+                                                <option value="vije">mr.vije kulasuruya</option>
+                                                <option value="kanthi">kanthi</option>
+                                                <option value="wimalasiri">wimalasiri</option>
                                             </select>
                                         </div>
                                     </Col>
@@ -70,12 +103,12 @@ const Schedule = ({ paymentID }) => {
                                     </Col>
                                     <Col lg='2'>
                                         <label for="Weekend">
-                                            <input type="radio" class="Weekend radio" name="section" value="Weekend" checked /> Weekend
+                                            <input type="radio" class="Weekend radio" name="section" value="Weekend" onChange={(event) => setSection(event.target.value)} /> Weekend
                                         </label>
                                     </Col>
                                     <Col >
                                         <label for="Weekday">
-                                            <input type="radio" class="Weekday radio" name="section" value="Weekday" /> Weekday
+                                            <input type="radio" class="Weekday radio" name="section" value="Weekday" onChange={(event) => setSection(event.target.value)} /> Weekday
                                         </label>
                                     </Col>
                                 </Row>
