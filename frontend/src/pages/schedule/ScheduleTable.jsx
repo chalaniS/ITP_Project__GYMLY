@@ -9,6 +9,27 @@ import { AiFillCalendar, AiOutlineSearch } from "react-icons/ai";
 const ScheduleTable = () => {
 
     const [startDate, setStartDate] = useState(new Date());
+
+    // const ReadSchedule = () => {
+    //     const [schedules, setschedules] = useState([]);
+
+    //     useEffect(() => {
+
+    //         const fetchSchedules = async () => {
+
+    //             const response = await axios.get("http://localhost:5000/schedules");
+    //             setschedules(response.schedules);
+
+    //         };
+
+    //         fetchSchedules();
+
+    //     }, []);
+    // }
+
+
+    // ReadSchedule();
+
     return (
         <section>
             <Container>
@@ -69,6 +90,13 @@ const ScheduleTable = () => {
                             </th>
                         </thead>
                         <tbody>
+                            {/* {schedules.map((row) => (
+                                <tr key={row._id}>
+                                    <td>{row._id}</td>
+                                    <td>{row.name}</td>
+                                    <td>{row.email}</td>
+                                </tr>
+                            ))} */}
                             <tr >
                                 <td>1</td>
                                 <td>02/10/2023</td>
@@ -109,6 +137,7 @@ const ScheduleTable = () => {
             </Container>
         </section>
     )
+
 }
 
 export default ScheduleTable;

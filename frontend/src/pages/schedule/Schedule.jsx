@@ -6,38 +6,39 @@ import image from '../../images/Schedule/image1.jpg'
 import Axios from 'axios'
 
 
-const Schedule = ({ paymentID }) => {
+const Schedule = ({ pdays }) => {
 
     const [timeslot, setTimeslot] = useState('');
     const [instructor, setInstructor] = useState('');
     const [section, setSection] = useState('');
 
-    const addToList = () => {
-
-        console.log(timeslot + instructor + section);
-
-        Axios.post(
-            "http://localhost:5000/insert",
-            {
-                timeslot: timeslot,
-                instructor: instructor,
-                section: section
-            });
+    const date = new Date();
+    const formattedDate = date.toLocaleDateString('en-US');
+    console.log(formattedDate);
 
 
+    const addToList = async (timeslot, instructor, section) => {
+        try {
+            let packageDays = 5;
+            let date = "24/10/2023";
+
+            for (let daysCount = 1; daysCount <= packageDays; daysCount++) {
+
+                await Axios.post('http://localhost:5000/schedules', {
+                    dayscount: daysCount,
+                    timeslot: timeslot,
+                    date: date,
+                    instructor: instructor,
+                    section: section,
+                });
+            }
+
+            console.log('Successfully added to list');
+        } catch (error) {
+            console.log(error);
+        }
     };
 
-    // const addToList = () => {
-    //     console.log(timeslot + instructor + section);
-
-    //     Axios.post("http://localhost:5000/insert", {
-    //         params: {
-    //             timeslot: timeslot,
-    //             instructor: instructor,
-    //             section: section
-    //         }
-    //     });
-    // };
 
 
     return (
