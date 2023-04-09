@@ -21,7 +21,7 @@ const Router = () => {
 
             {/* Schedule pages routing */}
             <Route path="/schedule" element={<Schedule />} />
-            <Route path="/changetimeslot" element={<EditTimeSlot />} />
+            <Route path="/changetimeslot/:id" element={<EditTimeSlot />} />
             <Route path="/changeinstrutor" element={<EditInstructor />} />
             <Route path="/trainings" element={<ScheduleTable />} />
             <Route path="/confirmation" element={<InstructorConfirmOM />} />

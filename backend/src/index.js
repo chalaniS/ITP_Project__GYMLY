@@ -76,6 +76,7 @@ app.get("/schedules", async (req, res) => {
 
     try {
         const schedules = await ScheduleModel.find({ userId });
+        console.log("'Schedule read successfully'");
         res.status(200).json(schedules);
     } catch (err) {
         console.log(err);
@@ -83,6 +84,19 @@ app.get("/schedules", async (req, res) => {
     }
 
 });
+
+// read a single schedule by id for update
+app.get('/schedules/:id', async (req, res) => {
+    try {
+        const schedule = await ScheduleModel.findById(req.params.id);
+        console.log('Schedule read successfully for update');
+        res.status(200).json(schedule);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error occurred while retrieving data');
+    }
+});
+
 
 app.put("/schedules/:id", async (req, res) => {
     const objectId = req.params.id;
@@ -113,6 +127,7 @@ app.delete("/schedules/:id", async (req, res) => {
     const objectId = req.params.id;
     try {
         await ScheduleModel.findByIdAndDelete(objectId);
+        console.log("'Schedule deleted successfully'");
         res.status(200).send('Schedule deleted successfully');
     } catch (err) {
         console.log(err);

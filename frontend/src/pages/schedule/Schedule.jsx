@@ -49,7 +49,7 @@ const Schedule = ({ pdays }) => {
     const formattedDate = date.toLocaleDateString('en-US');
     console.log(formattedDate);
 
-    let packageDays = 2;
+    let packageDays = 10;
 
     return (
         <body id='Body'>
@@ -64,7 +64,8 @@ const Schedule = ({ pdays }) => {
                                     e.preventDefault();
                                     addToList(packageDays, formattedDate, timeslot, instructor, section);
                                 }}
-                            >                                <Row>
+                            >
+                                <Row>
                                     <img src={image} alt="" className='images' />
                                 </Row>
                                 <br />
