@@ -1,14 +1,58 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Table } from 'reactstrap'
 import '../../Styles/schedule/schedule.css'
 import '../../App.css'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { AiFillCalendar, AiOutlineSearch } from "react-icons/ai";
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { showLoadingSpinner, hideLoadingSpinner } from '../../Components/Loading/Loading.js'
+
+
 
 const ScheduleTable = () => {
 
+    const navigate = useNavigate();
     const [startDate, setStartDate] = useState(new Date());
+    const [schedules, setSchedules] = useState([]);
+
+    useEffect(() => {
+        const fetchSchedules = async () => {
+            try {
+                showLoadingSpinner();
+                const response = await axios.get("http://localhost:5000/schedules");
+                setSchedules(response.data);
+            } catch (error) {
+                console.log('Error fetching schedules:', error);
+            }
+
+            hideLoadingSpinner();
+        };
+        fetchSchedules();
+    }, []);
+
+    const handleEdit = (id) => {
+        navigate(`/changetimeslot/${id}`);
+    };
+
+    const handleDelete = (id) => {
+        axios.delete(`http://localhost:5000/schedules/${id}`)
+            .then(response => {
+
+                console.log('Schedule deleted successfully');
+                // Refresh the table to show updated data
+                window.alert('Data has been deleted successfully');
+                window.location.reload();
+
+            })
+            .catch(error => {
+
+                console.log('Error deleting schedule:', error);
+
+            });
+    }
+
     return (
         <section>
             <Container>
@@ -18,20 +62,20 @@ const ScheduleTable = () => {
                     <Col>
                         <Row>
                             <Col lg='3'>
-                                <label for="from">From :</label>
+                                <label htmlFor="from">From :</label>
                             </Col>
                             <Col >
                                 <DatePicker className='calender' selected={startDate} onChange={(date) => setStartDate(date)} />
                             </Col>
                             {/* <Col>
-                                <AiFillCalendar className="i" />
-                            </Col> */}
+                            <AiFillCalendar className="i" />
+                        </Col> */}
                         </Row>
                     </Col>
                     <Col>
                         <Row>
                             <Col lg='2'>
-                                <label for="to">to :</label>
+                                <label htmlFor="to">to :</label>
                             </Col>
                             <Col>
                                 <DatePicker className='calender' selected={startDate} onChange={(date) => setStartDate(date)} />
@@ -51,64 +95,36 @@ const ScheduleTable = () => {
                 <br />
                 <Row>
                     <Table dark striped bordered hover responsive>
-                        <thead >
-                            <th>
-                                No
-                            </th>
-                            <th>
-                                Date
-                            </th>
-                            <th>
-                                TimeSlot
-                            </th>
-                            <th>
-                                Edit
-                            </th>
-                            <th>
-                                Delete
-                            </th>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>TimeSlot</th>
+                                <th>Date</th>
+                                <th>Instructor</th>
+                                <th>Section</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
                         </thead>
                         <tbody>
-                            <tr >
-                                <td>1</td>
-                                <td>02/10/2023</td>
-                                <td >02/10/2023</td>
-                                <td><button className='edit_btn '>edit</button></td>
-                                <td><button className='delete_btn '>delete</button></td>
-                            </tr>
-                            <tr >
-                                <td>2</td>
-                                <td>02/10/2023</td>
-                                <td >02/10/2023</td>
-                                <td><button className='edit_btn '>edit</button></td>
-                                <td><button className='delete_btn '>delete</button></td>
-                            </tr>
-                            <tr >
-                                <td>3</td>
-                                <td>02/10/2023</td>
-                                <td >02/10/2023</td>
-                                <td><button className='edit_btn '>edit</button></td>
-                                <td><button className='delete_btn '>delete</button></td>
-                            </tr>
-                            <tr >
-                                <td>3</td>
-                                <td>02/10/2023</td>
-                                <td >02/10/2023</td>
-                                <td><button className='edit_btn '>edit</button></td>
-                                <td><button className='delete_btn '>delete</button></td>
-                            </tr>
+                            {schedules.map((row) => (
+                                <tr key={row._id}>
+                                    <td>{row.dayscount}</td>
+                                    <td>{row.timeslot}</td>
+                                    <td>{row.date}</td>
+                                    <td>{row.instructor}</td>
+                                    <td>{row.section}</td>
+                                    <td> <button className='edit_btn' onClick={() => handleEdit(row._id)}>edit</button></td>
+                                    <td><button className='delete_btn' onClick={() => handleDelete(row._id)}>delete</button></td>
+                                </tr>
+                            ))}
                         </tbody>
                     </Table>
-
-
                 </Row>
-
-
-
-
             </Container>
         </section>
     )
+
 }
 
 export default ScheduleTable;

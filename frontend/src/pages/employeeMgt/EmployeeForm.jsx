@@ -1,106 +1,214 @@
 import React, { Component } from "react";
+import { Container} from 'reactstrap'
 import axios from "axios";
+import {useFormik} from 'formik'
+import '../../Styles/employee/EmployeeForm.css'
+import '../../Styles/schedule/schedule.css'
+import '../../App.css'
 
 import { Form, Button, Col, Row } from "react-bootstrap";
 
-class EmployeeForm extends Component {
-  state = {
-    roleData: [],
-    positionData: [],
-    departmentData: [],
+// class EmployeeForm extends Component {
+//   state = {
+//     roleData: [],
+//     positionData: [],
+//     departmentData: [],
 
-  }
+//   }
 
-  loadRoleInfo = () => {
-    axios
-      .get(process.env.REACT_APP_API_URL + "/api/role", {
-        headers: {
-          authorization: localStorage.getItem("token") || ""
-        }
-      })
-      .then(response => {
-        this.setState({ roleData: response.data });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  };
-  loadPositionInfo = () => {
-    axios
-      .get(process.env.REACT_APP_API_URL + "/api/position", {
-        headers: {
-          authorization: localStorage.getItem("token") || ""
-        }
-      })
-      .then(response => {
-        this.setState({ positionData: response.data });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  };
-  loadDepartmentInfo = () => {
-    axios
-      .get(process.env.REACT_APP_API_URL + "/api/department", {
-        headers: {
-          authorization: localStorage.getItem("token") || ""
-        }
-      })
-      .then(response => {
-        this.setState({ departmentData: response.data });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  };
-  componentWillMount() {
-    this.loadRoleInfo();
-    this.loadPositionInfo();
-    this.loadDepartmentInfo();
-  }
+  // loadRoleInfo = () => {
+  //   axios
+  //     .get(process.env.REACT_APP_API_URL + "/api/role", {
+  //       headers: {
+  //         authorization: localStorage.getItem("token") || ""
+  //       }
+  //     })
+  //     .then(response => {
+  //       this.setState({ roleData: response.data });
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
+  // };
+  // loadPositionInfo = () => {
+  //   axios
+  //     .get(process.env.REACT_APP_API_URL + "/api/position", {
+  //       headers: {
+  //         authorization: localStorage.getItem("token") || ""
+  //       }
+  //     })
+  //     .then(response => {
+  //       this.setState({ positionData: response.data });
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
+  // };
+  // loadDepartmentInfo = () => {
+  //   axios
+  //     .get(process.env.REACT_APP_API_URL + "/api/department", {
+  //       headers: {
+  //         authorization: localStorage.getItem("token") || ""
+  //       }
+  //     })
+  //     .then(response => {
+  //       this.setState({ departmentData: response.data });
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
+  // };
+  // componentWillMount() {
+  //   this.loadRoleInfo();
+  //   this.loadPositionInfo();
+  //   this.loadDepartmentInfo();
+  // }
 
-  render() {
+  const EmployeeForm = () => {
+
+    const validate = values => {
+      const errors = {};
+      if (!values.firstName) {
+        errors.firstName = "*Required";
+      }
+      if (!values.lastName) {
+        errors.lastName = "*Required";
+      }
+      if (!values.NIC) {
+        errors.NIC = "*Required";
+      }
+      if (!values.role) {
+        errors.role = "*Required";
+      }
+      if (!values.gender) {
+        errors.gender = "*Required";
+      }
+      if (!values.DOB) {
+        errors.DOB = "*Required";
+      }
+
+      if (!values.contactNo) {
+        errors.contactNo = "*Required";
+      }else if(values.contactNo.length < 10){
+        errors.contactNo = "*Must be 10 digits";
+      }else if (!/^\d+$/.test(values.contactNo)) {
+        errors.contactNo = "*Contact number must contain only digits";
+      }
+
+      if (!values.email) {
+        errors.email = "*Required";
+      }else if(values.email.length < 4){
+        errors.email = "*Must be 5 characters or more";
+      }else if (values.email.indexOf('@') === -1) {
+        errors.email = "*Must contain an '@' symbol";
+      }
+
+      if (!values.address) {
+        errors.address = "*Required";
+      }
+      if (!values.qualifications) {
+        errors.qualifications = "*Required";
+      }
+      if (!values.joinedDate) {
+        errors.joinedDate = "*Required";
+      }
+      if (!values.terminateDate) {
+        errors.terminateDate = "*Required";
+      }
+      return errors;
+    }
+    const formik = useFormik({
+      initialValues: {
+        firstName: "",
+        lastName: "",
+        NIC: "",
+        role: "",
+        gender: "",
+        DOB: "",
+        contactNo: "",
+        email: "",
+        address: "",
+        qualifications: "",
+        image: null,
+        joinedDate: "",
+        terminateDate: ""
+      },
+      validate,
+      onSubmit: values => {
+        console.log("values");
+        // axios
+        // .post(
+        //     process.env.MONGODB_URL + "/api/employee",
+        //     values
+        //   )
+        // .then(response => {
+        //     console.log(response.data);
+        //     window.location.reload();
+        //   })
+        // .catch(error => {
+        //     console.log(error);
+        //   });
+      }
+    });
+
     return (
-      <div>
-        <h2 id="role-form-title">Add Employee Details</h2>
+      <body id='Body'>
+      <section>
+      <Container>
+      <div className="form">
+        <h2 className="title code">Employee Registration</h2>
         <div id="role-form-outer-div">
-          <Form id="form" onSubmit={this.props.onEmployeeSubmit}>
-            <Form.Group as={Row}>
-              <Form.Label column sm={2}>
-                Email
-              </Form.Label>
-              <Col sm={10} className="form-input">
-                <Form.Control
-                  type="email"
-                  placeholder="Email"
-                  required
-                />
-              </Col>
-            </Form.Group>
+          <Form id="form" onSubmit={formik.handleSubmit}>
 
             <Form.Group as={Row}>
               <Form.Label column sm={2}>
-                Password
+                First Name
               </Form.Label>
               <Col sm={10} className="form-input">
                 <Form.Control
-                  type="password"
-                  placeholder="Password"
+                  type="text"
+                  name="firstName"
+                  placeholder="First Name"
+                  onChange={formik.handleChange}
+                  value={formik.values.firstName}
+                  onBlur={formik.handleBlur}
                   required
                 />
+                {formik.touched.firstName && formik.errors.firstName ? <div className="error">{formik.errors.firstName}</div>: null}
               </Col>
             </Form.Group>
-
-            <Form.Group as={Row} >
+            <Form.Group as={Row}>
               <Form.Label column sm={2}>
-                Account access
-    </Form.Label>
+                Last Name
+              </Form.Label>
               <Col sm={10} className="form-input">
-                <Form.Control as="select" required>
-                  <option value="1">Admin</option>
-                  <option value="2">HR</option>
-                  <option value="3">Employee</option>
-                </Form.Control>
+                <Form.Control
+                  type="text"
+                  name="lastName"
+                  placeholder="Last Name"
+                  onChange={formik.handleChange}
+                  value={formik.values.lastName}
+                  onBlur={formik.handleBlur}
+                  required
+                />
+                {formik.touched.lastName && formik.errors.lastName ? <div className="error">{formik.errors.lastName}</div>: null}
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row}>
+              <Form.Label column sm={2}>
+                NIC
+              </Form.Label>
+              <Col sm={10} className="form-input">
+                <Form.Control
+                  type="text"
+                  name="NIC"
+                  placeholder="NIC"
+                  onChange={formik.handleChange}
+                  value={formik.values.NIC}
+                  onBlur={formik.handleBlur}
+                  required
+                />
+                {formik.touched.NIC && formik.errors.NIC ? <div className="error">{formik.errors.NIC}</div>: null}
               </Col>
             </Form.Group>
 
@@ -112,119 +220,27 @@ class EmployeeForm extends Component {
                 <Form.Control
                   as="select"
                   name="role"
+                  onChange={formik.handleChange}
+                  value={formik.values.role}
+                  onBlur={formik.handleBlur}
+                  required
                 >
                   <option disabled selected>
                     Select your option
                   </option>
                   <option value="cleaner">Cleaner</option>
                   <option value="cashier">Cashier</option>
-                  <option value="manager">Manager</option>
+                  <option value="manager">Opertion Manager</option>
                   <option value="fitness instructor">Fitness Instructor</option>
+                  <option value="customer service">Customer Service Manager</option>
+                  <option value="membership">Memebership Manager</option>
+                  <option value="payment">Payment Manager</option>
+                  <option value="supplier">Supplier Manager</option>
                 </Form.Control>
+                {formik.touched.role && formik.errors.role ? <div className="error">{formik.errors.role}</div>: null}
               </Col>
             </Form.Group>
-            <Form.Group as={Row}>
-              <Form.Label as="legend" column sm={2}>
-                Gender
-      </Form.Label>
-              <Col sm={10}>
-                <Form.Check
-                  inline
-                  type="radio"
-                  label="Male"
-                  value="male"
-                  name="gender"
-                  onChange={this.props.onGenderChange}
-                  required
-                />
-                <Form.Check
-                  inline
-                  type="radio"
-                  label="Female"
-                  value="female"
-                  name="gender"
-                  onChange={this.props.onGenderChange}
-                  required
-                />
-              </Col>
-            </Form.Group>
-            <Form.Group as={Row}>
-              <Form.Label column sm={2}>
-                First Name
-              </Form.Label>
-              <Col sm={10} className="form-input">
-                <Form.Control
-                  type="text"
-                  placeholder="First Name"
-                  required
-                />
-              </Col>
-            </Form.Group>
-            <Form.Group as={Row}>
-              <Form.Label column sm={2}>
-                Middle Name
-              </Form.Label>
-              <Col sm={10} className="form-input">
-                <Form.Control
-                  type="text"
-                  placeholder="Middle Name"
-                  required
-                />
-              </Col>
-            </Form.Group>
-            <Form.Group as={Row}>
-              <Form.Label column sm={2}>
-                Last Name
-              </Form.Label>
-              <Col sm={10} className="form-input">
-                <Form.Control
-                  type="text"
-                  placeholder="Last Name"
-
-                  required
-                />
-              </Col>
-            </Form.Group>
-            <Form.Group as={Row}>
-              <Form.Label column sm={2}>
-                DOB
-              </Form.Label>
-              <Col sm={10} className="form-input">
-                <Form.Control
-                  type="date"
-                  placeholder="DOB"
-                  required
-                />
-              </Col>
-            </Form.Group>
-            <Form.Group as={Row}>
-              <Form.Label column sm={2}>
-                Contact No
-              </Form.Label>
-              <Col sm={10} className="form-input">
-                <Form.Control
-                  type="text"
-                  placeholder="Contact No "
-
-                  required
-                />
-              </Col>
-            </Form.Group>
-            <Form.Group as={Row}>
-              <Form.Label column sm={2}>
-                Employee Code
-              </Form.Label>
-              <Col sm={10} className="form-input">
-                <Form.Control
-                  type="text"
-                  placeholder="Employee Code"
-
-                  required
-                />
-              </Col>
-            </Form.Group>
-
-            <Form.Group as={Row}>
+            {/* <Form.Group as={Row}>
               <Form.Label column sm={2}>
                 Department
               </Form.Label>
@@ -244,6 +260,137 @@ class EmployeeForm extends Component {
                   <option value="supplier">Supplier</option>
                 </Form.Control>
               </Col>
+            </Form.Group> */}
+            <Form.Group as={Row}>
+              <Form.Label as="legend" column sm={2}>
+                Gender
+              </Form.Label>
+              <Col sm={10}>
+                <Form.Check
+                  inline
+                  type="radio"
+                  label="Male"
+                  value="male"
+                  name="gender"
+                  //onChange={this.props.onGenderChange}
+                  checked={formik.values.gender === "male"}
+                  onChange={formik.handleChange}
+                  required
+                />
+                <Form.Check
+                  inline
+                  type="radio"
+                  label="Female"
+                  value="female"
+                  name="gender"
+                  //onChange={this.props.onGenderChange}
+                  checked={formik.values.gender === "female"}
+                  onChange={formik.handleChange}
+                  required
+                />
+                {formik.touched.gender && formik.errors.gender ? <div className="error">{formik.errors.gender}</div>: null}
+              </Col>
+            </Form.Group>
+           
+            <Form.Group as={Row}>
+              <Form.Label column sm={2}>
+                DOB
+              </Form.Label>
+              <Col sm={10} className="form-input">
+                <Form.Control
+                  type="date"
+                  name="DOB"
+                  placeholder="DOB"
+                  onChange={formik.handleChange}
+                  value={formik.values.DOB}
+                  onBlur={formik.handleBlur}
+                  required
+                />
+                {formik.touched.DOB && formik.errors.DOB ? <div className="error">{formik.errors.DOB}</div>: null}
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row}>
+              <Form.Label column sm={2}>
+                Contact No
+              </Form.Label>
+              <Col sm={10} className="form-input">
+                <Form.Control
+                  type="text"
+                  name="contactNo"
+                  placeholder="Contact No "
+                  onChange={formik.handleChange}
+                  value={formik.values.contactNo}
+                  onBlur={formik.handleBlur}
+                  required
+                />
+                {formik.touched.contactNo && formik.errors.contactNo ? <div className="error">{formik.errors.contactNo}</div>: null}
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row}>
+              <Form.Label column sm={2}>
+                Email
+              </Form.Label>
+              <Col sm={10} className="form-input">
+                <Form.Control
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  onChange={formik.handleChange}
+                  value={formik.values.email}
+                  onBlur={formik.handleBlur}
+                  required
+                />
+                {formik.touched.email && formik.errors.email ? <div className="error">{formik.errors.email}</div>: null}
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row}>
+              <Form.Label column sm={2}>
+                Address
+              </Form.Label>
+              <Col sm={10} className="form-input">
+                <Form.Control
+                  type="text"
+                  name="address"
+                  placeholder="Address"
+                  onChange={formik.handleChange}
+                  value={formik.values.address}
+                  onBlur={formik.handleBlur}
+                  required
+                />
+                {formik.touched.address && formik.errors.address ? <div className="error">{formik.errors.address}</div>: null}
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row}>
+              <Form.Label column sm={2}>
+                Qualifications
+              </Form.Label>
+              <Col sm={10} className="form-input">
+                <Form.Control 
+                  as="textarea" 
+                  rows={3}
+                  name="qualifications"
+                  placeholder="Qualifications"
+                  onChange={formik.handleChange}
+                  value={formik.values.qualifications}
+                  onBlur={formik.handleBlur} 
+                  required
+                />
+                {formik.touched.qualifications && formik.errors.qualifications ? <div className="error">{formik.errors.qualifications}</div>: null}
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row}>
+              <Form.Label column sm={2}>
+                Upload Image
+              </Form.Label>
+              <Col sm={10} className="form-input">
+                <Form.Control 
+                  type="file"
+                  name="image"
+                  onChange={(event) => {
+                    formik.setFieldValue("image", event.currentTarget.files[0]);
+                  }}
+                />
+              </Col>
             </Form.Group>
             <Form.Group as={Row}>
               <Form.Label column sm={2}>
@@ -252,9 +399,14 @@ class EmployeeForm extends Component {
               <Col sm={10} className="form-input">
                 <Form.Control
                   type="date"
+                  name="joinedDate"
                   placeholder="Date Of Joining"
+                  onChange={formik.handleChange}
+                  value={formik.values.joinedDate}
+                  onBlur={formik.handleBlur}
                   required
                 />
+                {formik.touched.joinedDate && formik.errors.joinedDate ? <div className="error">{formik.errors.joinedDate}</div>: null}
               </Col>
             </Form.Group>
             <Form.Group as={Row}>
@@ -264,8 +416,14 @@ class EmployeeForm extends Component {
               <Col sm={10} className="form-input">
                 <Form.Control
                   type="date"
+                  name="terminateDate"
                   placeholder="Terminate Date"
+                  onChange={formik.handleChange}
+                  value={formik.values.terminateDate}
+                  onBlur={formik.handleBlur}
+                  required
                 />
+                {formik.touched.terminateDate && formik.errors.terminateDate ? <div className="error">{formik.errors.terminateDate}</div>: null}
               </Col>
             </Form.Group>
 
@@ -278,7 +436,7 @@ class EmployeeForm extends Component {
             </Form.Group>
             <Form.Group as={Row} id="form-cancel-button">
               <Col sm={{ span: 10, offset: 2 }} id="form-cancel-button-inner">
-                <Button type="reset" onClick={this.props.onFormClose}>
+                <Button type="reset">
                   cancel
                 </Button>
               </Col>
@@ -289,8 +447,10 @@ class EmployeeForm extends Component {
         {/* </div>
         </div> */}
       </div>
+      </Container>
+      </section>
+      </body>
     );
   }
-}
 
 export default EmployeeForm;

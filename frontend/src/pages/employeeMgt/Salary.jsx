@@ -2,7 +2,6 @@ import React, { Component } from "react";
 //import "./Salary.css";
 import axios from "axios";
 import SalaryTable from "./SalaryTable.jsx";
-import SalaryForm from "./SalaryForm.jsx";
 import SalaryFormEdit from "./SalaryFormEdit.jsx";
 class Salary extends Component {
   state = {

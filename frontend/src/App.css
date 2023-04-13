@@ -76,9 +76,14 @@ label {
 section {
   margin: 15px 50px 10px 50px;
   padding: 1px 80px 18px 70px;
-  background: rgba(21, 23, 30, 0.9);
+  background: rgba(21, 23, 30, 0.832);
   border-radius: 30px;
-  box-shadow: rgba(255, 255, 255, 0.12) 0px 2px 4px 0px, rgba(255, 255, 255, 0.32) 0px 2px 16px 0px;
+  /* From https://css.glass */
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(61, 60, 60, 0.06);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(36, 35, 35, 0.48);
 }
 
 

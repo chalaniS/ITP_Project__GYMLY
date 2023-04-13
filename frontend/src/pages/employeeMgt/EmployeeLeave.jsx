@@ -67,46 +67,25 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function EditSalary(props) {
-  const navigate = useNavigate();
-  
-  const handleClick = () => {
-    navigate('/employeeRegister');
-  };
-
-  return (
-    <Button variant="contained" color="primary" onClick={handleClick}>
-      {props.label}
-    </Button>
-  );
-}
-
-function EmployeeTable() {
+function EmployeeLeave() {
 
     const [tableData, setTableData] = useState([
-      {empID: "OM001", name: "Vidusha", email: "vidushatjayaweera@gmail.com", jobRole: "Operation Manager", salary: 20000},
-      {empID: "CM001", name: "Sithum", email: "sithumasitha@gmail.com", jobRole: "Customer Affairs Manager", salary: 30000},
-      {empID: "TR008", name: "Chalani", email: "chalanisaumya@gmail.com", jobRole: "Trainer", salary: 50000},
-      {empID: "CL010", name: "Lakindu", email: "lakinduwiduranga@gmail.com", jobRole: "Cleaner", salary: 45000},
-      {empID: "CL010", name: "Lakindu", email: "lakinduwiduranga@gmail.com", jobRole: "Cleaner", salary: 45000},
-      {empID: "CL010", name: "Lakindu", email: "lakinduwiduranga@gmail.com", jobRole: "Cleaner", salary: 45000},
+      {empID: "OM001", name: "Vidusha", jobRole: "Operation Manager", leaveType: "A", leaveFrom: "2023-04-12", leaveTo: "2023-04-12"},
+      {empID: "CM001", name: "Sithum", jobRole: "Customer Affairs Manager", leaveType: "C", leaveFrom: "2023-04-12", leaveTo: "2023-04-12"},
+      {empID: "TR008", name: "Chalani", jobRole: "Trainer", leaveType: "C", leaveFrom: "2023-04-12", leaveTo: "2023-04-12"},
+      {empID: "CL010", name: "Lakindu", jobRole: "Cleaner", leaveType: "C", leaveFrom: "2023-04-12", leaveTo: "2023-04-12"},
+      {empID: "CL010", name: "Lakindu", jobRole: "Cleaner", leaveType: "M", leaveFrom: "2023-04-12", leaveTo: "2023-04-12"},
+      {empID: "CL010", name: "Lakindu", jobRole: "Cleaner", leaveType: "M", leaveFrom: "2023-04-12", leaveTo: "2023-04-12"},
     ])
 
     const columns = [
         {title: "Employee ID",field: "empID", defaultSort: "asc"},
         {title: "Name",field: "name"},
-        {title: "Email",field: "email", sorting: false, export: false},
         {title: "Job Role",field: "jobRole"},
-        {title: "Salary",field: "salary",type: "currency",currencySetting:{currencyCode: "LKR"}},
+        {title: "Leave Type",field: "leaveType", lookup:{C:"Casual", M:"Medical", A:"Annual"},sorting: false},
+        {title: "Leave From",field: "leaveFrom",type: "date"},
+        {title: "Leave To",field: "leaveTo",type: "date"},
     ]
-
-    const navigate = useNavigate();
-    const editEmployee = () => {
-      navigate('/employeeRegister');
-    };
-    const addEmployee = () => {
-      navigate('/employeeRegister');
-    };
 
     const classes = useStyles();
 
@@ -122,25 +101,15 @@ function EmployeeTable() {
 
               actions={[
                 {
-                  icon: tableIcons.Add,
-                  tooltip: 'Add Employee',
-                  onClick: (event, rowData) => addEmployee(),
-                  isFreeAction: true
+                  icon: () => <Button variant="contained" color="primary">Approve</Button>,
+                  tooltip: 'Approve Leave',
+                  onClick: (event, rowData) => console.log("Approved")
                 },
                 {
-                  icon: tableIcons.Edit,
-                  tooltip: 'Edit Employee',
-                  onClick: (event, rowData) => editEmployee()
+                    icon: () => <Button variant="contained" color="secondary">Reject</Button>,
+                    tooltip: 'Reject Leave',
+                    onClick: (event, rowData) => console.log("Rejected")
                 },
-                {
-                  icon: tableIcons.Delete,
-                  tooltip: 'Remove Employee',
-                  onClick: (event, rowData) => alert("You want to remove "+rowData.name),
-                },
-                {
-                  icon: () => <EditSalary label="Edit Salary"/>,
-                  tooltip: 'Edit Salary',
-                }
               ]}
               
               options={
@@ -152,11 +121,11 @@ function EmployeeTable() {
                   paginationType:"stepped",
                   exportButton:true,
                   exportAllData:true,
-                  exportFileName:"Monthly Salary Report",
+                  exportFileName:"Monthly Leave Report",
                   actionsColumnIndex:-1
                 }
               } 
-              title="Employee Summary" 
+              title="Employee Leaves" 
             />
         </div>
        {/* </Container> */}
@@ -165,4 +134,4 @@ function EmployeeTable() {
   );
 }
 
-export default EmployeeTable;
+export default EmployeeLeave;
