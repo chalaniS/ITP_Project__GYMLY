@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import express from "express";
 import cors from "cors";
 import ScheduleModel from './models/schedule/ScheduleModel.js'
-import SchedulRouter from './routes/schedule/SchedulRouter.js'
+
 
 const app = express();
 app.use(cors());

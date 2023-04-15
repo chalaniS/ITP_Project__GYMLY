@@ -14,12 +14,9 @@ import { parseISO, format } from 'date-fns';
 const EditTimeSlot = () => {
 
     const { id } = useParams();
-    const [startDate, setStartDate] = useState(new Date());
+    const [startDate, setStartDate] = useState("");
     const [timeSlot, setTimeSlot] = useState("");
     const [schedule, setSchedule] = useState(null);
-    const [formValid, setFormValid] = useState(false);
-    const startDateObject = parseISO(startDate);
-
 
 
     useEffect(() => {
@@ -99,13 +96,12 @@ const EditTimeSlot = () => {
                                         <label htmlFor="date">Date:</label>
                                     </Col>
                                     <Col>
-                                        <DatePicker
-                                            // selected={startDate}
+                                        <input
+                                            type="date"
                                             selected={startDate}
-                                            onChange={(event) => setStartDate(event)}
+                                            onChange={(event) => setStartDate(event.target.value)}
                                             dateFormat="dd/MM/yyyy"
                                         />
-
                                     </Col>
                                     <Col>
                                         <AiFillCalendar className="i" />
@@ -121,13 +117,13 @@ const EditTimeSlot = () => {
                                             <select
                                                 name="timeslot"
                                                 className="timeslot"
-                                                value={timeSlot}
+                                                // value={timeSlot}
                                                 onChange={(event) => setTimeSlot(event.target.value)}
                                             >
                                                 <option value="">Select Time Slot</option>
-                                                <option value="8-10">8.00pm - 10.00pm</option>
-                                                <option value="9-11">9.00pm - 11.00pm</option>
-                                                <option value="10-12">10.00pm - 12.00pm</option>
+                                                <option value="8.00pm - 10.00pm">8.00pm - 10.00pm</option>
+                                                <option value="9.00pm - 11.00pm">9.00pm - 11.00pm</option>
+                                                <option value="10.00pm - 12.00pm">10.00pm - 12.00pm</option>
                                             </select>
                                         </div>
                                     </Col>

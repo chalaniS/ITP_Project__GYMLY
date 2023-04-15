@@ -87,9 +87,9 @@ const Schedule = ({ pdays }) => {
                                         <div className="select">
                                             <select name="timeslot" className="timeslot" onChange={(event) => setTimeslot(event.target.value)} value={timeslot}>
                                                 <option value="0-0">Select TimeSlot </option>
-                                                <option value="8-10">8.00pm - 10.00pm</option>
-                                                <option value="9-11">9.00pm - 11.00pm</option>
-                                                <option value="10-12">10.00pm - 12.00pm</option>
+                                                <option value="8.00pm - 10.00pm">8.00pm - 10.00pm</option>
+                                                <option value="9.00pm - 11.00pm">9.00pm - 11.00pm</option>
+                                                <option value="10.00pm - 12.00pm">10.00pm - 12.00pm</option>
                                             </select>
                                         </div>
                                     </Col>
@@ -103,9 +103,12 @@ const Schedule = ({ pdays }) => {
                                         <div className="select">:
                                             <select name="instructor" id="timeslot" onChange={(event) => setInstructor(event.target.value)} value={instructor}>
                                                 <option value="none">Select Instructor</option>
-                                                <option value="vije">mr.vije kulasuruya</option>
-                                                <option value="kanthi">kanthi</option>
-                                                <option value="wimalasiri">wimalasiri</option>
+                                                <option value="Vije Kulasuruya">Vije Kulasuruya</option>
+                                                <option value="Kumara Darmasena">Kumara Darmasena</option>
+                                                <option value="Ranil Wimalasiri">Ranil Wimalasiri</option>
+                                                <option value="Mahinda Rajapaksha">Mahinda Rajapaksha</option>
+                                                <option value="Suraweera Sirisena">Suraweera Sirisena</option>
+                                                <option value="Namal Wijerathna">Namal Wijerathna</option>
                                             </select>
                                         </div>
                                     </Col>
