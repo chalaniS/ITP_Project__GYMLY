@@ -1,15 +1,12 @@
 import "dotenv/config";
 import mongoose from "mongoose";
-// import config from "./configs/config";
 import express from "express";
 import cors from "cors";
-import Report from "./models/Payment/ReportModel.js";
-// import { connect } from "./utils/dbconnect"
-
+import ReportModel from "./models/Payment/ReportModel.js";
 
 const app = express();
 app.use(cors());
-// app.use(express.json());
+app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
 
@@ -41,46 +38,75 @@ app.listen(PORT, () => {
 
 });
 
-app.post("/Report", async (req, res) => {
-    const financialReportId = req.body.financialReportId
-    const reportCatogery = req.body.reportCatogery
-    const employeeID = req.body.employeeID
-    const uploadedDate = req.body.uploadedDate
-    const uploadedTime = req.body.uploadedTime
-    const userId = "45821463#23669545"
+app.post("/payment453", async (req, res) => {
 
- const report = new ReportModel({
+    console.log(req.body);
 
-        userId: "45821463#23669545",
-       financialReportId:financialReportId,
-    reportCatogery:reportCatogery,
-    employeeID:employeeID,
-    uploadedDate:uploadedDate,
-    uploadedTime:uploadedTime
+
+    const financialReportId = req.body.financialReportId;
+    const reportCatogery = req.body.reportCatogery;
+    const employeeID = req.body.employeeID;
+    const uploadedDate = req.body.uploadedDate;
+    const uploadedTime = req.body.uploadedTime;
+    const userId = "45821463#23669545";
+
+    // Validate input data
+    if (!financialReportId || !reportCatogery || !employeeID || !uploadedDate || !uploadedTime) {
+        return res.status(400).send("Missing required fields");
+    }
+
+    const report = new ReportModel({
+        userId: userId,
+        financialReportId: financialReportId,
+        reportCatogery: reportCatogery,
+        employeeID: employeeID,
+        uploadedDate: uploadedDate,
+        uploadedTime: uploadedTime,
+    });
+
+    try {
+        await report.save();
+        console.log("Successfully inserted data");
+        res.status(200).send("Data inserted successfully");
+    } catch (err) {
+        console.log(err);
+        res.status(500).send("Error occurred while inserting data");
+    }
 });
 
-try {
-    await ReportModel.save()
-    console.log("successfully data inserted")
-    res.status(200).send("Data inserted successfully");
-} catch (err) {
-    console.log(err);
-    res.status(500).send("Error occurred while inserting data");
-}
-
-}
-);
 
 
+// app.post("/payment", async (req, res) => {
 
-// const ReportSchema = new mongoose.Schema({
-//     userId: String,
-//     financialReportId: String,
-//     reportCatogery: String,
-//     employeeID: String,
-//     uploadedDate: Date,
-//     uploadedTime: Date,
-//   });
-  
-//   const Report = mongoose.model("Report", ReportSchema);
+
+//     console.log(req.body);
+//     const financialReportId = req.body.financialReportId
+//     const reportCatogery = req.body.reportCatogery
+//     const employeeID = req.body.employeeID
+//     const uploadedDate = req.body.uploadedDate
+//     const uploadedTime = req.body.uploadedTime
+//     const userId = "45821463#23669545"
+
+//     const report = new ReportModel({
+
+//         userId: userId,
+//         financialReportId: financialReportId,
+//         reportCatogery: reportCatogery,
+//         employeeID: employeeID,
+//         uploadedDate: uploadedDate,
+//         uploadedTime: uploadedTime,
+//     });
+
+//     try {
+//         await report.save();
+//         console.log("successfully data inserted");
+//         res.status(200).send("Data inserted successfully");
+//     } catch (err) {
+//         console.log(err);
+//         res.status(500).send("Error occurred while inserting data");
+//     }
+
+// }
+// );
+
 

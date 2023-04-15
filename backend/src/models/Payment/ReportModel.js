@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const { Schema } = mongoose;
 
-const report = new ReportSchema({
+const ReportSchema = new Schema({
     financialReportId: {
         type: String,
         required: true
@@ -21,13 +21,11 @@ const report = new ReportSchema({
     },
     uploadedTime: {
         type: String,
-        required: true
+        // required: true
     },
-    
 });
 
+// ScheduleData is collection name
+const ReportModel = mongoose.model('ReportData', ReportSchema);
 
-//ScheduleData is collection name
-const Report = mongoose.model('ReportData', ReportSchema);
-
-export default Report;
+export default ReportModel;
