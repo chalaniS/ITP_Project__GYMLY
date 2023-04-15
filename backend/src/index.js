@@ -50,10 +50,10 @@ app.post("/Supplements", async (req, res) => {
 
     console.log(req.body);
 
-    const Supplement_Type = req.body.Supplement_Type;
-    const Supplement_Id = req.body.Supplement_Id;
-    const Supplement_Price = req.body.Supplement_Price;
-    const Supplement_Quantity = req.body.Supplement_Quantity;
+    const Supplement_Type = req.body.type;
+    const Supplement_Id = req.body.id;
+    const Supplement_Price = req.body.price;
+    const Supplement_Quantity = req.body.qty;
     const UserId = "12345#12345"
 
     const supplements = new Supplements({
