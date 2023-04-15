@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Row, Col } from 'reactstrap'
+import '../../App.css'
 import '../../Styles/Payment/payment.css'
-import '../../Styles/Payment/Token.css'
 
 
 const GetToken = () => {
@@ -32,4 +32,4 @@ const GetToken = () => {
     )
 }
 
-export default GetToken
+export default GetToken ;

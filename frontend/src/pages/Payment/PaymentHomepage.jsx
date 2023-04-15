@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Row, Col } from 'reactstrap'
-import '../../Styles/Payment/payment.css'
-import image from '../../images/Payment/Img2.jpg'
+import '../../App.css'
+import image from '../../images/Payment/gym2.jpg'
 
 
 const PaymentHomepage = () => {
@@ -24,7 +24,7 @@ const PaymentHomepage = () => {
                                     <label for="token">EmployeeID  :</label>
                                 </Col>
                                 <Col>
-                                    <input type="text" name='ID' value="X10236" className='' disabled />
+                                    <input type="text" name='ID' value="" className='' disabled />
                                 </Col>
                             </Row>
                             <br />
@@ -33,7 +33,7 @@ const PaymentHomepage = () => {
                                     <label for="timeslot">NIC  :</label>
                                 </Col>
                                 <Col>
-                                    <input type="text" name='NIC' value="X10236" className='' disabled />
+                                    <input type="text" name='NIC' value="" className='' disabled />
                                 </Col>
                             </ Row>
                             <br />
@@ -44,8 +44,8 @@ const PaymentHomepage = () => {
                                 </Col>
                             </Row>
                             < Row>
-                                <Col lg='10' className='LogIn'>
-                                    <button type='LogIn' className='primary__btn LogIn'>Cancel</button>
+                                <Col>
+                                    <button type='submit' className='primary__btn submit'>Cancle</button>
                                 </Col>
                             </ Row>
                         </form>
@@ -57,4 +57,4 @@ const PaymentHomepage = () => {
     )
 }
 
-export default PaymentHomepage
+export default PaymentHomepage ;

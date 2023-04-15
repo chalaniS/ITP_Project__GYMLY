@@ -1,275 +1,286 @@
-* {
-    margin: 0;
-    padding: 0;
-  }
-  
-  Body {
-    background-image: url(./images/bg1.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-  }
-  
-  
-  :root {
-    /* midnight blue  */
-    --primary-color: #191970;
-    /* denim blue  */
-    --secondary-color: #6F8FAF;
-    --heading-color: #E6E6FA;
-    --text-color: #ffffff;
-    --font-name: "Montserrat", sans-serif;
-    --subtitle-font-name: "Island Moments", cursive;
-  }
-  
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-  }
-  
-  h1,
-  h2,
-  h3,
-  h4,
-  p {
-    color: #000000;
-  }
-  
-  a {
-    text-decoration: none;
-    color: unset;
-  }
-  
-  ul {
-    list-style: none;
-  }
-  
-  /* heading  */
-  .title {
-    margin: 1em 0 0.5em 0;
-    color: #e2dede;
+/* token.css */
+
+.payment-success {
+  text-align: center;
+}
+
+.payment-success h2 {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: rgb(219, 4, 47);
+}
+
+.payment-success .payment-details {
+  display: inline-block;
+  background-color: aliceblue;
+  text-align: left;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.payment-success .payment-details p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.payment-success .payment-details p span {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.payment-success .report-validity {
+  margin-bottom: 20px;
+  font-size: large;
+  font-style: italic;
+  color: red;
+}
+
+.payment-success .membership-card-note {
+  margin-bottom: 20px;
+  font-size: large;
+  font-style: italic;
+  color: red;
+}
+
+
+
+
+/* verification.css */
+
+h4 {
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 30px; 
+  color: wheat;
+}
+
+
+h3 {
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 30px;
+  color: mediumblue;
+}
+
+input[type="text"] {
+  width: 50%;
+  padding: 10px;
+  font-size: 1.2em;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+}
+
+#countdown-clock {
+    font-size: 10px;
+    font-weight: bold;
     text-align: center;
-    font-family: 'Ultra', sans-serif;
-    font-size: 1.8rem;
-    line-height: 42px;
-    text-transform: uppercase;
-    text-shadow: 0 2px rgb(107, 104, 104), 0 3px #777;
+  }
+  
+  #minutes, #seconds {
+    display: inline;
+    width: 50px;
+    background-color: #eee;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0 10px;
+  }
+  input[type="checkbox"] {
+    margin-right: 10px;
+    margin-left: 20px;
+    align-items: center;
   }
   
   label {
-    font-weight: 500;
-    font-family: 'Titillium Web', sans-serif;
-    text-shadow: 0 -1px 1px rgba(21, 21, 21, 0.4);
-    font-size: 1.2rem;
-    color: #ffffff;
-    text-transform: capitalize;
-  }
-  
-  section {
-    margin: 15px 50px 10px 50px;
-    padding: 1px 80px 18px 70px;
-    background: rgba(21, 23, 30, 0.9);
-    border-radius: 30px;
-    box-shadow: rgba(255, 255, 255, 0.12) 0px 2px 4px 0px, rgba(255, 255, 255, 0.32) 0px 2px 16px 0px;
-  }
-  
-  
-  
-  /* 3 button styles */
-  
-  .primary__btn {
-    background: var(--primary-color) !important;
-    border: 1px solid white !important;
-    border-radius: 50px !important;
-    font-weight: 500 !important;
-    padding: 0.4rem 2rem !important;
-    color: var(--text-color);
-    font-size: 1rem;
-    font-weight: 800;
-    text-transform: capitalize;
-  }
-  
-  .primary__btn:hover {
-    background: #0f0f44 !important;
-    color: #ffffff !important;
-    border: 1px solid white !important;
-    border-radius: 50px !important;
-    font-weight: 700 !important;
-    padding: 0.4rem 2rem !important;
-  
-  }
-  
-  .secondary__btn {
-    background: var(--secondary-color) !important;
-    color: #000000 !important;
-    border: 1px solid white !important;
-    border-radius: 50px;
-    font-weight: 700 !important;
-    padding: 0.4rem 1.5rem !important;
-  
-  }
-  
-  .secondary__btn:hover {
-    background: #8eaece !important;
-    border: 1px solid white !important;
-    border-radius: 50px !important;
-    font-weight: 700 !important;
-    padding: 0.4rem 1.5rem !important;
-    color: white;
-  }
-  
-  .tertiary_btn {
-    background: rgb(5, 5, 67) !important;
-    color: #ffffff !important;
-    border: 2px solid white !important;
-    border-radius: 50px !important;
-    font-weight: 500 !important;
-    padding: 0.5rem 1.3rem !important;
-    text-decoration: none;
-    font-size: 0.8rem;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  
-  }
-  
-  
-  .tertiary_btn:hover {
-    color: var(--primary-color);
-    background: #000022;
-  }
-  
-  /* radio button style */
-  .radio {
-    height: 18px;
-    width: 18px;
-  }
-  
-  /* dropdown style */
-  select {
-    padding: 3px 0 6px 15px;
-    background: rgb(192, 196, 192);
-    color: rgb(0, 0, 0);
-    cursor: pointer;
-    border: 1px solid black;
-    border-radius: 7px;
-    font-size: 1rem;
-    font-weight: 600;
-    width: 247px;
-    text-transform: capitalize;
-  }
-  
-  option {
-    font-size: 1rem;
-    font-weight: 700;
-  }
-  
-  
-  /* TextInput */
-  input {
-    padding: 3px 0 6px 15px;
-    background: rgb(192, 196, 192);
-    color: rgb(26, 24, 24);
-    cursor: pointer;
-    border: 1px solid black;
-    border-radius: 7px;
-    font-size: 1rem;
-    font-weight: 700;
-    width: 245px;
-    text-transform: capitalize;
-  }
-  
-  /* textarea input  */
-  
-  textarea {
-    padding: 5px;
-    background: rgb(192, 196, 192);
-    color: rgb(26, 24, 24);
-    cursor: pointer;
-    border: 1px solid black;
-    border-radius: 7px;
-    font-size: 1rem;
-    font-weight: 500;
-    width: 250px;
-  }
-  
-  textarea::placeholder {
-    color: rgb(13, 9, 9);
-    font-size: 0.8rem;
-  }
-  
-  
-  /* react icon styles */
-  .i {
-  
-    font-size: 2rem;
-    color: var(--heading-color);
-  
-  }
-  
-  /* table style  */
-  /* <Table dark striped bordered hover responsive> */
-  
-  thead,
-  th {
+    font-size: 1.2em;
     text-align: center;
-    border: 1px solid rgb(111, 110, 110);
-    font-size: 1.2rem;
-    padding: 10px 2px;
+    gap: 10px;
   }
   
-  td {
-    text-align: center;
+  button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #ccc;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-items: center;
   }
   
-  
-  
-  
-  /* edit and delete btn styles in table */
-  
-  .edit_btn {
-    background: rgb(4, 4, 32) !important;
-    border: 1px solid white !important;
-    border-radius: 50px !important;
-    font-weight: 500 !important;
-    padding: 0.3rem !important;
-    color: var(--text-color);
-    font-size: 1rem;
-    width: 100px;
-    text-transform: capitalize;
+  button.primary__btn {
+    background-color: #007bff;
+    color: #fff;
+    align-items: end;
   }
   
-  .delete_btn {
-    background: rgb(64, 14, 14) !important;
-    border: 1px solid white !important;
-    border-radius: 50px !important;
-    font-weight: 500 !important;
-    padding: 0.3rem !important;
-    color: var(--text-color);
-    font-size: 1rem;
-    text-transform: capitalize;
-    width: 100px;
+  button.primary__btn:hover {
+    background-color: #0069d9;
+  }
+
+
+
+
+
+/* paymentgateway.css */
+
+  .Payment {
+    padding: 20px;
+    /* background-color: #f0f0f0; */
+    border: 1px solid #ccc;
   }
   
-  
-  .edit_btn:hover,
-  .delete_btn:hover {
-    background: rgb(255, 255, 255) !important;
-    color: #000000 !important;
-    border: 1px solid black !important;
-    border-radius: 50px !important;
-    font-weight: 500 !important;
-    padding: 0.3rem !important;
+  .Payment label {
+    display: block;
+    margin-bottom: 5px;
   }
   
-  
-  /* calender styles */
-  .calender {
-    width: 200px;
+  .Payment input[type="radio"] {
+    margin-right: 5px;
   }
+  
+  .Payment input[type="radio"]:checked + label {
+    font-weight: bold;
+  }
+  
+  .Payment input[type="radio"]:focus {
+    outline: none;
+    box-shadow: 0 0 2px 1px #aaa;
+  }
+  
+  .Payment forms {
+    margin: 0 auto;
+    max-width: 600px;
+  }
+  
+  .Payment Row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .Payment Col {
+    flex-basis: 50%;
+  }
+
+  /* Style for the form header */
+.form header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  color: ivory;
+  font-weight: bold;
+  font-size: medium;
+}
+
+.Row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: cyan;
+}
+
+
+/* Style for the form columns */
+.form Col {
+  flex: 1;
+  margin: 20px;
+  color: aliceblue;
+}
+
+/* Style for the form labels */
+.form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color:ivory;
+  font-size: medium;
+}
+
+/* Style for the form inputs */
+.form input[type=text], 
+.form input[type=number], 
+.form select {
+  width: 98%;
+  padding: 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+form Row {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+form h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.images {
+  display: block;
+  margin: 2px;
+  height: 5px;
+  width: 5px;
+}
+
+/* Style for the form button container */
+.form Row:last-child {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Style for the form buttons */
+.Row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Row button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.Row button:hover {
+  background-color: #3e8e41;
+}
+
+
+
+
+
+/* FRU.css */
+
+.images {
+  width: 10px;
+  height: 500px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}

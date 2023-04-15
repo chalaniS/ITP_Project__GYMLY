@@ -1,10 +1,11 @@
 import React from 'react'
 import { Container, Row, Col } from 'reactstrap'
+import '../../App.css'
 import '../../Styles/Payment/payment.css'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { AiFillCalendar } from "react-icons/ai";
-import image from '../../images/Payment/Img2.jpg'
+import image from '../../images/Payment/gym2.jpg'
 
 const FinancialReport = () => {
     return (
@@ -37,39 +38,40 @@ const FinancialReport = () => {
                                         {/* Report category list */}
                                         <div className="select">:
                                             <select name="Category" id="Report">
-                                                <option value="vije">Income Reports</option>
-                                                <option value="kanthi">Package payment Reports</option>
-                                                <option value="wimalasiri">Supplement Sales Reports</option>
-                                                <option value="vije">Outgoing Reports</option>
-                                                <option value="kanthi">Salary Reports</option>
-                                                <option value="wimalasiri">Supplier payment Reports</option>
-                                                <option value="vije">Net Income Reports</option>
-                                                <option value="kanthi">2022</option>
-                                                <option value="wimalasiri">2021</option>
-                                                <option value="wimalasiri">2020</option>
+                                                <option value="">Income Reports</option>
+                                                <option value="">Package payment Reports</option>
+                                                <option value="">Supplement Sales Reports</option>
+                                                <option value="">Outgoing Reports</option>
+                                                <option value="">Salary Reports</option>
+                                                <option value="">Supplier payment Reports</option>
+                                                <option value="">Net Income Reports</option>
+                                                <option value="">2022</option>
+                                                <option value="">2021</option>
+                                                <option value="">2020</option>
                                             </select>
                                         </div>
-                                    </Col>
+                                        </Col>
                                 </ Row>
                                 <br />
 
                                 <Row>
                                 <form>
-                                    <label for="file-upload">Choose a file:</label>
                                     <input type="file" id="file-upload" name="file-upload"></input>
-                                    <button type="submit">Upload</button>
+                                    <button type='submit' className='primary__btn submit'>Uplode</button>
                                 </form>
+                                
                                 </Row>
+                                
 
                                 <br />
                                 < Row>
-                                    <Col lg='10' className='cancel'>
-                                        <button type='reset' className='secondary__btn '>Cancel</button>
+                                    <Col>
+                                        <button type='cancle' className='primary__btn submit'>Cancle</button>
                                     </Col>
                                     <Col>
-                                        <button type='submit' className='primary__btn submit'>Save</button>
+                                        <button type='save' className='primary__btn submit'>Save</button>
                                     </Col>
-                                </ Row>
+                            </ Row>
                             </form>
                         </div>
                     </div>
@@ -79,4 +81,4 @@ const FinancialReport = () => {
     )
 }
 
-export default FinancialReport
+export default FinancialReport ;

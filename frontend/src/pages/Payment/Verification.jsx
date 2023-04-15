@@ -1,12 +1,9 @@
 import React from 'react'
 import { Container, Row, Col } from 'reactstrap'
 import '../../Styles/Payment/Verification.js'
-<<<<<<< HEAD
-import '../../Styles/Payment/Verification.css'
-import '../../Styles/Payment/payment.css'
-=======
 import '../../App.css'
->>>>>>> a65cf1de150f514368d80397c68e464f01065d87
+import '../../Styles/Payment/payment.css'
+
 
 
 const Verification = () => {
@@ -20,46 +17,31 @@ const Verification = () => {
                         <br />
                         <br />
                         <br />
+                        <div className="paragraph">
                         <p><h4>We sent your verification code to mobile or email.Please enter your code within 5 minutes. </h4></p>
+                        </div>
                         <br />
                         <br />
                         <br />
+                        <div className="topic">
                         <h3>VERIFY</h3>
+                        </div>
                         <br />
                         <br />
                         <input type="text"></input>
-                        <div class="countdown">
-                            <div class="time-section" id="seconds">
-                                <div class="time-group">
-                                    <div class="time-segment">
-                                        <div class="segment-display">
-                                            <div class="segment-display_top">2</div>
-                                            <div class="segmant-display_bottom">2</div>
-                                            <div class="segment-overlay">
-                                                <div class="segment-overlay_top">2</div>
-                                                <div class="segment-overlay_bottom">2</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="time-segment">
-                                        <div class="segment-display">
-                                            <div class="segment-display_top">2</div>
-                                            <div class="segmant-display_bottom">2</div>
-                                            <div class="segment-overlay">
-                                                <div class="segment-overlay_top">2</div>
-                                                <div class="segment-overlay_bottom">2</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <br />
+                        <br />
                         <div id="countdown-clock">
                             <span id="minutes"></span> : <span id="seconds"></span>
                         </div>
                         <br />
-                        <input type="checkbox" value="lsRememberMe" id="rememberMe"></input>
+                        <br />
+                        <Row>
+                        
+                        <input type="checkbox" value="lsRememberMe" id="rememberMe"></input>    
                         <label for="rememberMe">Remember me</label>
+                        
+                        </Row>
                         <br />
                         <br />
                         <button type='LogIn' className='primary__btn LogIn'>Cancel</button>
@@ -70,4 +52,4 @@ const Verification = () => {
     )
 }
 
-export default Verification
+export default Verification ;
