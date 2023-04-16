@@ -278,3 +278,7 @@ td {
 .calender {
   width: 200px;
 }
+
+.notFound {
+  color: wheat;
+}

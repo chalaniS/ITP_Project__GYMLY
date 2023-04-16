@@ -11,6 +11,7 @@
 .search {
     border-radius: 50px;
     width: auto;
+    padding: 6px 10px 6px 10px;
 }
 
 .barchart {
