@@ -1,70 +1,77 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { Container} from 'reactstrap'
-import axios from "axios";
+import Axios from 'axios';
 import {useFormik} from 'formik'
 import '../../Styles/employee/EmployeeForm.css'
 import '../../Styles/schedule/schedule.css'
 import '../../App.css'
 
 import { Form, Button, Col, Row } from "react-bootstrap";
+import { showLoadingSpinner, hideLoadingSpinner } from '../../Components/Loading/Loading.js'
 
-// class EmployeeForm extends Component {
-//   state = {
-//     roleData: [],
-//     positionData: [],
-//     departmentData: [],
+const API_URL = 'http://localhost:5000/employee';
 
+// const addToList = async (
+//   firstName, 
+//   lastName, 
+//   NIC, 
+//   role, 
+//   gender, 
+//   DOB, 
+//   contactNo, 
+//   email, 
+//   address, 
+//   qualifications, 
+//   joinedDate, 
+//   terminateDate
+// ) => {
+
+//   showLoadingSpinner();
+
+//   try {
+//       const promises = [];
+
+//           promises.push(
+//               Axios.post(API_URL, {
+//                   firstName: firstName,
+//                   lastName: lastName,
+//                   NIC: NIC,
+//                   role: role,
+//                   gender: gender,
+//                   DOB: DOB,
+//                   contactNo: contactNo,
+//                   email: email,
+//                   address: address,
+//                   qualifications: qualifications,
+//                   joinedDate: joinedDate,
+//                   terminateDate: terminateDate
+//               })
+//           );
+      
+//       await Promise.all(promises);
+//       hideLoadingSpinner();
+//       window.alert('Data has been inserted successfully');
+//       window.location = "http://localhost:3000/employeeDashboard";
+//       console.log('Successfully added to list');
+//   } catch (error) {
+//       console.log(error);
 //   }
-
-  // loadRoleInfo = () => {
-  //   axios
-  //     .get(process.env.REACT_APP_API_URL + "/api/role", {
-  //       headers: {
-  //         authorization: localStorage.getItem("token") || ""
-  //       }
-  //     })
-  //     .then(response => {
-  //       this.setState({ roleData: response.data });
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-  // };
-  // loadPositionInfo = () => {
-  //   axios
-  //     .get(process.env.REACT_APP_API_URL + "/api/position", {
-  //       headers: {
-  //         authorization: localStorage.getItem("token") || ""
-  //       }
-  //     })
-  //     .then(response => {
-  //       this.setState({ positionData: response.data });
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-  // };
-  // loadDepartmentInfo = () => {
-  //   axios
-  //     .get(process.env.REACT_APP_API_URL + "/api/department", {
-  //       headers: {
-  //         authorization: localStorage.getItem("token") || ""
-  //       }
-  //     })
-  //     .then(response => {
-  //       this.setState({ departmentData: response.data });
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-  // };
-  // componentWillMount() {
-  //   this.loadRoleInfo();
-  //   this.loadPositionInfo();
-  //   this.loadDepartmentInfo();
-  // }
+// };
 
   const EmployeeForm = () => {
+    
+    // const [firstName, setFirstName] = useState('');
+    // const [lastName, setLastName] = useState('');
+    // const [NIC, setNIC] = useState('');
+    // const [role, setRole] = useState('');
+    // const [gender, setGender] = useState('');
+    // const [DOB, setDOB] = useState('');
+    // const [contactNo, setContactNo] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [address, setAddress] = useState('');
+    // const [qualifications, setQualifications] = useState('');
+    // const [joinedDate, setJoinedDate] = useState('');
+    // const [terminateDate, setTerminateDate] = useState('');
 
     const validate = values => {
       const errors = {};
@@ -129,26 +136,36 @@ import { Form, Button, Col, Row } from "react-bootstrap";
         email: "",
         address: "",
         qualifications: "",
-        image: null,
+        // image: null,
         joinedDate: "",
         terminateDate: ""
       },
       validate,
-      onSubmit: values => {
-        console.log("values");
-        // axios
-        // .post(
-        //     process.env.MONGODB_URL + "/api/employee",
-        //     values
-        //   )
-        // .then(response => {
-        //     console.log(response.data);
-        //     window.location.reload();
-        //   })
-        // .catch(error => {
-        //     console.log(error);
-        //   });
+      onSubmit: async(values) => {
+
+        showLoadingSpinner();
+
+        try{
+          const response = await fetch(API_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(values),
+          });
+          if(response.ok){
+            hideLoadingSpinner();
+            window.alert('Data has been inserted successfully');
+            window.location = "http://localhost:3000/employeeDashboard";
+            console.log('Successfully added to list');
+          }else{
+            console.error('Failed to submit form:', response.status, response.statusText);
+          }
+        }catch(error){
+          console.error('Error submitting form:', error);
+        }
       }
+      
     });
 
     return (
@@ -225,17 +242,17 @@ import { Form, Button, Col, Row } from "react-bootstrap";
                   onBlur={formik.handleBlur}
                   required
                 >
-                  <option disabled selected>
+                  <option selected>
                     Select your option
                   </option>
                   <option value="cleaner">Cleaner</option>
                   <option value="cashier">Cashier</option>
-                  <option value="manager">Opertion Manager</option>
+                  <option value="operation manager">Opertion Manager</option>
                   <option value="fitness instructor">Fitness Instructor</option>
                   <option value="customer service">Customer Service Manager</option>
-                  <option value="membership">Memebership Manager</option>
-                  <option value="payment">Payment Manager</option>
-                  <option value="supplier">Supplier Manager</option>
+                  <option value="membership manager">Memebership Manager</option>
+                  <option value="payment manager">Payment Manager</option>
+                  <option value="supplier manager">Supplier Manager</option>
                 </Form.Control>
                 {formik.touched.role && formik.errors.role ? <div className="error">{formik.errors.role}</div>: null}
               </Col>
@@ -272,7 +289,6 @@ import { Form, Button, Col, Row } from "react-bootstrap";
                   label="Male"
                   value="male"
                   name="gender"
-                  //onChange={this.props.onGenderChange}
                   checked={formik.values.gender === "male"}
                   onChange={formik.handleChange}
                   required
@@ -283,7 +299,6 @@ import { Form, Button, Col, Row } from "react-bootstrap";
                   label="Female"
                   value="female"
                   name="gender"
-                  //onChange={this.props.onGenderChange}
                   checked={formik.values.gender === "female"}
                   onChange={formik.handleChange}
                   required
@@ -378,7 +393,7 @@ import { Form, Button, Col, Row } from "react-bootstrap";
                 {formik.touched.qualifications && formik.errors.qualifications ? <div className="error">{formik.errors.qualifications}</div>: null}
               </Col>
             </Form.Group>
-            <Form.Group as={Row}>
+            {/* <Form.Group as={Row}>
               <Form.Label column sm={2}>
                 Upload Image
               </Form.Label>
@@ -391,7 +406,7 @@ import { Form, Button, Col, Row } from "react-bootstrap";
                   }}
                 />
               </Col>
-            </Form.Group>
+            </Form.Group> */}
             <Form.Group as={Row}>
               <Form.Label column sm={2}>
                 Date Of Joining
@@ -431,13 +446,13 @@ import { Form, Button, Col, Row } from "react-bootstrap";
 
             <Form.Group as={Row} id="form-submit-button">
               <Col sm={{ span: 10, offset: 2 }}>
-                <Button type="submit">Submit</Button>
+                <Button disabled={formik.isSubmitting} type="submit">{formik.isSubmitting ? 'Submitting' : 'Submit'}</Button>
               </Col>
             </Form.Group>
             <Form.Group as={Row} id="form-cancel-button">
               <Col sm={{ span: 10, offset: 2 }} id="form-cancel-button-inner">
                 <Button type="reset">
-                  cancel
+                  Reset
                 </Button>
               </Col>
             </Form.Group>

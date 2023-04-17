@@ -1,10 +1,12 @@
 import MaterialTable from 'material-table'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Container} from 'reactstrap'
 import { useNavigate } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import '../../Styles/employee/EmployeeTable.css'
+import axios from 'axios';
+import { showLoadingSpinner, hideLoadingSpinner } from '../../Components/Loading/Loading.js'
 
 import { forwardRef } from 'react';
 
@@ -83,30 +85,49 @@ function EditSalary(props) {
 
 function EmployeeTable() {
 
-    const [tableData, setTableData] = useState([
-      {empID: "OM001", name: "Vidusha", email: "vidushatjayaweera@gmail.com", jobRole: "Operation Manager", salary: 20000},
-      {empID: "CM001", name: "Sithum", email: "sithumasitha@gmail.com", jobRole: "Customer Affairs Manager", salary: 30000},
-      {empID: "TR008", name: "Chalani", email: "chalanisaumya@gmail.com", jobRole: "Trainer", salary: 50000},
-      {empID: "CL010", name: "Lakindu", email: "lakinduwiduranga@gmail.com", jobRole: "Cleaner", salary: 45000},
-      {empID: "CL010", name: "Lakindu", email: "lakinduwiduranga@gmail.com", jobRole: "Cleaner", salary: 45000},
-      {empID: "CL010", name: "Lakindu", email: "lakinduwiduranga@gmail.com", jobRole: "Cleaner", salary: 45000},
-    ])
+    const [tableData, setTableData] = useState([])
 
     const columns = [
-        {title: "Employee ID",field: "empID", defaultSort: "asc"},
-        {title: "Name",field: "name"},
+        {title: "_id", field: "_id", hidden: true},
+        {title: "Employee ID",field: "userId", defaultSort: "asc"},
+        {title: "Name",field: "firstName"},
         {title: "Email",field: "email", sorting: false, export: false},
-        {title: "Job Role",field: "jobRole"},
+        {title: "Job Role",field: "role"},
         {title: "Salary",field: "salary",type: "currency",currencySetting:{currencyCode: "LKR"}},
     ]
 
+    useEffect(()=>{
+      fetch("http://localhost:5000/employee")
+      .then(resp=>resp.json())
+      .then(resp=>{
+        console.log(resp)
+        setTableData(resp)})
+    },[])
+
     const navigate = useNavigate();
-    const editEmployee = () => {
-      navigate('/employeeRegister');
+
+    const editEmployee = (id) => {
+      navigate(`/employeeUpdate/${id}`);
     };
     const addEmployee = () => {
       navigate('/employeeRegister');
     };
+    const removeEmployee = (id) => {
+      axios.delete(`http://localhost:5000/employee/${id}`)
+          .then(response => {
+
+              console.log('Employee removed successfully');
+              // Refresh the table to show updated data
+              window.alert('Data has been deleted successfully');
+              window.location.reload();
+
+          })
+          .catch(error => {
+
+              console.log('Error deleting employee:', error);
+
+          });
+    }
 
     const classes = useStyles();
 
@@ -130,12 +151,12 @@ function EmployeeTable() {
                 {
                   icon: tableIcons.Edit,
                   tooltip: 'Edit Employee',
-                  onClick: (event, rowData) => editEmployee()
+                  onClick: (event, rowData) => editEmployee(rowData._id)
                 },
                 {
                   icon: tableIcons.Delete,
                   tooltip: 'Remove Employee',
-                  onClick: (event, rowData) => alert("You want to remove "+rowData.name),
+                  onClick: (event, rowData) => removeEmployee(rowData._id)
                 },
                 {
                   icon: () => <EditSalary label="Edit Salary"/>,

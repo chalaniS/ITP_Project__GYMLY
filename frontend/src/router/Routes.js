@@ -20,6 +20,7 @@ import EmployeeForm from '../pages/employeeMgt/EmployeeForm'
 import EmployeeTable from '../pages/employeeMgt/EmployeeTable'
 import EmployeeLeave from '../pages/employeeMgt/EmployeeLeave'
 import EmployeeSalaryForm from '../pages/employeeMgt/EmployeeSalaryForm'
+import EmployeeFormEdit from '../pages/employeeMgt/EmployeeFormEdit'
 
 const Router = () => {
     return (
@@ -40,6 +41,7 @@ const Router = () => {
             {/* Employee Management pages routing */}
             <Route path="/employeeDashboard" element={<EmployeeTable />} />
             <Route path="/employeeRegister" element={<EmployeeForm />} />
+            <Route path="/employeeUpdate/:id" element={<EmployeeFormEdit />} />
             <Route path="/employeeLeave" element={<EmployeeLeave />} />
             <Route path="/employeeSalary" element={<EmployeeSalaryForm />} />
             <Route path="/employeeSum" element={<TblEmpSummary />} />

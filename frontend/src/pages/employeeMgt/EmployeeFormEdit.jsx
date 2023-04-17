@@ -1,172 +1,171 @@
-import React, { Component } from "react";
-//import "./EmployeeFormEdit.css";
-import axios from "axios";
+import React, { Component, useState, useEffect } from "react";
+import { Container} from 'reactstrap'
+import axios from 'axios';
+import {useFormik} from 'formik'
+import {useParams} from 'react-router-dom'
+import '../../Styles/employee/EmployeeForm.css'
+import '../../Styles/schedule/schedule.css'
+import '../../App.css'
+
 import { Form, Button, Col, Row } from "react-bootstrap";
+import { showLoadingSpinner, hideLoadingSpinner } from '../../Components/Loading/Loading.js'
 
-class EmployeeFormEdit extends Component {
-  state = {
-    roleData: [],
-    departmentData: [],
-    GenderData: this.props.editData["Gender"],
+//const API_URL = 'http://localhost:5000/employee/${id}';
 
-    EmailData: this.props.editData["Email"],
-    // PasswordData: "",
+  const EmployeeFormEdit = () => {
 
-    FirstNameData: this.props.editData["FirstName"],
-    MiddleNameData: this.props.editData["MiddleName"],
-    LastNameData: this.props.editData["LastName"],
-    DOBData: this.props.editData["DOB"].slice(0, 10),
-    ContactNoData: this.props.editData["ContactNo"],
-    EmployeeCodeData: this.props.editData["EmployeeCode"],
+    const [firstName, setFirstName] = React.useState('');
+    const [lastName, setLastName] = React.useState('');
+    const [NIC, setNIC] = React.useState('');
+    const [role, setRole] = React.useState('');
+    const [gender, setGender] = React.useState('');
+    const [DOB, setDOB] = React.useState('');
+    const [contactNo, setContactNo] = React.useState('');
+    const [email, setEmail] = React.useState('');
+    const [address, setAddress] = React.useState('');
+    const [qualifications, setQualifications] = React.useState('');
+    const [joinedDate, setJoinedDate] = React.useState('');
+    const [terminateDate, setTerminateDate] = React.useState('');
 
-    DateOfJoiningData: this.props.editData["DateOfJoining"].slice(0, 10),
-    TerminateDateData: this.props.editData["TerminateDate"].slice(0, 10)
+    const params = useParams();
 
-    // value={this.state.EmployeeTitleData}
-    // onChange={value => this.onEmployeeTitleDataChange(value)}
-  };
-  onEmailDataChange(e) {
-    this.setState({ EmailData: e.target.value });
-  }
+    const validate = values => {
+      const errors = {};
 
-  onFirstNameDataChange(e) {
-    this.setState({ FirstNameData: e.target.value });
-  }
-  onMiddleNameDataChange(e) {
-    this.setState({ MiddleNameData: e.target.value });
-  }
-  onLastNameDataChange(e) {
-    this.setState({ LastNameData: e.target.value });
-  }
-  onContactNoDataChange(e) {
-    this.setState({ ContactNoData: e.target.value });
-  }
-  onEmployeeCodeDataChange(e) {
-    this.setState({ EmployeeCodeData: e.target.value });
-  }
-  // onPasswordDataChange(e) {
-  //   this.setState({ PasswordData: e.target.value });
-  // }
+      if(values.contactNo.length < 10){
+        errors.contactNo = "*Must be 10 digits";
+      }else if (!/^\d+$/.test(values.contactNo)) {
+        errors.contactNo = "*Contact number must contain only digits";
+      }
 
-  loadRoleInfo = () => {
-    axios
-      .get(process.env.REACT_APP_API_URL + "/api/role", {
-        headers: {
-          authorization: localStorage.getItem("token") || ""
-        }
-      })
-      .then(response => {
-        this.setState({ roleData: response.data });
-      })
-      .catch(error => {
-        console.log(error);
+      if(values.email.length < 4){
+        errors.email = "*Must be 5 characters or more";
+      }else if (values.email.indexOf('@') === -1) {
+        errors.email = "*Must contain an '@' symbol";
+      }
+      return errors;
+    }
+
+    const getEmployeeDetails = async() => {
+      console.warn(params)
+      let result = await fetch(`http://localhost:5000/employee/${params.id}`);
+      result = await result.json();
+      console.warn(result)
+
+      formik.setValues({
+        firstName: result.firstName,
+        lastName: result.lastName,
+        NIC: result.NIC,
+        role: result.role,
+        gender: result.gender,
+        DOB: result.DOB.substr(0, 10),
+        contactNo: result.contactNo,
+        email: result.email,
+        address: result.address,
+        qualifications: result.qualifications,
+        joinedDate: result.joinedDate.substr(0, 10),
+        terminateDate: result.terminateDate.substr(0, 10),
       });
-  };
-  loadDepartmentInfo = () => {
-    axios
-      .get(process.env.REACT_APP_API_URL + "/api/department", {
+
+    }
+
+    useEffect(()=>{
+      getEmployeeDetails();
+    },[])
+
+    const updateEmployee = async(data) => {
+      showLoadingSpinner();
+      console.warn(data)
+      let result = await fetch(`http://localhost:5000/employee/${params.id}`,{
+        method: 'PUT',
+        body: JSON.stringify(data),
         headers: {
-          authorization: localStorage.getItem("token") || ""
+          'Content-Type': 'application/json'
         }
-      })
-      .then(response => {
-        this.setState({ departmentData: response.data });
-      })
-      .catch(error => {
-        console.log(error);
       });
-  };
-  onGenderChange = e => {
-    this.setState({ GenderData: e.target.value });
-    this.props.onGenderChange(e);
-  };
-  onDOBDataChange = e => {
-    console.log(e.target.value);
-    this.setState({ DOBData: e.target.value });
-  };
-  onDateOfJoiningDataChange = e => {
-    console.log(e.target.value);
-    this.setState({ DateOfJoiningData: e.target.value });
-  };
-  onTerminateDateDataChange = e => {
-    console.log(e.target.value);
-    this.setState({ TerminateDateData: e.target.value });
-  };
-  onGenderChange = e => {
-    this.setState({ GenderData: e.target.value });
-    this.props.onGenderChange(e);
-  };
-  componentWillMount() {
-    this.loadRoleInfo();
-    this.loadDepartmentInfo();
-  }
-  render() {
+      result = await result.json()
+      console.warn(result)
+      if(result){
+        hideLoadingSpinner();
+        window.alert('Data has been updated successfully');
+        window.location = "http://localhost:3000/employeeDashboard";
+      }
+    }
+
+    const formik = useFormik({
+
+      //enableReinitialize: true,
+      initialValues: {
+        firstName: "",
+        lastName: "",
+        NIC: "",
+        role: "",
+        gender: "",
+        DOB: "",
+        contactNo: "",
+        email: "",
+        address: "",
+        qualifications: "",
+        // image: null,
+        joinedDate: "",
+        terminateDate: "",
+      },
+      validate,
+      onSubmit: () => {
+        updateEmployee(formik.values)
+      }
+      
+    });
+
     return (
-      <React.Fragment>
-        <h2 id="role-form-title">Edit Employee Details</h2>
+      <body id='Body'>
+      <section>
+      <Container>
+      <div className="form">
+        <h2 className="title code">Update Employee Details</h2>
         <div id="role-form-outer-div">
-          <Form
-            id="form"
-            onSubmit={e =>
-              this.props.onEmployeeEditUpdate(this.props.editData, e)
-            }
-          >
+          <Form id="form" onSubmit={formik.handleSubmit}>
+
             <Form.Group as={Row}>
               <Form.Label column sm={2}>
-                Email
+                First Name
               </Form.Label>
               <Col sm={10} className="form-input">
                 <Form.Control
-                  type="email"
-                  placeholder="Email"
-                  required
-                  value={this.state.EmailData}
-                  onChange={value => this.onEmailDataChange(value)}
-
+                  type="text"
+                  name="firstName"
+                  placeholder="First Name"
+                  onChange={formik.handleChange}
+                  value={formik.values.firstName}
                 />
               </Col>
             </Form.Group>
-
-            {/* <Form.Group as={Row}>
+            <Form.Group as={Row}>
               <Form.Label column sm={2}>
-                Password
+                Last Name
               </Form.Label>
               <Col sm={10} className="form-input">
                 <Form.Control
-                  type="password"
-                  placeholder="Password"
-                  required
-                  value={this.state.PasswordData}
-                  onChange={value => this.onPasswordDataChange(value)}
+                  type="text"
+                  name="lastName"
+                  placeholder="Last Name"
+                  onChange={formik.handleChange}
+                  value={formik.values.lastName}
                 />
               </Col>
-            </Form.Group> */}
-
+            </Form.Group>
             <Form.Group as={Row}>
               <Form.Label column sm={2}>
-                Account access
+                NIC
               </Form.Label>
               <Col sm={10} className="form-input">
-                <Form.Control as="select" required>
-                  <option
-                    value="1"
-                    selected={this.props.editData["Account"] == 1}
-                  >
-                    Admin
-                  </option>
-                  <option
-                    value="2"
-                    selected={this.props.editData["Account"] == 2}
-                  >
-                    HR
-                  </option>
-                  <option
-                    value="3"
-                    selected={this.props.editData["Account"] == 3}
-                  >
-                    Employee
-                  </option>
-                </Form.Control>
+                <Form.Control
+                  type="text"
+                  name="NIC"
+                  placeholder="NIC"
+                  onChange={formik.handleChange}
+                  value={formik.values.NIC}
+                />
               </Col>
             </Form.Group>
 
@@ -175,24 +174,47 @@ class EmployeeFormEdit extends Component {
                 Role
               </Form.Label>
               <Col sm={10} className="form-input">
-                <Form.Control as="select" name="role">
-                  <option disabled selected>
+                <Form.Control
+                  as="select"
+                  name="role"
+                  onChange={formik.handleChange}
+                  value={formik.values.role}
+                >
+                  <option selected>
                     Select your option
                   </option>
-                  {this.state.roleData.map((data, index) => (
-                    <option
-                      key={index}
-                      value={data["_id"]}
-                      selected={
-                        this.props.editData["role"][0]["_id"] == data["_id"]
-                      }
-                    >
-                      {data["RoleName"]}
-                    </option>
-                  ))}
+                  <option value="cleaner">Cleaner</option>
+                  <option value="cashier">Cashier</option>
+                  <option value="operation manager">Opertion Manager</option>
+                  <option value="fitness instructor">Fitness Instructor</option>
+                  <option value="customer service">Customer Service Manager</option>
+                  <option value="membership manager">Memebership Manager</option>
+                  <option value="payment manager">Payment Manager</option>
+                  <option value="supplier manager">Supplier Manager</option>
                 </Form.Control>
               </Col>
             </Form.Group>
+            {/* <Form.Group as={Row}>
+              <Form.Label column sm={2}>
+                Department
+              </Form.Label>
+              <Col sm={10} className="form-input">
+                <Form.Control
+                  as="select"
+                  name="department"
+                  required
+                >
+                  <option value="" disabled selected>
+                    Select your option
+                  </option>
+                  <option value="operation">Operation</option>
+                  <option value="customer service">Customer Service</option>
+                  <option value="membership">Memebership</option>
+                  <option value="payment">Payment</option>
+                  <option value="supplier">Supplier</option>
+                </Form.Control>
+              </Col>
+            </Form.Group> */}
             <Form.Group as={Row}>
               <Form.Label as="legend" column sm={2}>
                 Gender
@@ -204,9 +226,8 @@ class EmployeeFormEdit extends Component {
                   label="Male"
                   value="male"
                   name="gender"
-                  onChange={this.onGenderChange}
-                  checked={this.state.GenderData == "male"}
-                  required
+                  checked={formik.values.gender === "male"}
+                  onChange={formik.handleChange}
                 />
                 <Form.Check
                   inline
@@ -214,54 +235,12 @@ class EmployeeFormEdit extends Component {
                   label="Female"
                   value="female"
                   name="gender"
-                  onChange={this.onGenderChange}
-                  checked={this.state.GenderData == "female"}
-                  required
+                  checked={formik.values.gender === "female"}
+                  onChange={formik.handleChange}
                 />
               </Col>
             </Form.Group>
-            <Form.Group as={Row}>
-              <Form.Label column sm={2}>
-                First Name
-              </Form.Label>
-              <Col sm={10} className="form-input">
-                <Form.Control
-                  type="text"
-                  placeholder="First Name"
-                  required
-                  value={this.state.FirstNameData}
-                  onChange={value => this.onFirstNameDataChange(value)}
-                />
-              </Col>
-            </Form.Group>
-            <Form.Group as={Row}>
-              <Form.Label column sm={2}>
-                Middle Name
-              </Form.Label>
-              <Col sm={10} className="form-input">
-                <Form.Control
-                  type="text"
-                  placeholder="Middle Name"
-                  required
-                  value={this.state.MiddleNameData}
-                  onChange={value => this.onMiddleNameDataChange(value)}
-                />
-              </Col>
-            </Form.Group>
-            <Form.Group as={Row}>
-              <Form.Label column sm={2}>
-                Last Name
-              </Form.Label>
-              <Col sm={10} className="form-input">
-                <Form.Control
-                  type="text"
-                  placeholder="Last Name"
-                  required
-                  value={this.state.LastNameData}
-                  onChange={value => this.onLastNameDataChange(value)}
-                />
-              </Col>
-            </Form.Group>
+           
             <Form.Group as={Row}>
               <Form.Label column sm={2}>
                 DOB
@@ -269,11 +248,10 @@ class EmployeeFormEdit extends Component {
               <Col sm={10} className="form-input">
                 <Form.Control
                   type="date"
+                  name="DOB"
                   placeholder="DOB"
-                  required
-                  //   value={this.props.editData["DOB"].slice(0, 10)}
-                  value={this.state.DOBData}
-                  onChange={value => this.onDOBDataChange(value)}
+                  onChange={formik.handleChange}
+                  value={formik.values.DOB}
                 />
               </Col>
             </Form.Group>
@@ -284,52 +262,74 @@ class EmployeeFormEdit extends Component {
               <Col sm={10} className="form-input">
                 <Form.Control
                   type="text"
+                  name="contactNo"
                   placeholder="Contact No "
-                  required
-                  value={this.state.ContactNoData}
-                  onChange={value => this.onContactNoDataChange(value)}
+                  onChange={formik.handleChange}
+                  value={formik.values.contactNo}
+                  onBlur={formik.handleBlur}
                 />
+                {formik.touched.contactNo && formik.errors.contactNo ? <div className="error">{formik.errors.contactNo}</div>: null}
               </Col>
             </Form.Group>
             <Form.Group as={Row}>
               <Form.Label column sm={2}>
-                Employee Code
+                Email
+              </Form.Label>
+              <Col sm={10} className="form-input">
+                <Form.Control
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  onChange={formik.handleChange}
+                  value={formik.values.email}
+                  onBlur={formik.handleBlur}
+                />
+                {formik.touched.email && formik.errors.email ? <div className="error">{formik.errors.email}</div>: null}
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row}>
+              <Form.Label column sm={2}>
+                Address
               </Form.Label>
               <Col sm={10} className="form-input">
                 <Form.Control
                   type="text"
-                  placeholder="Employee Code"
-                  required
-                  value={this.state.EmployeeCodeData}
-                  onChange={value => this.onEmployeeCodeDataChange(value)}
+                  name="address"
+                  placeholder="Address"
+                  onChange={formik.handleChange}
+                  value={formik.values.address}
                 />
               </Col>
             </Form.Group>
-
             <Form.Group as={Row}>
               <Form.Label column sm={2}>
-                Department
+                Qualifications
               </Form.Label>
               <Col sm={10} className="form-input">
-                <Form.Control as="select" name="department" required>
-                  <option value="" disabled selected>
-                    Select your option
-                  </option>
-                  {this.state.departmentData.map((data, index) => (
-                    <option
-                      key={index}
-                      value={data["_id"]}
-                      selected={
-                        this.props.editData["department"][0]["_id"] ==
-                        data["_id"]
-                      }
-                    >
-                      {data["DepartmentName"]}
-                    </option>
-                  ))}
-                </Form.Control>
+                <Form.Control 
+                  as="textarea" 
+                  rows={3}
+                  name="qualifications"
+                  placeholder="Qualifications"
+                  onChange={formik.handleChange}
+                  value={formik.values.qualifications} 
+                />
               </Col>
             </Form.Group>
+            {/* <Form.Group as={Row}>
+              <Form.Label column sm={2}>
+                Upload Image
+              </Form.Label>
+              <Col sm={10} className="form-input">
+                <Form.Control 
+                  type="file"
+                  name="image"
+                  onChange={(event) => {
+                    formik.setFieldValue("image", event.currentTarget.files[0]);
+                  }}
+                />
+              </Col>
+            </Form.Group> */}
             <Form.Group as={Row}>
               <Form.Label column sm={2}>
                 Date Of Joining
@@ -337,11 +337,10 @@ class EmployeeFormEdit extends Component {
               <Col sm={10} className="form-input">
                 <Form.Control
                   type="date"
+                  name="joinedDate"
                   placeholder="Date Of Joining"
-                  required
-                  //   value={this.props.editData["DateOfJoining"].slice(0, 10)}
-                  value={this.state.DateOfJoiningData}
-                  onChange={value => this.onDateOfJoiningDataChange(value)}
+                  onChange={formik.handleChange}
+                  value={formik.values.joinedDate}
                 />
               </Col>
             </Form.Group>
@@ -352,31 +351,38 @@ class EmployeeFormEdit extends Component {
               <Col sm={10} className="form-input">
                 <Form.Control
                   type="date"
+                  name="terminateDate"
                   placeholder="Terminate Date"
-                  //   value={this.props.editData["TerminateDate"].slice(0, 10)}
-                  value={this.state.TerminateDateData}
-                  onChange={value => this.onTerminateDateDataChange(value)}
+                  onChange={formik.handleChange}
+                  value={formik.values.terminateDate}
                 />
               </Col>
             </Form.Group>
 
+
+
             <Form.Group as={Row} id="form-submit-button">
               <Col sm={{ span: 10, offset: 2 }}>
-                <Button type="submit">Submit</Button>
+                <Button disabled={formik.isSubmitting} type="submit">{formik.isSubmitting ? 'Updating' : 'Update'}</Button>
               </Col>
             </Form.Group>
             <Form.Group as={Row} id="form-cancel-button">
               <Col sm={{ span: 10, offset: 2 }} id="form-cancel-button-inner">
-                <Button type="reset" onClick={this.props.onFormEditClose}>
-                  cancel
+                <Button type="reset">
+                  Reset
                 </Button>
               </Col>
             </Form.Group>
           </Form>
         </div>
-      </React.Fragment>
+
+        {/* </div>
+        </div> */}
+      </div>
+      </Container>
+      </section>
+      </body>
     );
   }
-}
 
 export default EmployeeFormEdit;
