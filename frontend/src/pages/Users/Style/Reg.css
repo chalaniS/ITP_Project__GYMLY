@@ -3,22 +3,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 /*Font of body*/
 
-
-#registation {
-    /* background-image:url('../../../images/User-managment/Reg-bg.png'); */
-    background-color: #cccccc;
-    /* Used if the image is unavailable */
-    background-position: center;
-    /* Center the image */
-    background-repeat: no-repeat;
-    /* Do not repeat the image */
+#registation{
+    background-image: url("../../../images/LandingPage/Home-cover.png");
+    background-color: #cccccc; /* Used if the image is unavailable */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover;
-    /* Resize the background image to cover the entire container */
-    padding: 60px;
+    margin-bottom: 10px;
 }
+
 
 #form-section {
     padding: 50px;
+    padding-bottom: 10px;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -33,12 +30,12 @@
     margin-right: auto;
     padding-left: 60px;
     padding-right: 60px;
-    padding-bottom: 60px;
+    padding-bottom: 10px;
     width: fit-content;
     border-radius: 50px;
-    background: rgba(23, 116, 203, 0.39);
+    background: rgba(0, 0, 0, 0.39);
     border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 30px rgba(21, 1, 1, 0.1);
     backdrop-filter: blur(14.3px);
     -webkit-backdrop-filter: blur(14.3px);
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -77,13 +74,13 @@
     font-family: 'Roboto', sans-serif;
     font-size: 17px;
     margin-top: 10px;
-    color: #2047d5;
+    color: #010512;
     background-color: #fff;
 }
 
 #reg-sub-btn:hover {
     color: #fff;
-    background-color: #2047d5;
+    background-color: #000411;
 }
 
 #inputs-selct {

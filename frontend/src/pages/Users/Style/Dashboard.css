@@ -2,34 +2,88 @@
 
 #dashboard-title{
     color: lavender;
-    font-size: 70px;
+    font-size: 40px;
     font-family: 'Anton', sans-serif;
-    text-align: center;
+    text-align: right;
     padding-top: 20px;
     text-shadow: 4px 4px 8px black;
 }
 
+userdashboard-header{
+    background-color: #1e1e1e;
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    align-content: left;
+    padding-right: 20px;
+    margin-right: 40px;
+}
+
 #cards{
     display: flex;
+    align-items: center;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin-left:20px;
-    margin-right: 20px;
+    padding: 20px;
+
+}
+
+.dbd-title{
+    background: -webkit-linear-gradient(#4880d3, #3361ba, #2143a0, #142484, #090067);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 20px;
 }
 
 .dsbd-cards{
-    width: fit-content;
-    height: 200px;
+    align-items: center;
+    width: 300px;
+    height: 300px;
     background-color: #f5f5f5;
-    margin-top: 20px;
+    margin-top: 40px;
     margin-bottom: 20px;
     margin-left: 10px;
     margin-right: 10px;
-    padding-left: 200px;
-    padding-right: 200px;
+    padding-left: 100px;
+    padding-right: 100px;
     padding-top: 20px;
     padding-bottom: 20px;
     border-radius: 40px;
+}
+
+#dsbd-cards-icons{
+    padding-top: 30px;
+    padding-bottom:10px;
+    background: -webkit-linear-gradient(#4880d3, #3361ba, #2143a0, #142484, #090067);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+#dsbd-cards-links{
+    padding-bottom: 10px;
+}
+
+
+#dsbd-cards-links-btn
+{
+    margin-top: 15px;
+    color: whitesmoke;
+    font-size: 15px;
+    border-radius: 40px;
+    border: 2px solid #090067;
+    width: 100px;
+    padding: 10px;
+    background-color: #090067;
+}
+
+#dsbd-cards-links-btn:hover{
+    background-color: whitesmoke;
+    color: blue;
+    text-decoration: none;
 }
