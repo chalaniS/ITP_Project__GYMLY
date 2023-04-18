@@ -1,0 +1,65 @@
+#Profile-Name-Pic-section{
+    height: fit-content;
+    padding-bottom: 10px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 10px;
+}
+
+#Pic-section{
+    width: fit-content;
+    justify-content: right;
+}
+
+#Profile-Pic{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+#name-title{
+    font-size: 50px;
+    font-weight: 600;
+    padding-top: 20px;
+    color: #fff;
+    font-family: 'Anton', sans-serif;
+}
+
+#userdetails-section{
+    font-size: 30px;
+    color: #fff;
+}
+
+.user-inftomations-divs{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+#btn-section{
+    padding-top: 20px;
+}
+
+#edit-btn{
+    border-radius: 60px;
+    width: fit-content;
+    height: 50px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #000;
+    border: 1px solid #fff;
+    margin-right: 20px;
+}
+
+#edit-btn:hover{
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+}

@@ -1,17 +1,31 @@
-import pino from "pino";
+const pino = require('pino')({
+    prettyPrint: {
+        levelFirst: true,
+        colorize: true,
+        translateTime: `SYS:yyyy-mm-dd HH:MM:ss`,
+        ignore: "pid,hostname"
+    }
+});
 
-
-const logger = pino({
-    transport: {
-        target: 'pino-pretty',
-        options: {
-            colorize: true,
-            translateTime: `SYS:yyyy-mm-dd HH:MM:ss`,
-            ignore: "pid,hostname"
-        }
-    },
-})
+pino.addHook(pino.pretty()).info('Hello, world!');
 
 
 
-export default logger;
+// import pino from "pino";
+
+
+// const logger = pino({
+//     transport: {
+//         target: 'pino-pretty',
+//         options: {
+//             colorize: true,
+//             translateTime: `SYS:yyyy-mm-dd HH:MM:ss`,
+//             ignore: "pid,hostname"
+//         }
+//     },
+// })
+
+
+
+// export default logger;
+

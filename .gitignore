@@ -1,2 +1,4 @@
 backend/package-lock.json
-backend/.env
+node_modules
+frontend/src/router/Routes.js
+backend\node_modules

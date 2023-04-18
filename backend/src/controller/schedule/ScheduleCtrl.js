@@ -1,49 +1,7 @@
-import "dotenv/config";
-import mongoose from "mongoose";
-import express from "express";
-import cors from "cors";
-import ScheduleModel from './models/schedule/ScheduleModel.js'
-import SchedulRouter from './routes/schedule/SchedulRouter.js'
-import User from './routes/Users/userRouters.js' 
+import ScheduleModel from '../../models/schedule/ScheduleModel.js';
 
-const app = express();
-app.use(cors());
-app.use(express.json());
-
-const PORT = process.env.PORT || 5000;
-
-let database;
-
-//make connection with datahase
-app.listen(PORT, () => {
-
-    // Start the server
-    console.log(`Server started on port ${PORT}`)
-
-    //connect db
-    mongoose
-        .connect("mongodb+srv://gymly:gymly123@gymly-db-cluster.sfmuyh9.mongodb.net/gymly-db?retryWrites=true&w=majority")
-        .then((connection) => {
-            database = connection;
-            console.log("Database Synced");
-        })
-        .catch((err) => {
-            console.log(err.message);
-        });
-});
-
-//connect with frontend
-app.get("/getData", (req, res) => {
-    res.send("Hello I'm from backend");
-});
-
-
-//throw API to SchedulRouter class
-// app.use('/schedules', SchedulRouter);
-
-
-app.post("/schedules", async (req, res) => {
-
+// Create a function to create a new schedule
+export async function createOne(req, res) {
     const dayscount = req.body.dayscount
     const date = req.body.date
     const timeslot = req.body.timeslot
@@ -70,37 +28,25 @@ app.post("/schedules", async (req, res) => {
         console.log(err);
         res.status(500).send("Error occurred while inserting data");
     }
-});
+}
 
-app.get("/schedules", async (req, res) => {
+// Create a function to read all schedules
+export async function getAll(req, res) {
 
     const userId = "45821463#23669545";
 
     try {
         const schedules = await ScheduleModel.find({ userId });
-        console.log("'Schedule read successfully'");
         res.status(200).json(schedules);
     } catch (err) {
         console.log(err);
         res.status(500).send('Error occurred while retrieving data');
     }
-
-});
-
-// read a single schedule by id for update
-app.get('/schedules/:id', async (req, res) => {
-    try {
-        const schedule = await ScheduleModel.findById(req.params.id);
-        console.log('Schedule read successfully for update');
-        res.status(200).json(schedule);
-    } catch (err) {
-        console.error(err);
-        res.status(500).send('Error occurred while retrieving data');
-    }
-});
+}
 
 
-app.put("/schedules/:id", async (req, res) => {
+// Create a function to update a schedule by id
+export async function updateOne(req, res) {
     const objectId = req.params.id;
     const { dayscount, date, timeslot, instructor, section } = req.body;
     try {
@@ -122,22 +68,19 @@ app.put("/schedules/:id", async (req, res) => {
         console.log(err);
         res.status(500).send('Error occurred while updating data');
     }
-});
+}
 
-
-app.delete("/schedules/:id", async (req, res) => {
+// Create a function to delete a schedule by id
+export async function deleteOne(req, res) {
     const objectId = req.params.id;
     try {
         await ScheduleModel.findByIdAndDelete(objectId);
-        console.log("'Schedule deleted successfully'");
         res.status(200).send('Schedule deleted successfully');
     } catch (err) {
         console.log(err);
         res.status(500).send('Error occurred while deleting data');
     }
-});
+}
 
-
-
-//lakindu's part
-app.use(User);
+// Export all the controller functions as an object
+export default { createOne, getAll, updateOne, deleteOne };
