@@ -35,12 +35,12 @@ const Registation = (props) => {
 
         const data = res.json()
 
-        if(!data.ok){
+        if(!res.ok){
             console.log(console.error)
             alert("can't add user")
         }
 
-        if(data.ok){
+        if(res.ok){
             setName("")
             setNic("")
             setEmail("")
