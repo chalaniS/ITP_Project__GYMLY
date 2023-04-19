@@ -7,6 +7,7 @@ import Form from 'react-bootstrap/Form';
 import './Style/Reg.css'
 
 
+
 const Registation = (props) => {
   
     const [Name, setName] = useState("");
@@ -39,8 +40,7 @@ const Registation = (props) => {
             console.log(console.error)
             alert("can't add user")
         }
-
-        if(res.ok){
+        else if(res.ok){
             setName("")
             setNic("")
             setEmail("")

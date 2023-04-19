@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './Search.css';
+import * as Icons from 'react-bootstrap-icons';
+
 
 const Search = () => {
 
@@ -8,7 +10,7 @@ const Search = () => {
     return (
         <div   className=''>
              <form>
-                <input type="search" placeholder='Search' id='searchBarElement'/>
+            <Icons.Search id='searchIcon' /> <input type="search" placeholder='Search' id='searchBarElement' /> 
             </form>
         </div>
     );

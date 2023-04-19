@@ -1,10 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+/*Font of title*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+/*Font of body*/
+
+
 #logging{
     background-image: url("../../../images/LandingPage/Home-cover.png");
     background-color: #cccccc; /* Used if the image is unavailable */
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover;
-    height: 100vh;
+    height: 70vh;
 }
 
 #logging-form-section{
@@ -19,6 +25,8 @@
     margin-left: auto;
     margin-right: auto;
     padding:  60px;
+    padding-top:40px;
+    padding-bottom: 40px;
     width: fit-content;
     border-radius: 50px ; 
     background: rgba(23, 116, 203, 0.39);
@@ -31,16 +39,26 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+#logging-title{
+    font-size: 60px;
+    font-weight: 600;
+    color: #fff;
+    font-family: 'Anton', sans-serif;
+    margin-bottom: 20px;
+}
+
 #formBasicEmail{
-    border-radius: 40px;
+    border-radius: 20px;
     width: 350px;
+    height: 40px;
     text-transform: unset !important;
 }
 
 
 #formBasicPassword{
-    border-radius: 40px;
+    border-radius: 20px;
     width: 350px;
+    height: 40px;
     margin-top: 30px;
     text-transform: unset !important;
     

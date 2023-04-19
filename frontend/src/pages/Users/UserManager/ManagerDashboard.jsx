@@ -1,8 +1,8 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import Table from 'react-bootstrap/Table';
 import Search from "../../../Components/Search/Search";
 import '../Style/ManagerDashboard.css'
-import { useEffect, useState } from "react";
+import axios from 'axios';
 
 const ManagerDashboard = () => {
 
@@ -22,6 +22,28 @@ const ManagerDashboard = () => {
 
         fetchWorkouts()
     }, []);
+    {/* Fetching Data to page  */}
+
+
+    {/* Delete user */}
+    const handleDelete = (id) => {
+        axios.delete(`http://localhost:5001/users/${id}`)
+            .then(response => {
+
+                console.log('Schedule deleted successfully');
+                // Refresh the table to show updated data
+                window.alert('Data has been deleted successfully');
+                window.location.reload();
+
+            })
+            .catch(error => {
+
+                console.log('Error deleting schedule:', error);
+
+            });
+    }
+    {/* end of Delete user */}
+
 
 
     return(
@@ -41,7 +63,7 @@ const ManagerDashboard = () => {
                     <thead>
                         <tr>
                         <th>Id</th>
-                        <th>Name</th>
+                        <th>Name</th>  
                         <th>Email</th>
                         <th>Package</th>
                         <th>Gender</th>
@@ -52,14 +74,15 @@ const ManagerDashboard = () => {
                     {/*Body of table*/}  
                     <tbody>
                         {userData && userData.map((users) => (
-                            <tr key={users._id}>
+                            <tr key={users.userId}>
                                 <td>{users.userId}</td>
                                 <td>{users.Name}</td>
                                 <td>{users.Email}</td>
                                 <td>Basic</td>
                                 <td>{users.Gender}</td>
-                                <td><button className="btn btn-primary" id="delete-user-btn">Delete</button></td>
-                            </tr>
+                                <td><button className="btn btn-primary" id="delete-user-btn" onClick={() => handleDelete(users._id)}>delete</button></td>
+                            </
+tr>
                         ))}
                         </tbody>  
 

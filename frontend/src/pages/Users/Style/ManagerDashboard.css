@@ -1,7 +1,8 @@
 #ManagerDashboard{
-    margin: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
     background-color:black;
-    padding-bottom: 150px;
+    padding-bottom: 20px;
 }
 
 #ManagerDashboard #ManagerDashboard-Title{
@@ -23,7 +24,7 @@
 }
 
 #ManagerDashboard #ManagerDashboard-users-table tbody{
-    
+    font-weight: bold;
 }
 
 #ManagerDashboard #ManagerDashboard-users-table button{
