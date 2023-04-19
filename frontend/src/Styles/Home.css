@@ -68,7 +68,7 @@
     color: white;
     font-family: 'Anton', sans-serif;
     text-align: left;
-    padding-top: 10px;
+    padding-top: 40px;
     text-shadow: 4px 4px 8px black;
 }
 
@@ -109,7 +109,12 @@
     font-size: 60px;
     font-family: 'Anton', sans-serif;
     text-align: left;
-    padding-top: 10px;
+    padding-top: 5px;
+}
+
+#contact-info{
+    padding-top: 15px;
+    padding-left: 10px;
 }
 
 #location-discription{
@@ -119,6 +124,11 @@
     padding-bottom: 20px;
     font-family: 'Roboto', sans-serif;
     text-align: left;
+}
+
+#contact-info-list{
+    padding-top: 10px;
+    padding-left: 100px;
 }
 /*location section*/
 

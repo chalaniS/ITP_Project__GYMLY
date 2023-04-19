@@ -62,7 +62,7 @@ const Home = () => {
         {/*location section*/}
 
         {/*footer section*/}
-
+         
         {/*footer section*/}
 
         
