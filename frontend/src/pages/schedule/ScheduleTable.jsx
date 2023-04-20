@@ -106,7 +106,7 @@ const ScheduleTable = () => {
                         <Row>
 
                             <Col>
-                                <input type="date" className="calender" selected={startDate} />
+                                <a href="/changeinstrutor/" target="_blank" className="tertiary_btn">Change Instructor</a>
                             </Col>
 
                         </Row>

@@ -68,41 +68,19 @@ const InstructorConfirmOM = () => {
                                 Approve
                             </th>
                             <th>
-                                Delete
+                                Reject
                             </th>
                         </thead>
                         <tbody>
+
+
                             <tr >
                                 <td>UserName</td>
                                 <td>Trainer Name</td>
                                 <td>Trainer Name</td>
                                 <td >Reason for change</td>
-                                <td><button className='edit_btn '>edit</button></td>
-                                <td><button className='delete_btn '>delete</button></td>
-                            </tr>
-                            <tr >
-                                <td>UserName</td>
-                                <td>Trainer Name</td>
-                                <td>Trainer Name</td>
-                                <td >Reason for change</td>
-                                <td><button className='edit_btn '>edit</button></td>
-                                <td><button className='delete_btn '>delete</button></td>
-                            </tr>
-                            <tr >
-                                <td>UserName</td>
-                                <td>Trainer Name</td>
-                                <td>Trainer Name</td>
-                                <td >Reason for change</td>
-                                <td><button className='edit_btn '>edit</button></td>
-                                <td><button className='delete_btn '>delete</button></td>
-                            </tr>
-                            <tr >
-                                <td>UserName</td>
-                                <td>Trainer Name</td>
-                                <td>Trainer Name</td>
-                                <td >Reason for change</td>
-                                <td><button className='edit_btn '>edit</button></td>
-                                <td><button className='delete_btn '>delete</button></td>
+                                <td><button className='edit_btn '>Approve</button></td>
+                                <td><button className='delete_btn '>Reject</button></td>
                             </tr>
 
 

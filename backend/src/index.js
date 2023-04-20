@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import express from "express";
 import cors from "cors";
 import ScheduleModel from './models/schedule/ScheduleModel.js'
+import IRequestModel from './models/schedule/RequestModel.js'
 
 
 const app = express();
@@ -40,6 +41,8 @@ app.get("/getData", (req, res) => {
 // app.use('/schedules', SchedulRouter);
 
 
+// IT21377280 - Rajapaksha C.S. 
+// user Inserts default schedule data
 app.post("/schedules", async (req, res) => {
 
     const dayscount = req.body.dayscount
@@ -70,6 +73,9 @@ app.post("/schedules", async (req, res) => {
     }
 });
 
+
+
+// Read all scheduled timetable 
 app.get("/schedules", async (req, res) => {
 
     const userId = "45821463#23669545";
@@ -98,6 +104,7 @@ app.get('/schedules/:id', async (req, res) => {
 });
 
 
+// Update the schedule datas by _uid document by document
 app.put("/schedules/:id", async (req, res) => {
     const objectId = req.params.id;
     const { dayscount, date, timeslot, instructor, section } = req.body;
@@ -123,6 +130,7 @@ app.put("/schedules/:id", async (req, res) => {
 });
 
 
+// Delete the schedule datas by _uid document by document
 app.delete("/schedules/:id", async (req, res) => {
     const objectId = req.params.id;
     try {
@@ -134,3 +142,37 @@ app.delete("/schedules/:id", async (req, res) => {
         res.status(500).send('Error occurred while deleting data');
     }
 });
+
+
+// confirmation part - request to change instructor
+
+// user inserts data to change instructor 
+app.post("/changerequest", async (req, res) => {
+    const { currentInstructor, requestInstructor, reason, status } = req.body;
+
+    // Validation checks
+    if (!currentInstructor || !requestInstructor || !reason || !status) {
+        return res.status(400).send("Please provide all required fields.");
+    }
+
+    const IRequest = new IRequestModel({
+        userId: "45821463#23669545",
+        currentInstructor,
+        requestInstructor,
+        reason,
+        status,
+    });
+
+    try {
+        await IRequest.save();
+        console.log("successfully data inserted");
+        res.status(200).send("Data inserted successfully");
+    } catch (err) {
+        console.log(err);
+        res.status(500).send("Error occurred while inserting data");
+    }
+});
+
+
+
+
