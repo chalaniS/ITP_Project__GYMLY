@@ -21,7 +21,6 @@ const Registation = (props) => {
     const [Height, setHeight] = useState("");
     const [Weight, setWeight] = useState("");
 
-
     const handleSubmit = async (e) => {
 
         e.preventDefault();
