@@ -1,10 +1,11 @@
 import profilepic from '../../images/profilePics/profilepic.png'
 import './Style/Userprofile.css'
+import * as Icons from 'react-bootstrap-icons';
 
 const Userprofile = () => {
 
         return (
-            <div className="container-fluid">
+            <div className="container-fluid" id='userprofile-section'>
 
                 {/* Row for Profile Pic and name */}
                 <div className="container" id="Profile-Name-Pic-section">
@@ -19,16 +20,19 @@ const Userprofile = () => {
                 </div>
 
                 {/*User details section*/}
-                <div className="text-center container" id='userdetails-section'>
-                <div className='user-inftomations-divs' id="email">lakinduwiduraga@icould.com</div>
-                    <div className='user-inftomations-divs' id="phoneNumber">Male</div>
+                <div className="container" id='userdetails-section'>
+                <div className='user-inftomations-divs' id="email"><Icons.EnvelopeFill className='icons'/> :  lakinduwiduraga@icould.com</div>
+                <div className='user-inftomations-divs' id="phoneNumber"><Icons.TelephoneFill className='icons'/> :  0769114371</div>
+                <div className='user-inftomations-divs' id="Address"><Icons.HouseFill className='icons'/> :  123/1, Galle Road </div>
+                <div className='user-inftomations-divs' id="Birthday"><Icons.CalendarFill className='icons'/> :  1999-12-12</div>
+                <div className='user-inftomations-divs' id="Gender"><Icons.PeopleFill className='icons'/> :  Male</div>
 
-                    <div className='user-inftomations-divs' id="phoneNumber">0769114371</div>
+                
                 </div>
 
                 <div className="container text-center">
                         <div className="col" id='btn-section'>
-                            <button className="btn btn-primary" id="edit-btn">Edit Profile</button>
+                            <button className="btn btn-primary" id="edit-btn"> <Icons.GearWideConnected/> Edit Profile</button>
                         </div>
                 </div>
 

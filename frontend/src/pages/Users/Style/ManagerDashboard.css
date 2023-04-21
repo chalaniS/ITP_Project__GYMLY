@@ -1,15 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+/*Font of title*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+/*Font of body*/
+
+
+
 #ManagerDashboard{
-    margin: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
     background-color:black;
-    padding-bottom: 150px;
+    padding-bottom: 60px;
 }
 
 #ManagerDashboard #ManagerDashboard-Title{
     padding-top: 10px;
     padding-bottom: 0px;
-    font-size: 40px;
+    font-size: 50px;
     font-weight: bold;
     color: aliceblue;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 4px;
+
+    
 }
 
 #ManagerDashboard #ManagerDashboard-search{
@@ -23,7 +35,7 @@
 }
 
 #ManagerDashboard #ManagerDashboard-users-table tbody{
-    
+    font-weight: bold;
 }
 
 #ManagerDashboard #ManagerDashboard-users-table button{
