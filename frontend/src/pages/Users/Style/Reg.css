@@ -39,13 +39,18 @@
 }
 
 #reg-title {
-    font-size: 60px;
+    font-size: 55px;
     font-weight: 600;
-    padding-top: 20px;
+    padding-top: 0px;
     padding-bottom: 5px;
     color: #fff;
     font-family: 'Anton', sans-serif;
     margin-bottom: 20px;
+    letter-spacing: 3px;
+}
+
+#reg-logo{
+    padding-top: 20px;
 }
 
 .inputs {

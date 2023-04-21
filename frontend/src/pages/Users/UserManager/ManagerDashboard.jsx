@@ -84,7 +84,7 @@ const ManagerDashboard = () => {
         var rbody = userData && userData.map((users) => (
             [users.Name, users.Email, users.Gender, users.Phone]
         ))
-    {/* Generate user report */}
+      {/* End of Generate user report */}
 
     
     return(
@@ -108,7 +108,7 @@ const ManagerDashboard = () => {
             </div>
         </div>
 
-
+        {/*Create div with table to show all users*/}
           <div className="container-fluid" id="ManagerDashboard-users-table">
                 <Table striped className="bg-light container">
 
@@ -134,14 +134,23 @@ const ManagerDashboard = () => {
                                 <td>Basic</td>
                                 <td>{users.Gender}</td>
                                 <td><button className="btn btn-primary" id="delete-user-btn" onClick={() => handleDelete(users._id)}>delete</button></td>
-                            </
-tr>
+                            </tr>
                         ))}
                         </tbody>  
 
                 </Table>
 
           </div>
+        {/*Create div with table to show all users*/}
+
+        <div className="row">
+            <div className="col-6">
+            
+            </div>
+            <div className="col-6">
+            
+            </div>
+        </div>
 
           {/*Create div with button to genarate user report
             <div className="container text-center" id="ManagerDashboard-user-report">

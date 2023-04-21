@@ -3,7 +3,7 @@ import { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-
+import logo from '../../images/logo.png'
 import './Style/Reg.css'
 
 
@@ -63,9 +63,16 @@ const Registation = (props) => {
 
         <Form id="RegForm" className="text-center" onSubmit={handleSubmit}>
 
+         {/* Logo */}
+        <div className="mb-3" id="reg-logo">
+            <img src={logo} alt="logo" width="120" height="auto" className="img-fluid" />
+        </div>
+
+
         {/* Title */}
         <div className="mb-3 fw-normal" id="reg-title">Register</div>
         {/* Title */} 
+
 
           <Form.Group className="mb-3 inputs" >
             <Form.Control className="inputs-sub" type="text" placeholder="Enter name"  name="name" value={Name} onChange={(e)=> setName(e.target.value)}  required/>

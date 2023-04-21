@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './Style/Login.css';
 import { useState } from "react";
+import logo from '../../images/logo.png';
 import * as Icons from 'react-bootstrap-icons';
 
 
@@ -16,7 +17,11 @@ const Login = () => {
    
     <div className="container" id="logging-form-section">
     <Form id="LogingForm" className="text-center">
-
+      
+      <div id="">
+        <img src={logo} alt="logo" width="120px" height="auto" className="img-fluid"/>
+      </div>
+      
       <div id="logging-title">Sign In</div>
       
       <Form.Group className="mb-3" controlId="formBasicEmail">

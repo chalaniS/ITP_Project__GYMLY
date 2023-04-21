@@ -10,7 +10,6 @@
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover;
-    height: 70vh;
 }
 
 #logging-form-section{
@@ -40,11 +39,18 @@
 }
 
 #logging-title{
-    font-size: 60px;
+    font-size: 55px;
     font-weight: 600;
+    padding-top: 10px;
+    padding-bottom: 5px;
     color: #fff;
     font-family: 'Anton', sans-serif;
     margin-bottom: 20px;
+    letter-spacing: 4px;
+}
+
+#logging-logo{
+    padding-top: 20px;
 }
 
 #formBasicEmail{

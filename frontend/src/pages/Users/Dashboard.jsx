@@ -18,14 +18,15 @@ const Dashboard = () => {
 
 
     return (
-      <div  className="container">
+      <div  className="container-fluid"  id="userdashboard-section">
 
+      <div className="container">
        {/*Have to do some changes on this elemet after backend*/}
        <div className="container" id="userdashboard-header">
-         <div className="container text-left content-justify-left" id="dashboard-title">{hour < 12 ? "Good Morning" : "Good evening"} Lakindu</div>
+         <div className="container text-center content-justify-Center" id="dashboard-title">{hour < 12 ? "Good Morning" : "Good evening"} Lakindu</div>
        </div>
        
-       <div className="container content-justify-center text-center" id="cards">
+       <div className="container d-flex content-justify-center text-center" id="cards">
         <div className="row content-justify-center text-center">
             <div className="col" >
                 <div className="dsbd-cards ">
@@ -127,6 +128,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+    </div>
     )
   }
 
