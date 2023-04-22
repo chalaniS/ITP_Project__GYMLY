@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Container, Row, Col, Table } from 'reactstrap'
 import '../../Styles/schedule/schedule.css'
 import '../../App.css'
@@ -7,38 +7,15 @@ import { AiOutlineSearch } from "react-icons/ai";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { showLoadingSpinner, hideLoadingSpinner } from '../../Components/Loading/Loading.js'
-import html2pdf from 'html2pdf.js';
-
-function isPdf() {
-    const userAgent = navigator.userAgent.toLowerCase();
-    return (userAgent.indexOf('firefox') > -1 || userAgent.indexOf('chrome') > -1);
-}
-
-function generatePDF() {
-    const element = document.getElementById('pdf-table');
-    const opt = {
-        margin: 0.3,
-        filename: 'TimeTable.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-    };
-
-    html2pdf().set(opt).from(element).toPdf().get('pdf').then(function (pdf) {
-        const pdfBlob = pdf.output('blob');
-        const blobUrl = URL.createObjectURL(pdfBlob);
-        window.open(blobUrl, '_blank');
-    });
-}
-
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 const ScheduleTable = () => {
-    isPdf = false;
     const navigate = useNavigate();
     const [startDate, setStartDate] = useState(new Date());
     const [schedules, setSchedules] = useState([]);
     const [tempData, setTempData] = useState(schedules);
-
+    const tableRef = useRef(null);
 
     useEffect(() => {
         const fetchSchedules = async () => {
@@ -55,6 +32,39 @@ const ScheduleTable = () => {
         fetchSchedules();
     }, []);
 
+    const handleGeneratePdf = () => {
+        // initialize the PDF document
+        const doc = new jsPDF();
+
+        // add title to the PDF document
+        doc.setFontSize(16);
+        doc.text('Daily Training Schedules', 14, 22);
+      
+        // define the table columns
+        const columns = [    
+            { header: 'No', dataKey: 'dayscount' },    
+            { header: 'TimeSlot', dataKey: 'timeslot' },    
+            { header: 'Date', dataKey: 'date' },    
+            { header: 'Instructor', dataKey: 'instructor' },    
+            { header: 'Section', dataKey: 'section' }  
+        ];
+        
+        // define the table rows
+        const rows = schedules.map(schedule => ({
+          dayscount: schedule.dayscount,
+          timeslot: schedule.timeslot,
+          date: schedule.date,
+          instructor: schedule.instructor,
+          section: schedule.section
+        }));
+        
+        // add the table to the PDF document
+        doc.autoTable(columns, rows);
+        
+        // save the PDF file
+        doc.save('DailyTrainingSchedules.pdf');
+    };
+      
 
     const handleEdit = (id) => {
         navigate(`/changetimeslot/${id}`);
@@ -100,7 +110,7 @@ const ScheduleTable = () => {
                 <br />
                 <Row>
                     <Col>
-                        <input type="button" className="tertiary_btn" value="Generate a report" onClick={generatePDF} />
+                        <input type="button" className="tertiary_btn" value="Generate a report" onClick={handleGeneratePdf} />
                     </Col>
                     <Col>
                         <Row>
@@ -131,7 +141,7 @@ const ScheduleTable = () => {
                 <br />
 
                 <Row>
-                    <div id='pdf-table'>
+                    <div>
 
                         <Table dark striped bordered hover responsive>
 
@@ -161,12 +171,12 @@ const ScheduleTable = () => {
                                     <th>Date</th>
                                     <th>Instructor</th>
                                     <th>Section</th>
-                                    {isPdf ? null : (
+                                    
                                         <> <th>Edit</th>
                                             <th>Delete</th>
 
                                         </>
-                                    )}
+                                    
                                 </tr>
                             </thead>
                             <tbody>
@@ -177,7 +187,7 @@ const ScheduleTable = () => {
                                         <td>{row.date}</td>
                                         <td>{row.instructor}</td>
                                         <td>{row.section}</td>
-                                        {isPdf ? null : (
+                                        
                                             <>
                                                 <td>
                                                     <button className='edit_btn' onClick={() => handleEdit(row._id)}>edit</button>
@@ -186,7 +196,7 @@ const ScheduleTable = () => {
                                                     <button className='delete_btn' onClick={() => handleDelete(row._id)}>delete</button>
                                                 </td>
                                             </>
-                                        )}
+                                        
                                     </tr>
                                 ))}
                             </tbody>
