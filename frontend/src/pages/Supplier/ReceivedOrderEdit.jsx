@@ -1,38 +1,80 @@
-// import Table from 'react-bootstrap/Table';
-import '../../App.css'
-import './RecivedOrder.css'
-import { AiOutlineSearch } from "react-icons/ai";
-import { Table, Col, Container, Row } from 'reactstrap';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { showLoadingSpinner, hideLoadingSpinner } from '../../Components/Loading/Loading.js'
+import React, { useState, useEffect } from 'react';
+import { Container, Row, Col } from 'reactstrap';
+import '../../App.css';
+import '../../Styles/Payment/payment.css';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { AiFillCalendar } from 'react-icons/ai';
+import image from '../../images/Payment/gym2.jpg';
+import { useParams } from 'react-router-dom';
+import { showLoadingSpinner, hideLoadingSpinner } from '../../Components/Loading/Loading.js';
+import Axios from 'axios';
 
-const RecivedOrder = () => {
-    const navigate = useNavigate();
-    const [TableData, setTableData] = useState([]);
-    // const [ProductName, setProductName] = useState([]);
-    // const [Quantity, setQuantity] = useState([]);
-    // const [Size, setSize] = useState([]);
+const FinancialReport = () => {
+    const { id } = useParams();
+
+    const [SupplierName, setSupplierName] = useState("");
+    const [ProductName,setProductName] = useState("");
+    const [Quantity, setQuantity] = useState("");
+    const [Size, setSize] = useState("");
 
     useEffect(() => {
         const fetchOrders = async () => {
             try {
                 showLoadingSpinner();
-                const response = await axios.get("http://localhost:5000/suppliers");
-                setTableData(response.data);
+                const response = await Axios.get(`http://localhost:5000/payment453/${id}`);
+                setSupplierName(response.SupplierName);
+                setProductName(response.ProductName)
+                setQuantity(response.Quantity);
+                setSize(response.Size);
+                console.log(response.data);
             } catch (error) {
-                console.log('Error fetching Reports:', error);
+                console.log('Error fetching orders:', error);
+            } finally {
+                hideLoadingSpinner();
             }
+        };
 
-            hideLoadingSpinner();
-        }
-        fetchOrders()
-    }, [])
+        fetchOrders();
+    }, [id]);
 
-    const handleEdit = (id) => {
-        navigate(`/Edit/${id}`);
+
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        showLoadingSpinner();
+        console.log({
+            userId,
+            reportId,
+            SupplierName,
+            Product,
+            Quantity,
+            Size
+        });
+
+        // Send the updated data to the server using an API call
+        Axios.put(`http://localhost:5000/suppliers/${id}`, {
+            SupplierName,
+            Product,
+            Quantity,
+            Size
+        })
+            .then((response) => {
+                console.log(response);
+                hideLoadingSpinner();
+                window.alert('Data has been updated successfully');
+                window.location = 'http://localhost:3000/SupplierOrders';
+                console.log('Successfully updated list');
+            })
+            .catch((error) => {
+                console.log(error);
+                console.log('error when updating the data');
+                window.alert('Data was not updated successfully');
+                window.location.reload();
+            });
     };
+
+
+
 
     return(
         <section>
@@ -75,7 +117,7 @@ const RecivedOrder = () => {
                         <Table dark striped bordered hover responsive>
 
                             <tbody>
-                                {TableData.map((row, index) => (
+                                {tempData.map((row, index) => (
                                     <tr key={row.index}>
                                         <td>{row.userId}</td>
                                         <td>{row.SupplierName}</td>
@@ -108,7 +150,7 @@ const RecivedOrder = () => {
                                 </tr>
                             </thead>
                             <tbody>   
-                                {TableData.map((row) => (
+                                {Orders.map((row) => (
                                     <tr key={row._id}>
                                         <td>{row.userId}</td>
                                         <td>{row.SupplierName}</td>
@@ -132,6 +174,6 @@ const RecivedOrder = () => {
         </section>
        
     )
-}
+};
 
-export default RecivedOrder
+export default FinancialReport;
