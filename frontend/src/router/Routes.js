@@ -16,6 +16,7 @@ import PromoPackages from '../pages/Membership/PromoPackages'
 import AddNewPromo from '../pages/Membership/AddNewPromo'
 import PromoApproval from '../pages/Membership/PromoApproval'
 import MMdashboard from '../pages/Membership/MMdashboard'
+import MembershipPackages from '../pages/Membership/MembershipPackages'
 
 const Router = () => {
     return (
@@ -34,11 +35,12 @@ const Router = () => {
 
             {/* membership package */}
             <Route path="/standardpackages" element={<StandardPackages />} />
-            <Route path="/editstandard" element={<EditStandard />} />
+            <Route path="/editstandard/:id" element={<EditStandard />} />
             <Route path="/promopackages" element={<PromoPackages />} />
             <Route path="/newpromo" element={<AddNewPromo />} />
             <Route path="/promoapproval" element={<PromoApproval />} />
             <Route path="/mmdashboard" element={<MMdashboard />} />
+            <Route path="/membershippackages" element={<MembershipPackages />} />
 
         </Routes>
     )

@@ -1,107 +1,51 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react"
+import { useNavigate } from 'react-router-dom'
 import '../../App.css'
 import '../../Styles/Membership/Membership.css'
 import { Container,Row, Col } from 'reactstrap'
-import image from '../../images/Membership/prmPackage.png'
-import { AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineSearch } from "react-icons/ai"
+import PromoDetails from "../../Components/Membership/PromoDetails"
 
-function PromoPackages() {
+const PromoPackages = () => {
+    const [promos, setPromos] = useState(null)
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchPromos = async () => {
+            const response = await fetch('/api/prPackages')
+            const json = await response.json()
+
+            if (response.ok) {
+                setPromos(json)
+            }
+        }
+
+        fetchPromos()
+    }, [])
+
+    const handleAddNewPromo = () => {
+        navigate('/newpromo')
+    }
+
     return (
         <section>
             <Container>
                 <div className="title code">Promo Packages</div>
                 <br />
-                <div>
-                    <Row>
-                        <Col lg="8">
+                <div className="promo-add-search">
                     <div>
-                        <button class="add-prm-btn">Add New Promo Package</button>
+                        <button class="add-prm-btn" onClick={handleAddNewPromo}>Add New Promo Package</button>
                     </div>
-                    </Col>
-                    <Col lg="4">
-                    <div>
-                        <AiOutlineSearch className="i" />
-                        <input type="text" className='search' value="" />
-                    </div>
-                    </Col>
-                    </Row>
+                    {/* <div>
+                        <AiOutlineSearch className="i" style={{marginRight: '10px'}} />
+                        <input type="text" className='search' style={{ width: '300px', height: '40px' }} value="" />
+                    </div> */}
                 </div>
+            
                 <div class="prm-container">
-                    <div class="prm-packages">
-                        <br />
-                        <img src={image} alt="" className='prm-image' /> <br /><br />
-                        <h2 class="prm-name">New Year Promo Package</h2>
-                        <p class="prm-price">LKR 25,000</p>
-                        <p class="prm-description">
-                            Training sessions in weedays.<br />
-                            2 Kg Protein Supplement included with the package. <br /><br />
-                            Valid until - 30/04/2023
-                        </p>
-                        <p><button class="prm-edit-btn">Delete</button></p>
-                    </div>
-                    <div class="prm-packages">
-                        <br />
-                        <img src={image} alt="" className='prm-image' /> <br /><br />
-                        <h2 class="prm-name">New Year Promo Package</h2>
-                        <p class="prm-price">LKR 25,000</p>
-                        <p class="prm-description">
-                            Training sessions in weedays.<br />
-                            2 Kg Protein Supplement included with the package. <br /><br />
-                            Valid until - 30/04/2023
-                        </p>
-                        <p><button class="prm-edit-btn">Delete</button></p>
-                    </div>
-                    <div class="prm-packages">
-                        <br />
-                        <img src={image} alt="" className='prm-image' /> <br /><br />
-                        <h2 class="prm-name">New Year Promo Package</h2>
-                        <p class="prm-price">LKR 25,000</p>
-                        <p class="prm-description">
-                            Training sessions in weedays.<br />
-                            2 Kg Protein Supplement included with the package. <br /><br />
-                            Valid until - 30/04/2023
-                        </p>
-                        <p><button class="prm-edit-btn">Delete</button></p>
-                    </div>
-                </div>
-                <br />
-                <div class="prm-container">
-                    <div class="prm-packages">
-                        <br />
-                        <img src={image} alt="" className='prm-image' /> <br /><br />
-                        <h2 class="prm-name">New Year Promo Package</h2>
-                        <p class="prm-price">LKR 25,000</p>
-                        <p class="prm-description">
-                            Training sessions in weedays.<br />
-                            2 Kg Protein Supplement included with the package. <br /><br />
-                            Valid until - 30/04/2023
-                        </p>
-                        <p><button class="prm-edit-btn">Delete</button></p>
-                    </div>
-                    <div class="prm-packages">
-                        <br />
-                        <img src={image} alt="" className='prm-image' /> <br /><br />
-                        <h2 class="prm-name">New Year Promo Package</h2>
-                        <p class="prm-price">LKR 25,000</p>
-                        <p class="prm-description">
-                            Training sessions in weedays.<br />
-                            2 Kg Protein Supplement included with the package. <br /><br />
-                            Valid until - 30/04/2023
-                        </p>
-                        <p><button class="prm-edit-btn">Delete</button></p>
-                    </div>
-                    <div class="prm-packages">
-                        <br />
-                        <img src={image} alt="" className='prm-image' /> <br /><br />
-                        <h2 class="prm-name">New Year Promo Package</h2>
-                        <p class="prm-price">LKR 25,000</p>
-                        <p class="prm-description">
-                            Training sessions in weedays.<br />
-                            2 Kg Protein Supplement included with the package. <br /><br />
-                            Valid until - 30/04/2023
-                        </p>
-                        <p><button class="prm-edit-btn">Delete</button></p>
-                    </div>
+                    {promos && promos.map((promo) => (
+                        <PromoDetails key={promo._id} promo={promo} />
+                    ))}
                 </div>
             </Container>
         </section>

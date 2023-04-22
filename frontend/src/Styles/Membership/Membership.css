@@ -53,14 +53,18 @@
 }
 
 .std-container{
-    padding: 0 10vw;
+    justify-content: flex-start;
     display: flex;
+    padding: 1.5rem;
+    width: 100%;
+    align-items: center;
+    row-gap: 2rem;
 }
 
 .std-packages{
     /* flex: 0 0 auto; */
     width: 400px;
-    height: 420px;
+    height: 400px;
     /* background-color: lightgrey; */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
     margin: 20px;
@@ -81,6 +85,11 @@
 .std-name {
     color: white;
     font-size: 28px;
+}
+
+.std-id {
+    color: lightgray;
+    font-size: 15px;
 }
 
 .std-price {
@@ -109,45 +118,70 @@
     opacity: 0.7;
 }
 
-.prm-container{
-    padding: 0 10vw;
+.package.highlighted {
+    background-color: rgba(0, 38, 55, 0.911);
+}  
+
+.promo-add-search {
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-between */
     display: flex;
+    justify-content: flex-end;
+}
+
+.prm-container{
+    display: flex;
+    /* justify-content: flex-start; */
+    justify-content: center;
+    padding: 10px;
+    width: 100%;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .prm-packages{
-    /* flex: 0 0 auto; */
-    width: 500px;
-    height: 450px;
-    /* background-color: lightgrey; */
+    width: 400px;
+    height: 400px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
     margin: 20px;
     text-align: center;
     padding: 10px;
-    /* border: rgba(0, 0, 0, 0.2); */
     border-radius: 20px;
 }
 
 .prm-image{
     position: relative;
-    /* width: 100%; */
-    height: 100px;
-    width: 100px;
+    height: 90px;
+    width: 90px;
     overflow: hidden;
 }
 
 .prm-name {
     color: white;
-    font-size: 25px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.prm-id {
+    color: lightgray;
+    font-size: 13px;
 }
 
 .prm-price {
     color: grey;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .prm-description {
     color: lightblue;
-    font-size: 15px;
+    font-size: 13px;
+}
+
+.prm-validity {
+    color: lightgray;
+    font-size: 14px;
 }
 
 .prm-edit-btn {
@@ -168,19 +202,227 @@
 
 .add-prm-btn {
     border:rgb(5, 5, 57);
-    border-radius: 15px;
+    border-radius: 20px;
     outline: 0;
     padding: 6px;
     color: white;
-    background-color: #000;
+    background-color: #010915;
     text-align: center;
     cursor: pointer;
-    width: 30%;
-    height: 50%;
-    font-size: 18px;
+    width: 220px;
+    height: 40px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 200px;
 }
 
 .add-prm-btn:hover {
     opacity: 0.7;
 }
 
+.promo-container {
+    /* justify-content: flex-start; */
+    justify-content: space-between;
+    /* align-items: flex-start; */
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    row-gap: 10px;
+    flex-direction: row;
+}
+
+/* .promo-left {
+    justify-content: flex-start;
+    display: flex;
+    padding: 1.5rem;
+    width: 100%;
+    align-items: center;
+    row-gap: 1rem;
+} */
+
+.promo-left {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+    width: 100%;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 10px;
+}
+
+.promo-packages {
+    width: 280px;
+    height: 350px;
+    padding: 10px;
+    border-radius: 20px;
+    /* max-width: max-content; */
+    /* margin: auto; */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
+    margin: 20px;
+    text-align: center;
+}
+
+.promo-image{
+    position: relative;
+    height: 80px;
+    width: 80px;
+    overflow: hidden;
+}
+
+.promo-name {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.promo-id {
+    color: lightgray;
+    font-size: 13px;
+}
+
+.promo-price {
+    color: grey;
+    font-size: 17px;
+}
+
+.promo-description {
+    color: lightblue;
+    font-size: 13px;
+}
+
+.promo-validity {
+    color: lightgray;
+    font-size: 12px;
+}
+
+.promo-select-btn {
+    border:rgb(4, 4, 32);
+    outline: 0;
+    padding: 6px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 25%;
+    font-size: 14px;
+}
+
+.promo-select-btn:hover {
+    opacity: 0.7;
+}
+
+.promo-right {
+    /* width: 50%; */
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    width: 80%;
+}
+
+.promo-graph {
+    width: 500px;
+}
+
+.promo-right h3, h5 {
+    text-align: center;
+}
+
+.g-title-1 {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    /* margin-left: 10px; */
+    margin-top: 40px;
+}
+
+.g-title-2 {
+    color: grey;
+    font-size: 18px;
+    font-weight: bold;
+    /* margin-left: 10px; */
+}
+
+.edit-std-img {
+    width: 600px;
+    margin-bottom: 20px;
+}
+
+/* add new promo page styles */
+.add-promo {
+    width: 600px;
+    margin: auto;
+    text-align: left;
+}
+
+.add-promo-row {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.add-promo-label {
+    font-weight: bold;
+    margin-right: 10px;
+    width: 200px;
+}
+
+.add-promo-input, 
+.add-promo-text {
+    flex: 1;
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.add-promo-row:last-of-type {
+    /* display: flex;
+    justify-content: flex-end;
+    gap: 20px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-promo-btns {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+}
+
+.create-btn {
+    margin-left: 20px;
+}
+
+/* show the errors in add new promo page */
+div.error {
+    padding: 5px;
+    background: rgb(255, 159, 159);
+    border: 1px solid rgb(233, 14, 14);
+    color: rgb(221, 2, 2);
+    border-radius: 4px;
+    margin: 20px 0 0 220px;
+    font-size: 12px;
+}
+
+.search-download {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 20px;
+    margin-right: 35px;
+}
+
+.report-download {
+    background: none;
+    border: none;
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+.report-download:hover {
+    opacity: 0.7;
+    /* background: #3f3f3f56;
+    padding: 1.5px; */
+    color: rgb(85, 126, 238);
+}
