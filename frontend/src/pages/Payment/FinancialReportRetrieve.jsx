@@ -2,19 +2,19 @@ import React from 'react'
 import { Container, Row, Col, Table } from 'reactstrap'
 import '../../App.css'
 import '../../Styles/Payment/payment.css'
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import { AiFillCalendar, AiOutlineSearch } from "react-icons/ai";
+// import DatePicker from "react-datepicker";
+// import "react-datepicker/dist/react-datepicker.css";
+// import { AiFillCalendar, AiOutlineSearch } from "react-icons/ai";
 
 const FinancialReportRetrieve = () => {
     return (
         <section>
             <Container>
-                <div className="title code">Retrieve Financial Reports</div>
+                <div className="title code">Store Uploaded Financial Reports</div>
                 <br />
                 <Row>
-                    <Col>
-                        <Row>
+                    {/* <Col> */}
+                        {/* <Row>
                             <Col lg='3'>
                                 <label for="from">From :</label>
                             </Col>
@@ -22,10 +22,10 @@ const FinancialReportRetrieve = () => {
                              <Col>
                                 <AiFillCalendar className="i" />
                             </Col> 
-                        </Row>
-                    </Col>
-                    <Col>
-                        <Row>
+                        </Row> */}
+                    {/* </Col> */}
+                    {/* <Col> */}
+                        {/* <Row>
                             <Col lg='2'>
                                 <label for="to">to :</label>
                             </Col>
@@ -33,14 +33,14 @@ const FinancialReportRetrieve = () => {
                             <Col>
                                 <AiFillCalendar className="i" />
                             </Col>
-                        </Row>
-                    </Col>
-                    <Col>
+                        </Row> */}
+                    {/* </Col> */}
+                    {/* <Col>
                         <Row>
                             <Col> <input type="text" className='search' value="" /></Col>
                             <Col> <AiOutlineSearch className="i" /></Col>
                         </Row>
-                    </Col>
+                    </Col> */}
                 </Row>
                 <br />
                 <Row>
@@ -68,7 +68,6 @@ const FinancialReportRetrieve = () => {
                                 <td>03/01/2023</td>
                                 <td><button className='edit_btn '>Read</button>
                                     <button className='edit_btn '>Print</button>
-                                    <button className='edit_btn '>Edit</button>
                                     <button className='edit_btn '>Delete</button>
                                 </td>
                             </tr>
@@ -83,7 +82,6 @@ const FinancialReportRetrieve = () => {
                                 <td>03/01/2023</td>
                                 <td><button className='edit_btn '>Read</button>
                                     <button className='edit_btn '>Print</button>
-                                    <button className='edit_btn '>Edit</button>
                                     <button className='edit_btn '>Delete</button>
                                 </td>
                             </tr>
@@ -99,7 +97,6 @@ const FinancialReportRetrieve = () => {
                                 <td>03/01/2023</td>
                                 <td><button className='edit_btn '>Read</button>
                                     <button className='edit_btn '>Print</button>
-                                    <button className='edit_btn '>Edit</button>
                                     <button className='edit_btn '>Delete</button>
                                 </td>
                             </tr>

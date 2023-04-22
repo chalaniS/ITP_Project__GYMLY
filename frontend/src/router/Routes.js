@@ -10,8 +10,8 @@ import GetToken from '../pages/Payment/GetToken'
 import PaymentHomepage from '../pages/Payment/PaymentHomepage'
 import FinancialReportupload from '../pages/Payment/FinancialReportupload'
 import FinancialReportRetrieve from '../pages/Payment/FinancialReportRetrieve'
-
-
+import Edit from '../pages/Payment/Edit'
+import FinancialReportGenerate from '../pages/Payment/FinancialReportGenerate'
 
 
 
@@ -30,8 +30,9 @@ const Router = () => {
             <Route path="/PaymentHomepage" element={<PaymentHomepage />} />
             <Route path="/FinancialReportupload" element={<FinancialReportupload />} />
             <Route path="/FinancialReportRetrieve" element={<FinancialReportRetrieve />} />
-
-
+            <Route path="/Edit/:id" element={<Edit/>}/>
+            <Route path="/FinancialReportGenerate" element={<FinancialReportGenerate/>}/>
+          
 
         </Routes>
     )

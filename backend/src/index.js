@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import express from "express";
 import cors from "cors";
 import ReportModel from "./models/Payment/ReportModel.js";
+import paymentModel from "./models/Payment/paymentModel.js";
 
 const app = express();
 app.use(cors());
@@ -72,8 +73,75 @@ app.post("/payment453", async (req, res) => {
         console.log(err);
         res.status(500).send("Error occurred while inserting data");
     }
+    
 });
 
+app.get("/payment453", async (req, res) => {
+
+    const userId = "45821463#23669545";
+
+    try {
+        const report = await ReportModel.find({ userId });
+        console.log("'Report read successfully'");
+        res.status(200).json(report);
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Error occurred while retrieving data');
+    }
+
+});
+
+// read a single supplement by id for update
+app.get('/payment453/:id', async (req, res) => {
+    try {
+        const report = await ReportModel.findById(req.params.id);
+        console.log('Report read successfully for update');
+        res.status(200).json(report);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error occurred while retrieving data');
+    }
+});
+
+
+
+app.put("/payment453/:id", async (req, res) => {
+    const objectId = req.params.id;
+    const { userId,financialReportId,reportCatogery,employeeID,uploadedDate,uploadedTime} = req.body;
+    try {
+        const updatedReports = await ReportModel.findByIdAndUpdate(
+            objectId,
+            {
+                userId:"45821463#23669545",
+                financialReportId: financialReportId,
+                reportCatogery: reportCatogery,
+                employeeID: employeeID,
+                uploadedDate: uploadedDate,
+                uploadedTime: uploadedTime,
+            },
+            { new: true }
+        );
+        res.status(200).send(updatedReports);
+        console.log('Reports updated successfully');
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Error occurred while updating data');
+    }
+});
+
+
+app.delete("/payment453/:id", async (req, res) => {
+    const objectId = req.params.id;
+    try {
+        await ReportModel.findByIdAndDelete(objectId);
+        console.log("'Reports deleted successfully'");
+        res.status(200).send('Reports deleted successfully');
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Error occurred while deleting data');
+    }
+});
 
 
 // app.post("/payment", async (req, res) => {

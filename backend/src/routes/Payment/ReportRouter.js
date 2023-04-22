@@ -1,5 +1,5 @@
 import express from 'express';
-import { createOne, getAll, updateOne, deleteOne } from '../../controller/Report/ReportCtrl.js';
+import { createOne, getAll, updateOne, deleteOne } from '../../controller/Payment/ReportCtrl.js';
 
 const router = express.Router();
 

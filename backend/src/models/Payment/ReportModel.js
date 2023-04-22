@@ -5,24 +5,28 @@ const { Schema } = mongoose;
 const ReportSchema = new Schema({
     financialReportId: {
         type: String,
-        required: true
+        // required: true
     },
     reportCatogery: {
         type: String,
-        required: true
+        // required: true
     },
     employeeID: {
         type: String,
-        required: true
+        // required: true
     },
     uploadedDate: {
         type: String,
-        required: true
+        // required: true
     },
     uploadedTime: {
         type: String,
         // required: true
     },
+    userId:{
+        type: String,
+       
+    }
 });
 
 // ScheduleData is collection name
