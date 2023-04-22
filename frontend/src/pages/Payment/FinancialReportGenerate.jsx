@@ -7,29 +7,10 @@ import { AiOutlineSearch } from "react-icons/ai";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { showLoadingSpinner, hideLoadingSpinner } from '../../Components/Loading/Loading.js'
-// import html2pdf from 'html2pdf';
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
 
-// function isPdf() {
-//     const userAgent = navigator.userAgent.toLowerCase();
-//     return (userAgent.indexOf('firefox') > -1 || userAgent.indexOf('chrome') > -1);
-// }
-
-// function generatePDF() {
-//     const element = document.getElementById('pdf-table');
-//     const opt = {
-//         margin: 0.3,
-//         filename: 'Report Details.pdf',
-//         image: { type: 'jpeg', quality: 0.98 },
-//         html2canvas: { scale: 2 },
-//         jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-//     };
-
-    // html2pdf().set(opt).from(element).toPdf().get('pdf').then(function (pdf) {
-    //     const pdfBlob = pdf.output('blob');
-    //     const blobUrl = URL.createObjectURL(pdfBlob);
-    //     window.open(blobUrl, '_blank');
-    // });
-// }
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 
 const FinancialReportGenerate = () => {
@@ -54,6 +35,143 @@ const FinancialReportGenerate = () => {
         };
         fetchReports();
     }, []);
+
+    // const generatePDF = () => {
+    //     const reportData = []; // Array to store report data
+      
+    //     // Retrieve the data from the FinancialReportUpload page and store it in the orderData array
+    //     const tableRows = document.querySelectorAll("table tbody tr");
+    //     tableRows.forEach((row) => {
+    //       const rowData = {};
+    //       const columns = row.querySelectorAll("td");
+    //       rowData.financialReportId = columns[0].innerText;
+    //       rowData.reportCatogery = columns[1].innerText;
+    //       rowData.employeeID = columns[2].innerText;
+    //       rowData.uploadedDate = columns[3].innerText;
+    //       rowData.uploadedTime = columns[4].innerText;
+    //       reportData.push(rowData);
+    //     });
+      
+    //     const docDefinition = {
+    //       content: [
+    //         { text: "Report Title", style: "header" },
+    //         "\n",
+    //         {
+    //           table: {
+    //             headerRows: 1,
+    //             widths: ["", "", "", ""],
+    //             body: [
+    //               ["financialReportId", "reportCatogery", "employeeID", "uploadedDate", "uploadedTime"],
+    //               ...reportData.map((row) => [
+    //                 row.financialReportId,
+    //                 row.reportCatogery,
+    //                 row.employeeID,
+    //                 row.uploadedDate,
+    //                 row.uploadedTime,
+    //               ]),
+    //             ],
+    //           },
+    //         },
+    //       ],
+    //       styles: {
+    //         header: {
+    //           fontSize: 18,
+    //           bold: true,
+    //           alignment: "center",
+    //           margin: [0, 0, 0, 10],
+    //         },
+    //       },
+    //     };
+      
+    //     pdfMake.createPdf(docDefinition).open();
+    //   };
+
+    // const generatePDF = () => {
+    //     const unit = "pt";
+    //     const size = "A4"; 
+    //     const orientation = "landscape"; 
+    //     const marginLeft = 40;
+    //     const doc = new jsPDF(orientation, unit, size);
+    //     doc.setFontSize(15);
+    //     const title = "Employee Summary";
+    //     const headers = [["Employee ID", "Name", "Job Role", "Salary"]];
+    //     const data = tableData.map((Report) => [Report.financialReportId, Report.reportCatogery, Report.employeeID, Report.uploadedDate, Report.uploadedTime]);
+    //     let content = {
+    //       startY: 50,
+    //       head: headers,
+    //       body: data,
+    //     };
+    //     doc.text(title, marginLeft, 40);
+    //     doc.autoTable(content);
+    //     doc.save("employee-summary.pdf");
+    //   };
+      
+
+    // Define a function to generate the report
+const generatePDF = () => {
+    const reportData = []; // Array to store report data
+  
+    // Retrieve the data from the FinancialReportGenerate page and store it in the orderData array
+    const tableRows = document.querySelectorAll("table tbody tr");
+    tableRows.forEach((row) => {
+      const rowData = {};
+      const columns = row.querySelectorAll("td");
+      rowData.financialReportId = columns[0].innerText;
+      rowData.reportCategory = columns[1].innerText;
+      rowData.employeeID = columns[2].innerText;
+      rowData.uploadedDate = columns[3].innerText;
+      rowData.uploadedTime = columns[4].innerText;
+      reportData.push(rowData);
+    });
+  
+      // Define the document definition for the PDF
+      const docDefinition = {
+        pageSize: 'A4',
+        content: [
+          { text: "Financial Report", style: "header" },
+          "\n",
+          {
+            table: {
+              headerRows: 1,
+              widths: ["20%", "20%", "20%", "20%", "20%"],
+              body: [
+                ["Financial Report ID", "Report Category", "Employee ID", "Uploaded Date", "Uploaded Time"],
+                ...reportData.map((row) => [
+                  row.financialReportId,
+                  row.reportCategory,
+                  row.employeeID,
+                  row.uploadedDate,
+                  row.uploadedTime,
+                ]),
+              ],
+            },
+            style: 'tableStyle'
+          },
+        ],
+        styles: {
+          header: {
+            fontSize: 20,
+            bold: true,
+            alignment: "center",
+            margin: [0, 0, 0, 10],
+          },
+          tableStyle: {
+            margin: [0, 10, 0, 10],
+            fontSize: 10,
+            alignment: "left"
+          }
+        },
+      };
+      
+      
+  
+    // Generate and open the PDF
+    pdfMake.createPdf(docDefinition).open();
+  };
+
+   // Add an event listener to the button that triggers the report generation
+//    const generateReportButton = document.getElementById("generate-report-button");
+//    generateReportButton.addEventListener("click", generatePDF);
 
 
     const handleEdit = (id) => {
@@ -83,7 +201,7 @@ const FinancialReportGenerate = () => {
 
         const newData = Reports.filter((sche) =>
 
-            sche.date.toLocaleLowerCase().includes(value.toLocaleLowerCase())
+            sche.uploadedDate.toLocaleLowerCase().includes(value.toLocaleLowerCase())
 
         );
         console.log(newData);
@@ -100,7 +218,9 @@ const FinancialReportGenerate = () => {
                 <br />
                 <Row>
                     <Col>
-                        <input type="button" className="tertiary_btn" value="Generate a report" />
+                        
+                    <button className="tertiary_btn" onClick={generatePDF}> Generate A Report </button>
+                   
                     </Col>
                     <Col>
                         <Row>
@@ -118,7 +238,7 @@ const FinancialReportGenerate = () => {
                                     type="search"
                                     className='search'
                                     placeholder="Search"
-                                    on onChange={(e) => onSearchChange(e.target.value)}
+                                    onChange={(e) => onSearchChange(e.target.value)}
                                 />
 
                             </Col>
