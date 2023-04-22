@@ -13,7 +13,8 @@ import FinancialReportRetrieve from '../pages/Payment/FinancialReportRetrieve'
 import Edit from '../pages/Payment/Edit'
 import FinancialReportGenerate from '../pages/Payment/FinancialReportGenerate'
 
-import SupplementOrders from '../pages/Supplement/SupplementOrders'
+import SupplementOrders from '../pages/Supplier/SupplementOrders'
+import RecivedOrder from '../pages/Supplier/RecivedOrder'
 
 
 
@@ -35,9 +36,11 @@ const Router = () => {
             <Route path="/Edit/:id" element={<Edit/>}/>
             <Route path="/FinancialReportGenerate" element={<FinancialReportGenerate/>}/>
 
-            {/* supplement */}
+            {/* Supplier */}
 
-            <Route path="/SupplementOrders" element={<SupplementOrders />} />
+            <Route path="/SupplierOrders" element={<SupplementOrders />} />
+            <Route path="/SupplierOrderlist" element={<RecivedOrder />} />
+
           
 
         </Routes>

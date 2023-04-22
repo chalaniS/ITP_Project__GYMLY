@@ -40,12 +40,13 @@ const SupplementOrders = () => {
           );
           console.log(response);
           window.alert('Data has been inserted successfully');
-          window.location.reload();
+          window.location = 'http://localhost:3000/SupplierOrderlist/'
           console.log('Successfully inserted list');
         } catch (error) {
           console.log(error);
           console.log('error when update the data');
           window.alert('Data is not inserted successfully');
+          window.location.reload();
         }
       };
 
