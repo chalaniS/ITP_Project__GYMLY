@@ -8,13 +8,13 @@ const ManagmentLogin = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    {/*If username and password are matching, user will redirect to managerDashboard */}
+    {/*User Validation and redirect to relevant page */}
     const handleLogin = (e) => {
         e.preventDefault();
         if(username === 'userAdmin' && password === 'uadmin'){
             window.location.href = '/managerDashboard';
         }
-        else if(username == 'empAdmin' && password == 'Eadmin')
+        else if(username === 'empAdmin' && password === 'Eadmin')
         {
             window.location.href = '/EmpDashboard';
         }
@@ -22,6 +22,7 @@ const ManagmentLogin = () => {
             alert('Invalid Username or Password. Please try again.');
         }
     }
+    {/*User Validation and redirect to relevant page */}
 
 
     
