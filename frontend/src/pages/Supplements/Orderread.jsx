@@ -7,6 +7,10 @@ import { AiOutlineSearch } from "react-icons/ai";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { showLoadingSpinner, hideLoadingSpinner } from '../../Components/Loading/loading.js'
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
+
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 
 const Orderread = () => {
@@ -31,6 +35,41 @@ const Orderread = () => {
         fetchOrder();
     }, []);
 
+    const generateReport = () => {
+        const data = []; // Add the data you want to include in the report here
+      
+        const docDefinition = {
+          content: [
+            { text: "Report Title", style: "header" },
+            "\n",
+            {
+              table: {
+                headerRows: 1,
+                widths: ["*", "*", "*", "*"],
+                body: [
+                  ["Supplement Id", "Supplement Date", "Supplement Type", "Supplement Quantity"],
+                  ...data.map((row) => [
+                    row.Supplement_Id,
+                    row.Supplement_Date,
+                    row.Supplement_Type,
+                    row.Supplement_Quantity,
+                  ]),
+                ],
+              },
+            },
+          ],
+          styles: {
+            header: {
+              fontSize: 18,
+              bold: true,
+              alignment: "center",
+              margin: [0, 0, 0, 10],
+            },
+          },
+        };
+      
+        pdfMake.createPdf(docDefinition).open();
+      };
 
     const handleEdit = (id) => {
         navigate(`/Editorder/${id}`);
@@ -74,7 +113,9 @@ const Orderread = () => {
                 <br />
                 <Row>
                     <Col>
-                        <button className="tertiary_btn">Generate A Report</button>
+                    <button className="tertiary_btn" onClick={generateReport}>
+                        Generate A Report
+                    </button>
                     </Col>
                     <Col>
                         <Row>
