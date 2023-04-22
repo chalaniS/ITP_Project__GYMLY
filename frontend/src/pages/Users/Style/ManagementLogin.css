@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+/*Font of title*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+/*Font of body*/
+
+
+#Mangement-logging{
+    background-image: url("../../../images/LandingPage/Home-cover.png");
+    background-color: #cccccc; /* Used if the image is unavailable */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+}
+
+#Mangement-logging #logging-form-section{
+    padding-top: 100px;
+    padding-bottom: 100px;
+    text-align: center;
+}
+
+
+#Mangement-logging #LogingForm{
+
+    margin-left: auto;
+    margin-right: auto;
+    padding:  60px;
+    padding-top:40px;
+    padding-bottom: 40px;
+    width: fit-content;
+    border-radius: 50px ; 
+    background: rgba(23, 116, 203, 0.39);
+    border-radius: 16px;
+    background: rgba(0, 0, 0, 0.39);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(21, 1, 1, 0.1);
+    backdrop-filter: blur(14.3px);
+    -webkit-backdrop-filter: blur(14.3px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#Mangement-logging #logging-title{
+    font-size: 55px;
+    font-weight: 600;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    color: #fff;
+    font-family: 'Anton', sans-serif;
+    margin-bottom: 20px;
+    letter-spacing: 4px;
+}
+
+#Mangement-logging #logging-logo{
+    padding-top: 20px;
+}
+
+#Mangement-logging #formBasicEmail{
+    border-radius: 20px;
+    width: 350px;
+    height: 40px;
+    text-transform: unset !important;
+}
+
+
+#formBasicPassword{
+    border-radius: 20px;
+    width: 350px;
+    height: 40px;
+    margin-top: 30px;
+    text-transform: unset !important;
+    
+}
+
+#Mangement-logging #LG-Button{
+    border-radius: 60px;
+    width: 100px;
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+    width: 150px;
+    font-size: 20px;
+}
+
+#Mangement-logging #LG-Button:hover{
+    background-color: white;
+    color: black;
+}
+
+#Mangement-logging #logging-alert{
+    margin-top: 20px;
+    color: white;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+

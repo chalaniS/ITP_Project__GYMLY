@@ -29,6 +29,7 @@ const Dashboard = () => {
        <div className="container d-flex content-justify-center text-center" id="cards">
         <div className="row content-justify-center text-center">
             <div className="col" >
+          
                 <div className="dsbd-cards ">
                   <div className="dbd-title text-center"> Profile</div>
                   {/*icon*/}
@@ -37,7 +38,7 @@ const Dashboard = () => {
 
                   {/*Button*/}
                   <div id="dsbd-cards-links">
-                    <Button variant="outline-primary" size="sm" id="dsbd-cards-links-btn">Go &#8250;</Button>
+                    <Button variant="outline-primary" size="sm" id="dsbd-cards-links-btn" onClick={event =>  window.location.href='/Userprofile'} >Go &#8250;</Button>
                   </div>
                   {/*Button*/}
                 </div>
