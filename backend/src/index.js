@@ -7,7 +7,7 @@ import cors from "cors";
 import Supplements from "./models/Supplements/Supplements.js";
 // import { connect } from "./utils/dbconnect"
 
-import Orderread from "./models/Supplements/Orderread.js";
+
 
 const app = express();
 app.use(cors());
@@ -52,18 +52,21 @@ app.post("/Supplements", async (req, res) => {
 
     console.log(req.body);
 
-    const Supplement_Type = req.body.type;
-    const Supplement_Id = req.body.id;
-    const Supplement_Price = req.body.price;
-    const Supplement_Quantity = req.body.qty;
-    const UserId = "12345#12345"
+    const Supplement_Type = req.body.Supplement_Type;
+    const Supplement_Id = req.body.Supplement_Id;
+    const Supplement_Price = req.body.Supplement_Price;
+    const Supplement_Quantity = req.body.Supplement_Quantity ;
+    const Supplement_Date=req.body.Supplement_Date;
+    const userId = "45821463#23669545";
 
     const supplements = new Supplements({
-        UserId: UserId,
+        userId: userId,
         Supplement_Type: Supplement_Type,
         Supplement_Id: Supplement_Id,
         Supplement_Price: Supplement_Price,
-        Supplement_Quantity: Supplement_Quantity
+        Supplement_Quantity: Supplement_Quantity,
+        Supplement_Date:Supplement_Date
+
     });
 
     try {
@@ -141,32 +144,31 @@ app.delete("/Supplements/:id", async (req, res) => {
 });
 
 
+// import Order from "./models/Supplements/Orderread.js";
 
-const Order = require('./models/Order'); // import the Mongoose model
+// app.post("/Orderread", async (req, res) => {
+//   console.log(req.body);
 
-app.post("/Orderread", async (req, res) => {
-  console.log(req.body);
+//   const Supplement_Date = req.body.Supplement_Date;
+//   const Supplement_Type = req.body.Supplement_Type;
+//   const Supplement_Quantity = req.body.Supplement_Quantity;
+//   const UserId = "12345#12345";
 
-  const Supplement_Date = req.body.Supplement_Date;
-  const Supplement_Type = req.body.Supplement_Type;
-  const Supplement_Quantity = req.body.Supplement_Quantity;
-  const UserId = "12345#12345";
-
-  const order = new Order({
-    UserId: UserId,
-    Supplement_Date: Supplement_Date,
-    Supplement_Type: Supplement_Type,
-    Supplement_Quantity: Supplement_Quantity,
-  });
-  try {
-    await order.save();
-    console.log("successfully data inserted");
-    res.status(200).send("Data inserted successfully");
-  } catch (err) {
-    console.log(err);
-    res.status(500).send("Error occurred while inserting data");
-  }
-});
+//   const order = new Order({
+//     UserId: UserId,
+//     Supplement_Date: Supplement_Date,
+//     Supplement_Type: Supplement_Type,
+//     Supplement_Quantity: Supplement_Quantity,
+//   });
+//   try {
+//     await order.save();
+//     console.log("successfully data inserted");
+//     res.status(200).send("Data inserted successfully");
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).send("Error occurred while inserting data");
+//   }
+// });
 
 
 

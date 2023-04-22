@@ -15,7 +15,8 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongoose": "^7.0.2",
-    "pino": "^8.11.0"
+    "pino": "^8.11.0",
+    "react-html2pdf": "^1.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.21.3",

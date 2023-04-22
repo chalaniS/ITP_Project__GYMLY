@@ -29,11 +29,22 @@
 import { Schema, model } from 'mongoose';
 
 const OrderSchema = new Schema({
-  UserId: String,
-  Supplement_Date: String,
+  UserId: {
+    type: String,
+
+},
+Supplement_Type: {
+  type: String,
+  //required:true
+},
+ 
   Supplement_Type: String,
   Supplement_Quantity: Number,
 });
+
+
+
+
 
 const Order = model('Order', OrderSchema);
 

@@ -14,34 +14,62 @@ import "../../Styles/schedule/Supplements/Placeorder.css";
 import pic1 from "../../images/Supplements/img(8).jpg";
 import { eventNames } from "process";
 
-const API_URL = "http://localhost:5000/Supplements";
+const Editorder = () => {
+  const { id } = useParams();
+  const [startDate, setStartDate] = useState(new Date());
+  const [supplementtype, setsupplementtype] = useState("");
+  const [supplementamount, setSupplementamount] = useState("");
+  const [supplementId, setsupplementId] = useState("");
+  const [alldata, setAlldata] = useState("");
 
-const Placeorder = () => {
-  const [userId, setUserId] = useState("");
-  const [Supplement_Date, setSupplementDate] = useState(new Date());
-  const [Supplement_Quantity, setSupplementQuantity] = useState("");
-  const [Supplement_Type, setSupplementType] = useState("");
-  const [Supplement_Id, setSupplementId] = useState("");
+  useEffect(() => {
+    showLoadingSpinner();
+    const fetchOrder = async () => {
+      try {
+        const response = await Axios.get(
+          `http://localhost:5000/Supplements/${id}`
+        );
+        setStartDate(parseISO(response.data.startDate));
+        setsupplementtype(response.data.supplementType);
+        setSupplementamount(response.data.supplementAmount);
+        setsupplementId(response.data.supplementId);
+        setAlldata(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.log("Error fetching order:", error);
+      }
+      hideLoadingSpinner();
+    };
+    fetchOrder();
+  }, [id]);
+  
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
 
-  const handleFormSubmit = async () => {
+    console.log("In handleFormSubmit");
+    console.log(startDate);
     showLoadingSpinner();
 
-    try {
-      Axios.post(API_URL, {
-        userId: "4582146#23669545",
-        Supplement_Date: Supplement_Date,
-        Supplement_Quantity: Supplement_Quantity,
-        Supplement_Type: Supplement_Type,
-        Supplement_Id: Supplement_Id,
+    // Send the updated data to the server using an API call
+    Axios.put(`http://localhost:5000/Supplements/${id}`, {
+      startDate :startDate,
+      supplementtype: supplementtype,
+      supplementamount: supplementamount,
+      supplementId: supplementId
+    })
+      .then((response) => {
+        console.log(response);
+        hideLoadingSpinner();
+        window.alert("Data has been updated successfully");
+        window.location = "http://localhost:3000/Orderread";
+        console.log("Successfully updated list");
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log("error when update the data");
+        window.alert("Data is not updated unsuccessfully");
+        window.location.reload();
       });
-
-      hideLoadingSpinner();
-      window.alert("Data has been updated successfully");
-      window.location = "http://localhost:3000/Orderread";
-      console.log("Successfully added to list");
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   return (
@@ -59,7 +87,7 @@ const Placeorder = () => {
             </div>
 
             <div className="form">
-              <div className="title code">place your order</div>
+              <div className="title code">Edit your order</div>
 
               <div className="inputs">
                 <form onSubmit={handleFormSubmit}>
@@ -67,15 +95,12 @@ const Placeorder = () => {
                     <Col lg="4">
                       <label for="day">Select Date :</label>
                     </Col>
-
                     <Col>
                       <input
                         type="date"
                         className="calender"
-                        onChange={(event) =>
-                          setSupplementDate(event.target.value)
-                        }
-                        value={Supplement_Date}
+                        onChange={(event) => setStartDate(event.target.value)}
+                        value={startDate}
                       />
                     </Col>
                   </Row>
@@ -91,9 +116,9 @@ const Placeorder = () => {
                           name="supplement amount"
                           className="supplement amount"
                           onChange={(event) =>
-                            setSupplementQuantity(event.target.value)
+                            setSupplementamount(event.target.value)
                           }
-                          value={Supplement_Quantity}
+                          value={supplementamount}
                         >
                           <option value="1">1</option>
                           <option value="2">2</option>
@@ -121,9 +146,9 @@ const Placeorder = () => {
                           name="supplement type"
                           className="supplement type"
                           onChange={(event) =>
-                            setSupplementType(event.target.value)
+                            setsupplementtype(event.target.value)
                           }
-                          value={Supplement_Type}
+                          value={supplementtype}
                         >
                           <option value="Whey protein">Whey protein</option>
                           <option value="Casein protein">Casein protein</option>
@@ -143,9 +168,9 @@ const Placeorder = () => {
                           name="supplement Id"
                           className="supplement Id"
                           onChange={(event) =>
-                            setSupplementId(event.target.value)
+                            setsupplementId(event.target.value)
                           }
-                          value={Supplement_Id}
+                          value={supplementId}
                         >
                           <option value="0001">0001</option>
                           <option value="0002">0002</option>
@@ -179,4 +204,4 @@ const Placeorder = () => {
   );
 };
 
-export default Placeorder;
+export default Editorder;
