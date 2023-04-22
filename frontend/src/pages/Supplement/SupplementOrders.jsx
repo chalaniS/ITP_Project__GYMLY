@@ -30,7 +30,7 @@ const SupplementOrders = () => {
     
         try {
           const response = await Axios.post(
-            'http://localhost:5000/supplementOrders/',
+            'http://localhost:5000/suppliers',
             {
                 SupplierName: SupplierName,
                 ProductName: ProductName,
@@ -40,12 +40,12 @@ const SupplementOrders = () => {
           );
           console.log(response);
           window.alert('Data has been inserted successfully');
-          window.location= "http://localhost:3000/FinancialReportGenerate";
+          window.location.reload();
           console.log('Successfully inserted list');
         } catch (error) {
           console.log(error);
           console.log('error when update the data');
-          window.alert('Data is not inserted unsuccessfully');
+          window.alert('Data is not inserted successfully');
         }
       };
 

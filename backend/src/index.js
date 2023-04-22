@@ -151,15 +151,17 @@ app.delete("/payment453/:id", async (req, res) => {
 app.post('/suppliers', async (req, res) => {
     const reportId = req.body.reportId;
     const SupplierName = req.body.SupplierName;
-    const Product = req.body.Product;
+    const ProductName = req.body.Product;
     const Quantity = req.body.Quantity;
     const userId = "45821463#23669545";
+    const Size = req.body.Size;
     const Supplier = new SupplierModel({
         userId: userId,
         reportId: reportId,
-        Product: Product,
+        ProductName: ProductName,
         Quantity: Quantity,
         SupplierName: SupplierName,
+        Size: Size
     });
 
     try {
