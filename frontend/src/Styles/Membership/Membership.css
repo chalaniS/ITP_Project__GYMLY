@@ -8,6 +8,11 @@
     border-radius: 30px;
 }
 
+.title{
+    font-weight: 700;
+    color: #fff;
+}
+
 .cancel {
     text-align-last: right;
 }
@@ -74,6 +79,10 @@
     border-radius: 20px;
 }
 
+/* .std-packages:hover{    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
+} */
+
 .std-image{
     position: relative;
     /* width: 100%; */
@@ -102,7 +111,7 @@
     font-size: 15px;
 }
 
-.std-edit-btn {
+/* .std-edit-btn {
     border:rgb(4, 4, 32);
     outline: 0;
     padding: 6px;
@@ -112,10 +121,28 @@
     cursor: pointer;
     width: 40%;
     font-size: 16px;
+    border-radius: 10px;
+} */
+
+.std-edit-btn {
+    border: 1px solid silver;
+    outline: 0;
+    padding: 6px;
+    color: white;
+    background-color: transparent;
+    text-align: center;
+    cursor: pointer;
+    width: 40%;
+    font-size: 16px;
+    border-radius: 10px;
 }
 
+
 .std-edit-btn:hover {
-    opacity: 0.7;
+    /* opacity: 0.7; */
+    background-color: #0f0f17;
+    /* border: none; */
+    color: rgba(255, 255, 254, 0.7);
 }
 
 .package.highlighted {
@@ -184,7 +211,7 @@
     font-size: 14px;
 }
 
-.prm-edit-btn {
+/* .prm-edit-btn {
     border:rgb(4, 4, 32);
     outline: 0;
     padding: 6px;
@@ -194,10 +221,28 @@
     cursor: pointer;
     width: 40%;
     font-size: 16px;
+} */
+.prm-edit-btn {
+    border: 1px solid silver;
+    outline: 0;
+    padding: 6px;
+    color: white;
+    background-color: transparent;
+    text-align: center;
+    cursor: pointer;
+    width: 40%;
+    font-size: 16px;
+    border-radius: 10px;
 }
 
-.prm-edit-btn:hover {
+/* .prm-edit-btn:hover {
     opacity: 0.7;
+} */
+.prm-edit-btn:hover {
+    /* opacity: 0.7; */
+    background-color: #0f0f17;
+    /* border: none; */
+    color: rgba(255, 255, 254, 0.7);
 }
 
 .add-prm-btn {
@@ -206,7 +251,7 @@
     outline: 0;
     padding: 6px;
     color: white;
-    background-color: #010915;
+    background-color: #010916;
     text-align: center;
     cursor: pointer;
     width: 220px;
@@ -217,7 +262,9 @@
 }
 
 .add-prm-btn:hover {
-    opacity: 0.7;
+    /* opacity: 0.7; */
+    background-color: black;
+    color: lightgrey;
 }
 
 .promo-container {
@@ -296,7 +343,7 @@
     font-size: 12px;
 }
 
-.promo-select-btn {
+/* .promo-select-btn {
     border:rgb(4, 4, 32);
     outline: 0;
     padding: 6px;
@@ -306,10 +353,28 @@
     cursor: pointer;
     width: 25%;
     font-size: 14px;
+} */
+.promo-select-btn {
+    border: 1px solid silver;
+    outline: 0;
+    padding: 6px;
+    color: white;
+    background-color: transparent;
+    text-align: center;
+    cursor: pointer;
+    width: 25%;
+    font-size: 14px;
+    border-radius: 10px;
 }
 
-.promo-select-btn:hover {
+/* .promo-select-btn:hover {
     opacity: 0.7;
+} */
+.promo-select-btn:hover {
+    /* opacity: 0.7; */
+    background-color: #0f0f17;
+    /* border: none; */
+    color: rgba(255, 255, 254, 0.7);
 }
 
 .promo-right {
@@ -371,8 +436,11 @@
     flex: 1;
     padding: 10px;
     margin-left: 10px;
-    border-radius: 5px;
+    /* border-radius: 5px; */
+    /* border: 1px solid #ccc; */
+    background: transparent;
     border: 1px solid #ccc;
+    color: white;
 }
 
 .add-promo-row:last-of-type {

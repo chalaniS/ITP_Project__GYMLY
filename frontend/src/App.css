@@ -4,7 +4,7 @@
 }
 
 Body {
-  background-image: url(./images/bg1.jpg);
+  background-image: url(./images/bg2.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -61,7 +61,7 @@ ul {
   font-size: 1.8rem;
   line-height: 42px;
   text-transform: uppercase;
-  text-shadow: 0 2px rgb(107, 104, 104), 0 3px #777;
+  /* text-shadow: 0 2px rgb(107, 104, 104), 0 3px #777; */
 }
 
 label {
@@ -76,9 +76,9 @@ label {
 section {
   margin: 15px 50px 10px 50px;
   padding: 1px 80px 18px 70px;
-  background: rgba(21, 23, 30, 0.9);
+  background: rgba(26, 24, 30, 0.9);
   border-radius: 30px;
-  box-shadow: rgba(255, 255, 255, 0.12) 0px 2px 4px 0px, rgba(255, 255, 255, 0.32) 0px 2px 16px 0px;
+  /* box-shadow: rgba(255, 255, 255, 0.12) 0px 2px 4px 0px, rgba(255, 255, 255, 0.32) 0px 2px 16px 0px; */
 }
 
 

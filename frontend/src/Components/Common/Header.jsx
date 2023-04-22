@@ -9,7 +9,7 @@ import './header.css';
 
 const Header = () => {
   return (
-    <div>
+    <div style={{'background-color': '#ffff00'}}>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
           <Navbar.Brand href="#home">

@@ -48,8 +48,8 @@ const AddNewPromo = () => {
 
     return (
         <body>
-            <section >
-                <Container>
+            <section style={{'backgroundColor': 'transparent'}}>
+                <Container style={{'backgroundColor': 'rgba(26, 24, 30, 0.9)', 'height': "50%", 'width': '50%', 'padding': '20px'}}>
                     <div className="title code">New Promo Packages Creation</div>
                     <br />
                     <div className="pkg_inputs">

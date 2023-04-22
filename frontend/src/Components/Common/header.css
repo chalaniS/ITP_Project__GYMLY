@@ -3,6 +3,9 @@
 body{
     font-family: 'Nunito', sans-serif;
 }
+.bg {
+    background-color: #ffff00;
+}
 
 /*add this to avoid underlining when hover link*/
 a{

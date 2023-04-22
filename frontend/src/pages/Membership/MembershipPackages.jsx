@@ -136,7 +136,7 @@ const MembershipPackages = () => {
                 </div>
                 {/* {displayType === "standard" ? ( */}
                 <div>
-                    <div className="title code">Standard Packages</div>
+                    <div className="title">Standard Packages</div>
                     
                     <div class="std-container">
                         {standards && standards
