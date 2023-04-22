@@ -35,41 +35,89 @@ const Orderread = () => {
         fetchOrder();
     }, []);
 
-    const generateReport = () => {
-        const data = []; // Add the data you want to include in the report here
+    // const generateReport = () => {
+    //     const data = []; // Add the data you want to include in the report here
       
-        const docDefinition = {
-          content: [
-            { text: "Report Title", style: "header" },
-            "\n",
-            {
-              table: {
-                headerRows: 1,
-                widths: ["*", "*", "*", "*"],
-                body: [
-                  ["Supplement Id", "Supplement Date", "Supplement Type", "Supplement Quantity"],
-                  ...data.map((row) => [
-                    row.Supplement_Id,
-                    row.Supplement_Date,
-                    row.Supplement_Type,
-                    row.Supplement_Quantity,
-                  ]),
-                ],
-              },
-            },
-          ],
-          styles: {
-            header: {
-              fontSize: 18,
-              bold: true,
-              alignment: "center",
-              margin: [0, 0, 0, 10],
-            },
+    //     const docDefinition = {
+    //       content: [
+    //         { text: "Report Title", style: "header" },
+    //         "\n",
+    //         {
+    //           table: {
+    //             headerRows: 1,
+    //             widths: ["*", "*", "*", "*"],
+    //             body: [
+    //               ["Supplement Id", "Supplement Date", "Supplement Type", "Supplement Quantity"],
+    //               ...data.map((row) => [
+    //                 row.Supplement_Id,
+    //                 row.Supplement_Date,
+    //                 row.Supplement_Type,
+    //                 row.Supplement_Quantity,
+    //               ]),
+    //             ],
+    //           },
+    //         },
+    //       ],
+    //       styles: {
+    //         header: {
+    //           fontSize: 18,
+    //           bold: true,
+    //           alignment: "center",
+    //           margin: [0, 0, 0, 10],
+    //         },
+    //       },
+    //     };
+      
+    //     pdfMake.createPdf(docDefinition).open();
+    //   };
+    
+const generateReport = () => {
+    const orderData = []; // Array to store order data
+  
+    // Retrieve the data from the Orderread page and store it in the orderData array
+    const tableRows = document.querySelectorAll("table tbody tr");
+    tableRows.forEach((row) => {
+      const rowData = {};
+      const columns = row.querySelectorAll("td");
+      rowData.Supplement_Id = columns[0].innerText;
+      rowData.Supplement_Date = columns[1].innerText;
+      rowData.Supplement_Type = columns[2].innerText;
+      rowData.Supplement_Quantity = columns[3].innerText;
+      orderData.push(rowData);
+    });
+  
+    const docDefinition = {
+      content: [
+        { text: "Report Title", style: "header" },
+        "\n",
+        {
+          table: {
+            headerRows: 1,
+            widths: ["*", "*", "*", "*"],
+            body: [
+              ["Supplement Id", "Supplement Date", "Supplement Type", "Supplement Quantity"],
+              ...orderData.map((row) => [
+                row.Supplement_Id,
+                row.Supplement_Date,
+                row.Supplement_Type,
+                row.Supplement_Quantity,
+              ]),
+            ],
           },
-        };
-      
-        pdfMake.createPdf(docDefinition).open();
-      };
+        },
+      ],
+      styles: {
+        header: {
+          fontSize: 18,
+          bold: true,
+          alignment: "center",
+          margin: [0, 0, 0, 10],
+        },
+      },
+    };
+  
+    pdfMake.createPdf(docDefinition).open();
+  };
 
     const handleEdit = (id) => {
         navigate(`/Editorder/${id}`);
