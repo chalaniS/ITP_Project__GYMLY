@@ -10,28 +10,28 @@ const Footer = () => {
         <div className="row">
             <div className="col-md-6 mt-md-0 mt-3">
                 <img src={logo} alt="Logo" width={250} />
-                <p>Wanna Add Some pharagraph to this</p>
+                <p>Beyond The Traditional GYM</p>
             </div>
 
             <hr className="clearfix w-80 d-md-none pb-0" />
 
             <div className="col-md-3 mb-md-0 mb-3">
-                <h5 className="text-uppercase"><b>Links</b></h5>
+                <h5 className="text-uppercase"><b>Useful Links</b></h5>
                 <ul className="list-unstyled">
-                    <li><a href="#!">Link 1</a></li>
-                    <li><a href="#!">Link 2</a></li>
-                    <li><a href="#!">Link 3</a></li>
-                    <li><a href="#!">Link 4</a></li>
+                    <li><a href="/Loging">Sign In</a></li>
+                    <li><a href="/registation">Sign Up</a></li>
+                    <li><a href="#!">Packages</a></li>
+                    <li><a href="#!">Suppliment Stores</a></li>
                 </ul>
             </div>
 
             <div className="col-md-3 mb-md-0 mb-3">
-                <h5 className="text-uppercase"><b>Links</b></h5>
+                <h5 className="text-uppercase"><b>GYM Management</b></h5>
                 <ul className="list-unstyled">
-                    <li><a href="#!">Link 1</a></li>
-                    <li><a href="#!">Link 2</a></li>
-                    <li><a href="#!">Link 3</a></li>
-                    <li><a href="#!">Link 4</a></li>
+                    <li><a href="#Contacts">Contacts</a></li>
+                    <li><a href="#">Management Logging</a></li>
+                    <li><a href="#!"></a></li>
+                    <li><a href="#!"></a></li>
                 </ul>
             </div>
         </div>
