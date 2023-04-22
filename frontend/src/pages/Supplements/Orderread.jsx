@@ -88,7 +88,7 @@ const generateReport = () => {
   
     const docDefinition = {
       content: [
-        { text: "Report Title", style: "header" },
+        { text: "Supplements Order", style: "header" },
         "\n",
         {
           table: {
