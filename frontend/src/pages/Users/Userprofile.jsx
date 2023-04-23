@@ -32,7 +32,7 @@ const Userprofile = () => {
 
                 <div className="container text-center">
                         <div className="col" id='btn-section'>
-                            <button className="btn btn-primary" id="edit-btn"> <Icons.GearWideConnected/> Edit Profile</button>
+                            <button className="btn btn-primary" id="edit-btn" onClick={event =>  window.location.href='/setting'}  > <Icons.GearWideConnected/> Edit Profile</button>
                         </div>
                 </div>
 

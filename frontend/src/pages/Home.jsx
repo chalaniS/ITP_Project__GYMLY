@@ -16,7 +16,7 @@ const Home = () => {
         <div className='container-fluid text-center' id='title'>
             <div id='title-text'>Welcome to GYMLY</div>
             <div className="container" id='title-btn-section'>
-                <Button variant="outline-light" id='title-button'>Membership</Button>
+                <Button variant="outline-light" id='title-button' onClick={event =>  window.location.href='/registation'}>Membership</Button>
                 <Button variant="outline-light" id='title-button'>Team GYMLY</Button>
             </div>
         </div>
@@ -46,10 +46,10 @@ const Home = () => {
             <div className="container col-md-6 col-md-offset-3 " id='location-texts-section'>
                 <div id="location-title">Contact Us</div>
                 <div id='contact-info-list'>
-                <div id="location-discription"><TelephoneFill size={30} /> <div id='contact-info'>076 922 3432</div> </div>
-                <div id="location-discription"><EnvelopeAtFill size={30}/> <div id='contact-info'>info@gymly.lk</div></div>
-                <div id="location-discription"><GeoAlt size={30}/><div id='contact-info'>De Mel mawatha, Colombo 03</div></div>
-                <div id="location-discription"><Globe size={30}/> <div id='contact-info'>www.gymly.com</div></div>
+                <div id="location-discription"><TelephoneFill/> : 076 922 3432</div>
+                <div id="location-discription"><EnvelopeAtFill/> : info@gymly.lk</div>
+                <div id="location-discription"><GeoAlt/> : De Mel mawatha, Colombo 03</div>
+                <div id="location-discription"><Globe/> : www.gymly.com</div>
                 </div>
             </div>
 

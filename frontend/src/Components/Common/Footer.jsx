@@ -41,8 +41,8 @@ const Footer = () => {
                 <h5 className="text-uppercase"><b>GYM Management</b></h5>
                 <ul className="list-unstyled">
                     <li><a href="#Contacts">Contacts</a></li>
-                    <li><a href="/ManagmentLogin">Management</a></li>
-                    <li><a href="#!">Blog</a></li>
+                    <li><a href="/ManagmentLogin">Management Login</a></li>
+                    <li><a href="#!">Employee Login</a></li>
                     <li><a href="#!">Help</a></li>
                 </ul>
             </div>

@@ -86,17 +86,21 @@ const ManagerDashboard = () => {
         ))
       {/* End of Generate user report */}
 
+
+
+
+
     
     return(
     <div className="container-fluid" id="ManagerDashboard">
 
-        <div className="text-center" id="ManagerDashboard-Title">All Users</div>
+        <div className="text-center" value="search" id="ManagerDashboard-Title">All Users</div>
 
 
         <div className="row">
             <div className="col-6">    
                 <div className="container content-justify-center text-center" id="ManagerDashboard-search">
-                    <Search />
+                    <Search/>
                 </div>
             </div>
 
