@@ -16,47 +16,52 @@ import { eventNames } from "process";
 
 const Editorder = () => {
   const { id } = useParams();
-  const [startDate, setStartDate] = useState(new Date());
-  const [supplementtype, setsupplementtype] = useState("");
-  const [supplementamount, setSupplementamount] = useState("");
-  const [supplementId, setsupplementId] = useState("");
-  const [alldata, setAlldata] = useState("");
+  const [Supplement_Date, setSupplement_Date] = useState(new Date());
+  const [Supplement_Type, setSupplement_Type] = useState("");
+  const [Supplement_Quantity, setSupplement_Quantity] = useState("");
+  const [Supplement_Id, setSupplement_Id] = useState("");
 
   useEffect(() => {
-    showLoadingSpinner();
     const fetchOrder = async () => {
+    
+    
       try {
+        showLoadingSpinner();
         const response = await Axios.get(
           `http://localhost:5000/Supplements/${id}`
         );
-        setStartDate(parseISO(response.data.startDate));
-        setsupplementtype(response.data.supplementType);
-        setSupplementamount(response.data.supplementAmount);
-        setsupplementId(response.data.supplementId);
-        setAlldata(response.data);
+        const order = response.data;
+        setSupplement_Date(parseISO(response.data.startDate));
+        setSupplement_Type(response.data.supplementType);
+        setSupplement_Quantity(response.data.supplementAmount);
+        setSupplement_Id(response.data.supplementId);
         console.log(response.data);
       } catch (error) {
         console.log("Error fetching order:", error);
-      }
-      hideLoadingSpinner();
+      } finally {
+        hideLoadingSpinner(); }
     };
     fetchOrder();
   }, [id]);
   
   const handleFormSubmit = (event) => {
     event.preventDefault();
-
-    console.log("In handleFormSubmit");
-    console.log(startDate);
     showLoadingSpinner();
-
+    console.log({
+      Supplement_Date,
+      Supplement_Type,
+      Supplement_Quantity,
+      Supplement_Id
+    });
+  
     // Send the updated data to the server using an API call
     Axios.put(`http://localhost:5000/Supplements/${id}`, {
-      startDate :startDate,
-      supplementtype: supplementtype,
-      supplementamount: supplementamount,
-      supplementId: supplementId
+      Supplement_Date:Supplement_Date,
+      Supplement_Type:Supplement_Type,
+      Supplement_Quantity:Supplement_Quantity,
+      Supplement_Id: Supplement_Id
     })
+    
       .then((response) => {
         console.log(response);
         hideLoadingSpinner();
@@ -99,8 +104,8 @@ const Editorder = () => {
                       <input
                         type="date"
                         className="calender"
-                        onChange={(event) => setStartDate(event.target.value)}
-                        value={startDate}
+                        onChange={(event) => setSupplement_Date(event.target.value)}
+                        value={Supplement_Date}
                       />
                     </Col>
                   </Row>
@@ -116,9 +121,9 @@ const Editorder = () => {
                           name="supplement amount"
                           className="supplement amount"
                           onChange={(event) =>
-                            setSupplementamount(event.target.value)
+                            setSupplement_Quantity(event.target.value)
                           }
-                          value={supplementamount}
+                          value={Supplement_Quantity}
                         >
                           <option value="1">1</option>
                           <option value="2">2</option>
@@ -146,9 +151,9 @@ const Editorder = () => {
                           name="supplement type"
                           className="supplement type"
                           onChange={(event) =>
-                            setsupplementtype(event.target.value)
+                            setSupplement_Type(event.target.value)
                           }
-                          value={supplementtype}
+                          value={Supplement_Type}
                         >
                           <option value="Whey protein">Whey protein</option>
                           <option value="Casein protein">Casein protein</option>
@@ -168,9 +173,9 @@ const Editorder = () => {
                           name="supplement Id"
                           className="supplement Id"
                           onChange={(event) =>
-                            setsupplementId(event.target.value)
+                            setSupplement_Id(event.target.value)
                           }
-                          value={supplementId}
+                          value={Supplement_Id}
                         >
                           <option value="0001">0001</option>
                           <option value="0002">0002</option>

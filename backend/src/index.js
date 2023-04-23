@@ -109,14 +109,14 @@ app.get('/Supplements/:id', async (req, res) => {
 
 app.put("/Supplements/:id", async (req, res) => {
     const objectId = req.params.id;
-    const { Supplement_Type, Supplement_Id, Supplement_Price, Supplement_Quantity } = req.body;
+    const {Supplement_Date,Supplement_Type, Supplement_Id,Supplement_Quantity } = req.body;
     try {
         const updatedSupplements = await Supplements.findByIdAndUpdate(
             objectId,
             {
+                Supplement_Date: Supplement_Date,
                 Supplement_Type: Supplement_Type,
                 Supplement_Id: Supplement_Id,
-                Supplement_Price: Supplement_Price,
                 Supplement_Quantity: Supplement_Quantity
             },
             { new: true }

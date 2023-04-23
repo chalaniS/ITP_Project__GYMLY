@@ -35,42 +35,7 @@ const Orderread = () => {
         fetchOrder();
     }, []);
 
-    // const generateReport = () => {
-    //     const data = []; // Add the data you want to include in the report here
-      
-    //     const docDefinition = {
-    //       content: [
-    //         { text: "Report Title", style: "header" },
-    //         "\n",
-    //         {
-    //           table: {
-    //             headerRows: 1,
-    //             widths: ["*", "*", "*", "*"],
-    //             body: [
-    //               ["Supplement Id", "Supplement Date", "Supplement Type", "Supplement Quantity"],
-    //               ...data.map((row) => [
-    //                 row.Supplement_Id,
-    //                 row.Supplement_Date,
-    //                 row.Supplement_Type,
-    //                 row.Supplement_Quantity,
-    //               ]),
-    //             ],
-    //           },
-    //         },
-    //       ],
-    //       styles: {
-    //         header: {
-    //           fontSize: 18,
-    //           bold: true,
-    //           alignment: "center",
-    //           margin: [0, 0, 0, 10],
-    //         },
-    //       },
-    //     };
-      
-    //     pdfMake.createPdf(docDefinition).open();
-    //   };
-    
+   
 const generateReport = () => {
     const orderData = []; // Array to store order data
   
@@ -114,11 +79,22 @@ const generateReport = () => {
           margin: [0, 0, 0, 10],
         },
         
+        
       },
     };
   
     pdfMake.createPdf(docDefinition).open();
   };
+
+
+
+
+
+
+
+
+
+
 
     const handleEdit = (id) => {
         navigate(`/Editorder/${id}`);
@@ -162,7 +138,7 @@ const generateReport = () => {
                 <br />
                 <Row>
                     <Col>
-                    <button className="tertiary_btn" onClick={generateReport}>
+                    <button className="tertiary_btn" onClick={generateReport}> 
                         Generate A Report
                     </button>
                     </Col>

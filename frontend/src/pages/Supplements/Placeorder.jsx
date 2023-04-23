@@ -76,6 +76,7 @@ const Placeorder = () => {
                           setSupplementDate(event.target.value)
                         }
                         value={Supplement_Date}
+                        required
                       />
                     </Col>
                   </Row>
@@ -94,6 +95,7 @@ const Placeorder = () => {
                             setSupplementQuantity(event.target.value)
                           }
                           value={Supplement_Quantity}
+                          required
                         >
                           <option value="1">1</option>
                           <option value="2">2</option>
@@ -124,6 +126,7 @@ const Placeorder = () => {
                             setSupplementType(event.target.value)
                           }
                           value={Supplement_Type}
+                          required
                         >
                           <option value="Whey protein">Whey protein</option>
                           <option value="Casein protein">Casein protein</option>
@@ -146,6 +149,7 @@ const Placeorder = () => {
                             setSupplementId(event.target.value)
                           }
                           value={Supplement_Id}
+                          required
                         >
                           <option value="0001">0001</option>
                           <option value="0002">0002</option>
