@@ -1,0 +1,9 @@
+.images {
+    height: 200px;
+    /* filter: drop-shadow(0 0 0.75rem rgb(14, 13, 14)); */
+    border-radius: 20px;
+}
+
+.cancel {
+    text-align-last: right;
+}

@@ -1,13 +1,18 @@
 import "dotenv/config";
 import mongoose from "mongoose";
-// import config from "./configs/config";
 import express from "express";
 import cors from "cors";
-// import { connect } from "./utils/dbconnect"
+import serviceFeedbackRouter from './routes/CustomerAffairs/serviceFeedback.js'
+import instructorFeedbackRouter from './routes/CustomerAffairs/instructorFeedback.js'
 
 
+//express app
 const app = express();
+
+
+//middleware
 app.use(cors());
+app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
 
@@ -29,12 +34,16 @@ app.listen(PORT, () => {
     //connect db
     mongoose
         .connect("mongodb+srv://gymly:gymly123@gymly-db-cluster.sfmuyh9.mongodb.net/gymly-db?retryWrites=true&w=majority")
-        .then((connection) => {
+        .then((connection) => {//to fire a function
             database = connection;
             console.log("Database Synced");
         })
-        .catch((err) => {
+        .catch((err) => {//to catch any error if URI is incorrect or username/password incorrect
             console.log(err.message);
         });
 
 });
+
+//routes
+app.use('/api/CustomerAffairs',serviceFeedbackRouter)
+app.use('/api/instructorFeedback',instructorFeedbackRouter)

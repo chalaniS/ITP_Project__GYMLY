@@ -79,6 +79,7 @@ section {
   background: rgba(21, 23, 30, 0.9);
   border-radius: 30px;
   box-shadow: rgba(255, 255, 255, 0.12) 0px 2px 4px 0px, rgba(255, 255, 255, 0.32) 0px 2px 16px 0px;
+  
 }
 
 
@@ -182,7 +183,7 @@ input {
   font-size: 1rem;
   font-weight: 700;
   width: 245px;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
 }
 
 /* textarea input  */
