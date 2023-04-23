@@ -14,19 +14,6 @@
     }
   }
 
-section {
-    margin: 15px 0px 10px 0px;
-    padding: 0px;
-    background: rgba(21, 23, 30, 0.832);
-    border-radius: 30px;
-    /* From https://css.glass */
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(61, 60, 60, 0.06);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(36, 35, 35, 0.48);
-}
-
 .MuiSvgIcon-root path {
     fill: white; /* Change the fill color to white */
 }
@@ -47,18 +34,20 @@ section {
 .MuiTypography-h6 {
     font-size: 1.25rem;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    font-weight: 500;
+    font-weight: bold !important;
     line-height: 1.6;
     letter-spacing: 0.0075em;
     color: white;
 }
 
 .MuiTableSortLabel-root.MuiTableSortLabel-active {
-    color: rgba(72, 171, 243, 0.54) !important;
+    color: #0069d9 !important;
+    font-weight: bold !important;
 }
 
 .MuiTableSortLabel-root:hover {
-    color: rgba(72, 171, 243, 0.54) !important;
+    color: #0069d9 !important;
+    font-weight: bold !important;
 }
 
 .MuiButtonBase-root {
@@ -70,5 +59,28 @@ section {
 }
 
 .MuiButton-contained.Mui-disabled {
-    background-color: rgba(72, 171, 243, 0.54) !important;
+    background-color: #0069d9 !important;
+}
+
+.MTableToolbar-spacer-22 {
+    flex: 1 1 10% !important;
+}
+
+.editBtn {
+    transition: all .5s ease;
+    color: #2d68fd;
+    border: 3px solid #0069d9;
+    font-family:"Roboto", "Helvetica", "Arial", sans-serif;
+    text-transform: capitalize;
+    text-align: center;
+    line-height: 1;
+    font-size: 14px;
+    background-color : transparent;
+    padding: 10px;
+    outline: none;
+    border-radius: 4px;
+}
+.editBtn:hover {
+    color: #001F3F;
+    background-color: #0069d9;
 }

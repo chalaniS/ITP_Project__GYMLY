@@ -3,8 +3,13 @@ import { useState } from 'react';
 import { Container} from 'reactstrap'
 import { useNavigate } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles'
 import '../../Styles/employee/EmployeeTable.css'
+import '../../Styles/employee/EmployeeLeave.css'
+
+
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 import { forwardRef } from 'react';
 
@@ -49,16 +54,17 @@ const useStyles = makeStyles((theme) => ({
   tableContainer: {
     "& .MuiPaper-root": {
       backgroundColor: "transparent",
+      opacity: 0.83,
       color: "white"
     },
     "& .MuiPaper-elevation1": {
       boxShadow: "none"
     },
     "& .MuiTableRow-root:nth-of-type(odd)": {
-      backgroundColor: "#2c3034"
+      backgroundColor: "#212529"
     },
     "& .MuiTableRow-root:nth-of-type(even)": {
-      backgroundColor: "#212529"
+      backgroundColor: "#2c3034"
     },
     '& .MuiTableHead-root .MuiTableCell-head': {
       color: 'white',
@@ -77,6 +83,8 @@ function EmployeeLeave() {
       {empID: "CL010", name: "Lakindu", jobRole: "Cleaner", leaveType: "M", leaveFrom: "2023-04-12", leaveTo: "2023-04-12"},
       {empID: "CL010", name: "Lakindu", jobRole: "Cleaner", leaveType: "M", leaveFrom: "2023-04-12", leaveTo: "2023-04-12"},
     ])
+    const [filterData, setFilterData] = useState([])
+    const [query, setQuery] = useState('')
 
     const columns = [
         {title: "Employee ID",field: "empID", defaultSort: "asc"},
@@ -86,6 +94,64 @@ function EmployeeLeave() {
         {title: "Leave From",field: "leaveFrom",type: "date"},
         {title: "Leave To",field: "leaveTo",type: "date"},
     ]
+
+    const handleSearch = (event) => {
+      // const getSearch = event.target.value
+
+      // if(getSearch.length > 0) {
+      //   const searchData = tableData.filter((values) => {
+      //     return Object.values(values).some((value) => {
+      //       if (typeof value === 'number') {
+      //         // Convert number to string before searching
+      //         return value.toString().toLowerCase().includes(getSearch);
+      //       } else if (typeof value === 'string') {
+      //         return value.toLowerCase().includes(getSearch);
+      //       }
+      //       return false;
+      //     });
+      //   });
+      //   setTableData(searchData)
+      // }else{
+      //   setTableData(filterData)
+      // }
+      // setQuery(getSearch)
+  }
+
+    const CustomSearch = () => {
+      
+      return (
+        <div style={{display: 'flex'}}>
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => handleSearch(e)}
+            placeholder="Search"
+            autoFocus onclick="this.select();"
+            style={{padding: 5, borderRadius: 5, border: '1px solid gray', marginRight: 10}}
+          />
+        </div>
+      )
+    }
+
+    const generatePDF = () => {
+      const unit = "pt";
+      const size = "A4"; 
+      const orientation = "landscape"; 
+      const marginLeft = 40;
+      const doc = new jsPDF(orientation, unit, size);
+      doc.setFontSize(15);
+      const title = "Employee Leaves";
+      const headers = [["Employee ID", "Name", "Job Role", "Leave Type", "Leave From", "Leave To"]];
+      const data = tableData.map((employee) => [employee.empID, employee.name, employee.jobRole, employee.leaveType, employee.leaveFrom, employee.leaveTo]);
+      let content = {
+        startY: 50,
+        head: headers,
+        body: data,
+      };
+      doc.text(title, marginLeft, 40);
+      doc.autoTable(content);
+      doc.save("employee-leaves.pdf");
+    };
 
     const classes = useStyles();
 
@@ -99,14 +165,47 @@ function EmployeeLeave() {
               columns={columns} 
               data={tableData}
 
+              components={{
+                Toolbar: () => (
+                  <div>
+                    <div className="MuiToolbar-root MuiToolbar-regular MTableToolbar-root-20 MuiToolbar-gutters">
+                      <div className="MTableToolbar-title-24">
+                        <h6 className="MuiTypography-root MuiTypography-h6" style={{whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>Employee Leaves</h6>
+                      </div>
+                      <div className="MTableToolbar-spacer-22">
+                      </div>
+                      <div>
+                        <CustomSearch />
+                      </div>
+                      <div className="MTableToolbar-actions-23">
+                        <div>
+                          <div>
+                            <span>
+                              <button className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit" tabindex="0" type="button" aria-label="Export" title="Export" onClick={generatePDF}>
+                                <span className="MuiIconButton-label">
+                                  <svg className="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M19 12v7H5v-7H3v7c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2zm-6 .67l2.59-2.58L17 11.5l-5 5-5-5 1.41-1.41L11 12.67V3h2z"></path>
+                                  </svg>
+                                </span>
+                                <span className="MuiTouchRipple-root"></span>
+                              </button>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ),
+              }}
+
               actions={[
                 {
-                  icon: () => <Button variant="contained" color="primary">Approve</Button>,
+                  icon: () => <Button variant="contained" color="primary" class="approveBtn">Approve</Button>,
                   tooltip: 'Approve Leave',
                   onClick: (event, rowData) => console.log("Approved")
                 },
                 {
-                    icon: () => <Button variant="contained" color="secondary">Reject</Button>,
+                    icon: () => <Button variant="contained" color="secondary" class="rejectBtn">Reject</Button>,
                     tooltip: 'Reject Leave',
                     onClick: (event, rowData) => console.log("Rejected")
                 },
@@ -119,7 +218,7 @@ function EmployeeLeave() {
                   pageSizeOptions:[5,10,20,50,100], 
                   pageSize:10,
                   paginationType:"stepped",
-                  exportButton:true,
+                  //exportButton:true,
                   exportAllData:true,
                   exportFileName:"Monthly Leave Report",
                   actionsColumnIndex:-1

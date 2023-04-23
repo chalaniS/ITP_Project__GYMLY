@@ -3,75 +3,15 @@ import { Container} from 'reactstrap'
 import Axios from 'axios';
 import {useFormik} from 'formik'
 import '../../Styles/employee/EmployeeForm.css'
-import '../../Styles/schedule/schedule.css'
 import '../../App.css'
 
 import { Form, Button, Col, Row } from "react-bootstrap";
 import { showLoadingSpinner, hideLoadingSpinner } from '../../Components/Loading/Loading.js'
 
+
 const API_URL = 'http://localhost:5000/employee';
 
-// const addToList = async (
-//   firstName, 
-//   lastName, 
-//   NIC, 
-//   role, 
-//   gender, 
-//   DOB, 
-//   contactNo, 
-//   email, 
-//   address, 
-//   qualifications, 
-//   joinedDate, 
-//   terminateDate
-// ) => {
-
-//   showLoadingSpinner();
-
-//   try {
-//       const promises = [];
-
-//           promises.push(
-//               Axios.post(API_URL, {
-//                   firstName: firstName,
-//                   lastName: lastName,
-//                   NIC: NIC,
-//                   role: role,
-//                   gender: gender,
-//                   DOB: DOB,
-//                   contactNo: contactNo,
-//                   email: email,
-//                   address: address,
-//                   qualifications: qualifications,
-//                   joinedDate: joinedDate,
-//                   terminateDate: terminateDate
-//               })
-//           );
-      
-//       await Promise.all(promises);
-//       hideLoadingSpinner();
-//       window.alert('Data has been inserted successfully');
-//       window.location = "http://localhost:3000/employeeDashboard";
-//       console.log('Successfully added to list');
-//   } catch (error) {
-//       console.log(error);
-//   }
-// };
-
   const EmployeeForm = () => {
-    
-    // const [firstName, setFirstName] = useState('');
-    // const [lastName, setLastName] = useState('');
-    // const [NIC, setNIC] = useState('');
-    // const [role, setRole] = useState('');
-    // const [gender, setGender] = useState('');
-    // const [DOB, setDOB] = useState('');
-    // const [contactNo, setContactNo] = useState('');
-    // const [email, setEmail] = useState('');
-    // const [address, setAddress] = useState('');
-    // const [qualifications, setQualifications] = useState('');
-    // const [joinedDate, setJoinedDate] = useState('');
-    // const [terminateDate, setTerminateDate] = useState('');
 
     const validate = values => {
       const errors = {};
@@ -96,7 +36,7 @@ const API_URL = 'http://localhost:5000/employee';
 
       if (!values.contactNo) {
         errors.contactNo = "*Required";
-      }else if(values.contactNo.length < 10){
+      }else if(values.contactNo.length < 10 || values.contactNo.length > 10){
         errors.contactNo = "*Must be 10 digits";
       }else if (!/^\d+$/.test(values.contactNo)) {
         errors.contactNo = "*Contact number must contain only digits";
@@ -146,7 +86,7 @@ const API_URL = 'http://localhost:5000/employee';
         showLoadingSpinner();
 
         try{
-          const response = await fetch(API_URL, {
+          const response = await fetch(`http://localhost:5000/employee/addEmployee`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -170,8 +110,7 @@ const API_URL = 'http://localhost:5000/employee';
 
     return (
       <body id='Body'>
-      <section>
-      <Container>
+      <section className="employeeForm">
       <div className="form">
         <h2 className="title code">Employee Registration</h2>
         <div id="role-form-outer-div">
@@ -249,7 +188,7 @@ const API_URL = 'http://localhost:5000/employee';
                   <option value="cashier">Cashier</option>
                   <option value="operation manager">Opertion Manager</option>
                   <option value="fitness instructor">Fitness Instructor</option>
-                  <option value="customer service">Customer Service Manager</option>
+                  <option value="customer service manager">Customer Service Manager</option>
                   <option value="membership manager">Memebership Manager</option>
                   <option value="payment manager">Payment Manager</option>
                   <option value="supplier manager">Supplier Manager</option>
@@ -458,11 +397,7 @@ const API_URL = 'http://localhost:5000/employee';
             </Form.Group>
           </Form>
         </div>
-
-        {/* </div>
-        </div> */}
       </div>
-      </Container>
       </section>
       </body>
     );

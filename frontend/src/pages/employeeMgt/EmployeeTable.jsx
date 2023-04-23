@@ -1,5 +1,5 @@
-import MaterialTable from 'material-table'
-import { useState, useEffect } from 'react';
+import MaterialTable, { MTableToolbar, MTableHeader } from 'material-table'
+import { useState, useEffect} from 'react';
 import { Container} from 'reactstrap'
 import { useNavigate } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
@@ -7,6 +7,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import '../../Styles/employee/EmployeeTable.css'
 import axios from 'axios';
 import { showLoadingSpinner, hideLoadingSpinner } from '../../Components/Loading/Loading.js'
+
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 import { forwardRef } from 'react';
 
@@ -51,16 +54,17 @@ const useStyles = makeStyles((theme) => ({
   tableContainer: {
     "& .MuiPaper-root": {
       backgroundColor: "transparent",
+      opacity: 0.83,
       color: "white"
     },
     "& .MuiPaper-elevation1": {
       boxShadow: "none"
     },
     "& .MuiTableRow-root:nth-of-type(odd)": {
-      backgroundColor: "#2c3034"
+      backgroundColor: "#212529"
     },
     "& .MuiTableRow-root:nth-of-type(even)": {
-      backgroundColor: "#212529"
+      backgroundColor: "#2c3034"
     },
     '& .MuiTableHead-root .MuiTableCell-head': {
       color: 'white',
@@ -70,14 +74,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function EditSalary(props) {
-  const navigate = useNavigate();
-  
-  const handleClick = () => {
-    navigate('/employeeRegister');
-  };
 
   return (
-    <Button variant="contained" color="primary" onClick={handleClick}>
+    <Button variant="contained" color="primary" class="editBtn">
       {props.label}
     </Button>
   );
@@ -86,6 +85,8 @@ function EditSalary(props) {
 function EmployeeTable() {
 
     const [tableData, setTableData] = useState([])
+    const [filterData, setFilterData] = useState([])
+    const [query, setQuery] = useState('')
 
     const columns = [
         {title: "_id", field: "_id", hidden: true},
@@ -97,11 +98,13 @@ function EmployeeTable() {
     ]
 
     useEffect(()=>{
-      fetch("http://localhost:5000/employee")
+      fetch("http://localhost:5000/employee/getEmployee")
       .then(resp=>resp.json())
       .then(resp=>{
         console.log(resp)
-        setTableData(resp)})
+        setTableData(resp)
+        setFilterData(resp)
+      })
     },[])
 
     const navigate = useNavigate();
@@ -113,7 +116,7 @@ function EmployeeTable() {
       navigate('/employeeRegister');
     };
     const removeEmployee = (id) => {
-      axios.delete(`http://localhost:5000/employee/${id}`)
+      axios.delete(`http://localhost:5000/employee/deleteEmployee/${id}`)
           .then(response => {
 
               console.log('Employee removed successfully');
@@ -129,6 +132,75 @@ function EmployeeTable() {
           });
     }
 
+    const editSalary = (id) => {
+      navigate(`/employeeSalary/${id}`);
+    };
+
+
+    const handleSearch = (event) => {
+        const getSearch = event.target.value
+
+        if(getSearch.length > 0) {
+          const searchData = tableData.filter((values) => {
+            return Object.values(values).some((value) => {
+              if (typeof value === 'number') {
+                // Convert number to string before searching
+                return value.toString().toLowerCase().includes(getSearch);
+              } else if (typeof value === 'string') {
+                return value.toLowerCase().includes(getSearch);
+              }
+              return false;
+            });
+          });
+          setTableData(searchData)
+        }else{
+          setTableData(filterData)
+        }
+        setQuery(getSearch)
+    }
+
+    const CustomSearch = () => {
+      
+      return (
+        <div style={{display: 'flex'}}>
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => handleSearch(e)}
+            placeholder="Search"
+            autoFocus onclick="this.select();"
+            style={{padding: 5, borderRadius: 5, border: '1px solid gray', marginRight: 10}}
+          />
+          {/* <button
+            onClick={handleSearch}
+            style={{backgroundColor: 'blue', color: 'white', borderRadius: 5, border: 'none', padding: '10px 20px'}}
+          >
+            Search
+          </button> */}
+        </div>
+      )
+    }
+
+    const generatePDF = () => {
+      const unit = "pt";
+      const size = "A4"; 
+      const orientation = "landscape"; 
+      const marginLeft = 40;
+      const doc = new jsPDF(orientation, unit, size);
+      doc.setFontSize(15);
+      const title = "Employee Summary";
+      const headers = [["Employee ID", "Name", "Job Role", "Salary"]];
+      const data = tableData.map((employee) => [employee._id, employee.firstName, employee.role, employee.salary]);
+      let content = {
+        startY: 50,
+        head: headers,
+        body: data,
+      };
+      doc.text(title, marginLeft, 40);
+      doc.autoTable(content);
+      doc.save("employee-summary.pdf");
+    };
+
     const classes = useStyles();
 
   return (
@@ -141,13 +213,79 @@ function EmployeeTable() {
               columns={columns} 
               data={tableData}
 
+              // components={{
+              //   Toolbar: props => (
+              //     <div>
+              //       <MTableToolbar {...props} />
+              //       <div style={{padding: '0px 18px 10px'}}>
+              //       <CustomSearch />
+              //       </div>
+              //     </div>
+              //   ),
+              // }}
+
+              components={{
+                Toolbar: () => (
+                  <div>
+                    <div className="MuiToolbar-root MuiToolbar-regular MTableToolbar-root-20 MuiToolbar-gutters">
+                      <div className="MTableToolbar-title-24">
+                        <h6 className="MuiTypography-root MuiTypography-h6" style={{whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>Employee Summary</h6>
+                      </div>
+                      <div className="MTableToolbar-spacer-22">
+                      </div>
+                      <div>
+                        <CustomSearch />
+                      </div>
+                      <div className="MTableToolbar-actions-23">
+                        <div>
+                          <div>
+                            <span>
+                              <button className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit" tabindex="0" type="button" aria-label="Export" title="Export" onClick={generatePDF}>
+                                <span className="MuiIconButton-label">
+                                  <svg className="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M19 12v7H5v-7H3v7c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2zm-6 .67l2.59-2.58L17 11.5l-5 5-5-5 1.41-1.41L11 12.67V3h2z"></path>
+                                  </svg>
+                                </span>
+                                <span className="MuiTouchRipple-root"></span>
+                              </button>
+                            </span>
+                            <span>
+                              <button className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit" tabindex="0" type="button" title="Add Employee" onClick={addEmployee}>
+                                <span className="MuiIconButton-label">
+                                  <svg className="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                                  <path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"></path>
+                                  </svg>
+                                </span>
+                                <span className="MuiTouchRipple-root"></span>
+                              </button>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ),
+              }}
+
+              // components={{
+              //   Toolbar: (props) => (
+              //     <div>
+              //       <div style={{ display: "flex"}}>
+              //         <CustomSearch onSearch={props.onSearch} />
+              //       </div>
+              //       <props.components.Toolbar {...props} />
+              //     </div>
+              //   ),
+              // }}
+              // onSearchChanged={handleSearch}
+
               actions={[
-                {
-                  icon: tableIcons.Add,
-                  tooltip: 'Add Employee',
-                  onClick: (event, rowData) => addEmployee(),
-                  isFreeAction: true
-                },
+                // {
+                //   icon: tableIcons.Add,
+                //   tooltip: 'Add Employee',
+                //   onClick: (event, rowData) => addEmployee(),
+                //   isFreeAction: true
+                // },
                 {
                   icon: tableIcons.Edit,
                   tooltip: 'Edit Employee',
@@ -161,17 +299,19 @@ function EmployeeTable() {
                 {
                   icon: () => <EditSalary label="Edit Salary"/>,
                   tooltip: 'Edit Salary',
+                  onClick: (event, rowData) => editSalary(rowData._id)
                 }
               ]}
               
               options={
                 {
-                  sorting:true, 
-                  searchFieldVariant:"outlined", 
+                  sorting:true,
+                  search:false, 
+                  //searchFieldVariant:"outlined",
                   pageSizeOptions:[5,10,20,50,100], 
                   pageSize:10,
                   paginationType:"stepped",
-                  exportButton:true,
+                  //exportButton:true,
                   exportAllData:true,
                   exportFileName:"Monthly Salary Report",
                   actionsColumnIndex:-1

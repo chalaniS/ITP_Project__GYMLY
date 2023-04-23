@@ -1,48 +1,22 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import { Container} from 'reactstrap'
 import axios from "axios";
 import {useFormik} from 'formik'
+import {useParams} from 'react-router-dom'
 import '../../Styles/employee/EmployeeForm.css'
 import '../../Styles/schedule/schedule.css'
 import '../../App.css'
 
 import { Form, Button, Col, Row } from "react-bootstrap";
-
-// class EmployeeSalaryForm extends Component {
-//   state = {
-//     employeeData : [],
-   
-    
-//   }
- 
-//   loadEmployeeInfo = () => {
-//     axios
-//       .get(process.env.REACT_APP_API_URL + "/api/employee", {
-//         headers: {
-//           authorization: localStorage.getItem("token") || ""
-//         }
-//       })
-//       .then(response => {
-//         this.setState({ employeeData: response.data });
-//       })
-//       .catch(error => {
-//         console.log(error);
-//       });
-//   };
-  
-//   componentWillMount() {
-//     this.loadEmployeeInfo();
-//     // this.loadPositionInfo();
-//     // this.loadDepartmentInfo();
-//   }
+import { showLoadingSpinner, hideLoadingSpinner } from '../../Components/Loading/Loading.js'
 
 const EmployeeSalaryForm = () => {
 
+  const params = useParams();
+
     const validate = values => {
       const errors = {};
-      if (!values.empID) {
-        errors.empID = "*Required";
-      }
+
       if (!values.salaryMonth) {
         errors.salaryMonth = "*Required";
       }
@@ -69,6 +43,47 @@ const EmployeeSalaryForm = () => {
 
       return errors;
     }
+
+    const getEmployeeSalaryDetails = async() => {
+      console.warn(params)
+      let result = await fetch(`http://localhost:5000/employeeSalary/${params.id}`);
+      result = await result.json();
+      console.warn(result)
+
+      formik.setValues({
+        empId: result.empId,
+        basicSal: result.basicSal,
+        otHours: result.otHours,
+        otRate: result.otRate,
+        bonus: result.bonus,
+        month: result.month.substr(0, 10)
+      });
+
+    }
+
+    useEffect(()=>{
+      getEmployeeSalaryDetails();
+    },[])
+
+    const updateEmployeeSalary = async(data) => {
+      showLoadingSpinner();
+      console.warn(data)
+      let result = await fetch(`http://localhost:5000/employeeSalary/${params.id}`,{
+        method: 'PUT',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      result = await result.json()
+      console.warn(result)
+      if(result){
+        hideLoadingSpinner();
+        window.alert('Data has been updated successfully');
+        window.location = "http://localhost:3000/employeeDashboard";
+      }
+    }
+
     const formik = useFormik({
       initialValues: {
         empID: "",
@@ -80,27 +95,14 @@ const EmployeeSalaryForm = () => {
         bonus: ""
       },
       validate,
-      onSubmit: values => {
-        console.log("values");
-        // axios
-        // .post(
-        //     process.env.MONGODB_URL + "/api/employee",
-        //     values
-        //   )
-        // .then(response => {
-        //     console.log(response.data);
-        //     window.location.reload();
-        //   })
-        // .catch(error => {
-        //     console.log(error);
-        //   });
+      onSubmit: async(values) => {
+        updateEmployeeSalary(formik.values)
       }
     });
 
     return (
       <body id='Body'>
-      <section>
-      <Container>
+      <section className="employeeForm">
       <div className='form'>
         <h2 className="title code">Employee Salary Assignment</h2>
         <div id="role-form-outer-div">
@@ -117,10 +119,10 @@ const EmployeeSalaryForm = () => {
                     placeholder="Employee ID"
                     onChange={formik.handleChange}
                     value={formik.values.empID}
-                    onBlur={formik.handleBlur}
-                    required
+                    // onBlur={formik.handleBlur}
+                    readOnly
+                    // required
                   />
-                  {formik.touched.empID && formik.errors.empID ? <div className="error">{formik.errors.empID}</div>: null}
                 </Col>
             </Form.Group>
 
@@ -245,11 +247,7 @@ const EmployeeSalaryForm = () => {
             </Form.Group>
           </Form>
         </div>
-
-        {/* </div>
-        </div> */}
       </div>
-      </Container>
       </section>
       </body>
     );

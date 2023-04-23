@@ -4,7 +4,7 @@
 }
 
 Body {
-  background-image: url(./images/bg1.jpg);
+  background-image: url(./images/bg-empMgt.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -60,8 +60,8 @@ ul {
   font-family: 'Ultra', sans-serif;
   font-size: 1.8rem;
   line-height: 42px;
+  font-weight: bold;
   text-transform: uppercase;
-  text-shadow: 0 2px rgb(107, 104, 104), 0 3px #777;
 }
 
 label {
@@ -74,16 +74,22 @@ label {
 }
 
 section {
-  margin: 15px 50px 10px 50px;
-  padding: 1px 80px 18px 70px;
-  background: rgba(21, 23, 30, 0.832);
-  border-radius: 30px;
-  /* From https://css.glass */
+  margin-left: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: auto;
+  padding: 40px;
+
+  width: fit-content;
+  border-radius: 50px;
+  background: rgba(23, 116, 203, 0.39);
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(61, 60, 60, 0.06);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(36, 35, 35, 0.48);
+  background: rgba(0, 0, 0, 0.39);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(21, 1, 1, 0.1);
+  backdrop-filter: blur(14.3px);
+  -webkit-backdrop-filter: blur(14.3px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 

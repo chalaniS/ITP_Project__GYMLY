@@ -10,22 +10,7 @@ import '../../App.css'
 import { Form, Button, Col, Row } from "react-bootstrap";
 import { showLoadingSpinner, hideLoadingSpinner } from '../../Components/Loading/Loading.js'
 
-//const API_URL = 'http://localhost:5000/employee/${id}';
-
   const EmployeeFormEdit = () => {
-
-    const [firstName, setFirstName] = React.useState('');
-    const [lastName, setLastName] = React.useState('');
-    const [NIC, setNIC] = React.useState('');
-    const [role, setRole] = React.useState('');
-    const [gender, setGender] = React.useState('');
-    const [DOB, setDOB] = React.useState('');
-    const [contactNo, setContactNo] = React.useState('');
-    const [email, setEmail] = React.useState('');
-    const [address, setAddress] = React.useState('');
-    const [qualifications, setQualifications] = React.useState('');
-    const [joinedDate, setJoinedDate] = React.useState('');
-    const [terminateDate, setTerminateDate] = React.useState('');
 
     const params = useParams();
 
@@ -48,7 +33,7 @@ import { showLoadingSpinner, hideLoadingSpinner } from '../../Components/Loading
 
     const getEmployeeDetails = async() => {
       console.warn(params)
-      let result = await fetch(`http://localhost:5000/employee/${params.id}`);
+      let result = await fetch(`http://localhost:5000/employee/getEmployee/${params.id}`);
       result = await result.json();
       console.warn(result)
 
@@ -76,7 +61,7 @@ import { showLoadingSpinner, hideLoadingSpinner } from '../../Components/Loading
     const updateEmployee = async(data) => {
       showLoadingSpinner();
       console.warn(data)
-      let result = await fetch(`http://localhost:5000/employee/${params.id}`,{
+      let result = await fetch(`http://localhost:5000/employee/updateEmployee/${params.id}`,{
         method: 'PUT',
         body: JSON.stringify(data),
         headers: {
@@ -119,8 +104,7 @@ import { showLoadingSpinner, hideLoadingSpinner } from '../../Components/Loading
 
     return (
       <body id='Body'>
-      <section>
-      <Container>
+      <section className="employeeForm">
       <div className="form">
         <h2 className="title code">Update Employee Details</h2>
         <div id="role-form-outer-div">
@@ -375,11 +359,7 @@ import { showLoadingSpinner, hideLoadingSpinner } from '../../Components/Loading
             </Form.Group>
           </Form>
         </div>
-
-        {/* </div>
-        </div> */}
       </div>
-      </Container>
       </section>
       </body>
     );
