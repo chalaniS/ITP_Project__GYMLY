@@ -113,6 +113,7 @@ const generateReport = () => {
           alignment: "center",
           margin: [0, 0, 0, 10],
         },
+        
       },
     };
   
