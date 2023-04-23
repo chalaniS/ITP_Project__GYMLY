@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+/*Font of title*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+/*Font of body*/
+
+#registation{
+    background-image: url("../../../images/LandingPage/Home-cover.png");
+    background-color: #cccccc; /* Used if the image is unavailable */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+}
+
+
+#form-section {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/*Form*/
+#RegForm {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 60px;
+    padding-bottom: 20px;
+    padding-right: 60px;
+    width: fit-content;
+    border-radius: 50px;
+    background: rgba(0, 0, 0, 0.39);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(21, 1, 1, 0.1);
+    backdrop-filter: blur(14.3px);
+    -webkit-backdrop-filter: blur(14.3px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-family: 'Roboto', sans-serif;
+}
+
+#reg-title {
+    font-size: 55px;
+    font-weight: 600;
+    padding-top: 0px;
+    padding-bottom: 5px;
+    color: #fff;
+    font-family: 'Anton', sans-serif;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+}
+
+#reg-logo{
+    padding-top: 20px;
+}
+
+.inputs {
+    border-radius: 40px;
+    width: 350px;
+    text-transform: unset !important;
+    padding: 4px;
+}
+
+
+.inputs-sub {
+    border-radius: 40px;
+    width: 400px;
+    padding: 8px;
+    text-transform: unset !important;
+
+}
+
+#reg-sub-btn {
+    border-radius: 60px;
+    width: 100px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 17px;
+    margin-top: 10px;
+    color: #010512;
+    background-color: #fff;
+}
+
+#reg-sub-btn:hover {
+    color: #fff;
+    background-color: #000411;
+}
+
+#inputs-selct {
+    border-radius: 40px;
+    width: 150px;
+    padding: 8px;
+    text-transform: unset !important;
+}
+
+.inputs-selct-date {
+    border-radius: 40px;
+    width: 230px;
+    padding: 8px;
+    text-transform: unset !important;
+}
+
+.inputs-wnh {
+    border-radius: 40px;
+    width: 160px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-transform: unset !important;
+}
+
+.inputs-wnh-s {
+    border-radius: 40px;
+    width: 190px;
+    text-transform: unset !important;
+}
+
+/*Form */

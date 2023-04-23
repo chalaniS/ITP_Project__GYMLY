@@ -1,4 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+.contact-section{
+    position: relative;
+    min-height: 100vh;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: url("../../images/CustomerAffairs/backimg5.jpeg");
+    background-size: cover;
+}
+.contact-section .contact_content{
+    max-width: 800px;
+    text-align: center;
+}
+.contactTitle{
+    font-size: 36px;
+    font-weight: 500;
+    color:#ffffff;
+}
 .contactPara{
     font-weight: 300;
     color: #fff;
@@ -42,50 +68,78 @@
     font-weight: 500;
     color:#00bcd4;
 }
-.contactcontainer{
-    height:450px;
-    width:600px;
-    display: flex;
-    flex-direction: column;
+.contact-form{
+    width:40%;
+    padding: 40px;
+    background: #fff;
+}
+.contact-form h2{
+    font-size: 30px;
+    color: #333;
+    font-weight: 500;
+}
+.contact-form .contact-inputbox{
     position: relative;
-    margin-top: 5px;
-    margin-left: 300px;
-    justify-content: center;
-    box-shadow: 0 0 8px rgba(250,250, 250, 0.6);
-    align-items: center;
-}
-.my-input{
-    width:400px;
-}
-.contactid{
+    width: 100%;
     margin-top: 10px;
-    position: relative;
 }
-form input:focus,
-form textarea :focus{
-    border: 1px solid #5900ff;
-    color: #5900ff;
-    transition: all 0.3s ease;
+.InputName{
+    width: 100%;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid #333;
+    outline: none;
+    resize: none;
 }
-form input:focus::placeholder,
-form textarea:focus::placeholder{
-    padding-left: 4px;
-    color: #5900ff;
-    transition: all 0.3s ease;
+.InputEmail{
+    width: 100%;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid #333;
+    outline: none;
+    resize: none;
 }
-form input:focus + i{
-    color: #5900ff;
-    transition: all 0.3s ease;
+.InputText{
+    width: 100%;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid #333;
+    outline: none;
+    resize: none;
 }
-#button_style{
-    align-self: flex-start;
-    margin-top: 20px;
-    margin-left: 100px;
-    width:400px;
-    
+.contact-form .contact-inputbox span{
+    position: absolute;
+    left:0;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    pointer-events: none;
+    transition: 0.5s;
+    color:#666;
+
 }
-.contactMessage{
-    margin-top: 20px;
-    margin-left: -25px;
-    width:400px;
+.contact-form .contact-inputbox input:focus ~ span,
+.contact-form .contact-inputbox input:valid ~ span,
+.contact-form .contact-inputbox textarea:focus ~ span,
+.contact-form .contact-inputbox textarea:valid ~ span
+{
+    color: #e91e63;
+    font-size: 12px;
+    transform: translateY(-20px);
+}
+.contact-form .contact-inputbox input[type="submit"]
+{
+    width:100px;
+    background: #00bcd4;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 18px;
 }

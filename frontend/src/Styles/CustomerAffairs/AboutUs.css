@@ -52,8 +52,18 @@
 .about_content-section .about_content .about_button{
     margin-top: 30px;
 }
-
-
+button{
+    background-color: #3d3d3d;
+    padding: 12px 40px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 25px;
+    letter-spacing: 1.5px;
+}
+button:hover{
+    background-color: #a52a2a;
+    color:#fff
+}
 .about_content-section .about_socialmedia{
     margin-left: 10px;
 }

@@ -1,3 +1,15 @@
+.approvalsection {
+    margin: 0%;
+    padding: 0%;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: url(../../images/CustomerAffairs/backimg4.png);
+    background-size: cover;
+    background-position: absolute;
+    filter:brightness(80%)
+  }
+  
 
 /* accept and reject btn styles in table */
 .accept_btn {
@@ -34,16 +46,30 @@
     font-weight: 500 !important;
     padding: 0.3rem !important;
   }
-  #btn_position{
-    width:300px;
-    margin-left: 600px;
-  }
-  #inst_btn_position{
-    width:300px;
-    
-  }
   
-  .Buttonsdiv{
-    display: flex;
-    flex-direction: row;
+  .feedbackrep_btn{
+    margin-left: 700px;
+    margin-top: 40px;
+    border: none;
+    background: #00fff0;
+    color: #222;
+    width: 300px;
+    height:75px;
+    font-size: 20px;
+    font-weight: 800;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+  .ratingsrep_btn{
+    margin-left: 90px;
+    margin-top: 40px;
+    border: none;
+    background: #00fff0;
+    color: #222;
+    width: 300px;
+    height:75px;
+    font-size: 20px;
+    font-weight: 800;
+    cursor: pointer;
+    border-radius: 6px;
   }
