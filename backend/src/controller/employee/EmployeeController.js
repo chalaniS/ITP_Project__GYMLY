@@ -1,7 +1,7 @@
 import EmployeeModel from '../../models/employee/EmployeeModel.js';
 
 // Create a function to create a new employee
-export async function createOne(req, res) {
+export async function addEmployee(req, res) {
     const firstName = req.body.firstName
     const lastName = req.body.lastName
     const NIC = req.body.NIC
@@ -45,7 +45,7 @@ export async function createOne(req, res) {
 }
 
 // Create a function to read all employees
-export async function getAll(req, res) {
+export async function getAllEmployee(req, res) {
 
     const userId = "45821463#23669546";
 
@@ -58,9 +58,21 @@ export async function getAll(req, res) {
     }
 }
 
+// Create a function to read a single employee by id
+export async function getEmployee(req, res) {
+    try {
+        const employee = await EmployeeModel.findById(req.params.id);
+        console.log('Employee read successfully for update');
+        res.status(200).json(employee);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error occurred while retrieving data');
+    }
+}
+
 
 // Create a function to update an employee by id
-export async function updateOne(req, res) {
+export async function updateEmployee(req, res) {
     const objectId = req.params.id;
     const { firstName, 
             lastName, 
@@ -105,7 +117,7 @@ export async function updateOne(req, res) {
 }
 
 // Create a function to remove an employee by id
-export async function deleteOne(req, res) {
+export async function deleteEmployee(req, res) {
     const objectId = req.params.id;
     try {
         await EmployeeModel.findByIdAndDelete(objectId);
@@ -117,4 +129,4 @@ export async function deleteOne(req, res) {
 }
 
 // Export all the controller functions as an object
-export default { createOne, getAll, updateOne, deleteOne };
+export default { addEmployee, getAllEmployee, getEmployee, updateEmployee, deleteEmployee };

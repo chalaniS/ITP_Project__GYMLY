@@ -1,20 +1,23 @@
 import express from 'express';
-import { createOne, getAll, updateOne, deleteOne } from '../../controller/employee/EmployeeController.js';
+import { addEmployee, getAllEmployee, getEmployee, updateEmployee, deleteEmployee } from '../../controller/employee/EmployeeController.js';
 
 const router = express.Router();
 
 console.log('IN employeeRouter');
 
 // create an employee
-router.post('/employee', createOne);
+router.post('/addEmployee', addEmployee);
 
 // get all employees
-router.get('/employee', getAll);
+router.get('/getEmployee', getAllEmployee);
+
+// get one employee by id
+router.get('/getEmployee/:id', getEmployee);
 
 // update an employee by id
-router.put('/employee/:id', updateOne);
+router.put('/updateEmployee/:id', updateEmployee);
 
 // delete an employee by id
-router.delete('/employee/:id', deleteOne);
+router.delete('/deleteEmployee/:id', deleteEmployee);
 
 export default router;
