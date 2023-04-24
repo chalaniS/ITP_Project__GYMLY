@@ -4,9 +4,7 @@ import * as Icons from 'react-bootstrap-icons';
 
 
 const Search = () => {
-
     const [search, setSearch] = useState('');
-    
 
     return (
         <div   className=''>

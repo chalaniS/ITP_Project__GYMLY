@@ -22,40 +22,31 @@ const Registation = (props) => {
     const [Weight, setWeight] = useState("");
 
     const handleSubmit = async (e) => {
-
-        e.preventDefault();
-
-        const user = {Name,NIC,Email,Password,Address,Phone,Gender,Birthday,Height,Weight}
-
-        const res = fetch('/users', {
-            method: 'POST',
-            body: JSON.stringify(user),
-            headers: {"Content-Type": "application/json"},
-        })
-
-        const data = res.json()
-
-        
-        if(!data.ok){
-            console.log(console.error)
-            alert("can't add user")
+      e.preventDefault();
+    
+      const user = {Name,NIC,Email,Password,Address,Phone,Gender,Birthday,Height,Weight};
+    
+      try {
+        const res = await fetch('/users', {
+          method: 'POST',
+          body: JSON.stringify(user),
+          headers: {"Content-Type": "application/json"},
+        });
+    
+        if (res.ok) {
+        window.alert('You have successfully registered!');
+        window.location.href = '/loging'; 
+        } else {
+          const errorData = await res.json();
+          window.alert(`Error: ${errorData.message}`);
         }
+      } catch (error) {
+        console.error(error);
+        window.alert('An error occurred while submitting the registration form. Please try again later.');
+      }
+    };
 
-        if(data.ok){
-            setName("")
-            setNic("")
-            setEmail("")
-            setPassword("")
-            setAddress("")
-            setContact("")
-            setGender("")
-            setBirthday("")
-            setHeight("")
-            setWeight("")
-            alert('You have successfully registered')
-        }
-    }
-
+    {/* Form - selecting */}
 
   return (
         
@@ -102,8 +93,7 @@ const Registation = (props) => {
 
         <div className="row">
            <div className="col">
-            <Form.Select id="inputs-selct" aria-label="Default select example" className="gender-selct" value={Gender} cnChange={(e) => setGender(e.target.value)}>
-              <option> Select Gender</option>
+            <Form.Select id="inputs-selct" aria-label="Default select example" className="gender-selct" value={Gender} onChange={(e) => setGender(e.target.value)}>
                 <option value="Male" >Male</option>
                 <option value="Female">Female</option>
             </Form.Select>
@@ -132,7 +122,7 @@ const Registation = (props) => {
         </div>
         {/* Weight and height form*/}
     
-          <Button variant="outline-primary" type="Submit" id="reg-sub-btn">
+          <Button variant="outline-primary" type="Submit" id="reg-sub-btn" >
             Register
           </Button>
 

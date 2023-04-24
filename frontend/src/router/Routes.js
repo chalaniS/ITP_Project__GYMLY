@@ -14,10 +14,12 @@ import Editprofile from '../pages/Users/Editprofile'
 import ManagerDashboard from '../pages/Users/UserManager/ManagerDashboard'
 import ManagmentLogin from '../pages/Users/UserManager/ManagementLoging'
 
+
 const Router = () => {
     return (
         <Routes>
 
+            {/* Home */}
             <Route path="/" element={<Navigate to='/index' />} />
 
             {/* Home */}
