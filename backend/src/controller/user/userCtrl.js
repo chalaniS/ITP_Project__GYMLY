@@ -2,6 +2,7 @@
 import Mongoose from 'mongoose';
 //importing the user model
 import User from '../../models/user/userModel.js'
+import jwt from 'jsonwebtoken';
 
 
 //get all users
@@ -81,7 +82,51 @@ export async function deleteUser (req, res) {
     }
 }
 
+//user login
+// Handle user login
+export async function userLogin (req, res) {
+    const { email, password } = req.body;
 
+    //test email and password come to the frontend
+    console.log(email + password);
+  
+    try {
+      const user = await User.findOne({ Email: email });
 
+      //test user is found
+      console.log(user);
+
+      if (!user) {
+        return res.status(401).json({ message: 'Invalid email' });
+      }
+      
+    //test user passwords are correctly matched
+      console.log(password)
+      console.log(user.Password)
+
+    // Check if password is correct
+      if(password !== user.Password){
+        return res.status(401).json({ message: 'Invalid email or password' });
+        }
+        else{
+            // test loging is success
+            console.log('login success')
+            const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
+            //testing
+            console.log(token)
+            // Send the token
+            return res.status(200).json({ token, userId: user._id });
+        }
+     
+    } catch (error) {
+      console.error(error);
+      res.status(500).json(error);
+    }
+  }
+
+    
+    
+
+  
 //exporting the functions
-export default {getAllUsers, createUser, getUserById, deleteUser, updateUser}
+export default {getAllUsers, createUser, getUserById, deleteUser, updateUser, userLogin}

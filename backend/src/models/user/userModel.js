@@ -1,14 +1,10 @@
 //const mongoose = require('mongoose');
 import mongoose from 'mongoose';
+import bcrypt from 'bcryptjs';
 
 const {Schema} = mongoose;
 
-const scheduleSchema = new Schema({
-    userId: {
-        type: String,
-        required: false
-    },
-    
+const UserSchema = new Schema({
     Name:{
         type: String,
         required: true
@@ -16,12 +12,14 @@ const scheduleSchema = new Schema({
 
     NIC:{
         type:Number,
-        required: true
+        required: true,
+        Unique: true
     },
 
     Email:{
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
 
     Address:{
@@ -31,12 +29,13 @@ const scheduleSchema = new Schema({
 
     Phone:{
         type: Number,
-        required: true
+        required: true,
+        Unique: true
     },
 
     Gender:{
         type: String,
-        required: false
+        required: true
     },
 
     Birthdate:{
@@ -60,8 +59,18 @@ const scheduleSchema = new Schema({
     },
 },{timestamps: true})
 
-// Export the model
-//module.exports = mongoose.model('User', scheduleSchema);
+// Hash the password before saving
+UserSchema.pre('save', async function(next) {
+    try {
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(this.password, salt);
+      this.password = hashedPassword;
+      next();
+    } catch (error) {
+      next(error);
+    }
+  });
 
-const User = mongoose.model('User', scheduleSchema);
+// Export the model  
+const User = mongoose.model('User', UserSchema);
 export default User;
