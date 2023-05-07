@@ -2,14 +2,13 @@ import React, { useEffect, useState } from "react"
 import Table from 'react-bootstrap/Table';
 import Search from "../../../Components/Search/Search";
 import '../Style/ManagerDashboard.css'
-import axios from 'axios';
 import jsPDF from 'jspdf'
 import autoTable from 'jspdf-autotable'
-import logo from '../../../images/logo.png'
 
 
 const ManagerDashboard = () => {
 
+    /* Fetching Data to page */
     const [userData, setUserData] = useState(null)
 
     /* Fetching Data to page */
@@ -24,9 +23,9 @@ const ManagerDashboard = () => {
                 setUserData(json)
             }
         }
-
         fetchWorkouts()
     }, []);
+    /* End of Fetching Data to page */
 
 /* Delete user */
 const handleDelete = async (id) => {
@@ -89,6 +88,7 @@ const handleDelete = async (id) => {
         setUserData(filteredUsers)
     }
 
+
     return (
         <div className="container-fluid" id="ManagerDashboard">
 
@@ -117,7 +117,8 @@ const handleDelete = async (id) => {
                     {/*Header of table*/}
                     <thead>
                         <tr>
-                        <th>Name</th>  
+                        <th>Name</th>
+                        <th>Gender</th>
                         <th>Email</th>
                         <th>Package</th>
                         <th>Phone Number</th>
@@ -130,6 +131,7 @@ const handleDelete = async (id) => {
                         {userData && userData.map((users) => (
                             <tr key={users.userId}>
                                 <td>{users.Name}</td>
+                                <td>{users.Gender}</td>
                                 <td>{users.Email}</td>
                                 <td>Basic</td>
                                 <td>0{users.Phone}</td>
@@ -137,7 +139,6 @@ const handleDelete = async (id) => {
                             </tr>
                         ))}
                         </tbody>  
-
                 </Table>
 
           </div>

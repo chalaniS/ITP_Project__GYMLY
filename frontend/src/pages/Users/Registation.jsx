@@ -93,8 +93,9 @@ const Registation = (props) => {
 
         <div className="row">
            <div className="col">
-            <Form.Select id="inputs-selct" aria-label="Default select example" className="gender-selct" value={Gender} onChange={(e) => setGender(e.target.value)}>
-                <option value="Male" >Male</option>
+            <Form.Select id="inputs-selct" aria-label="Default select example" placeholder="Enter you Gender" className="gender-selct" value={Gender} onChange={(e) => setGender(e.target.value)} required>
+            <option value={null} >Gender</option>
+                <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </Form.Select>
             </div>

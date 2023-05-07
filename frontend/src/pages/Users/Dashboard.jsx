@@ -1,6 +1,6 @@
 import React from "react"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Container } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { Person } from 'react-bootstrap-icons';
 import { Activity } from "react-bootstrap-icons";
 import { People } from "react-bootstrap-icons";
@@ -11,6 +11,12 @@ import './Style/Dashboard.css'
 
 const Dashboard = () => {
     
+    // Retrieve token and userId values from localStorage
+    const token = localStorage.getItem('token');
+    const userId = localStorage.getItem('userId');
+    
+
+
     {/*Get Hours*/}
     let myDate = new Date()
     let hour= myDate.getHours()
@@ -20,7 +26,7 @@ const Dashboard = () => {
     return (
       <div  className="container-fluid"  id="userdashboard-section">
 
-      <div className="container">
+      <div className="Container">
        {/*Have to do some changes on this elemet after backend*/}
        <div className="container" id="userdashboard-header">
          <div className="container text-center content-justify-Center" id="dashboard-title">{hour < 12 ? "Good Morning" : "Good evening"} Lakindu</div>
