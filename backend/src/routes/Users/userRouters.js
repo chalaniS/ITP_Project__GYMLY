@@ -1,7 +1,7 @@
 //const express = require('express');
 import express from 'express';
 const router = express.Router();
-import  { getAllUsers, createUser, getUserById, deleteUser, updateUser } from '../../controller/user/userCtrl.js';
+import  { getAllUsers, createUser, getUserById, deleteUser, updateUser, userLogin} from '../../controller/user/userCtrl.js';
 
 //get all users
 router.get('/users', getAllUsers)
@@ -18,4 +18,10 @@ router.patch('/users/:userId', updateUser)
 //delete user
 router.delete('/users/:userId', deleteUser)
 
+
+//validate user
+router.post('/users/login', userLogin);
+
+
+//export router
 export default router;

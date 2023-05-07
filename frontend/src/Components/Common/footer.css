@@ -65,3 +65,15 @@ footer .list-unstyled{
 footer .list-unstyled li{
     padding-top: 2px;
 }
+
+#moto{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-family: 'Lato', sans-serif;
+    color: white;
+    /*Add outer glow*/
+    text-shadow: 0 0 3px #2314ab, 0 0 5px #0000FF;
+    /*Add inner glow*/
+    -webkit-filter: drop-shadow(0 0 3px #2314ab);
+}

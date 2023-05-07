@@ -22,7 +22,7 @@ const Footer = () => {
         <div className="row">
             <div className="col-md-6 mt-md-0 mt-3">
                 <img src={logo} alt="Logo" width={250} />
-                <p>Beyond The Traditional GYM</p>
+                <p id="moto"><b>Beyond The Traditional GYM</b></p>
             </div>
 
             <hr className="clearfix w-80 d-md-none pb-0" />
@@ -41,8 +41,8 @@ const Footer = () => {
                 <h5 className="text-uppercase"><b>GYM Management</b></h5>
                 <ul className="list-unstyled">
                     <li><a href="#Contacts">Contacts</a></li>
-                    <li><a href="/ManagmentLogin">Management</a></li>
-                    <li><a href="#!">Blog</a></li>
+                    <li><a href="/ManagmentLogin">Management Login</a></li>
+                    <li><a href="#!">Employee Login</a></li>
                     <li><a href="#!">Help</a></li>
                 </ul>
             </div>

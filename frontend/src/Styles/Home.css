@@ -7,6 +7,7 @@
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */
+    padding-bottom: 20px;
 }
 
 /*Title Section*/
@@ -31,7 +32,7 @@
 #title-btn-section{
     text-align: center;
     padding-top: 60px;
-    padding-bottom: 300px;
+    padding-bottom: 180px;
 }
 
 #title-button{
@@ -98,8 +99,7 @@
 /*location section*/
 #location{
     margin-top: 50px;
-    margin-bottom: 50px;
-    padding: 50px;
+    padding: 20px;
     background-color: #cccccc;
     border-radius: 40px;
 }
@@ -109,7 +109,8 @@
     font-size: 60px;
     font-family: 'Anton', sans-serif;
     text-align: left;
-    padding-top: 5px;
+    padding-top: 40px;
+    padding-bottom: 10px;
 }
 
 #contact-info{
@@ -119,16 +120,12 @@
 
 #location-discription{
     color: black;
-    font-size: 20px;
+    font-size: 25px;
     padding-top: 10px;
     padding-bottom: 20px;
     font-family: 'Roboto', sans-serif;
     text-align: left;
-}
-
-#contact-info-list{
-    padding-top: 10px;
-    padding-left: 100px;
+    padding-left: 50px;
 }
 /*location section*/
 
