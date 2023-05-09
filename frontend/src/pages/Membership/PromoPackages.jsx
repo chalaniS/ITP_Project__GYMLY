@@ -28,7 +28,7 @@ const PromoPackages = () => {
     }
 
     return (
-        <section>
+        <section className="form-section">
             <Container>
                 <div className="title code">Promo Packages</div>
                 <br />

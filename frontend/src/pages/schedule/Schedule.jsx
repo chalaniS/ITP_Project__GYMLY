@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'reactstrap'
 import '../../Styles/schedule/schedule.css'
 import '../../App.css'
 import image from '../../images/Schedule/image1.jpg'
-
+import image1 from '../../images/Membership/AddPromo.png'
 
 const Schedule = ({ paymentID }) => {
     return (
@@ -15,11 +15,10 @@ const Schedule = ({ paymentID }) => {
                         <div className="title code">Schedule Daily Training Time Slot</div>
 
                         <div className="inputs">
+                            <div className="image-container">
+                                <img src={image1} alt="" className='image' />
+                            </div>   
                             <form action="">
-                                <Row>
-                                    <img src={image} alt="" className='images' />
-                                </Row>
-                                <br />
                                 <Row>
                                     <Col lg='4'>
                                         <label for="token">Payment Token  :</label>
@@ -88,6 +87,7 @@ const Schedule = ({ paymentID }) => {
                                         <button type='submit' className='primary__btn submit'>Save</button>
                                     </Col>
                                 </ Row>
+                                {/* </Col> */}
                             </form>
                         </div>
                     </div>

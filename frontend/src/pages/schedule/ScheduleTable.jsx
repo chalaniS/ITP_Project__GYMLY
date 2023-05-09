@@ -50,7 +50,7 @@ const ScheduleTable = () => {
                 </Row>
                 <br />
                 <Row>
-                    <Table dark striped bordered hover responsive>
+                    <Table light striped bordered hover responsive>
                         <thead >
                             <th>
                                 No

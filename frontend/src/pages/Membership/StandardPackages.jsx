@@ -21,7 +21,7 @@ const StandardPackages = () => {
     }, []) // [] means only fire once
 
     return (
-        <section>
+        <section className="form-section">
             <Container>
                 <div className="title code">Standard Packages</div>
                 <br />
