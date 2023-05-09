@@ -5,10 +5,6 @@ import image from '../../images/Membership/stPackage.png'
 const StandardDetails = ({ standard }) => {
     const navigate = useNavigate();
 
-    // const handleEditClick = () => {
-    //     navigate('/EditStandard')
-    // }
-
     const handleEditClick = () => {
         navigate(`/editstandard/${standard._id}`);
     }

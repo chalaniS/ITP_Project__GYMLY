@@ -2,21 +2,22 @@ import '../../Styles/Membership/Membership.css'
 import image from '../../images/Membership/prmPackage.png'
 
 const PromoDetails_user = ({ promo, highlightedPackage }) => {
-    const isHighlighted = highlightedPackage?.prPackageName === promo.prPackageName
+    // const isHighlighted = highlightedPackage?.prPackageName === promo.prPackageName
 
     return (
-        <div 
-            className={`package ${isHighlighted ? "highlighted" : ""}`}
-            style={{
-                width: '280px',
-                height: '350px',
-                padding: '10px',
-                borderRadius: '20px',
-                boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 1)',
-                margin: '20px',
-                textAlign: 'center'
-            }}
-        >
+        // <div 
+        //     className={`package ${isHighlighted ? "highlighted" : ""}`}
+        //     style={{
+        //         width: '280px',
+        //         height: '370px',
+        //         padding: '10px',
+        //         borderRadius: '20px',
+        //         boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 1)',
+        //         margin: '20px',
+        //         textAlign: 'center'
+        //     }}
+        // >
+        <div className='promo-packages'>
             <br />
             <img src={image} alt="" className='promo-image' /> <br /><br />
             <h2 class="promo-name">{promo.prPackageName}</h2>

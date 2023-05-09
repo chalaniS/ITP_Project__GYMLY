@@ -104,13 +104,13 @@ const MembershipPackages = () => {
                     </div> */}
                     <div>
                         <button className="report-download" onClick={handleDownload}>
-                            <AiOutlineDownload className="i" />
+                            <AiOutlineDownload className="icon" />
                         </button>
                     </div>
                     <div>
-                        <AiOutlineSearch className="i" style={{marginRight: '10px'}}/>
+                        <AiOutlineSearch className="icon" style={{marginRight: '10px'}}/>
                         <input type="text" className='search' 
-                            style={{ width: '250px', height: '35px' }} 
+                            style={{ width: '250px', height: '35px', color: 'black' }} 
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                             onKeyDown={(e) => {

@@ -28,7 +28,7 @@ const PromoPackages = () => {
     }
 
     return (
-        <section className="form-section">
+        <section>
             <Container>
                 <div className="title code">Promo Packages</div>
                 <br />
@@ -36,10 +36,6 @@ const PromoPackages = () => {
                     <div>
                         <button class="add-prm-btn" onClick={handleAddNewPromo}>Add New Promo Package</button>
                     </div>
-                    {/* <div>
-                        <AiOutlineSearch className="i" style={{marginRight: '10px'}} />
-                        <input type="text" className='search' style={{ width: '300px', height: '40px' }} value="" />
-                    </div> */}
                 </div>
             
                 <div class="prm-container">
