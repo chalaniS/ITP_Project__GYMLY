@@ -1,6 +1,6 @@
 import React from "react"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 import { Person } from 'react-bootstrap-icons';
 import { Activity } from "react-bootstrap-icons";
 import { People } from "react-bootstrap-icons";
@@ -8,12 +8,29 @@ import { Bell } from "react-bootstrap-icons";
 import { CreditCard } from "react-bootstrap-icons";
 import { Boxes } from "react-bootstrap-icons";
 import './Style/Dashboard.css'
+import { useState, useEffect } from "react";
 
 const Dashboard = () => {
     
     // Retrieve token and userId values from localStorage
-    const token = localStorage.getItem('token');
-    const userId = localStorage.getItem('userId');
+    const token = localStorage.getItem('token')
+    const userId = localStorage.getItem('userId')
+
+    //get user details from backend using token and userId
+    const [user, setUser] = useState([])
+    
+    useEffect(() => {
+      fetch(`http://localhost:5001/users/${userId}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
+      })
+        .then(response => response.json())
+        .then(data => setUser(data))
+        .catch(error => console.error(error));
+    }, [userId, token]);
     
 
 
@@ -29,7 +46,7 @@ const Dashboard = () => {
       <div className="Container">
        {/*Have to do some changes on this elemet after backend*/}
        <div className="container" id="userdashboard-header">
-         <div className="container text-center content-justify-Center" id="dashboard-title">{hour < 12 ? "Good Morning" : "Good evening"} Lakindu</div>
+         <div className="container text-center content-justify-Center" id="dashboard-title">{hour < 12 ? "Good Morning" : "Good evening"}, {user.Name}</div>
        </div>
        
        <div className="container d-flex content-justify-center text-center" id="cards">

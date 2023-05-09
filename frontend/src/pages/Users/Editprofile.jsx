@@ -9,38 +9,43 @@ const USERNAME = "6444eb6aaf90ced21b6cff1b";
 {/*There is form to update data. create function to handle by update of giving user name using proxy method */}
 
 const Editprofile = (props) => {
-    const [Name, setName] = useState("");
-    const [NIC, setNIC] = useState("");
-    const [Email, setEmail] = useState("");
-    const [Address, setAddress] = useState("");
-    const [PhoneNum, setphoneNum] = useState("");
 
+    const [Name, setName] = useState();
+    const [NIC, setNIC] = useState();
+    const [Email, setEmail] = useState();
+    const [Address, setAddress] = useState();
+    const [PhoneNum, setphoneNum] = useState();
+    const [Password, setPassword] = useState();
+    
+    //function to update user details
     const handleUpdate = (e) => {
         e.preventDefault();
-        const user = {Name, NIC, Email, Address, PhoneNum};
 
-        const res = fetch('/users/'+ USERNAME, {
+    // Retrieve token and userId values from localStorage
+    const token = localStorage.getItem('token');
+    const userId = localStorage.getItem('userId');
+
+        const user = {Name, Password, Email, Address, PhoneNum};
+        
+        //Update user details
+        try {
+        const res = fetch('/users/'+ userId, {
             method: 'PATCH',
             body: JSON.stringify(user),
             headers: {"Content-Type": "application/json"},
         })
-
-        const data = res.json()
-
-        if(!res.ok){
-            console.log(console.error)
-            alert("can't add user")
-        }
-        
-        else if(res.ok){
             setName("")
-            setNIC("")
+            setPassword("")
             setEmail("")
             setAddress("")
             setphoneNum("")
-            alert('You have successfully registered')
+            window.alert('You have successfully updated!');
+        } catch (error) 
+        {
+            console.log(console.error)
+            alert("Can not update the user details. Please try again later.")
         }
-
+        
     }
 
 
@@ -64,7 +69,7 @@ const Editprofile = (props) => {
                 </Form.Group>
 
                 <Form.Group className="mb-3 inputs" >
-                    <Form.Control type="text" placeholder="NIC" value={NIC} onChange={(e)=> setNIC(e.target.value)}/>
+                    <Form.Control type="password" placeholder="Change Password" value={Password} onChange={(e)=> setPassword(e.target.value)}/>
                 </Form.Group>
 
                 <Form.Group className="mb-3 inputs" >
