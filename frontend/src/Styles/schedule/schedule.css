@@ -12,3 +12,28 @@
     border-radius: 50px;
     width: auto;
 }
+
+.inputs {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 50px;
+    height: 400px;
+}
+
+/* .image-container {
+    width: 300px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.image {
+    width: 250px;
+    height: auto;
+    filter: drop-shadow(0 0 0.75rem rgb(14, 13, 14));
+    border-radius: 5px;
+}

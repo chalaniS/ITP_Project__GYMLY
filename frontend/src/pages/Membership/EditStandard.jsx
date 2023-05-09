@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react"
-import { useLocation, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios, { Axios } from 'axios'
 import '../../App.css'
 import '../../Styles/Membership/Membership.css'
-import '../../Styles/schedule/schedule.css'
 import { Container } from 'reactstrap'
-import image from '../../images/Membership/image7.jpg'
+import image from '../../images/Membership/AddPromo.png'
 
 const EditStandard = () => {
     const { id } = useParams();
@@ -13,6 +12,7 @@ const EditStandard = () => {
     const [stPackageName, setStPackageName] = useState("")
     const [stPackageDescription, setStPackageDescription] = useState("")
     const [stPackagePrice, setStPackagePrice] = useState("")
+    const navigate = useNavigate()
 
     useEffect(() => {
         const fetchPackage = async () => {
@@ -51,64 +51,74 @@ const EditStandard = () => {
                 window.alert('Data is not updated');
                 window.location.reload();
             });
-    };
+    }
+
+    const onEditClick = () => {
+        navigate('/standardpackages')
+    }
 
     return (
         <body>
             <section >
                 <Container>
                     <div className="title code">Edit Standard Package</div>
-                    <br />
-                    <div className="pkg_inputs">
-                        <form class="add-promo" method="POST" onSubmit={handleSaveClick}>
-                            <div className="add-promo-row">
-                                <img src={image} alt="" className='edit-std-img' />
-                            </div>
-                            <div class="add-promo-row">
-                                <label htmlFor="stID" className="add-promo-label">Package ID :</label>
-                                <input 
-                                    type="text" 
-                                    className="add-promo-input"
-                                    value={stPackageId} 
-                                    onChange={e => setStPackageId(e.target.value)}
-                                />
-                            </div>
-                            <div class="add-promo-row">
-                                <label htmlFor="stName" className="add-promo-label">Package Name :</label>
-                                <input 
-                                    type="text"
-                                    className="add-promo-input"
-                                    value={stPackageName} 
-                                    onChange={e => setStPackageName(e.target.value)}
-                                />
-                            </div>
-                            <div class="add-promo-row">
-                                <label htmlFor="stDetails" className="add-promo-label">Package Details  :</label>
-                                <textarea 
-                                    className="add-promo-text" 
-                                    name="description"
-                                    value={stPackageDescription} 
-                                    onChange={e => setStPackageDescription(e.target.value)}
-                                ></textarea>
-                            </div>
-                            <div class="add-promo-row">
-                                <label htmlFor="stPrice" className="add-promo-label">Package Price :</label>
-                                <input 
-                                    type="text" 
-                                    className="add-promo-input"
-                                    value={stPackagePrice} 
-                                    onChange={e => setStPackagePrice(e.target.value)}
-                                />
-                            </div>
-                            <div class="add-promo-row">
-                                <div className="add-promo-btns">
-                                    <div>
-                                        <button type='reset' className='secondary__btn'>Cancel</button>
-                                        <button type='submit' className='primary__btn submit create-btn' >Save</button>
+                    
+                    <div className="add-new-form">
+                        <div>
+                            <img src={image} alt="" className="form-left-image" />
+                        </div>
+                        <div>
+                            <form class="add-promo" method="POST" onSubmit={handleSaveClick}>
+                                <div class="add-promo-row">
+                                    <label htmlFor="stID" className="add-promo-label">Package ID :</label>
+                                    <input 
+                                        type="text" 
+                                        className="add-promo-input"
+                                        value={stPackageId} 
+                                        onChange={e => setStPackageId(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                                <div class="add-promo-row">
+                                    <label htmlFor="stName" className="add-promo-label">Package Name :</label>
+                                    <input 
+                                        type="text"
+                                        className="add-promo-input"
+                                        value={stPackageName} 
+                                        onChange={e => setStPackageName(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                                <div class="add-promo-row">
+                                    <label htmlFor="stDetails" className="add-promo-label">Package Details  :</label>
+                                    <textarea 
+                                        className="add-promo-text" 
+                                        name="description"
+                                        value={stPackageDescription} 
+                                        onChange={e => setStPackageDescription(e.target.value)}
+                                        required
+                                    ></textarea>
+                                </div>
+                                <div class="add-promo-row">
+                                    <label htmlFor="stPrice" className="add-promo-label">Package Price :</label>
+                                    <input 
+                                        type="text" 
+                                        className="add-promo-input"
+                                        value={stPackagePrice} 
+                                        onChange={e => setStPackagePrice(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                                <div class="add-promo-row">
+                                    <div className="add-promo-btns">
+                                        <div>
+                                            <button type='reset' className='secondary__btn' onClick={onEditClick}>Cancel</button>
+                                            <button type='submit' className='primary__btn submit create-btn' >Save</button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </Container >
             </section >

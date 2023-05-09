@@ -12,7 +12,7 @@ const PromoGraph = ({ series, labels }) => {
                 show: true,
                 position: "bottom",
                 labels: {
-                    colors: "lightgrey",
+                    colors: "black",
                     useSeriesColors: false,
                     style: {
                         fontSize: "20px",

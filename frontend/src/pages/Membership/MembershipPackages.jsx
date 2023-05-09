@@ -56,10 +56,6 @@ const MembershipPackages = () => {
         // Initialize a new jsPDF instance
         const doc = new jsPDF()
 
-        // Add the current date to the PDF
-        // const date = new Date().toLocaleDateString()
-        // doc.text(`Date: ${date}`, 10, 10)
-
         // Add the current date to the PDF with a smaller font size and right alignment
         const date = new Date().toLocaleDateString()
         const fontSize = 10; // Set the desired font size
@@ -67,7 +63,6 @@ const MembershipPackages = () => {
         const pageWidth = doc.internal.pageSize.width; // Get the width of the page
         doc.setFontSize(fontSize).text(`Date: ${date}`, pageWidth - dateWidth - 10, 10);
 
-      
         // Add standard packages table to the PDF
         doc.setFontSize(16).text('Standard Packages', 10, 20)
         doc.autoTable({
@@ -98,6 +93,7 @@ const MembershipPackages = () => {
     }
       
     return (
+        // <section className="form-section">
         <section>
             <Container>
                 <div className="search-download">
@@ -108,13 +104,13 @@ const MembershipPackages = () => {
                     </div> */}
                     <div>
                         <button className="report-download" onClick={handleDownload}>
-                            <AiOutlineDownload className="i" />
+                            <AiOutlineDownload className="icon" />
                         </button>
                     </div>
                     <div>
-                        <AiOutlineSearch className="i" style={{marginRight: '10px'}}/>
+                        <AiOutlineSearch className="icon" style={{marginRight: '10px'}}/>
                         <input type="text" className='search' 
-                            style={{ width: '250px', height: '35px' }} 
+                            style={{ width: '250px', height: '35px', color: 'black' }} 
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                             onKeyDown={(e) => {

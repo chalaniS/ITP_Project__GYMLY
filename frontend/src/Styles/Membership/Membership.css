@@ -8,10 +8,10 @@
     border-radius: 30px;
 }
 
-.title{
+/* .title{
     font-weight: 700;
     color: #fff;
-}
+} */
 
 .cancel {
     text-align-last: right;
@@ -79,9 +79,10 @@
     border-radius: 20px;
 }
 
-/* .std-packages:hover{    
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
-} */
+.std-packages:hover{    
+    /* box-shadow: 0 4px 8px 0 rgb(101, 101, 101); */
+    box-shadow: 4px 8px 8px 4px rgb(77, 77, 77);
+}
 
 .std-image{
     position: relative;
@@ -92,23 +93,23 @@
 }
 
 .std-name {
-    color: white;
-    font-size: 28px;
+    color: rgb(0, 0, 0);
+    font-size: 24px;
 }
 
 .std-id {
-    color: lightgray;
-    font-size: 15px;
+    color: gray;
+    font-size: 14px;
 }
 
 .std-price {
-    color: grey;
-    font-size: 20px;
+    color: rgb(29, 29, 29);
+    font-size: 22px;
 }
 
 .std-description {
-    color: lightblue;
-    font-size: 15px;
+    color: rgb(39, 43, 44);
+    font-size: 16px;
 }
 
 /* .std-edit-btn {
@@ -128,12 +129,12 @@
     border: 1px solid silver;
     outline: 0;
     padding: 6px;
-    color: white;
-    background-color: transparent;
+    color: black;
+    background-color: rgb(125, 125, 125);
     text-align: center;
     cursor: pointer;
     width: 40%;
-    font-size: 16px;
+    font-size: 17px;
     border-radius: 10px;
 }
 
@@ -142,7 +143,7 @@
     /* opacity: 0.7; */
     background-color: #0f0f17;
     /* border: none; */
-    color: rgba(255, 255, 254, 0.7);
+    color: rgb(255, 255, 255);
 }
 
 .package.highlighted {
@@ -170,12 +171,16 @@
 
 .prm-packages{
     width: 400px;
-    height: 400px;
+    height: 410px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
     margin: 20px;
     text-align: center;
     padding: 10px;
     border-radius: 20px;
+}
+.prm-packages:hover{    
+    /* box-shadow: 0 4px 8px 0 rgb(101, 101, 101); */
+    box-shadow: 4px 8px 8px 4px rgb(77, 77, 77);
 }
 
 .prm-image{
@@ -186,29 +191,29 @@
 }
 
 .prm-name {
-    color: white;
-    font-size: 22px;
+    color: rgb(0, 0, 0);
+    font-size: 24px;
     font-weight: bold;
 }
 
 .prm-id {
-    color: lightgray;
-    font-size: 13px;
+    color: gray;
+    font-size: 16px;
 }
 
 .prm-price {
-    color: grey;
-    font-size: 18px;
+    color: rgb(29, 29, 29);
+    font-size: 20px;
 }
 
 .prm-description {
-    color: lightblue;
-    font-size: 13px;
+    color: rgb(39, 43, 44);
+    font-size: 18px;
 }
 
 .prm-validity {
-    color: lightgray;
-    font-size: 14px;
+    color: rgb(66, 62, 62);
+    font-size: 16px;
 }
 
 /* .prm-edit-btn {
@@ -226,12 +231,12 @@
     border: 1px solid silver;
     outline: 0;
     padding: 6px;
-    color: white;
-    background-color: transparent;
+    color: rgb(0, 0, 0);
+    background-color: rgb(125, 125, 125);
     text-align: center;
     cursor: pointer;
     width: 40%;
-    font-size: 16px;
+    font-size: 17px;
     border-radius: 10px;
 }
 
@@ -242,16 +247,16 @@
     /* opacity: 0.7; */
     background-color: #0f0f17;
     /* border: none; */
-    color: rgba(255, 255, 254, 0.7);
+    color: rgb(255, 255, 255);
 }
 
 .add-prm-btn {
-    border:rgb(5, 5, 57);
-    border-radius: 20px;
+    border:rgb(255, 255, 255);
+    border-radius: 10px;
     outline: 0;
     padding: 6px;
     color: white;
-    background-color: #010916;
+    background-color: #0f1012;
     text-align: center;
     cursor: pointer;
     width: 220px;
@@ -263,8 +268,8 @@
 
 .add-prm-btn:hover {
     /* opacity: 0.7; */
-    background-color: black;
-    color: lightgrey;
+    background-color: rgb(174, 174, 174);
+    color: rgb(0, 0, 0);
 }
 
 .promo-container {
@@ -300,14 +305,16 @@
 
 .promo-packages {
     width: 280px;
-    height: 350px;
+    height: 370px;
     padding: 10px;
     border-radius: 20px;
-    /* max-width: max-content; */
-    /* margin: auto; */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
     margin: 20px;
     text-align: center;
+}
+
+.promo-packages:hover {
+    box-shadow: 4px 8px 8px 4px rgb(77, 77, 77);
 }
 
 .promo-image{
@@ -318,29 +325,29 @@
 }
 
 .promo-name {
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 20px;
     font-weight: bold;
 }
 
 .promo-id {
-    color: lightgray;
-    font-size: 13px;
+    color: gray;
+    font-size: 12px;
 }
 
 .promo-price {
-    color: grey;
-    font-size: 17px;
+    color: rgb(29, 29, 29);
+    font-size: 18px;
 }
 
 .promo-description {
-    color: lightblue;
-    font-size: 13px;
+    color: rgb(39, 43, 44);
+    font-size: 15px;
 }
 
 .promo-validity {
-    color: lightgray;
-    font-size: 12px;
+    color: rgb(66, 62, 62);
+    font-size: 14px;
 }
 
 /* .promo-select-btn {
@@ -358,12 +365,13 @@
     border: 1px solid silver;
     outline: 0;
     padding: 6px;
-    color: white;
-    background-color: transparent;
+    color: rgb(0, 0, 0);
+    background-color: rgb(125, 125, 125);
     text-align: center;
     cursor: pointer;
-    width: 25%;
-    font-size: 14px;
+    width: 35%;
+    font-size: 15px;
+    font-weight: 500;
     border-radius: 10px;
 }
 
@@ -374,7 +382,7 @@
     /* opacity: 0.7; */
     background-color: #0f0f17;
     /* border: none; */
-    color: rgba(255, 255, 254, 0.7);
+    color: rgb(255, 255, 255);
 }
 
 .promo-right {
@@ -426,7 +434,7 @@
 }
 
 .add-promo-label {
-    font-weight: bold;
+    /* font-weight: bold; */
     margin-right: 10px;
     width: 200px;
 }
@@ -440,7 +448,8 @@
     /* border: 1px solid #ccc; */
     background: transparent;
     border: 1px solid #ccc;
-    color: white;
+    /* color: white; */
+    color: #000;
 }
 
 .add-promo-row:last-of-type {
@@ -493,4 +502,44 @@ div.error {
     /* background: #3f3f3f56;
     padding: 1.5px; */
     color: rgb(85, 126, 238);
+}
+/* 
+.form-edit {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+} */
+
+.form-section {
+    margin: 15px 50px 10px 50px;
+    padding: 1px 80px 18px 70px;
+    background: rgba(26, 24, 30, 0.9);
+    border-radius: 30px;
+    /* box-shadow: rgba(255, 255, 255, 0.12) 0px 2px 4px 0px, rgba(255, 255, 255, 0.32) 0px 2px 16px 0px; */
+  }
+
+.add-new-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 50px;
+    height: 500px;
+}
+
+.form-left-image {
+    width: 300px;
+    height: auto;
+    filter: drop-shadow(0 0 0.75rem rgb(14, 13, 14));
+    border-radius: 5px;
+}
+
+.icon {
+    font-size: 2rem;
+    color: #353536;
+}
+
+.icon:hover {
+    color: rgb(39, 68, 107);
 }

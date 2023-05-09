@@ -21,7 +21,6 @@ function App() {
         <>
             <Layout />
             <div>{data}</div>
-
         </>
 
 

@@ -1,10 +1,10 @@
 import React, { useState } from "react"
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"
+import { Container } from 'reactstrap'
 import "react-datepicker/dist/react-datepicker.css";
 import '../../App.css'
 import '../../Styles/Membership/Membership.css'
-import '../../Styles/schedule/schedule.css'
-import { Container } from 'reactstrap'
+import image from '../../images/Membership/AddPromo.png'
 
 const AddNewPromo = () => {
     const [prPackageId, setPromoId] = useState('')
@@ -48,72 +48,83 @@ const AddNewPromo = () => {
 
     return (
         <body>
-            <section style={{'backgroundColor': 'transparent'}}>
-                <Container style={{'backgroundColor': 'rgba(26, 24, 30, 0.9)', 'height': "50%", 'width': '50%', 'padding': '20px'}}>
+            <section>
+                <Container >
                     <div className="title code">New Promo Packages Creation</div>
-                    <br />
-                    <div className="pkg_inputs">
-                        <form class="add-promo" method="POST" onSubmit={handleSubmit}>
-                            <div class="add-promo-row">
-                                <label for="promoID" className="add-promo-label">Package ID :</label>
-                                <input 
-                                    type="text" 
-                                    className="add-promo-input"
-                                    name='id'
-                                    onChange={(e) => setPromoId(e.target.value)}
-                                    value={prPackageId}
-                                />
-                            </div>
-                            <div class="add-promo-row">
-                                <label for="promoName" className="add-promo-label">Package Name :</label>
-                                <input 
-                                    type="text"
-                                    className="add-promo-input"
-                                    name='name'
-                                    onChange={(e) => setPromoName(e.target.value)}
-                                    value={prPackageName}
-                                />
-                            </div>
-                            <div class="add-promo-row">
-                                <label for="promoDetails" className="add-promo-label">Package Details  :</label>
-                                <textarea 
-                                    className="add-promo-text" name="description"
-                                    onChange={(e) => setPromoDetails(e.target.value)}
-                                    value={prPackageDescription}
-                                ></textarea>
-                            </div>
-                            <div class="add-promo-row">
-                                <label for="promoPrice" className="add-promo-label">Package Price :</label>
-                                <input 
-                                    type="text" 
-                                    className="add-promo-input"
-                                    name='price'
-                                    onChange={(e) => setPromoPrice(e.target.value)}
-                                    value={prPackagePrice}
-                                />
-                            </div>
-                            <div class="add-promo-row">
-                                <label for="promoValidity" className="add-promo-label">Package Validity  :</label>
-                                <input
-                                    type="date" 
-                                    className="add-promo-input"
-                                    name="validity"
-                                    selected={prPackageValidity} 
-                                    onChange={(e) => setPromoValidity(e.target.value)}
-                                    value={prPackageValidity}
-                                    dateFormat="dd/MM/yyyy"
-                                />
-                            </div>
-                            <div class="add-promo-row">
-                                <div className="add-promo-btns">
-                                    <div>
-                                        <button type='reset' className='secondary__btn'>Cancel</button>
-                                        <button type='submit' className='primary__btn submit create-btn'>Create</button>
-                                    </div>
+                    
+                    <div className="add-new-form">
+                        <div>
+                            <img src={image} alt="" className="form-left-image" />
+                        </div>
+                        <div>
+                            <form class="add-promo" method="POST" onSubmit={handleSubmit}>
+                                <div class="add-promo-row">
+                                    <label for="promoID" className="add-promo-label">Package ID :</label>
+                                    <input 
+                                        type="text" 
+                                        className="add-promo-input"
+                                        name='id'
+                                        onChange={(e) => setPromoId(e.target.value)}
+                                        value={prPackageId}
+                                        required
+                                    />
                                 </div>
-                                {error && <div className="error">{error}</div>}
-                            </div>
-                        </form>
+                                <div class="add-promo-row">
+                                    <label for="promoName" className="add-promo-label">Package Name :</label>
+                                    <input 
+                                        type="text"
+                                        className="add-promo-input"
+                                        name='name'
+                                        onChange={(e) => setPromoName(e.target.value)}
+                                        value={prPackageName}
+                                        required
+                                    />
+                                </div>
+                                <div class="add-promo-row">
+                                    <label for="promoDetails" className="add-promo-label">Package Details  :</label>
+                                    <textarea 
+                                        className="add-promo-text" name="description"
+                                        onChange={(e) => setPromoDetails(e.target.value)}
+                                        value={prPackageDescription}
+                                        required
+                                    ></textarea>
+                                </div>
+                                <div class="add-promo-row">
+                                    <label for="promoPrice" className="add-promo-label">Package Price :</label>
+                                    <input 
+                                        type="text" 
+                                        className="add-promo-input"
+                                        name='price'
+                                        onChange={(e) => setPromoPrice(e.target.value)}
+                                        value={prPackagePrice}
+                                        required
+                                    />
+                                </div>
+                                <div class="add-promo-row">
+                                    <label for="promoValidity" className="add-promo-label">Package Validity  :</label>
+                                    <input
+                                        type="date" 
+                                        className="add-promo-input"
+                                        name="validity"
+                                        selected={prPackageValidity} 
+                                        onChange={(e) => setPromoValidity(e.target.value)}
+                                        value={prPackageValidity}
+                                        dateFormat="dd/MM/yyyy"
+                                        required
+                                    />
+                                </div>
+                                <div class="add-promo-row">
+                                    <div className="add-promo-btns">
+                                        <div>
+                                            <button type='reset' className='secondary__btn' style={{marginRight: '10px'}}>Cancel</button>
+                                            {/* <button type='submit' className='primary__btn submit create-btn'>Create</button> */}
+                                            <button type='submit' className='primary__btn'>Create</button>
+                                        </div>
+                                    </div>
+                                    {error && <div className="error">{error}</div>}
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </Container>
             </section >
