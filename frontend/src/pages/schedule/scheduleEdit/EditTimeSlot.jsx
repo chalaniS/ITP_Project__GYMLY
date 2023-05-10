@@ -80,7 +80,7 @@ const EditTimeSlot = () => {
                                     <img src={image} alt="" className="images" />
                                 </Row>
                                 <br />
-                                <Row>
+                                {/* <Row>
                                     <Col lg="4">
                                         <label htmlFor="instructor">Change Instructor:</label>
                                     </Col>
@@ -89,7 +89,7 @@ const EditTimeSlot = () => {
                                             Change Instructor Form
                                         </button>
                                     </Col>
-                                </Row>
+                                </Row> */}
                                 <br />
                                 <Row>
                                     <Col lg="4">
@@ -117,7 +117,7 @@ const EditTimeSlot = () => {
                                             <select
                                                 name="timeslot"
                                                 className="timeslot"
-                                                // value={timeSlot}
+                                                value={timeSlot}
                                                 onChange={(event) => setTimeSlot(event.target.value)}
                                             >
                                                 <option value="">Select Time Slot</option>

@@ -61,7 +61,7 @@ ul {
   font-size: 1.8rem;
   line-height: 42px;
   text-transform: uppercase;
-  text-shadow: 0 2px rgb(107, 104, 104), 0 3px #777;
+  /* text-shadow: 0 2px rgb(107, 104, 104), 0 3px #777; */
 }
 
 label {
@@ -74,16 +74,22 @@ label {
 }
 
 section {
-  margin: 15px 50px 10px 50px;
-  padding: 1px 80px 18px 70px;
-  background: rgba(21, 23, 30, 0.832);
-  border-radius: 30px;
-  /* From https://css.glass */
+  margin-left: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: auto;
+  padding: 40px;
+
+  width: fit-content;
+  border-radius: 50px;
+  background: rgba(23, 116, 203, 0.39);
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(61, 60, 60, 0.06);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(36, 35, 35, 0.48);
+  background: rgba(0, 0, 0, 0.39);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(21, 1, 1, 0.1);
+  backdrop-filter: blur(14.3px);
+  -webkit-backdrop-filter: blur(14.3px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 
@@ -91,41 +97,42 @@ section {
 /* 3 button styles */
 
 .primary__btn {
-  background: var(--primary-color) !important;
+  background: transparent;
   border: 1px solid white !important;
-  border-radius: 50px !important;
+  border-radius: 10px !important;
   font-weight: 500 !important;
   padding: 0.4rem 2rem !important;
-  color: var(--text-color);
+  /* color: var(--text-color); */
+  color: white;
   font-size: 1rem;
   font-weight: 800;
   text-transform: capitalize;
 }
 
 .primary__btn:hover {
-  background: #0f0f44 !important;
+  background: #2626d7 !important;
   color: #ffffff !important;
   border: 1px solid white !important;
-  border-radius: 50px !important;
+  border-radius: 10px !important;
   font-weight: 700 !important;
   padding: 0.4rem 2rem !important;
 
 }
 
 .secondary__btn {
-  background: var(--secondary-color) !important;
-  color: #000000 !important;
+  background: transparent !important;
+  color: white !important;
   border: 1px solid white !important;
-  border-radius: 50px;
+  border-radius: 10px;
   font-weight: 700 !important;
   padding: 0.4rem 1.5rem !important;
 
 }
 
 .secondary__btn:hover {
-  background: #8eaece !important;
+  background: #d80404 !important;
   border: 1px solid white !important;
-  border-radius: 50px !important;
+  border-radius: 10px !important;
   font-weight: 700 !important;
   padding: 0.4rem 1.5rem !important;
   color: white;
@@ -230,6 +237,7 @@ th {
 }
 
 td {
+  width: 180px;
   text-align: center;
 }
 
@@ -282,3 +290,5 @@ td {
 .notFound {
   color: wheat;
 }
+
+Form {}

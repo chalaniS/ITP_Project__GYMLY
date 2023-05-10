@@ -39,32 +39,32 @@ const ScheduleTable = () => {
         // add title to the PDF document
         doc.setFontSize(16);
         doc.text('Daily Training Schedules', 14, 22);
-      
+
         // define the table columns
-        const columns = [    
-            { header: 'No', dataKey: 'dayscount' },    
-            { header: 'TimeSlot', dataKey: 'timeslot' },    
-            { header: 'Date', dataKey: 'date' },    
-            { header: 'Instructor', dataKey: 'instructor' },    
-            { header: 'Section', dataKey: 'section' }  
+        const columns = [
+            { header: 'No', dataKey: 'dayscount' },
+            { header: 'TimeSlot', dataKey: 'timeslot' },
+            { header: 'Date', dataKey: 'date' },
+            { header: 'Instructor', dataKey: 'instructor' },
+            { header: 'Section', dataKey: 'section' }
         ];
-        
+
         // define the table rows
         const rows = schedules.map(schedule => ({
-          dayscount: schedule.dayscount,
-          timeslot: schedule.timeslot,
-          date: schedule.date,
-          instructor: schedule.instructor,
-          section: schedule.section
+            dayscount: schedule.dayscount,
+            timeslot: schedule.timeslot,
+            date: schedule.date,
+            instructor: schedule.instructor,
+            section: schedule.section
         }));
-        
+
         // add the table to the PDF document
         doc.autoTable(columns, rows);
-        
+
         // save the PDF file
         doc.save('DailyTrainingSchedules.pdf');
     };
-      
+
 
     const handleEdit = (id) => {
         navigate(`/changetimeslot/${id}`);
@@ -113,13 +113,13 @@ const ScheduleTable = () => {
                         <input type="button" className="tertiary_btn" value="Generate a report" onClick={handleGeneratePdf} />
                     </Col>
                     <Col>
-                        <Row>
+                        {/* <Row>
 
                             <Col>
                                 <a href="/changeinstrutor/" target="_blank" className="tertiary_btn">Change Instructor</a>
                             </Col>
 
-                        </Row>
+                        </Row> */}
                     </Col>
                     <Col>
                         <Row>
@@ -171,12 +171,12 @@ const ScheduleTable = () => {
                                     <th>Date</th>
                                     <th>Instructor</th>
                                     <th>Section</th>
-                                    
-                                        <> <th>Edit</th>
-                                            <th>Delete</th>
 
-                                        </>
-                                    
+                                    <> <th>Edit</th>
+                                        <th>Delete</th>
+
+                                    </>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -187,16 +187,16 @@ const ScheduleTable = () => {
                                         <td>{row.date}</td>
                                         <td>{row.instructor}</td>
                                         <td>{row.section}</td>
-                                        
-                                            <>
-                                                <td>
-                                                    <button className='edit_btn' onClick={() => handleEdit(row._id)}>edit</button>
-                                                </td>
-                                                <td>
-                                                    <button className='delete_btn' onClick={() => handleDelete(row._id)}>delete</button>
-                                                </td>
-                                            </>
-                                        
+
+                                        <>
+                                            <td>
+                                                <button className='edit_btn' onClick={() => handleEdit(row._id)}>edit</button>
+                                            </td>
+                                            <td>
+                                                <button className='delete_btn' onClick={() => handleDelete(row._id)}>delete</button>
+                                            </td>
+                                        </>
+
                                     </tr>
                                 ))}
                             </tbody>

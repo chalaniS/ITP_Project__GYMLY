@@ -65,16 +65,16 @@ const Schedule = ({ pdays }) => {
                                     addToList(packageDays, formattedDate, timeslot, instructor, section);
                                 }}
                             >
-                                <Row>
+                                {/* <Row>
                                     <img src={image} alt="" className='images' />
-                                </Row>
+                                </Row> */}
                                 <br />
                                 <Row>
                                     <Col lg='4'>
                                         <label for="token">Payment Token  :</label>
                                     </Col>
                                     <Col>
-                                        <input type="text" name='token' value="X10236" className='' disabled />
+                                        <input type="text" name='token' value="X10236" className='' disabled required />
                                     </Col>
                                 </Row>
                                 <br />
@@ -85,7 +85,7 @@ const Schedule = ({ pdays }) => {
                                     <Col>
                                         {/* Should change with payment id */}
                                         <div className="select">
-                                            <select name="timeslot" className="timeslot" onChange={(event) => setTimeslot(event.target.value)} value={timeslot}>
+                                            <select name="timeslot" className="timeslot" onChange={(event) => setTimeslot(event.target.value)} value={timeslot} required>
                                                 <option value="0-0">Select TimeSlot </option>
                                                 <option value="8.00pm - 10.00pm">8.00pm - 10.00pm</option>
                                                 <option value="9.00pm - 11.00pm">9.00pm - 11.00pm</option>
@@ -101,7 +101,7 @@ const Schedule = ({ pdays }) => {
                                     </Col>
                                     <Col>
                                         <div className="select">:
-                                            <select name="instructor" id="timeslot" onChange={(event) => setInstructor(event.target.value)} value={instructor}>
+                                            <select name="instructor" id="timeslot" onChange={(event) => setInstructor(event.target.value)} value={instructor} required>
                                                 <option value="none">Select Instructor</option>
                                                 <option value="Vije Kulasuruya">Vije Kulasuruya</option>
                                                 <option value="Kumara Darmasena">Kumara Darmasena</option>
