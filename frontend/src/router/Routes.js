@@ -15,6 +15,15 @@ import ManagerDashboard from '../pages/Users/UserManager/ManagerDashboard'
 import ManagmentLogin from '../pages/Users/UserManager/ManagementLoging'
 
 
+import OMHome from '../pages/OMdashboard/OMHome'
+
+import Schedule from '../pages/schedule/Schedule'
+import EditInstructor from '../pages/schedule/scheduleEdit/EditInstructor'
+import EditTimeSlot from '../pages/schedule/scheduleEdit/EditTimeSlot'
+import ScheduleTable from '../pages/schedule/ScheduleTable'
+import InstructorConfirmOM from '../pages/schedule/InstructorConfirmOM'
+import BestInstructors from '../pages/schedule/InstructorChart/BestInstructors'
+
 const Router = () => {
     return (
         <Routes>
@@ -22,6 +31,7 @@ const Router = () => {
             {/* Home */}
             <Route path="/" element={<Navigate to='/index' />} />
 
+<<<<<<< HEAD
             {/* Home */}
             <Route path="/index" element={<Home />} />
           
@@ -39,6 +49,18 @@ const Router = () => {
             {/*User Management*/}
 
 
+=======
+            {/* operation manager homepage */}
+            <Route path="/home" element={<OMHome />} />
+
+            {/* Schedule pages routing */}
+            <Route path="/schedule" element={<Schedule />} />
+            <Route path="/changetimeslot/:id" element={<EditTimeSlot />} />
+            <Route path="/changeinstrutor" element={<EditInstructor />} />
+            <Route path="/trainings" element={<ScheduleTable />} />
+            <Route path="/confirmation" element={<InstructorConfirmOM />} />
+            <Route path="/bestinstructors" element={<BestInstructors />} />
+>>>>>>> chalani_dev
 
         </Routes>
     )

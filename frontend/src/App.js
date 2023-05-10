@@ -5,6 +5,11 @@ import Axios from "axios";
 
 function App() {
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> chalani_dev
     return (
         <>
             <Layout />
