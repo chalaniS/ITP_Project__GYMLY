@@ -3,13 +3,6 @@
   padding: 0;
 }
 
-Body {
-  background-image: url(./images/bg1.jpg);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-}
-
 
 :root {
   /* midnight blue  */
@@ -17,7 +10,7 @@ Body {
   /* denim blue  */
   --secondary-color: #6F8FAF;
   --heading-color: #E6E6FA;
-  --text-color: #ffffff;
+  --text-color: #c5c6ca;
   --font-name: "Montserrat", sans-serif;
   --subtitle-font-name: "Island Moments", cursive;
 }
@@ -55,13 +48,17 @@ ul {
 /* heading  */
 .title {
   margin: 1em 0 0.5em 0;
-  color: #e2dede;
+  color: #9d9595;
   text-align: center;
   font-family: 'Ultra', sans-serif;
   font-size: 1.8rem;
   line-height: 42px;
   text-transform: uppercase;
+<<<<<<< HEAD
   /* text-shadow: 0 2px rgb(107, 104, 104), 0 3px #777; */
+=======
+  text-shadow: 0 2px rgb(255, 244, 244), 0 3px #777;
+>>>>>>> sujithra
 }
 
 label {
@@ -69,7 +66,7 @@ label {
   font-family: 'Titillium Web', sans-serif;
   text-shadow: 0 -1px 1px rgba(21, 21, 21, 0.4);
   font-size: 1.2rem;
-  color: #ffffff;
+  color: #c5c6ca;
   text-transform: capitalize;
 }
 
@@ -94,11 +91,15 @@ section {
 =======
   margin: 15px 50px 10px 50px;
   padding: 1px 80px 18px 70px;
-  background: rgba(21, 23, 30, 0.9);
+  background: rgb(21, 23, 30);
   border-radius: 30px;
+<<<<<<< HEAD
   box-shadow: rgba(255, 255, 255, 0.12) 0px 2px 4px 0px, rgba(255, 255, 255, 0.32) 0px 2px 16px 0px;
   
 >>>>>>> origin/Sithum_dev
+=======
+  box-shadow: rgba(2, 2, 2, 0.12) 0px 2px 4px 0px, rgba(0, 0, 0, 0.32) 0px 2px 16px 0px;
+>>>>>>> sujithra
 }
 
 
@@ -114,16 +115,23 @@ section {
   /* color: var(--text-color); */
   color: white;
   font-size: 1rem;
-  font-weight: 800;
   text-transform: capitalize;
 }
 
 .primary__btn:hover {
+<<<<<<< HEAD
   background: #2626d7 !important;
   color: #ffffff !important;
   border: 1px solid white !important;
   border-radius: 10px !important;
   font-weight: 700 !important;
+=======
+  background: var(--secondary-color) !important;
+  color: #000000 !important;
+  border: 1px solid white !important;
+  border-radius: 50px !important;
+  font-weight: 500 !important;
+>>>>>>> sujithra
   padding: 0.4rem 2rem !important;
 
 }
@@ -132,17 +140,29 @@ section {
   background: transparent !important;
   color: white !important;
   border: 1px solid white !important;
+<<<<<<< HEAD
   border-radius: 10px;
   font-weight: 700 !important;
+=======
+  border-radius: 50px;
+  font-weight: 500 !important;
+>>>>>>> sujithra
   padding: 0.4rem 1.5rem !important;
 
 }
 
 .secondary__btn:hover {
+<<<<<<< HEAD
   background: #d80404 !important;
   border: 1px solid white !important;
   border-radius: 10px !important;
   font-weight: 700 !important;
+=======
+  background: var(--primary-color) !important;
+  border: 1px solid white !important;
+  border-radius: 50px !important;
+  font-weight: 500 !important;
+>>>>>>> sujithra
   padding: 0.4rem 1.5rem !important;
   color: white;
 }
@@ -163,7 +183,7 @@ section {
 
 .tertiary_btn:hover {
   color: var(--primary-color);
-  background: #000022;
+  background: var(--secondary-color);
 }
 
 /* radio button style */
@@ -176,19 +196,19 @@ section {
 select {
   padding: 3px 0 6px 15px;
   background: rgb(192, 196, 192);
-  color: rgb(0, 0, 0);
+  color: rgb(26, 24, 24);
   cursor: pointer;
   border: 1px solid black;
   border-radius: 7px;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 500;
   width: 247px;
   text-transform: capitalize;
 }
 
 option {
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 
@@ -201,7 +221,7 @@ input {
   border: 1px solid black;
   border-radius: 7px;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 500;
   width: 245px;
   /* text-transform: capitalize; */
 }
