@@ -1,0 +1,286 @@
+/* token.css */
+
+.payment-success {
+  text-align: center;
+}
+
+.payment-success h2 {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: rgb(219, 4, 47);
+}
+
+.payment-success .payment-details {
+  display: inline-block;
+  background-color: aliceblue;
+  text-align: left;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.payment-success .payment-details p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.payment-success .payment-details p span {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.payment-success .report-validity {
+  margin-bottom: 20px;
+  font-size: large;
+  font-style: italic;
+  color: red;
+}
+
+.payment-success .membership-card-note {
+  margin-bottom: 20px;
+  font-size: large;
+  font-style: italic;
+  color: red;
+}
+
+
+
+
+/* verification.css */
+
+h4 {
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 30px; 
+  color: wheat;
+}
+
+
+h3 {
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 30px;
+  color: mediumblue;
+}
+
+input[type="text"] {
+  width: 50%;
+  padding: 10px;
+  font-size: 1.2em;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+}
+
+#countdown-clock {
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  #minutes, #seconds {
+    display: inline;
+    width: 50px;
+    background-color: #eee;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0 10px;
+  }
+  input[type="checkbox"] {
+    margin-right: 10px;
+    margin-left: 20px;
+    align-items: center;
+  }
+  
+  label {
+    font-size: 1.2em;
+    text-align: center;
+    gap: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #ccc;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-items: center;
+  }
+  
+  button.primary__btn {
+    background-color: #007bff;
+    color: #fff;
+    align-items: end;
+  }
+  
+  button.primary__btn:hover {
+    background-color: #0069d9;
+  }
+
+
+
+
+
+/* paymentgateway.css */
+
+  .Payment {
+    padding: 20px;
+    /* background-color: #f0f0f0; */
+    border: 1px solid #ccc;
+  }
+  
+  .Payment label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .Payment input[type="radio"] {
+    margin-right: 5px;
+  }
+  
+  .Payment input[type="radio"]:checked + label {
+    font-weight: bold;
+  }
+  
+  .Payment input[type="radio"]:focus {
+    outline: none;
+    box-shadow: 0 0 2px 1px #aaa;
+  }
+  
+  .Payment forms {
+    margin: 0 auto;
+    max-width: 600px;
+  }
+  
+  .Payment Row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .Payment Col {
+    flex-basis: 50%;
+  }
+
+  /* Style for the form header */
+.form header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  color: ivory;
+  font-weight: bold;
+  font-size: medium;
+}
+
+.Row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: cyan;
+}
+
+
+/* Style for the form columns */
+.form Col {
+  flex: 1;
+  margin: 20px;
+  color: aliceblue;
+}
+
+/* Style for the form labels */
+.form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color:ivory;
+  font-size: medium;
+}
+
+/* Style for the form inputs */
+.form input[type=text], 
+.form input[type=number], 
+.form select {
+  width: 98%;
+  padding: 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+form Row {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+form h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.images {
+  display: block;
+  margin: 2px;
+  height: 5px;
+  width: 5px;
+}
+
+/* Style for the form button container */
+.form Row:last-child {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Style for the form buttons */
+.Row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Row button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.Row button:hover {
+  background-color: #3e8e41;
+}
+
+
+
+
+
+/* FRU.css */
+
+.images {
+  width: 10px;
+  height: 500px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}

@@ -4,6 +4,7 @@ import express from "express";
 import cors from "cors";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import ScheduleModel from './models/schedule/ScheduleModel.js'
 <<<<<<< HEAD
 import SchedulRouter from './routes/schedule/SchedulRouter.js'
@@ -26,11 +27,18 @@ import Supplements from "./models/Supplements/Supplements.js";
 //express app
 const app = express();
 =======
+=======
+import ReportModel from "./models/Payment/ReportModel.js";
+import paymentModel from "./models/Payment/paymentModel.js";
+>>>>>>> origin/Tharani
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+<<<<<<< HEAD
 >>>>>>> sujithra
+=======
+>>>>>>> origin/Tharani
 
 
 //middleware
@@ -41,11 +49,15 @@ app.use(express.json());
 const PORT = process.env.PORT || 5001;
 
 let database;
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 //make connection with datahase
 =======
 const PORT = process.env.PORT || 5000;
+=======
+// app.use('/Report',router)
+>>>>>>> origin/Tharani
 
 let database;
 =======
@@ -111,6 +123,7 @@ app.post("/schedules", async (req, res) => {
     }
 });
 
+<<<<<<< HEAD
 app.get("/schedules", async (req, res) => {
 
     const userId = "45821463#23669545";
@@ -203,11 +216,43 @@ app.post("/Supplements", async (req, res) => {
         await supplements.save()
 >>>>>>> sujithra
         console.log("successfully data inserted")
+=======
+app.post("/payment453", async (req, res) => {
+
+    console.log(req.body);
+
+
+    const financialReportId = req.body.financialReportId;
+    const reportCatogery = req.body.reportCatogery;
+    const employeeID = req.body.employeeID;
+    const uploadedDate = req.body.uploadedDate;
+    const uploadedTime = req.body.uploadedTime;
+    const userId = "45821463#23669545";
+
+    // Validate input data
+    if (!financialReportId || !reportCatogery || !employeeID || !uploadedDate || !uploadedTime) {
+        return res.status(400).send("Missing required fields");
+    }
+
+    const report = new ReportModel({
+        userId: userId,
+        financialReportId: financialReportId,
+        reportCatogery: reportCatogery,
+        employeeID: employeeID,
+        uploadedDate: uploadedDate,
+        uploadedTime: uploadedTime,
+    });
+
+    try {
+        await report.save();
+        console.log("Successfully inserted data");
+>>>>>>> origin/Tharani
         res.status(200).send("Data inserted successfully");
     } catch (err) {
         console.log(err);
         res.status(500).send("Error occurred while inserting data");
     }
+<<<<<<< HEAD
 });
 
 <<<<<<< HEAD
@@ -218,10 +263,17 @@ app.get("/schedules", async (req, res) => {
 =======
 app.get("/Supplements", async (req, res) => {
 >>>>>>> sujithra
+=======
+    
+});
+
+app.get("/payment453", async (req, res) => {
+>>>>>>> origin/Tharani
 
     const userId = "45821463#23669545";
 
     try {
+<<<<<<< HEAD
 <<<<<<< HEAD
         const schedules = await ScheduleModel.find({ userId });
         console.log("'Schedule read successfully'");
@@ -231,6 +283,11 @@ app.get("/Supplements", async (req, res) => {
         console.log("supplements read successfully'");
         res.status(200).json(supplements);
 >>>>>>> sujithra
+=======
+        const report = await ReportModel.find({ userId });
+        console.log("'Report read successfully'");
+        res.status(200).json(report);
+>>>>>>> origin/Tharani
     } catch (err) {
         console.log(err);
         res.status(500).send('Error occurred while retrieving data');
@@ -238,6 +295,7 @@ app.get("/Supplements", async (req, res) => {
 
 });
 
+<<<<<<< HEAD
 // read a single schedule by id for update
 <<<<<<< HEAD
 app.get('/schedules/:id', async (req, res) => {
@@ -252,6 +310,14 @@ app.get('/Supplements/:id', async (req, res) => {
         console.log('Supplement read successfully for update');
         res.status(200).json(supplements);
 >>>>>>> sujithra
+=======
+// read a single supplement by id for update
+app.get('/payment453/:id', async (req, res) => {
+    try {
+        const report = await ReportModel.findById(req.params.id);
+        console.log('Report read successfully for update');
+        res.status(200).json(report);
+>>>>>>> origin/Tharani
     } catch (err) {
         console.error(err);
         res.status(500).send('Error occurred while retrieving data');
@@ -259,6 +325,7 @@ app.get('/Supplements/:id', async (req, res) => {
 });
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 // Update the schedule datas by _uid document by document
 >>>>>>> chalani_dev
@@ -297,6 +364,27 @@ app.put("/Supplements/:id", async (req, res) => {
         res.status(200).send(updatedSupplements);
         console.log('Supplements updated successfully');
 >>>>>>> sujithra
+=======
+
+app.put("/payment453/:id", async (req, res) => {
+    const objectId = req.params.id;
+    const { userId,financialReportId,reportCatogery,employeeID,uploadedDate,uploadedTime} = req.body;
+    try {
+        const updatedReports = await ReportModel.findByIdAndUpdate(
+            objectId,
+            {
+                userId:"45821463#23669545",
+                financialReportId: financialReportId,
+                reportCatogery: reportCatogery,
+                employeeID: employeeID,
+                uploadedDate: uploadedDate,
+                uploadedTime: uploadedTime,
+            },
+            { new: true }
+        );
+        res.status(200).send(updatedReports);
+        console.log('Reports updated successfully');
+>>>>>>> origin/Tharani
 
     } catch (err) {
         console.log(err);
@@ -305,6 +393,7 @@ app.put("/Supplements/:id", async (req, res) => {
 });
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -324,11 +413,20 @@ app.delete("/Supplements/:id", async (req, res) => {
         console.log("'Supplements deleted successfully'");
         res.status(200).send('Supplements deleted successfully');
 >>>>>>> sujithra
+=======
+app.delete("/payment453/:id", async (req, res) => {
+    const objectId = req.params.id;
+    try {
+        await ReportModel.findByIdAndDelete(objectId);
+        console.log("'Reports deleted successfully'");
+        res.status(200).send('Reports deleted successfully');
+>>>>>>> origin/Tharani
     } catch (err) {
         console.log(err);
         res.status(500).send('Error occurred while deleting data');
     }
 });
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 
@@ -377,3 +475,41 @@ app.use('/api/instructorFeedback',instructorFeedbackRouter)
 >>>>>>> origin/Sithum_dev
 =======
 >>>>>>> sujithra
+=======
+
+
+// app.post("/payment", async (req, res) => {
+
+
+//     console.log(req.body);
+//     const financialReportId = req.body.financialReportId
+//     const reportCatogery = req.body.reportCatogery
+//     const employeeID = req.body.employeeID
+//     const uploadedDate = req.body.uploadedDate
+//     const uploadedTime = req.body.uploadedTime
+//     const userId = "45821463#23669545"
+
+//     const report = new ReportModel({
+
+//         userId: userId,
+//         financialReportId: financialReportId,
+//         reportCatogery: reportCatogery,
+//         employeeID: employeeID,
+//         uploadedDate: uploadedDate,
+//         uploadedTime: uploadedTime,
+//     });
+
+//     try {
+//         await report.save();
+//         console.log("successfully data inserted");
+//         res.status(200).send("Data inserted successfully");
+//     } catch (err) {
+//         console.log(err);
+//         res.status(500).send("Error occurred while inserting data");
+//     }
+
+// }
+// );
+
+
+>>>>>>> origin/Tharani

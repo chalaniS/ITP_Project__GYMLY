@@ -16,6 +16,7 @@ import ManagerDashboard from '../pages/Users/UserManager/ManagerDashboard'
 import ManagmentLogin from '../pages/Users/UserManager/ManagementLoging'
 
 
+<<<<<<< HEAD
 import OMHome from '../pages/OMdashboard/OMHome'
 =======
 import OMHome from '../pages/OMdashboard/omHome'
@@ -59,6 +60,18 @@ import FinancialReport from '../pages/Payment/FinancialReport'
 import Login from '../pages/Users/Login'
 import Registation from '../pages/Users/Registation'
 import Dashboard from '../pages/Users/Dashboard'
+=======
+
+
+import PaymentGateway from '../pages/Payment/PaymentGateway'
+import Verification from '../pages/Payment/Verification'
+import GetToken from '../pages/Payment/GetToken'
+import PaymentHomepage from '../pages/Payment/PaymentHomepage'
+import FinancialReportupload from '../pages/Payment/FinancialReportupload'
+import FinancialReportRetrieve from '../pages/Payment/FinancialReportRetrieve'
+import Edit from '../pages/Payment/Edit'
+import FinancialReportGenerate from '../pages/Payment/FinancialReportGenerate'
+>>>>>>> origin/Tharani
 
 <<<<<<< HEAD
 import ServiceFeedbackform from '../pages/CustomerAffairs/ServiceFeedbackform'
@@ -148,6 +161,7 @@ const Router = () => {
             <Route path="/ManagmentLogin" element={<ManagmentLogin />} />
             {/*User Management*/}
 
+<<<<<<< HEAD
 
 =======
             {/* operation manager homepage */}
@@ -178,6 +192,20 @@ const Router = () => {
             {/* Employee Management pages routing */}
             <Route path="/employee-summary" element={<TblEmpSummary />} />
             <Route path="/employee-leave" element={<EmpLeave />} />
+=======
+          
+
+            {/*payment*/}
+            <Route path="/PaymentGateway" element={<PaymentGateway />} />
+            <Route path="/Verification" element={<Verification />} />
+            <Route path="/GetToken" element={<GetToken />} />
+            <Route path="/PaymentHomepage" element={<PaymentHomepage />} />
+            <Route path="/FinancialReportupload" element={<FinancialReportupload />} />
+            <Route path="/FinancialReportRetrieve" element={<FinancialReportRetrieve />} />
+            <Route path="/Edit/:id" element={<Edit/>}/>
+            <Route path="/FinancialReportGenerate" element={<FinancialReportGenerate/>}/>
+          
+>>>>>>> origin/Tharani
 
         </Routes>
     )
