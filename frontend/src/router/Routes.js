@@ -60,6 +60,7 @@ import Login from '../pages/Users/Login'
 import Registation from '../pages/Users/Registation'
 import Dashboard from '../pages/Users/Dashboard'
 
+<<<<<<< HEAD
 import ServiceFeedbackform from '../pages/CustomerAffairs/ServiceFeedbackform'
 import InstructorFeedbackform from '../pages/CustomerAffairs/InstructorFeedbackform'
 import FeedbackApproval from '../pages/CustomerAffairs/FeedbackApproval'
@@ -82,6 +83,15 @@ import EditInstructorFeedback from '../pages/CustomerAffairs/EditInstructorFeedb
 
 
 >>>>>>> origin/Sithum_dev
+=======
+import Employee from '../pages/employeeMgt/Employee'
+import TblEmpSummary from '../pages/employeeMgt/TblEmpSummary'
+import EmpRegistration from '../pages/employeeMgt/EmpRegistration'
+import EmpUpdate from '../pages/employeeMgt/EmpUpdate'
+import EmpLeave from '../pages/employeeMgt/EmpLeave'
+import EmpSalary from '../pages/employeeMgt/EmpSalary'
+import EmpSalaryEdit from '../pages/employeeMgt/EmpSalaryEdit'
+>>>>>>> vidusha-development
 
 const Router = () => {
     return (
@@ -164,6 +174,10 @@ const Router = () => {
               <Route path="/ContactUs" element={<ContactUs />} />
               <Route path="/EditInstructorFeedback/:id" element={<EditInstructorFeedback />} />
 
+
+            {/* Employee Management pages routing */}
+            <Route path="/employee-summary" element={<TblEmpSummary />} />
+            <Route path="/employee-leave" element={<EmpLeave />} />
 
         </Routes>
     )
