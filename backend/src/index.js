@@ -29,8 +29,12 @@ const app = express();
 =======
 =======
 import ReportModel from "./models/Payment/ReportModel.js";
+<<<<<<< HEAD
 import paymentModel from "./models/Payment/paymentModel.js";
 >>>>>>> origin/Tharani
+=======
+import SupplierModel from "./models/Supplier/SupplierOrder.js"
+>>>>>>> origin/vishvi-development
 
 const app = express();
 app.use(cors());
@@ -495,40 +499,65 @@ app.use('/api/instructorFeedback',instructorFeedbackRouter)
 =======
 
 
-// app.post("/payment", async (req, res) => {
 
+//Supplier
 
-//     console.log(req.body);
-//     const financialReportId = req.body.financialReportId
-//     const reportCatogery = req.body.reportCatogery
-//     const employeeID = req.body.employeeID
-//     const uploadedDate = req.body.uploadedDate
-//     const uploadedTime = req.body.uploadedTime
-//     const userId = "45821463#23669545"
+  
+app.post('/suppliers', async (req, res) => {
+    const reportId = req.body.reportId;
+    const SupplierName = req.body.SupplierName;
+    const ProductName = req.body.Product;
+    const Quantity = req.body.Quantity;
+    const userId = "45821463#23669545";
+    const Size = req.body.Size;
+    const Supplier = new SupplierModel({
+        userId: userId,
+        reportId: reportId,
+        ProductName: ProductName,
+        Quantity: Quantity,
+        SupplierName: SupplierName,
+        Size: Size
+    });
 
-//     const report = new ReportModel({
+    try {
+        await Supplier.save();
+        console.log("Successfully inserted data");
+        res.status(200).send("Data inserted successfully");
+    } catch (err) {
+        console.log(err);
+        res.status(500).send("Error occurred while inserting data");
+    }
+  });
 
-//         userId: userId,
-//         financialReportId: financialReportId,
-//         reportCatogery: reportCatogery,
-//         employeeID: employeeID,
-//         uploadedDate: uploadedDate,
-//         uploadedTime: uploadedTime,
-//     });
+app.get('/suppliers', async (req, res) => {
 
-//     try {
-//         await report.save();
-//         console.log("successfully data inserted");
-//         res.status(200).send("Data inserted successfully");
-//     } catch (err) {
-//         console.log(err);
-//         res.status(500).send("Error occurred while inserting data");
-//     }
+    const userId = "45821463#23669545";
+    try {
+      const suppliers = await SupplierModel.find();
+      res.json(suppliers);
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: 'Server error' });
+    }
+  });
 
-// }
-// );
+  
+  app.get('/suppliers/:id', async (req, res) => {
 
+    const userId = "45821463#23669545";
+    try {
+      const supplier = await SupplierModel.findById(req.params.id);
+      if (!supplier) {
+        return res.status(404).json({ message: 'Supplier not found' });
+      }
+      res.json(supplier);
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: 'Server error' });
+    }
+  });
 
+<<<<<<< HEAD
 >>>>>>> origin/Tharani
 =======
 
@@ -645,3 +674,38 @@ app.use('/api/instructorFeedback',instructorFeedbackRouter)
 //     }
 // });
 >>>>>>> origin/Sujithra
+=======
+  
+  app.put('/suppliers/:id', async (req, res) => {
+    const userId = "45821463#23669545";
+    try {
+      const supplier = await SupplierModel.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        { new: true }
+      );
+      if (!supplier) {
+        return res.status(404).json({ message: 'Supplier not found' });
+      }
+      res.json(supplier);
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: 'Server error' });
+    }
+  });
+
+  app.delete('/suppliers/:id', async (req, res) => {
+    const userId = "45821463#23669545";
+    try {
+      const supplier = await SupplierModel.findByIdAndDelete(req.params.id);
+      if (!supplier) {
+        return res.status(404).json({ message: 'Supplier not found' });
+      }
+      res.json({ message: 'Supplier deleted successfully' });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: 'Server error' });
+    }
+  });
+  
+>>>>>>> origin/vishvi-development

@@ -22,6 +22,7 @@ import OMHome from '../pages/OMdashboard/OMHome'
 import OMHome from '../pages/OMdashboard/omHome'
 >>>>>>> Banuka
 
+<<<<<<< HEAD
 import Schedule from '../pages/schedule/Schedule'
 import EditInstructor from '../pages/schedule/scheduleEdit/EditInstructor'
 import EditTimeSlot from '../pages/schedule/scheduleEdit/EditTimeSlot'
@@ -62,6 +63,8 @@ import Registation from '../pages/Users/Registation'
 import Dashboard from '../pages/Users/Dashboard'
 =======
 
+=======
+>>>>>>> origin/vishvi-development
 
 import PaymentGateway from '../pages/Payment/PaymentGateway'
 import Verification from '../pages/Payment/Verification'
@@ -81,6 +84,7 @@ import FeedbackOptions from '../pages/CustomerAffairs/FeedbackOptions'
 import AboutUs from '../pages/CustomerAffairs/AboutUs'
 import ContactUs from '../pages/CustomerAffairs/ContactUs'
 
+<<<<<<< HEAD
 >>>>>>> Banuka
 =======
 import InstructorFeedbackform from '../pages/CustomerAffairs/InstructorFeedbackform'
@@ -93,6 +97,11 @@ import InstructorProfile from '../pages/CustomerAffairs/InstructorProfile'
 import AboutUs from '../pages/CustomerAffairs/AboutUs'
 import ContactUs from '../pages/CustomerAffairs/ContactUs'
 import EditInstructorFeedback from '../pages/CustomerAffairs/EditInstructorFeedback'
+=======
+import SupplementOrders from '../pages/Supplier/SupplementOrders'
+import RecivedOrder from '../pages/Supplier/RecivedOrder'
+
+>>>>>>> origin/vishvi-development
 
 
 >>>>>>> origin/Sithum_dev
@@ -145,6 +154,7 @@ const Router = () => {
 >>>>>>> Banuka
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             {/* Home */}
             <Route path="/index" element={<Home />} />
           
@@ -193,6 +203,8 @@ const Router = () => {
             <Route path="/employee-summary" element={<TblEmpSummary />} />
             <Route path="/employee-leave" element={<EmpLeave />} />
 =======
+=======
+>>>>>>> origin/vishvi-development
           
 
             {/*payment*/}
@@ -204,8 +216,17 @@ const Router = () => {
             <Route path="/FinancialReportRetrieve" element={<FinancialReportRetrieve />} />
             <Route path="/Edit/:id" element={<Edit/>}/>
             <Route path="/FinancialReportGenerate" element={<FinancialReportGenerate/>}/>
+
+            {/* Supplier */}
+
+            <Route path="/SupplierOrders" element={<SupplementOrders />} />
+            <Route path="/SupplierOrderlist" element={<RecivedOrder />} />
+
           
+<<<<<<< HEAD
 >>>>>>> origin/Tharani
+=======
+>>>>>>> origin/vishvi-development
 
         </Routes>
     )
