@@ -74,6 +74,7 @@ label {
 }
 
 section {
+<<<<<<< HEAD
   margin-left: auto;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -90,6 +91,14 @@ section {
   backdrop-filter: blur(14.3px);
   -webkit-backdrop-filter: blur(14.3px);
   border: 1px solid rgba(255, 255, 255, 0.3);
+=======
+  margin: 15px 50px 10px 50px;
+  padding: 1px 80px 18px 70px;
+  background: rgba(21, 23, 30, 0.9);
+  border-radius: 30px;
+  box-shadow: rgba(255, 255, 255, 0.12) 0px 2px 4px 0px, rgba(255, 255, 255, 0.32) 0px 2px 16px 0px;
+  
+>>>>>>> origin/Sithum_dev
 }
 
 
@@ -194,7 +203,7 @@ input {
   font-size: 1rem;
   font-weight: 700;
   width: 245px;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
 }
 
 /* textarea input  */

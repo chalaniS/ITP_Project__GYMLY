@@ -55,6 +55,7 @@ import PaymentHomepage from '../pages/Payment/PaymentHomepage'
 import FinancialReport from '../pages/Payment/FinancialReport'
 
 
+<<<<<<< HEAD
 import Login from '../pages/Users/Login'
 import Registation from '../pages/Users/Registation'
 import Dashboard from '../pages/Users/Dashboard'
@@ -67,6 +68,20 @@ import AboutUs from '../pages/CustomerAffairs/AboutUs'
 import ContactUs from '../pages/CustomerAffairs/ContactUs'
 
 >>>>>>> Banuka
+=======
+import InstructorFeedbackform from '../pages/CustomerAffairs/InstructorFeedbackform'
+import ServiceFeedbackform from '../pages/CustomerAffairs/ServiceFeedbackform'
+import ServiceFeedbackApproval from '../pages/CustomerAffairs/ServiceFeedbackApproval'
+import InstructorFeedbackApproval from '../pages/CustomerAffairs/InstructorFeedbackApproval'
+import FeedbackOptions from '../pages/CustomerAffairs/FeedbackOptions'
+import SearchInstructor from '../pages/CustomerAffairs/SearchInstructor'
+import InstructorProfile from '../pages/CustomerAffairs/InstructorProfile'
+import AboutUs from '../pages/CustomerAffairs/AboutUs'
+import ContactUs from '../pages/CustomerAffairs/ContactUs'
+import EditInstructorFeedback from '../pages/CustomerAffairs/EditInstructorFeedback'
+
+
+>>>>>>> origin/Sithum_dev
 
 const Router = () => {
     return (
@@ -136,6 +151,19 @@ const Router = () => {
             <Route path="/confirmation" element={<InstructorConfirmOM />} />
             <Route path="/bestinstructors" element={<BestInstructors />} />
 >>>>>>> chalani_dev
+
+            {/* Customer Affairs pages routing */}
+             <Route path="/InstructorFeedbackForm" element={<InstructorFeedbackform />} />
+             <Route path="/ServiceFeedbackform" element={<ServiceFeedbackform />} />
+              <Route path="/ServiceFeedbackApproval" element={<ServiceFeedbackApproval />} />
+              <Route path="/InstructorFeedbackApproval" element={<InstructorFeedbackApproval />} />
+              <Route path="/SearchInstructor" element={<SearchInstructor />} />
+              <Route path="/FeedbackOptions" element={<FeedbackOptions />} />
+              <Route path="/InstructorProfile" element={<InstructorProfile />} />
+              <Route path="/AboutUs" element={<AboutUs/>} />
+              <Route path="/ContactUs" element={<ContactUs />} />
+              <Route path="/EditInstructorFeedback/:id" element={<EditInstructorFeedback />} />
+
 
         </Routes>
     )

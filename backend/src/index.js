@@ -2,16 +2,25 @@ import "dotenv/config";
 import mongoose from "mongoose";
 import express from "express";
 import cors from "cors";
+<<<<<<< HEAD
 import ScheduleModel from './models/schedule/ScheduleModel.js'
 <<<<<<< HEAD
 import SchedulRouter from './routes/schedule/SchedulRouter.js'
 import User from './routes/Users/userRouters.js' 
 =======
 import IRequestModel from './models/schedule/RequestModel.js'
+=======
+import serviceFeedbackRouter from './routes/CustomerAffairs/serviceFeedback.js'
+import instructorFeedbackRouter from './routes/CustomerAffairs/instructorFeedback.js'
+>>>>>>> origin/Sithum_dev
 
 >>>>>>> chalani_dev
 
+//express app
 const app = express();
+
+
+//middleware
 app.use(cors());
 app.use(express.json());
 
@@ -35,11 +44,11 @@ app.listen(PORT, () => {
     //connect db
     mongoose
         .connect("mongodb+srv://gymly:gymly123@gymly-db-cluster.sfmuyh9.mongodb.net/gymly-db?retryWrites=true&w=majority")
-        .then((connection) => {
+        .then((connection) => {//to fire a function
             database = connection;
             console.log("Database Synced");
         })
-        .catch((err) => {
+        .catch((err) => {//to catch any error if URI is incorrect or username/password incorrect
             console.log(err.message);
         });
 });
@@ -100,6 +109,7 @@ app.get("/schedules", async (req, res) => {
 
 });
 
+<<<<<<< HEAD
 // read a single schedule by id for update
 app.get('/schedules/:id', async (req, res) => {
     try {
@@ -270,3 +280,8 @@ app.post("/changerequest", async (req, res) => {
 
 
 >>>>>>> chalani_dev
+=======
+//routes
+app.use('/api/CustomerAffairs',serviceFeedbackRouter)
+app.use('/api/instructorFeedback',instructorFeedbackRouter)
+>>>>>>> origin/Sithum_dev

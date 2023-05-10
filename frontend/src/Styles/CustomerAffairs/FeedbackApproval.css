@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .approvalsection {
     margin: 0%;
     padding: 0%;
@@ -10,6 +11,8 @@
     filter:brightness(80%)
   }
   
+=======
+>>>>>>> origin/Sithum_dev
 
 /* accept and reject btn styles in table */
 .accept_btn {
@@ -46,6 +49,7 @@
     font-weight: 500 !important;
     padding: 0.3rem !important;
   }
+<<<<<<< HEAD
   
   .feedbackrep_btn{
     margin-left: 700px;
@@ -72,4 +76,18 @@
     font-weight: 800;
     cursor: pointer;
     border-radius: 6px;
+=======
+  #btn_position{
+    width:300px;
+    margin-left: 600px;
+  }
+  #inst_btn_position{
+    width:300px;
+    
+  }
+  
+  .Buttonsdiv{
+    display: flex;
+    flex-direction: row;
+>>>>>>> origin/Sithum_dev
   }

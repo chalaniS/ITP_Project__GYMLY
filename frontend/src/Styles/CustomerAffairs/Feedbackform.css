@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+.bgimg{
+    background: url(../../images/CustomerAffairs/backimg1.jpg);
+    background-size: cover;
+    background-position: absolute;
+    filter: brightness(100%)
+}
+.feedbacksection{
+    height:610px;
+}
+
+.feedbackcontainer{
+    height:450px;
+    width:fit-content;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 5px;
+    margin-left: 300px;
+    justify-content: center;
+    box-shadow: 0 0 8px rgba(250,250, 250, 0.6);
+    align-items: center;
+}
+.Instructorfeedbackcontainer{
+    height:600px;
+    width:700px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 5px;
+    margin-left: 250px;
+    justify-content:center;
+    box-shadow: 0 0 8px rgba(250,250, 250, 0.6);
+    align-items:center;
+}
+form{
+    justify-self: center;
+    width: 100%;
+    text-align: center;
+    padding: 25px 20px;
+}
+
+
+form .feedbackid{
+    position: relative;
+}
+.my-input{
+    width:400px;
+}
+.feedbackid i{
+    color: white;
+    position: relative;
+    font-size: 20px;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-20%);
+}
+
+
+.FillStar{
+    margin-left: 20px;
+    height: 50px;
+    font-size: 20px;
+}
+.OutlineStar{
+    margin-left: 20px;
+    height: 50px;
+    font-size: 20px;
+}
+.user{
+    margin-left: 5px;
+    height: 50px;
+    font-size: 20px;
+    color: white;
+    
+}
+.mail{
+    margin-left: 5px;
+    height: 50px;
+    font-size: 20px;
+    color: white;
+    
+}
+
+
+form input:focus,
+form textarea :focus{
+    border: 1px solid #5900ff;
+    color: #5900ff;
+    transition: all 0.3s ease;
+}
+form input:focus::placeholder,
+form textarea:focus::placeholder{
+    padding-left: 4px;
+    color: #5900ff;
+    transition: all 0.3s ease;
+}
+form input:focus + i{
+    color: #5900ff;
+    transition: all 0.3s ease;
+}
+#button_style{
+    align-self: flex-start;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 100px;
+    width:400px;
+    
+}
+.ftIns{
+    margin-top: 10px;
+    margin-left: 0px;
+}
+.insSelect{
+    margin-left:25px;
+}
+.my-input-Ins{
+    width:500px;
+}
+#button_style_ins{
+    align-self: flex-start;
+    margin-top: 20px;
+    margin-left: 150px;
+    width:400px;
+    
+}
+.rate{
+    margin-left: -35px;
+}
+.servicerate{
+    margin-left: -70px;
+}
+.feedbacktext{
+    width:525px;
+}
+.serviceText{
+    margin-left: -20px;
+    width:400px;
+}
