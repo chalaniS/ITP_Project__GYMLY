@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from 'react'
 import { Container, Row, Col, Table } from 'reactstrap'
 import '../../Styles/schedule/schedule.css'
@@ -89,6 +90,13 @@ const InstructorConfirmOM = () => {
                 </Row>
             </Container>
         </section>
+=======
+import React from 'react'
+
+const InstructorConfirmOM = () => {
+    return (
+        <div>InstructorConfirmOM</div>
+>>>>>>> origin/Sujithra
     )
 }
 

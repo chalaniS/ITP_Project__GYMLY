@@ -21,6 +21,7 @@
     "express": "^4.18.2",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "faker": "^6.6.6",
 <<<<<<< HEAD
     "jspdf-autotable": "^3.5.28",
@@ -35,6 +36,13 @@
     "jspdf": "^2.5.1",
     "pdfmake": "^0.2.7",
 >>>>>>> origin/Tharani
+=======
+    "html2pdf": "^0.0.11",
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.5.28",
+    "pdfmake": "^0.2.7",
+    "process": "^0.11.10",
+>>>>>>> origin/Sujithra
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.0",
     "react-bootstrap": "^2.7.0",

@@ -1,10 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Layout from "./Components/Layout/Layout";
+<<<<<<< HEAD
 import axios from "axios";
+=======
+import { FaBeer } from "@react-icons/all-files";
+>>>>>>> origin/Sujithra
 
 
 function App() {
+    return <Layout />;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -30,6 +36,8 @@ function App() {
 
 
     );
+=======
+>>>>>>> origin/Sujithra
 };
 
 export default App;

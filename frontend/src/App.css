@@ -28,14 +28,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-h1,
-h2,
-h3,
-h4,
-p {
-  color: #000000;
-}
-
 a {
   text-decoration: none;
   color: unset;
@@ -257,17 +249,19 @@ textarea::placeholder {
 /* table style  */
 /* <Table dark striped bordered hover responsive> */
 
-thead,
 th {
   text-align: center;
   border: 1px solid rgb(111, 110, 110);
   font-size: 1.2rem;
-  padding: 10px 2px;
+  padding: 6px 1px;
 }
 
 td {
   width: 180px;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 
 

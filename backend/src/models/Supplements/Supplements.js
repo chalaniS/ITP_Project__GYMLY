@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 const SupplementsSchema = new Schema({
-    UserId: {
+    userId: {
         type: String,
 
     },
@@ -22,6 +22,10 @@ const SupplementsSchema = new Schema({
     },
     Supplement_Quantity: {
         type: Number,
+        //required:true,
+    },
+    Supplement_Date: {
+        type: String,
         //required:true,
     },
 

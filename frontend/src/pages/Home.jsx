@@ -1,4 +1,5 @@
 import React from 'react'
+<<<<<<< HEAD
 import '../Styles/Home.css'
 import { Button } from 'react-bootstrap'
 import aboutus from '../images/LandingPage/aboutus.png';
@@ -95,6 +96,12 @@ const Home = () => {
 =======
         </div>
 >>>>>>> chalani_dev
+=======
+
+const Home = () => {
+    return (
+        <div>Home</div>
+>>>>>>> origin/Sujithra
     )
 }
 

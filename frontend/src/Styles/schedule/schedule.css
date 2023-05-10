@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/Sujithra
 body {
     background: rgb(4, 2, 10);
 }
@@ -7,12 +10,15 @@ body {
     height: 200px;
     filter: drop-shadow(0 0 0.75rem rgb(14, 13, 14));
     border-radius: 30px;
+<<<<<<< HEAD
 =======
 .images {
     height: 200px;
     /* filter: drop-shadow(0 0 0.75rem rgb(14, 13, 14)); */
     border-radius: 20px;
 >>>>>>> chalani_dev
+=======
+>>>>>>> origin/Sujithra
 }
 
 .cancel {
@@ -23,6 +29,7 @@ body {
     border-radius: 50px;
     width: auto;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     padding: 6px 10px 6px 10px;
 }
@@ -30,4 +37,6 @@ body {
 .barchart {
     font-size: 500px;
 >>>>>>> chalani_dev
+=======
+>>>>>>> origin/Sujithra
 }

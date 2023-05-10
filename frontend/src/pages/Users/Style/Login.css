@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 /*Font of title*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
@@ -26,18 +27,30 @@
     padding:  60px;
     padding-top:40px;
     padding-bottom: 40px;
+=======
+#LogingForm{
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding:  60px;
+>>>>>>> origin/Sujithra
     width: fit-content;
     border-radius: 50px ; 
     background: rgba(23, 116, 203, 0.39);
     border-radius: 16px;
+<<<<<<< HEAD
     background: rgba(0, 0, 0, 0.39);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(21, 1, 1, 0.1);
+=======
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+>>>>>>> origin/Sujithra
     backdrop-filter: blur(14.3px);
     -webkit-backdrop-filter: blur(14.3px);
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+<<<<<<< HEAD
 #logging-title{
     font-size: 55px;
     font-weight: 600;
@@ -57,19 +70,30 @@
     border-radius: 20px;
     width: 350px;
     height: 40px;
+=======
+#formBasicEmail{
+    border-radius: 40px;
+    width: 350px;
+>>>>>>> origin/Sujithra
     text-transform: unset !important;
 }
 
 
 #formBasicPassword{
+<<<<<<< HEAD
     border-radius: 20px;
     width: 350px;
     height: 40px;
+=======
+    border-radius: 40px;
+    width: 350px;
+>>>>>>> origin/Sujithra
     margin-top: 30px;
     text-transform: unset !important;
     
 }
 
+<<<<<<< HEAD
 #LG-Button{
     border-radius: 60px;
     width: 100px;
@@ -102,4 +126,10 @@
     font-size: 14px;
     font-weight: bold;
     text-decoration: underline;
+=======
+#Button{
+    border-radius: 60px;
+    width: 100px;
+    margin-top: 10px;
+>>>>>>> origin/Sujithra
 }

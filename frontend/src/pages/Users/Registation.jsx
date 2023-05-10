@@ -1,4 +1,5 @@
 import React from "react";
+<<<<<<< HEAD
 import { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
@@ -134,6 +135,14 @@ const Registation = (props) => {
     
     </div>
  
+=======
+
+const Registation = () => {
+    return (
+        <div>
+        <h1>Registation</h1>
+        </div>
+>>>>>>> origin/Sujithra
     );
     }
 

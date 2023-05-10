@@ -22,10 +22,15 @@
 <<<<<<< HEAD
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.2",
+<<<<<<< HEAD
 =======
     "mongoose": "^7.0.3",
 >>>>>>> origin/Tharani
     "pino": "^8.11.0"
+=======
+    "pino": "^8.11.0",
+    "react-html2pdf": "^1.0.1"
+>>>>>>> origin/Sujithra
   },
   "devDependencies": {
     "@babel/core": "^7.21.3",
@@ -35,8 +40,11 @@
     "pino-pretty": "^10.0.0"
 <<<<<<< HEAD
   }
+<<<<<<< HEAD
 =======
   },
   "description": ""
 >>>>>>> origin/Tharani
+=======
+>>>>>>> origin/Sujithra
 }
