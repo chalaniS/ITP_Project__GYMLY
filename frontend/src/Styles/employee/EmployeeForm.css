@@ -13,6 +13,7 @@
     outline: none;
     border-radius: 4px;
     width: 100px;
+    font-weight: bold
     
 }
 
@@ -47,10 +48,11 @@
     outline: none;
     border-radius: 4px;
     width: 100px;
+    font-weight: bold;
 }
 #form-cancel-button button:hover{
     color: white;
-    background-color: #8d1305f1;
+    background-color: #e74d3cab;
     border-color: #e74c3c;
 }
 #form-cancel-button.row{
@@ -99,4 +101,8 @@ box-shadow: 0;
 
 section.employeeForm{
     width: 80% !important;
+}
+
+.col-form-label{
+    font-weight: bold;
 }

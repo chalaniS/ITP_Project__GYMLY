@@ -73,14 +73,6 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function EditSalary(props) {
-
-  return (
-    <Button variant="contained" color="primary" class="editBtn">
-      {props.label}
-    </Button>
-  );
-}
 
 function EmployeeTable() {
 
@@ -90,11 +82,11 @@ function EmployeeTable() {
 
     const columns = [
         {title: "_id", field: "_id", hidden: true},
-        {title: "Employee ID",field: "userId", defaultSort: "asc"},
-        {title: "Name",field: "firstName"},
-        {title: "Email",field: "email", sorting: false, export: false},
-        {title: "Job Role",field: "role"},
-        {title: "Salary",field: "salary",type: "currency",currencySetting:{currencyCode: "LKR"}},
+        {title: "Employee ID", field: "userId", defaultSort: "asc"},
+        {title: "Name", field: "firstName"},
+        {title: "Email", field: "email", sorting: false, export: false},
+        {title: "Job Role", field: "role"},
+        {title: "Salary", field: "totalSal", type: "currency", currencySetting:{currencyCode: "LKR"}}
     ]
 
     useEffect(()=>{
@@ -132,9 +124,37 @@ function EmployeeTable() {
           });
     }
 
-    const editSalary = (id) => {
-      navigate(`/employeeSalary/${id}`);
-    };
+    function Salary(props) {
+
+      // if (props.totalSal == 0) {
+        return (
+          <Button variant="contained" color="primary" class="editBtn">
+            Salary
+          </Button>
+        );
+      // }else {
+      //   return (
+      //     <Button variant="contained" color="primary" class="editBtn">
+      //       Edit Salary
+      //     </Button>
+      //   );
+      // }
+    }
+
+    function salaryNavigate(rowData){
+      if (rowData.totalSal == 0)
+        navigate(`/employeeSalary/${rowData._id}`);
+      else
+        navigate(`/employeeSalaryUpdate/${rowData._id}`);
+    }
+
+    // const addSalary = (id) => {
+    //   navigate(`/employeeSalary/${id}`);
+    // };
+
+    // const editSalary = (id) => {
+    //   navigate(`/employeeSalaryUpdate/${id}`);
+    // };
 
 
     const handleSearch = (event) => {
@@ -190,7 +210,7 @@ function EmployeeTable() {
       doc.setFontSize(15);
       const title = "Employee Summary";
       const headers = [["Employee ID", "Name", "Job Role", "Salary"]];
-      const data = tableData.map((employee) => [employee._id, employee.firstName, employee.role, employee.salary]);
+      const data = tableData.map((employee) => [employee._id, employee.firstName, employee.role, employee.totalSal]);
       let content = {
         startY: 50,
         head: headers,
@@ -297,9 +317,9 @@ function EmployeeTable() {
                   onClick: (event, rowData) => removeEmployee(rowData._id)
                 },
                 {
-                  icon: () => <EditSalary label="Edit Salary"/>,
-                  tooltip: 'Edit Salary',
-                  onClick: (event, rowData) => editSalary(rowData._id)
+                  icon: rowData => <Salary totalSal={rowData.totalSal}/>,
+                  tooltip: 'Salary',
+                  onClick: (event, rowData) => salaryNavigate(rowData)
                 }
               ]}
               
@@ -314,7 +334,13 @@ function EmployeeTable() {
                   //exportButton:true,
                   exportAllData:true,
                   exportFileName:"Monthly Salary Report",
-                  actionsColumnIndex:-1
+                  actionsColumnIndex:-1,
+
+                  headerStyle: {
+                    fontWeight: 'bold',
+                    fontSize: 16,
+                    backgroundColor: '#001933'
+                  }
                 }
               } 
               title="Employee Summary" 

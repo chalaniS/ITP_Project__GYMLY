@@ -28,13 +28,12 @@
 
 .MuiTableCell-root {
     border-bottom: 1px solid rgba(224, 224, 224, 1);
-    border-right: 1px solid rgba(224, 224, 224, 1);
 }
 
 .MuiTypography-h6 {
-    font-size: 1.25rem;
+    font-size: 1.5rem !important;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    font-weight: bold !important;
+    font-weight:  bold !important;
     line-height: 1.6;
     letter-spacing: 0.0075em;
     color: white;
@@ -83,4 +82,12 @@
 .editBtn:hover {
     color: #001F3F;
     background-color: #0069d9;
+}
+
+.MuiToolbar-root{
+    background-color: #0069d993;
+}
+
+.MuiTableCell-footer{
+    border-bottom: 0px !important;
 }

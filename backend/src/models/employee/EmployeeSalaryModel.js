@@ -3,10 +3,7 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 const EmployeeSalarySchema = new Schema({
-    empId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'EmployeeSchema'
-    },
+
     basicSal: {
         type: Number,
         required: true

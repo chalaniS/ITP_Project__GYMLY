@@ -81,11 +81,9 @@ section {
   padding: 40px;
 
   width: fit-content;
-  border-radius: 50px;
   background: rgba(23, 116, 203, 0.39);
   border-radius: 16px;
   background: rgba(0, 0, 0, 0.39);
-  border-radius: 16px;
   box-shadow: 0 4px 30px rgba(21, 1, 1, 0.1);
   backdrop-filter: blur(14.3px);
   -webkit-backdrop-filter: blur(14.3px);

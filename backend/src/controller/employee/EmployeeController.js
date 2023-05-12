@@ -1,4 +1,5 @@
 import EmployeeModel from '../../models/employee/EmployeeModel.js';
+import EmployeeSalaryModel from '../../models/employee/EmployeeSalaryModel.js'
 
 // Create a function to create a new employee
 export async function addEmployee(req, res) {
@@ -31,7 +32,8 @@ export async function addEmployee(req, res) {
         address: address,
         qualifications: qualifications,
         joinedDate: joinedDate,
-        terminateDate: terminateDate
+        terminateDate: terminateDate,
+        totalSal: 0
     });
 
     try {
@@ -121,6 +123,7 @@ export async function deleteEmployee(req, res) {
     const objectId = req.params.id;
     try {
         await EmployeeModel.findByIdAndDelete(objectId);
+        await EmployeeSalaryModel.findByIdAndDelete(objectId);
         res.status(200).send('Employee removed successfully');
     } catch (err) {
         console.log(err);

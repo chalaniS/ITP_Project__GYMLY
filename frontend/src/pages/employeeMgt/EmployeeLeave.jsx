@@ -221,7 +221,13 @@ function EmployeeLeave() {
                   //exportButton:true,
                   exportAllData:true,
                   exportFileName:"Monthly Leave Report",
-                  actionsColumnIndex:-1
+                  actionsColumnIndex:-1,
+
+                  headerStyle: {
+                    fontWeight: 'bold',
+                    fontSize: 16,
+                    backgroundColor: '#001933'
+                  }
                 }
               } 
               title="Employee Leaves" 

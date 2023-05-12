@@ -4,6 +4,8 @@ import express from "express";
 import cors from "cors";
 //import EmployeeModel from './models/employee/EmployeeModel.js'
 import EmployeeRouter from './routes/employee/EmployeeRouter.js'
+import EmployeeSalaryRouter from './routes/employee/EmployeeSalaryRouter.js'
+// import EmployeeLeaveRouter from './routes/employee/EmployeeLeaveRouter.js'
 //import EmployeeSalaryModel from './models/employee/EmployeeSalaryModel.js'
 
 const app = express();
@@ -39,6 +41,12 @@ app.get("/getData", (req, res) => {
 
 //throw API to EmployeeRouter class
 app.use('/employee', EmployeeRouter);
+
+//throw API to EmployeeSalaryRouter class
+app.use('/employeeSalary', EmployeeSalaryRouter);
+
+//throw API to EmployeeLeaveRouter class
+// app.use('/employeeLeave', EmployeeLeaveRouter);
 
 // app.post("/employee", async (req, res) => {
 

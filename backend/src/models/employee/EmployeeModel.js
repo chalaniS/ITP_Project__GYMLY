@@ -56,6 +56,10 @@ const EmployeeSchema = new Schema({
         type: Date,
         required: true
     },
+    totalSal: {
+        type: Number,
+        required: true
+    }
 });
 
 // EmployeeSchema.plugin(autoIncrement.plugin, {
