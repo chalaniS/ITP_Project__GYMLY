@@ -1,7 +1,7 @@
 import Report from '../../models/Payment/ReportModel.js';
 import ReportModel from '../../models/Payment/ReportModel.js';
 
-// Create a function to create a new schedule
+// Create a function to upload a new financial report
 export async function createOne(req, res) {
     const financialReportId = req.body.financialReportId
     const reportCatogery = req.body.reportCatogery
@@ -31,14 +31,14 @@ export async function createOne(req, res) {
     }
 }
 
-// Create a function to read all schedules
+// Create a function to read all financial reports
 export async function getAll(req, res) {
 
     const userId = "45821463#23669545";
 
     try {
         const Report = await ReportModel.find({ userId });
-        res.status(200).json(schedules);
+        res.status(200).json(Report);
     } catch (err) {
         console.log(err);
         res.status(500).send('Error occurred while retrieving data');
@@ -46,7 +46,7 @@ export async function getAll(req, res) {
 }
 
 
-// Create a function to update a schedule by id
+// Create a function to update a report by id
 export async function updateOne(req, res) {
     const objectId = req.params.id;
     const { dayscount, date, timeslot, instructor, section } = req.body;
@@ -71,7 +71,7 @@ export async function updateOne(req, res) {
     }
 }
 
-// Create a function to delete a schedule by id
+// Create a function to delete a report by id
 export async function deleteOne(req, res) {
     const objectId = req.params.id;
     try {

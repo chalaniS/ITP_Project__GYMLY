@@ -6,7 +6,7 @@ import '../../Styles/Payment/payment.css'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { AiFillCalendar } from "react-icons/ai";
-import image from '../../images/Payment/gym2.jpg'
+// import image from '../../images/Payment/gym2.jpg'
 import { useParams } from "react-router-dom";
 import Axios from "axios";
 import { showLoadingSpinner, hideLoadingSpinner } from '../../Components/Loading/Loading.js'
@@ -48,7 +48,7 @@ const FinancialReportUpload = () => {
         } catch (error) {
           console.log(error);
           console.log('error when update the data');
-          window.alert('Data is not inserted unsuccessfully');
+          window.alert('Data is insert unsuccessfully');
         }
       };
 
@@ -63,10 +63,10 @@ const FinancialReportUpload = () => {
                         <div className="inputs">
                             <form 
                             onSubmit={handleFormSubmit}>
-                                <Row>
+                                {/* <Row>
                                     <img src={image} alt="" className='images' />
                                 </Row>
-                                <br />
+                                <br /> */}
 
                                 <Row>
                                 <Col lg='4'>

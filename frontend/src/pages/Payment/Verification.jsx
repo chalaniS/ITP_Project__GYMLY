@@ -12,40 +12,50 @@ const Verification = () => {
 
             <section >
                 <Container>
-                    <div className="form">
+                    <form>
+                    <div className="verificationform">
+                        <Row>
                         <div className="title code">Verification Code</div>
-                        <br />
-                        <br />
-                        <br />
+                        </Row>
+                        <Row>
                         <div className="paragraph">
                         <p><h4>We sent your verification code to mobile or email.Please enter your code within 5 minutes. </h4></p>
                         </div>
-                        <br />
-                        <br />
-                        <br />
+                        </Row>
+                        <Row>
                         <div className="topic">
                         <h3>VERIFY</h3>
                         </div>
-                        <br />
-                        <br />
+                        </Row>
+                        <Row>
                         <input type="text"></input>
-                        <br />
-                        <br />
+                        </Row>
+                        <br/>
+                        <Row>
                         <div id="countdown-clock">
                             <span id="minutes"></span> : <span id="seconds"></span>
                         </div>
-                        <br />
-                        <br />
-                        <Row>
-                        
-                        <input type="checkbox" value="lsRememberMe" id="rememberMe"></input>    
-                        <label for="rememberMe">Remember me</label>
-                        
                         </Row>
-                        <br />
-                        <br />
-                        <button type='LogIn' className='primary__btn LogIn'>Cancel</button>
+                        <br/>
+                        <Row>
+                        <Col>
+                        <input type="checkbox" value="lsRememberMe" id="rememberMe"></input>
+                        </Col>
+                        <Col> 
+                        <label for="rememberMe">Remember me</label>
+                        </Col>  
+                        </Row>
+                        <br/>
+                        <Row>
+                        <Col>
+                        <button type='cancel' className='primary__btn LogIn'>Back</button>
+                        </Col>
+                        <Col>
+                        <button type='submit' className='primary__btn LogIn'>Continue</button>
+                        </Col>
+                        </Row>
                     </div>
+                    </form>
                 </Container>
             </section>
         </body>

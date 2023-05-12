@@ -74,14 +74,28 @@ label {
 }
 
 section {
-  margin: 15px 50px 10px 50px;
+  /* margin: 15px 50px 10px 50px;
   padding: 1px 80px 18px 70px;
   background: rgba(21, 23, 30, 0.9);
   border-radius: 30px;
-  box-shadow: rgba(255, 255, 255, 0.12) 0px 2px 4px 0px, rgba(255, 255, 255, 0.32) 0px 2px 16px 0px;
+  box-shadow: rgba(255, 255, 255, 0.12) 0px 2px 4px 0px, rgba(255, 255, 255, 0.32) 0px 2px 16px 0px; */
+  margin-left: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: auto;
+  padding: 40px;
+
+  width: fit-content;
+  border-radius: 50px;
+  background: rgba(23, 116, 203, 0.39);
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.39);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(21, 1, 1, 0.1);
+  backdrop-filter: blur(14.3px);
+  -webkit-backdrop-filter: blur(14.3px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
-
-
 
 /* 3 button styles */
 

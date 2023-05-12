@@ -36,78 +36,7 @@ const FinancialReportGenerate = () => {
         fetchReports();
     }, []);
 
-    // const generatePDF = () => {
-    //     const reportData = []; // Array to store report data
-      
-    //     // Retrieve the data from the FinancialReportUpload page and store it in the orderData array
-    //     const tableRows = document.querySelectorAll("table tbody tr");
-    //     tableRows.forEach((row) => {
-    //       const rowData = {};
-    //       const columns = row.querySelectorAll("td");
-    //       rowData.financialReportId = columns[0].innerText;
-    //       rowData.reportCatogery = columns[1].innerText;
-    //       rowData.employeeID = columns[2].innerText;
-    //       rowData.uploadedDate = columns[3].innerText;
-    //       rowData.uploadedTime = columns[4].innerText;
-    //       reportData.push(rowData);
-    //     });
-      
-    //     const docDefinition = {
-    //       content: [
-    //         { text: "Report Title", style: "header" },
-    //         "\n",
-    //         {
-    //           table: {
-    //             headerRows: 1,
-    //             widths: ["", "", "", ""],
-    //             body: [
-    //               ["financialReportId", "reportCatogery", "employeeID", "uploadedDate", "uploadedTime"],
-    //               ...reportData.map((row) => [
-    //                 row.financialReportId,
-    //                 row.reportCatogery,
-    //                 row.employeeID,
-    //                 row.uploadedDate,
-    //                 row.uploadedTime,
-    //               ]),
-    //             ],
-    //           },
-    //         },
-    //       ],
-    //       styles: {
-    //         header: {
-    //           fontSize: 18,
-    //           bold: true,
-    //           alignment: "center",
-    //           margin: [0, 0, 0, 10],
-    //         },
-    //       },
-    //     };
-      
-    //     pdfMake.createPdf(docDefinition).open();
-    //   };
-
-    // const generatePDF = () => {
-    //     const unit = "pt";
-    //     const size = "A4"; 
-    //     const orientation = "landscape"; 
-    //     const marginLeft = 40;
-    //     const doc = new jsPDF(orientation, unit, size);
-    //     doc.setFontSize(15);
-    //     const title = "Employee Summary";
-    //     const headers = [["Employee ID", "Name", "Job Role", "Salary"]];
-    //     const data = tableData.map((Report) => [Report.financialReportId, Report.reportCatogery, Report.employeeID, Report.uploadedDate, Report.uploadedTime]);
-    //     let content = {
-    //       startY: 50,
-    //       head: headers,
-    //       body: data,
-    //     };
-    //     doc.text(title, marginLeft, 40);
-    //     doc.autoTable(content);
-    //     doc.save("employee-summary.pdf");
-    //   };
-      
-
-    // Define a function to generate the report
+    
 const generatePDF = () => {
     const reportData = []; // Array to store report data
   
@@ -169,9 +98,6 @@ const generatePDF = () => {
     pdfMake.createPdf(docDefinition).open();
   };
 
-   // Add an event listener to the button that triggers the report generation
-//    const generateReportButton = document.getElementById("generate-report-button");
-//    generateReportButton.addEventListener("click", generatePDF);
 
 
     const handleEdit = (id) => {

@@ -39,13 +39,18 @@ const PaymentHomepage = () => {
                             <br />
                             <Row>
                                 <Col>
-                                     <input type="checkbox" value="lsRememberMe" id="rememberMe"></input> 
+                                    <input type="checkbox" value="lsRememberMe" id="rememberMe"></input>
+                                </Col> 
+                                <Col>
                                     <label for="rememberMe">Remember me</label>
                                 </Col>
                             </Row>
                             < Row>
                                 <Col>
                                     <button type='submit' className='primary__btn submit'>Cancle</button>
+                                </Col>
+                                <Col>
+                                    <button type='submit' className='primary__btn submit'>Submit</button>
                                 </Col>
                             </ Row>
                         </form>

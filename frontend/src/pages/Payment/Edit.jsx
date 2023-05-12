@@ -5,7 +5,7 @@ import '../../Styles/Payment/payment.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { AiFillCalendar } from 'react-icons/ai';
-import image from '../../images/Payment/gym2.jpg';
+// import image from '../../images/Payment/gym2.jpg';
 import { useParams } from 'react-router-dom';
 import { showLoadingSpinner, hideLoadingSpinner } from '../../Components/Loading/Loading.js';
 import Axios from 'axios';
@@ -87,10 +87,10 @@ const FinancialReport = () => {
                         <br />
                         <div className="inputs">
                             <form onSubmit={handleFormSubmit}>
-                                <Row>
+                                {/* <Row>
                                     <img src={image} alt="" className="images" />
                                 </Row>
-                                <br />
+                                <br /> */}
 
                                 <Row>
                                     <Col lg="4">

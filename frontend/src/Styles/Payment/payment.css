@@ -14,7 +14,7 @@
 .payment-success .payment-details {
   display: inline-block;
   background-color: aliceblue;
-  text-align: left;
+  text-align: center;
   border: 1px solid #ccc;
   padding: 20px;
   margin-bottom: 20px;
@@ -43,6 +43,7 @@
   font-style: italic;
   color: red;
 }
+
 
 
 
@@ -280,7 +281,32 @@ form h3 {
 
 .images {
   width: 10px;
-  height: 500px;
+  height: 600px;
   object-fit: cover;
   margin-bottom: 20px;
+  
+}
+
+.radio-btn {
+  display: flex;
+  flex-direction: column;
+}
+
+.radio-val {
+  color: white;
+}
+
+.custom-col {
+    padding: 0 5px; /* adjust the padding as needed */
+  }
+
+  .custom-row {
+    margin-left: -5px;
+    margin-right: -5px;
+  }
+
+.pay-img {
+  width: 10px;
+  height: 80px;
+  cursor: pointer;
 }

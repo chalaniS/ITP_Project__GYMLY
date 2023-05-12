@@ -3,33 +3,45 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 const ReportSchema = new Schema({
-    financialReportId: {
+    fullName: {
         type: String,
         // required: true
     },
-    reportCatogery: {
+    address: {
         type: String,
         // required: true
     },
-    employeeID: {
+    state: {
         type: String,
         // required: true
     },
-    uploadedDate: {
+    zipCode: {
         type: String,
         // required: true
     },
-    uploadedTime: {
+    paymentType: {
         type: String,
         // required: true
     },
-    userId:{
+    paymentMethod:{
         type: String,
        
+    },
+    creditcardNumber:{
+        type: Number,
+    },
+    expireMonth:{
+        type: String,
+    },
+    expireYear:{
+        type: String,
+    },
+    cvv:{
+        type: Number,
     }
 });
 
-// ReportData is collection name
-const ReportModel = mongoose.model('ReportData', ReportSchema);
+// CardData is collection name
+const DetailsModel = mongoose.model('CardData', CardSchema);
 
-export default ReportModel;
+export default DetailsModel;
