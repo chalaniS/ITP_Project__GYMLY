@@ -2,9 +2,8 @@ import "dotenv/config";
 import mongoose from "mongoose";
 import express from "express";
 import cors from "cors";
-import ScheduleModel from './models/schedule/ScheduleModel.js'
-import IRequestModel from './models/schedule/RequestModel.js'
-
+import ReportModel from "./models/Payment/ReportModel.js";
+import paymentModel from "./models/Payment/paymentModel.js";
 
 const app = express();
 app.use(cors());
@@ -12,7 +11,15 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
 
+
+//connect with frontend
+app.get("/getData", (req, res) => {
+    res.send("Hello I'm from backend");
+});
+
 let database;
+// app.use('/Report',router)
+
 
 app.listen(PORT, () => {
 
@@ -29,61 +36,54 @@ app.listen(PORT, () => {
         .catch((err) => {
             console.log(err.message);
         });
+
 });
 
-//connect with frontend
-app.get("/getData", (req, res) => {
-    res.send("Hello I'm from backend");
-});
+app.post("/payment453", async (req, res) => {
+
+    console.log(req.body);
 
 
-//throw API to SchedulRouter class
-// app.use('/schedules', SchedulRouter);
+    const financialReportId = req.body.financialReportId;
+    const reportCatogery = req.body.reportCatogery;
+    const employeeID = req.body.employeeID;
+    const uploadedDate = req.body.uploadedDate;
+    const uploadedTime = req.body.uploadedTime;
+    const userId = "45821463#23669545";
 
+    // Validate input data
+    if (!financialReportId || !reportCatogery || !employeeID || !uploadedDate || !uploadedTime) {
+        return res.status(400).send("Missing required fields");
+    }
 
-// IT21377280 - Rajapaksha C.S. 
-// user Inserts default schedule data
-app.post("/schedules", async (req, res) => {
-
-    const dayscount = req.body.dayscount
-    const date = req.body.date
-    const timeslot = req.body.timeslot
-    const instructor = req.body.instructor
-    const section = req.body.section
-
-    console.log(timeslot + instructor + section)
-
-    const schedule = new ScheduleModel({
-
-        userId: "45821463#23669545",
-        dayscount: dayscount,
-        timeslot: timeslot,
-        date: date,
-        instructor: instructor,
-        section: section
+    const report = new ReportModel({
+        userId: userId,
+        financialReportId: financialReportId,
+        reportCatogery: reportCatogery,
+        employeeID: employeeID,
+        uploadedDate: uploadedDate,
+        uploadedTime: uploadedTime,
     });
 
     try {
-        await schedule.save()
-        console.log("successfully data inserted")
+        await report.save();
+        console.log("Successfully inserted data");
         res.status(200).send("Data inserted successfully");
     } catch (err) {
         console.log(err);
         res.status(500).send("Error occurred while inserting data");
     }
+    
 });
 
-
-
-// Read all scheduled timetable 
-app.get("/schedules", async (req, res) => {
+app.get("/payment453", async (req, res) => {
 
     const userId = "45821463#23669545";
 
     try {
-        const schedules = await ScheduleModel.find({ userId });
-        console.log("'Schedule read successfully'");
-        res.status(200).json(schedules);
+        const report = await ReportModel.find({ userId });
+        console.log("'Report read successfully'");
+        res.status(200).json(report);
     } catch (err) {
         console.log(err);
         res.status(500).send('Error occurred while retrieving data');
@@ -91,12 +91,12 @@ app.get("/schedules", async (req, res) => {
 
 });
 
-// read a single schedule by id for update
-app.get('/schedules/:id', async (req, res) => {
+// read a single supplement by id for update
+app.get('/payment453/:id', async (req, res) => {
     try {
-        const schedule = await ScheduleModel.findById(req.params.id);
-        console.log('Schedule read successfully for update');
-        res.status(200).json(schedule);
+        const report = await ReportModel.findById(req.params.id);
+        console.log('Report read successfully for update');
+        res.status(200).json(report);
     } catch (err) {
         console.error(err);
         res.status(500).send('Error occurred while retrieving data');
@@ -104,24 +104,25 @@ app.get('/schedules/:id', async (req, res) => {
 });
 
 
-// Update the schedule datas by _uid document by document
-app.put("/schedules/:id", async (req, res) => {
+
+app.put("/payment453/:id", async (req, res) => {
     const objectId = req.params.id;
-    const { dayscount, date, timeslot, instructor, section } = req.body;
+    const { userId,financialReportId,reportCatogery,employeeID,uploadedDate,uploadedTime} = req.body;
     try {
-        const updatedSchedule = await ScheduleModel.findByIdAndUpdate(
+        const updatedReports = await ReportModel.findByIdAndUpdate(
             objectId,
             {
-                dayscount: dayscount,
-                date: date,
-                timeslot: timeslot,
-                instructor: instructor,
-                section: section
+                userId:"45821463#23669545",
+                financialReportId: financialReportId,
+                reportCatogery: reportCatogery,
+                employeeID: employeeID,
+                uploadedDate: uploadedDate,
+                uploadedTime: uploadedTime,
             },
             { new: true }
         );
-        res.status(200).send(updatedSchedule);
-        console.log('Schedule updated successfully');
+        res.status(200).send(updatedReports);
+        console.log('Reports updated successfully');
 
     } catch (err) {
         console.log(err);
@@ -130,13 +131,12 @@ app.put("/schedules/:id", async (req, res) => {
 });
 
 
-// Delete the schedule datas by _uid document by document
-app.delete("/schedules/:id", async (req, res) => {
+app.delete("/payment453/:id", async (req, res) => {
     const objectId = req.params.id;
     try {
-        await ScheduleModel.findByIdAndDelete(objectId);
-        console.log("'Schedule deleted successfully'");
-        res.status(200).send('Schedule deleted successfully');
+        await ReportModel.findByIdAndDelete(objectId);
+        console.log("'Reports deleted successfully'");
+        res.status(200).send('Reports deleted successfully');
     } catch (err) {
         console.log(err);
         res.status(500).send('Error occurred while deleting data');
@@ -144,35 +144,37 @@ app.delete("/schedules/:id", async (req, res) => {
 });
 
 
-// confirmation part - request to change instructor
-
-// user inserts data to change instructor 
-app.post("/changerequest", async (req, res) => {
-    const { currentInstructor, requestInstructor, reason, status } = req.body;
-
-    // Validation checks
-    if (!currentInstructor || !requestInstructor || !reason || !status) {
-        return res.status(400).send("Please provide all required fields.");
-    }
-
-    const IRequest = new IRequestModel({
-        userId: "45821463#23669545",
-        currentInstructor,
-        requestInstructor,
-        reason,
-        status,
-    });
-
-    try {
-        await IRequest.save();
-        console.log("successfully data inserted");
-        res.status(200).send("Data inserted successfully");
-    } catch (err) {
-        console.log(err);
-        res.status(500).send("Error occurred while inserting data");
-    }
-});
+// app.post("/payment", async (req, res) => {
 
 
+//     console.log(req.body);
+//     const financialReportId = req.body.financialReportId
+//     const reportCatogery = req.body.reportCatogery
+//     const employeeID = req.body.employeeID
+//     const uploadedDate = req.body.uploadedDate
+//     const uploadedTime = req.body.uploadedTime
+//     const userId = "45821463#23669545"
+
+//     const report = new ReportModel({
+
+//         userId: userId,
+//         financialReportId: financialReportId,
+//         reportCatogery: reportCatogery,
+//         employeeID: employeeID,
+//         uploadedDate: uploadedDate,
+//         uploadedTime: uploadedTime,
+//     });
+
+//     try {
+//         await report.save();
+//         console.log("successfully data inserted");
+//         res.status(200).send("Data inserted successfully");
+//     } catch (err) {
+//         console.log(err);
+//         res.status(500).send("Error occurred while inserting data");
+//     }
+
+// }
+// );
 
 
