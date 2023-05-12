@@ -1,8 +1,31 @@
 import profilepic from '../../images/profilePics/profilepic.png'
 import './Style/Userprofile.css'
 import * as Icons from 'react-bootstrap-icons';
+import { useState, useEffect } from "react";
 
 const Userprofile = () => {
+
+
+        // Retrieve token and userId values from localStorage
+        const token = localStorage.getItem('token')
+        const userId = localStorage.getItem('userId')
+    
+        //get user details from backend using token and userId
+        const [user, setUser] = useState([])
+        
+        useEffect(() => {
+          fetch(`http://localhost:5001/users/${userId}`, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+            }
+          })
+            .then(response => response.json())
+            .then(data => setUser(data))
+            .catch(error => console.error(error));
+        }, [userId, token]);
+        
 
         return (
             <div className="container-fluid" id='userprofile-section'>
@@ -14,18 +37,19 @@ const Userprofile = () => {
                     </div>
                     <div className="text-center" id='name-title'>
                         <div>
-                            Lakindu Widuranga Alwis
+                            {user.Name}
                         </div>
                     </div>
                 </div>
 
                 {/*User details section*/}
                 <div className="container" id='userdetails-section'>
-                <div className='user-inftomations-divs' id="email"><Icons.EnvelopeFill className='icons'/> :  lakinduwiduraga@icould.com</div>
-                <div className='user-inftomations-divs' id="phoneNumber"><Icons.TelephoneFill className='icons'/> :  0769114371</div>
-                <div className='user-inftomations-divs' id="Address"><Icons.HouseFill className='icons'/> :  123/1, Galle Road </div>
-                <div className='user-inftomations-divs' id="Birthday"><Icons.CalendarFill className='icons'/> :  1999-12-12</div>
-                <div className='user-inftomations-divs' id="Gender"><Icons.PeopleFill className='icons'/> :  Male</div>
+                <div className='user-inftomations-divs' id="email"><Icons.EnvelopeFill className='icons'/> :  {user.Email}</div>
+                <div className='user-inftomations-divs' id="phoneNumber"><Icons.TelephoneFill className='icons'/> :  0{user.Phone}</div>
+                <div className='user-inftomations-divs' id="Address"><Icons.HouseFill className='icons'/> :  {user.Address} </div>
+                <div className='user-inftomations-divs' id="Gender"><Icons.PeopleFill className='icons'/> :  {user.Gender}</div>
+                <div className='user-inftomations-divs' id="DOB"><Icons.CalendarFill className='icons'/> :  {user.Height}Cm</div>
+                <div className='user-inftomations-divs' id="Height"><Icons.ArrowUpCircleFill className='icons'/> :  {user.Weight}Kg</div>
 
                 
                 </div>

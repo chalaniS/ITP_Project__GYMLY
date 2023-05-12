@@ -24,7 +24,6 @@ const Login = () => {
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('userId', response.data.userId);
       history.push('/');
-      alert('Login Success. Welcome Back!');
       window.location.href = '/dashboard';
     } 
     catch (error) {   // if error occurs while login
