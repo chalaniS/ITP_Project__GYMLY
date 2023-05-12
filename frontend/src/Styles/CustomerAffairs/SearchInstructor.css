@@ -4,6 +4,7 @@
     font-family: 'Poppins',sans-serif;
 
 }
+
 .instructor-container{
     display: flex;
     width:100%;
@@ -17,6 +18,11 @@
     width:308px;
     position: relative;
     height: 400px;
+
+    width:208px;
+    position: relative;
+    height: 300px;
+
     background: #f0f0f0;
     margin: 30px 10px;
     padding:20px 15px;
@@ -30,6 +36,8 @@
     position: relative;
     width: 260px;
     height: 260px;
+    width: 160px;
+    height: 160px;
     top: -60px;
     left: 20px;
     box-shadow: 0 5px 20px rgba(0,0,0,1.2);
@@ -43,8 +51,31 @@
     transform:scale(1.1);
 }
 .instsearchbar{
+
     padding-left: 1200px;
 }
 .instsearch{
     color: black;
+    padding-left: 1000px;
+    display:flex;
+    flex-direction: row;
 }
+
+.search {
+    border-radius: 50px;
+    width: auto;
+}
+.nav-style{
+    height:40px;
+    width:40px;
+}
+.search-bar-container {
+    padding-top: 20vh;
+    width: 40%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 200px;
+}
+

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -25,6 +26,7 @@
     font-weight: 500;
     color:#ffffff;
 }
+
 .contactPara{
     font-weight: 300;
     color: #fff;
@@ -143,3 +145,52 @@
     padding: 10px;
     font-size: 18px;
 }
+
+.contactcontainer{
+    height:450px;
+    width:600px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 5px;
+    margin-left: 300px;
+    justify-content: center;
+    box-shadow: 0 0 8px rgba(250,250, 250, 0.6);
+    align-items: center;
+}
+.my-input{
+    width:400px;
+}
+.contactid{
+    margin-top: 10px;
+    position: relative;
+}
+form input:focus,
+form textarea :focus{
+    border: 1px solid #5900ff;
+    color: #5900ff;
+    transition: all 0.3s ease;
+}
+form input:focus::placeholder,
+form textarea:focus::placeholder{
+    padding-left: 4px;
+    color: #5900ff;
+    transition: all 0.3s ease;
+}
+form input:focus + i{
+    color: #5900ff;
+    transition: all 0.3s ease;
+}
+#button_style{
+    align-self: flex-start;
+    margin-top: 20px;
+    margin-left: 100px;
+    width:400px;
+    
+}
+.contactMessage{
+    margin-top: 20px;
+    margin-left: -25px;
+    width:400px;
+}
+

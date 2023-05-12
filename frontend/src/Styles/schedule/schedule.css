@@ -8,6 +8,13 @@ body {
     border-radius: 30px;
 }
 
+.images {
+    height: 200px;
+    /* filter: drop-shadow(0 0 0.75rem rgb(14, 13, 14)); */
+    border-radius: 20px;
+
+}
+
 .cancel {
     text-align-last: right;
 }
@@ -15,4 +22,10 @@ body {
 .search {
     border-radius: 50px;
     width: auto;
+    padding: 6px 10px 6px 10px;
+}
+
+.barchart {
+    font-size: 500px;
+
 }

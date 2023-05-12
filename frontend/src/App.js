@@ -1,18 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Layout from "./Components/Layout/Layout";
-import Axios from "axios";
+import axios from "axios";
+
+import { FaBeer } from "@react-icons/all-files";
+
 
 
 function App() {
-
-    return (
-        <>
-            <Layout />
-
-        </>
-
-
-    );
+    return <Layout />;
 };
 
 export default App;

@@ -1,4 +1,23 @@
+<<<<<<< HEAD
 backend/package-lock.json
 node_modules
 frontend/src/router/Routes.js
 backend\node_modules
+frontend\node_modules
+<<<<<<< HEAD
+frontend/package.json
+
+=======
+frontend/build/static/js/main.e738a633.js
+frontend/build/static/js/main.e738a633.js.LICENSE.txt
+frontend/build/static/js/main.e738a633.js.map
+frontend/build/asset-manifest.json
+frontend/build/
+frontend/build/asset-manifest.json
+frontend/build/asset-manifest.json
+frontend/build/index.html
+>>>>>>> Banuka
+frontend/package-lock.json
+=======
+frontend/package-lock.json
+>>>>>>> origin/Sithum_dev

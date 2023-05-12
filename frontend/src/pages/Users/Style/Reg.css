@@ -4,7 +4,11 @@
 /*Font of body*/
 
 #registation{
-    background-image: url("../../../images/LandingPage/Home-cover.png");
+
+    background-image: url("../../../images/LandingPage/DeadLife.png");
+
+    /* background-image:url('../../../images/User-managment/Reg-bg.png'); */
+
     background-color: #cccccc; /* Used if the image is unavailable */
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */

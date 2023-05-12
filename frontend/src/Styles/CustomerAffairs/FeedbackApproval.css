@@ -72,4 +72,17 @@
     font-weight: 800;
     cursor: pointer;
     border-radius: 6px;
+  #btn_position{
+    width:300px;
+    margin-left: 600px;
   }
+  #inst_btn_position{
+    width:300px;
+    
+  }
+  
+  .Buttonsdiv{
+    display: flex;
+    flex-direction: row;
+  }
+}

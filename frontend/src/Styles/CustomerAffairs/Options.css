@@ -20,6 +20,21 @@
     width: 50%;
     background: #757070;
     box-shadow: 0 0 8px rgba(250, 250, 250, 0.6);
+}
+.optionssec{
+    height:550px;
+}
+.Optionscontainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: 50px;
+    margin: auto;
+    justify-content: center;
+    height:300px;
+    width: 50%;
+    box-shadow: 0 0 8px rgba(250,250, 250, 0.6);
     opacity: 0.6;
 
 }
@@ -57,3 +72,9 @@ h1 {
     cursor: pointer;
     border-radius: 6px;
 }
+
+#servicebutton{
+    width:280px;
+    margin-top: 20px;
+}
+

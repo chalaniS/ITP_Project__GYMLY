@@ -1,8 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.d2854be6.css",
-    "main.js": "/static/js/main.542dd02d.js",
+    "main.css": "/static/css/main.6b2261c0.css",
+    "main.js": "/static/js/main.03b90a9f.js",
+    "static/js/703.eba662aa.chunk.js": "/static/js/703.eba662aa.chunk.js",
+    "static/js/513.8840e250.chunk.js": "/static/js/513.8840e250.chunk.js",
+    "static/media/Reg-bg.png": "/static/media/Reg-bg.e3798e625fa5094f2aca.png",
+    "static/media/image8.jpg": "/static/media/image8.909821eb1414724f4cd8.jpg",
+    "static/media/image7.jpg": "/static/media/image7.d1c065557d389bd7507d.jpg",
     "static/media/backimg5.jpeg": "/static/media/backimg5.77c22071ef88d45e02d8.jpeg",
+    "static/media/profilepic.png": "/static/media/profilepic.06bd1996ad438f8f6a00.png",
+    "static/media/card1.png": "/static/media/card1.14af0866da992cfea929.png",
+    "static/media/gym2.jpg": "/static/media/gym2.cadcbf96074f1a56cd7c.jpg",
     "static/media/image3.jpg": "/static/media/image3.7aceb0c6be202f90600e.jpg",
     "static/media/backimg1.jpg": "/static/media/backimg1.106dede21da85c3c185f.jpg",
     "static/media/backimg4.png": "/static/media/backimg4.384e16323560370aa83f.png",
@@ -10,14 +18,20 @@
     "static/media/aboutus.jpg": "/static/media/aboutus.167f8bc68559e49e5c12.jpg",
     "static/media/image1.jpg": "/static/media/image1.7c37a7d832f013fb5aca.jpg",
     "static/media/image2.jpg": "/static/media/image2.30318bce51b172f9d067.jpg",
+    "static/media/prmPackage.png": "/static/media/prmPackage.3b9e0c1685893a069c93.png",
+    "static/media/DeadLife.png": "/static/media/DeadLife.a8dcd61f036659abc4e5.png",
+    "static/media/DeadLift.png": "/static/media/DeadLift.a8dcd61f036659abc4e5.png",
+    "static/media/stPackage.png": "/static/media/stPackage.474815f8af3536b908f4.png",
     "static/media/logo.png": "/static/media/logo.87fc2a837dc569aa0283.png",
     "static/media/fitnessInstructor.jpg": "/static/media/fitnessInstructor.0112e39c3319e9cde1ff.jpg",
     "index.html": "/index.html",
-    "main.d2854be6.css.map": "/static/css/main.d2854be6.css.map",
-    "main.542dd02d.js.map": "/static/js/main.542dd02d.js.map"
+    "main.6b2261c0.css.map": "/static/css/main.6b2261c0.css.map",
+    "main.03b90a9f.js.map": "/static/js/main.03b90a9f.js.map",
+    "703.eba662aa.chunk.js.map": "/static/js/703.eba662aa.chunk.js.map",
+    "513.8840e250.chunk.js.map": "/static/js/513.8840e250.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d2854be6.css",
-    "static/js/main.542dd02d.js"
+    "static/css/main.6b2261c0.css",
+    "static/js/main.03b90a9f.js"
   ]
 }

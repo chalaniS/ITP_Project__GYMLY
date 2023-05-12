@@ -39,6 +39,7 @@ a {
 }
 
 #social-media-title{
+
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 5px;
@@ -55,7 +56,10 @@ Footer h5 {
     text-align: start;
 }
 
-footer .list-unstyled{
+
+
+footer .list-unstyled {
+
     text-align: start;
     font-size: 17px;
     padding-left: 10px;
@@ -76,4 +80,9 @@ footer .list-unstyled li{
     text-shadow: 0 0 3px #2314ab, 0 0 5px #0000FF;
     /*Add inner glow*/
     -webkit-filter: drop-shadow(0 0 3px #2314ab);
+}
+
+footer .list-unstyled li {
+    padding-top: 2px;
+
 }

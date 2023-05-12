@@ -10,8 +10,10 @@ const Layout = () => {
             <Header />
             <Router />
             <Footer />
-        </>
-    )
+            </>
+
+
+    );
 }
 
 export default Layout;

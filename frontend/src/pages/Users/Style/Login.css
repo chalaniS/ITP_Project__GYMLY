@@ -4,41 +4,55 @@
 /*Font of body*/
 
 
-#logging{
-    background-image: url("../../../images/LandingPage/Home-cover.png");
-    background-color: #cccccc; /* Used if the image is unavailable */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
+#logging {
+    background-image: url("../../../images/LandingPage/DeadLife.png");
+    background-color: #cccccc;
+    /* Used if the image is unavailable */
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
     background-size: cover;
 }
 
-#logging-form-section{
+#logging-form-section {
     padding-top: 100px;
     padding-bottom: 100px;
     text-align: center;
 }
 
 
-#LogingForm{
+#LogingForm {
 
     margin-left: auto;
     margin-right: auto;
-    padding:  60px;
-    padding-top:40px;
+    padding: 60px;
+    padding-top: 40px;
     padding-bottom: 40px;
+}
+
+#LogingForm {
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 60px;
+
     width: fit-content;
-    border-radius: 50px ; 
+    border-radius: 50px;
     background: rgba(23, 116, 203, 0.39);
     border-radius: 16px;
+
     background: rgba(0, 0, 0, 0.39);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(21, 1, 1, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
     backdrop-filter: blur(14.3px);
     -webkit-backdrop-filter: blur(14.3px);
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-#logging-title{
+#logging-title {
     font-size: 55px;
     font-weight: 600;
     padding-top: 10px;
@@ -49,28 +63,37 @@
     letter-spacing: 4px;
 }
 
-#logging-logo{
+#logging-logo {
     padding-top: 20px;
 }
 
-#formBasicEmail{
+#formBasicEmail {
     border-radius: 20px;
     width: 350px;
     height: 40px;
+}
+
+#formBasicEmail {
+    border-radius: 40px;
+    width: 350px;
     text-transform: unset !important;
 }
 
 
-#formBasicPassword{
+#formBasicPassword {
     border-radius: 20px;
     width: 350px;
     height: 40px;
+
+    border-radius: 40px;
+    width: 350px;
+
     margin-top: 30px;
     text-transform: unset !important;
-    
+
 }
 
-#LG-Button{
+#LG-Button {
     border-radius: 60px;
     width: 100px;
     margin-top: 10px;
@@ -80,26 +103,33 @@
     font-size: 20px;
 }
 
-#LG-Button:hover{
+#LG-Button:hover {
     background-color: white;
     color: black;
 }
 
-#logging-alert{
+#logging-alert {
     margin-top: 20px;
     color: white;
     font-size: 14px;
 }
 
-#logging-alert a{
+#logging-alert a {
     color: white;
     font-size: 14px;
     font-weight: bold;
 }
 
-#logging-alert a:hover{
+#logging-alert a:hover {
     color: white;
     font-size: 14px;
     font-weight: bold;
     text-decoration: underline;
+}
+
+#Button {
+    border-radius: 60px;
+    width: 100px;
+    margin-top: 10px;
+
 }

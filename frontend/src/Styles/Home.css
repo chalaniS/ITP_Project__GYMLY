@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); /*Font of body*/
 
 #home-body{
-    background-image:url('../images/LandingPage/bodybg.png');
+    background-image:url('../images/LandingPage/DeadLife.png');
     background-color: #cccccc; /* Used if the image is unavailable */
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
@@ -12,7 +12,7 @@
 
 /*Title Section*/
 #title{
-    background-image:url('../images/LandingPage/Home-cover.png');
+    background-image:url('../images/LandingPage/DeadLife.png');
     background-color: #cccccc; /* Used if the image is unavailable */
     height: fit-content; /* You must set a specified height */
     background-position: center; /* Center the image */
