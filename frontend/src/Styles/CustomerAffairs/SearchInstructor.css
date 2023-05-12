@@ -1,13 +1,10 @@
-<<<<<<< HEAD
 *{
     margin: 0;
     padding: 0;
     font-family: 'Poppins',sans-serif;
 
 }
-=======
 
->>>>>>> origin/Sithum_dev
 .instructor-container{
     display: flex;
     width:100%;
@@ -18,15 +15,14 @@
     margin-top:8%;
 }
 .instructor-container .instructor-card{
-<<<<<<< HEAD
     width:308px;
     position: relative;
     height: 400px;
-=======
+
     width:208px;
     position: relative;
     height: 300px;
->>>>>>> origin/Sithum_dev
+
     background: #f0f0f0;
     margin: 30px 10px;
     padding:20px 15px;
@@ -38,13 +34,10 @@
 }
 .instructor-container .instructor-card .imgBx{
     position: relative;
-<<<<<<< HEAD
     width: 260px;
     height: 260px;
-=======
     width: 160px;
     height: 160px;
->>>>>>> origin/Sithum_dev
     top: -60px;
     left: 20px;
     box-shadow: 0 5px 20px rgba(0,0,0,1.2);
@@ -58,13 +51,11 @@
     transform:scale(1.1);
 }
 .instsearchbar{
-<<<<<<< HEAD
+
     padding-left: 1200px;
 }
 .instsearch{
     color: black;
-}
-=======
     padding-left: 1000px;
     display:flex;
     flex-direction: row;
@@ -86,5 +77,5 @@
     flex-direction: column;
     align-items: center;
     min-width: 200px;
-  }
->>>>>>> origin/Sithum_dev
+}
+

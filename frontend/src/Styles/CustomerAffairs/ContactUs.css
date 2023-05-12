@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
-<<<<<<< HEAD
+
 *{
     margin: 0;
     padding: 0;
@@ -26,8 +26,7 @@
     font-weight: 500;
     color:#ffffff;
 }
-=======
->>>>>>> origin/Sithum_dev
+
 .contactPara{
     font-weight: 300;
     color: #fff;
@@ -71,7 +70,6 @@
     font-weight: 500;
     color:#00bcd4;
 }
-<<<<<<< HEAD
 .contact-form{
     width:40%;
     padding: 40px;
@@ -147,7 +145,7 @@
     padding: 10px;
     font-size: 18px;
 }
-=======
+
 .contactcontainer{
     height:450px;
     width:600px;
@@ -195,4 +193,4 @@ form input:focus + i{
     margin-left: -25px;
     width:400px;
 }
->>>>>>> origin/Sithum_dev
+

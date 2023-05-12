@@ -9,13 +9,11 @@ const Layout = () => {
         <>
             <Header />
             <Router />
-<<<<<<< HEAD
             <Footer />
-=======
-            {/* <Footer /> */}
->>>>>>> origin/Tharani
-        </>
-    )
+            </>
+
+
+    );
 }
 
 export default Layout;

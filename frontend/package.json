@@ -8,62 +8,31 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
-<<<<<<< HEAD
-    "axios": "^1.3.6",
-=======
     "apexcharts": "^3.37.3",
     "axios": "^1.3.4",
->>>>>>> origin/Sithum_dev
     "bootstrap": "^5.2.3",
     "browserfs": "^1.4.3",
     "chart.js": "^4.2.1",
     "d3": "^7.8.2",
     "express": "^4.18.2",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     "faker": "^6.6.6",
-<<<<<<< HEAD
-    "jspdf-autotable": "^3.5.28",
-=======
-    "fs": "^0.0.1-security",
-    "html2pdf.js": "^0.10.1",
-    "jspdf": "^2.5.1",
-    "jspdf-autotable": "^3.5.28",
-    "puppeteer": "^19.9.0",
->>>>>>> origin/Sithum_dev
-=======
-    "jspdf": "^2.5.1",
-    "pdfmake": "^0.2.7",
->>>>>>> origin/Tharani
-=======
     "html2pdf": "^0.0.11",
+    "html2pdf.js": "^0.10.1",
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.5.28",
     "pdfmake": "^0.2.7",
     "process": "^0.11.10",
->>>>>>> origin/Sujithra
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.0",
     "react-bootstrap": "^2.7.0",
     "react-bootstrap-icons": "^1.10.3",
-=======
-    "html2pdf.js": "^0.10.1",
-    "jspdf": "^2.5.1",
-    "jspdf-autotable": "^3.5.28",
-    "react": "^18.2.0",
-    "react-bootstrap": "^2.7.0",
->>>>>>> chalani_dev
     "react-chartjs-2": "^5.2.0",
     "react-datepicker": "^4.10.0",
     "react-dom": "^18.2.0",
     "react-html2pdf": "^1.0.1",
     "react-icons": "^4.7.1",
     "react-router-dom": "^6.10.0",
-<<<<<<< HEAD
     "react-router-use-history": "^1.0.0",
-=======
->>>>>>> chalani_dev
     "react-scripts": "^5.0.1",
     "reactstrap": "^9.1.5",
     "web-vitals": "^2.1.0"

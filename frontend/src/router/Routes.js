@@ -31,27 +31,27 @@ import PromoApproval from '../pages/Membership/PromoApproval'
 import MMdashboard from '../pages/Membership/MMdashboard'
 
 
-import Employee from '../pages/employeeMgt/Employee'
-import TblEmpSummary from '../pages/employeeMgt/TblEmpSummary'
-import EmpRegistration from '../pages/employeeMgt/EmpRegistration'
-import EmpUpdate from '../pages/employeeMgt/EmpUpdate'
-import EmpLeave from '../pages/employeeMgt/EmpLeave'
-import EmpSalary from '../pages/employeeMgt/EmpSalary'
-import EmpSalaryEdit from '../pages/employeeMgt/EmpSalaryEdit'
+// import Employee from '../pages/employeeMgt/Employee'
+// import TblEmpSummary from '../pages/employeeMgt/TblEmpSummary'
+// import EmpRegistration from '../pages/employeeMgt/EmpRegistration'
+// import EmpUpdate from '../pages/employeeMgt/EmpUpdate'
+// import EmpLeave from '../pages/employeeMgt/EmpLeave'
+// import EmpSalary from '../pages/employeeMgt/EmpSalary'
+// import EmpSalaryEdit from '../pages/employeeMgt/EmpSalaryEdit'
 
 
-import PaymentMethodsandPaymentType from '../pages/Payment/PaymentMethodsandPaymentType'
-import SaveCard from '../pages/Payment/SaveCard'
-import Verification from '../pages/Payment/Verification'
-import GetToken from '../pages/Payment/GetToken'
-import PaymentHomepage from '../pages/Payment/PaymentHomepage'
-import FinancialReport from '../pages/Payment/FinancialReport'
+// import PaymentMethodsandPaymentType from '../pages/Payment/PaymentMethodsandPaymentType'
+// import SaveCard from '../pages/Payment/SaveCard'
+// import Verification from '../pages/Payment/Verification'
+// import GetToken from '../pages/Payment/GetToken'
+// import PaymentHomepage from '../pages/Payment/PaymentHomepage'
+// import FinancialReport from '../pages/Payment/FinancialReport'
 
 
 
-import Login from '../pages/Users/Login'
-import Registation from '../pages/Users/Registation'
-import Dashboard from '../pages/Users/Dashboard'
+// import Login from '../pages/Users/Login'
+// import Registation from '../pages/Users/Registation'
+// import Dashboard from '../pages/Users/Dashboard'
 
 
 
@@ -65,12 +65,12 @@ import FinancialReportRetrieve from '../pages/Payment/FinancialReportRetrieve'
 import Edit from '../pages/Payment/Edit'
 import FinancialReportGenerate from '../pages/Payment/FinancialReportGenerate'
 
-import ServiceFeedbackform from '../pages/CustomerAffairs/ServiceFeedbackform'
-import InstructorFeedbackform from '../pages/CustomerAffairs/InstructorFeedbackform'
-import FeedbackApproval from '../pages/CustomerAffairs/FeedbackApproval'
-import FeedbackOptions from '../pages/CustomerAffairs/FeedbackOptions'
-import AboutUs from '../pages/CustomerAffairs/AboutUs'
-import ContactUs from '../pages/CustomerAffairs/ContactUs'
+// import ServiceFeedbackform from '../pages/CustomerAffairs/ServiceFeedbackform'
+// import InstructorFeedbackform from '../pages/CustomerAffairs/InstructorFeedbackform'
+// import FeedbackApproval from '../pages/CustomerAffairs/FeedbackApproval'
+// import FeedbackOptions from '../pages/CustomerAffairs/FeedbackOptions'
+// import AboutUs from '../pages/CustomerAffairs/AboutUs'
+// import ContactUs from '../pages/CustomerAffairs/ContactUs'
 
 
 import InstructorFeedbackform from '../pages/CustomerAffairs/InstructorFeedbackform'
