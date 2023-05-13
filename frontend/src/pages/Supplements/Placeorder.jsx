@@ -149,7 +149,7 @@ const Placeorder = () => {
                             setSupplementId(event.target.value)
                           }
                           value={Supplement_Id}
-                          required
+                          required 
                         >
                           <option value="0001">0001</option>
                           <option value="0002">0002</option>

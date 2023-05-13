@@ -1,9 +1,13 @@
 import "dotenv/config";
 import mongoose from "mongoose";
+// import config from "./configs/config";
 import express from "express";
 import cors from "cors";
-import ReportModel from "./models/Payment/ReportModel.js";
-import paymentModel from "./models/Payment/paymentModel.js";
+//import Supplementsrouter from "./routes/Supplements/Supplementsrouter.js";
+import Supplements from "./models/Supplements/Supplements.js";
+// import { connect } from "./utils/dbconnect"
+
+
 
 const app = express();
 app.use(cors());
@@ -18,10 +22,10 @@ app.get("/getData", (req, res) => {
 });
 
 let database;
-// app.use('/Report',router)
 
+//app.use('/Supplements',Supplementsrouter)
 
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
 
     // Start the server
     console.log(`Server started on port ${PORT}`)
@@ -37,53 +41,52 @@ app.listen(PORT, () => {
             console.log(err.message);
         });
 
+   
 });
 
-app.post("/payment453", async (req, res) => {
+
+
+
+
+app.post("/Supplements", async (req, res) => {
 
     console.log(req.body);
 
-
-    const financialReportId = req.body.financialReportId;
-    const reportCatogery = req.body.reportCatogery;
-    const employeeID = req.body.employeeID;
-    const uploadedDate = req.body.uploadedDate;
-    const uploadedTime = req.body.uploadedTime;
+    const Supplement_Type = req.body.Supplement_Type;
+    const Supplement_Id = req.body.Supplement_Id;
+    const Supplement_Price = req.body.Supplement_Price;
+    const Supplement_Quantity = req.body.Supplement_Quantity ;
+    const Supplement_Date=req.body.Supplement_Date;
     const userId = "45821463#23669545";
 
-    // Validate input data
-    if (!financialReportId || !reportCatogery || !employeeID || !uploadedDate || !uploadedTime) {
-        return res.status(400).send("Missing required fields");
-    }
-
-    const report = new ReportModel({
+    const supplements = new Supplements({
         userId: userId,
-        financialReportId: financialReportId,
-        reportCatogery: reportCatogery,
-        employeeID: employeeID,
-        uploadedDate: uploadedDate,
-        uploadedTime: uploadedTime,
+        Supplement_Type: Supplement_Type,
+        Supplement_Id: Supplement_Id,
+        Supplement_Price: Supplement_Price,
+        Supplement_Quantity: Supplement_Quantity,
+        Supplement_Date:Supplement_Date
+
     });
 
     try {
-        await report.save();
-        console.log("Successfully inserted data");
+        await supplements.save()
+        console.log("successfully data inserted")
         res.status(200).send("Data inserted successfully");
     } catch (err) {
         console.log(err);
         res.status(500).send("Error occurred while inserting data");
     }
-    
 });
 
-app.get("/payment453", async (req, res) => {
+app.get("/Supplements", async (req, res) => {
 
     const userId = "45821463#23669545";
 
     try {
-        const report = await ReportModel.find({ userId });
-        console.log("'Report read successfully'");
-        res.status(200).json(report);
+        const supplements = await Supplements.find({ userId });
+        console.log("supplements read successfully'");
+        res.status(200).json(supplements);
     } catch (err) {
         console.log(err);
         res.status(500).send('Error occurred while retrieving data');
@@ -92,11 +95,11 @@ app.get("/payment453", async (req, res) => {
 });
 
 // read a single supplement by id for update
-app.get('/payment453/:id', async (req, res) => {
+app.get('/Supplements/:id', async (req, res) => {
     try {
-        const report = await ReportModel.findById(req.params.id);
-        console.log('Report read successfully for update');
-        res.status(200).json(report);
+        const supplements = await Supplements.findById(req.params.id);
+        console.log('Supplement read successfully for update');
+        res.status(200).json(supplements);
     } catch (err) {
         console.error(err);
         res.status(500).send('Error occurred while retrieving data');
@@ -104,25 +107,22 @@ app.get('/payment453/:id', async (req, res) => {
 });
 
 
-
-app.put("/payment453/:id", async (req, res) => {
+app.put("/Supplements/:id", async (req, res) => {
     const objectId = req.params.id;
-    const { userId,financialReportId,reportCatogery,employeeID,uploadedDate,uploadedTime} = req.body;
+    const {Supplement_Date,Supplement_Type, Supplement_Id,Supplement_Quantity } = req.body;
     try {
-        const updatedReports = await ReportModel.findByIdAndUpdate(
+        const updatedSupplements = await Supplements.findByIdAndUpdate(
             objectId,
             {
-                userId:"45821463#23669545",
-                financialReportId: financialReportId,
-                reportCatogery: reportCatogery,
-                employeeID: employeeID,
-                uploadedDate: uploadedDate,
-                uploadedTime: uploadedTime,
+                Supplement_Date: Supplement_Date,
+                Supplement_Type: Supplement_Type,
+                Supplement_Id: Supplement_Id,
+                Supplement_Quantity: Supplement_Quantity
             },
             { new: true }
         );
-        res.status(200).send(updatedReports);
-        console.log('Reports updated successfully');
+        res.status(200).send(updatedSupplements);
+        console.log('Supplements updated successfully');
 
     } catch (err) {
         console.log(err);
@@ -131,12 +131,12 @@ app.put("/payment453/:id", async (req, res) => {
 });
 
 
-app.delete("/payment453/:id", async (req, res) => {
+app.delete("/Supplements/:id", async (req, res) => {
     const objectId = req.params.id;
     try {
-        await ReportModel.findByIdAndDelete(objectId);
-        console.log("'Reports deleted successfully'");
-        res.status(200).send('Reports deleted successfully');
+        await Supplements.findByIdAndDelete(objectId);
+        console.log("'Supplements deleted successfully'");
+        res.status(200).send('Supplements deleted successfully');
     } catch (err) {
         console.log(err);
         res.status(500).send('Error occurred while deleting data');
@@ -144,37 +144,114 @@ app.delete("/payment453/:id", async (req, res) => {
 });
 
 
-// app.post("/payment", async (req, res) => {
+// import Order from "./models/Supplements/Orderread.js";
+
+// app.post("/Orderread", async (req, res) => {
+//   console.log(req.body);
+
+//   const Supplement_Date = req.body.Supplement_Date;
+//   const Supplement_Type = req.body.Supplement_Type;
+//   const Supplement_Quantity = req.body.Supplement_Quantity;
+//   const UserId = "12345#12345";
+
+//   const order = new Order({
+//     UserId: UserId,
+//     Supplement_Date: Supplement_Date,
+//     Supplement_Type: Supplement_Type,
+//     Supplement_Quantity: Supplement_Quantity,
+//   });
+//   try {
+//     await order.save();
+//     console.log("successfully data inserted");
+//     res.status(200).send("Data inserted successfully");
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).send("Error occurred while inserting data");
+//   }
+// });
 
 
-//     console.log(req.body);
-//     const financialReportId = req.body.financialReportId
-//     const reportCatogery = req.body.reportCatogery
-//     const employeeID = req.body.employeeID
-//     const uploadedDate = req.body.uploadedDate
-//     const uploadedTime = req.body.uploadedTime
-//     const userId = "45821463#23669545"
 
-//     const report = new ReportModel({
+    // app.post("/Orderread", async (req, res) => {
 
-//         userId: userId,
-//         financialReportId: financialReportId,
-//         reportCatogery: reportCatogery,
-//         employeeID: employeeID,
-//         uploadedDate: uploadedDate,
-//         uploadedTime: uploadedTime,
+    //     console.log(req.body);
+    
+    //     const Supplement_Date = req.body.Supplement_Date
+    //     const  Supplement_Type = req.body.Supplement_Type
+    //     const  Supplement_Quantity = req.body.Supplement_Quantity
+    //     const UserId="12345#12345"
+
+    
+    //     const Orderread  = new Orderread({
+    //         UserId:UserId,
+    //         Supplement_Date:Supplement_Date,
+    //         Supplement_Type:Supplement_Type,
+    //         Supplement_Quantity:Supplement_Quantity
+    //     });
+    //     try {
+    //         await Orderread.save()
+    //         console.log("successfully data inserted")
+    //         res.status(200).send("Data inserted successfully");
+    //     } catch (err) {
+    //         console.log(err);
+    //         res.status(500).send("Error occurred while inserting data");
+    //     }
+    // });
+//     app.get("/Orderread", async (req, res) => {
+
+//         const userId = "45821463#23669545";
+    
+//         try {
+//             const Orderread = await Orderread.find({ userId });
+//             console.log("Orderread read successfully'");
+//             res.status(200).json(orderread);
+//         } catch (err) {
+//             console.log(err);
+//             res.status(500).send('Error occurred while retrieving data');
+//         }
+    
 //     });
-
+//     // read a single Orderread  by id for update
+// app.get('/Orderreads/:id', async (req, res) => {
 //     try {
-//         await report.save();
-//         console.log("successfully data inserted");
-//         res.status(200).send("Data inserted successfully");
+//         const Orderread = await Orderread.findById(req.params.id);
+//         console.log('Orderread read successfully for update');
+//         res.status(200).json(orderread);
+//     } catch (err) {
+//         console.error(err);
+//         res.status(500).send('Error occurred while retrieving data');
+//     }
+// });
+    
+// app.put("/Orderread/:id", async (req, res) => {
+//     const objectId = req.params.id;
+//     const {  UserId, Supplement_Date,Supplement_Type,Supplement_Quantity } = req.body;
+//     try {
+//         const updatedOrderread = await Orderread.findByIdAndUpdate(
+//             objectId,
+//             {UserId:UserId,
+//                 Supplement_Date:Supplement_Date,
+//                 Supplement_Type:Supplement_Type,
+//                 Supplement_Quantity:Supplement_Quantity
+//             },
+//             { new: true }
+//         );
+//         res.status(200).send(updatedOrderread);
+//         console.log('Orderread updated successfully');
+
 //     } catch (err) {
 //         console.log(err);
-//         res.status(500).send("Error occurred while inserting data");
+//         res.status(500).send('Error occurred while updating data');
 //     }
-
-// }
-// );
-
-
+// });
+// app.delete("/Orderread/:id", async (req, res) => {
+//     const objectId = req.params.id;
+//     try {
+//         await Orderread.findByIdAndDelete(objectId);
+//         console.log("'Orderread deleted successfully'");
+//         res.status(200).send('Orderreads deleted successfully');
+//     } catch (err) {
+//         console.log(err);
+//         res.status(500).send('Error occurred while deleting data');
+//     }
+// });
