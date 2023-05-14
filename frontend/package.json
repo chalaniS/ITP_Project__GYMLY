@@ -15,6 +15,7 @@
     "express": "^4.18.2",
     "faker": "^6.6.6",
     "jspdf-autotable": "^3.5.28",
+    "openai": "^3.2.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.0",
     "react-bootstrap-icons": "^1.10.3",
