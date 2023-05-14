@@ -76,7 +76,7 @@ const Dashboard = () => {
 
                   {/*Button*/}
                   <div id="dsbd-cards-links">
-                    <Button variant="outline-primary" size="sm" id="dsbd-cards-links-btn">Go &#8250;</Button>
+                    <Button variant="outline-primary" size="sm" id="dsbd-cards-links-btn" onClick={event =>  window.location.href='/bmi'}>Go &#8250;</Button>
                   </div>
                   {/*Button*/}
                  </div>

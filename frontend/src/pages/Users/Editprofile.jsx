@@ -11,11 +11,12 @@ const USERNAME = "6444eb6aaf90ced21b6cff1b";
 const Editprofile = (props) => {
 
     const [Name, setName] = useState();
-    const [NIC, setNIC] = useState();
     const [Email, setEmail] = useState();
     const [Address, setAddress] = useState();
     const [PhoneNum, setphoneNum] = useState();
     const [Password, setPassword] = useState();
+    const [Weight, setWeight] = useState();
+    const [Height, setHeight] = useState();
     
     //function to update user details
     const handleUpdate = (e) => {
@@ -25,7 +26,7 @@ const Editprofile = (props) => {
     const token = localStorage.getItem('token');
     const userId = localStorage.getItem('userId');
 
-        const user = {Name, Password, Email, Address, PhoneNum};
+        const user = {Name, Password, Email, Address, PhoneNum, Weight, Height};
         
         //Update user details
         try {
@@ -34,11 +35,6 @@ const Editprofile = (props) => {
             body: JSON.stringify(user),
             headers: {"Content-Type": "application/json"},
         })
-            setName("")
-            setPassword("")
-            setEmail("")
-            setAddress("")
-            setphoneNum("")
             window.alert('You have successfully updated!');
         } catch (error) 
         {
@@ -82,6 +78,14 @@ const Editprofile = (props) => {
 
                 <Form.Group className="mb-3 inputs" >
                     <Form.Control type="text" placeholder="Contact Number" value={PhoneNum} onChange={(e)=> setphoneNum(e.target.value)}/>
+                </Form.Group>
+
+                <Form.Group className="mb-3 inputs" >
+                    <Form.Control type="text" placeholder="Weight(Kg)" value={Weight} onChange={(e)=> setWeight(e.target.value)}/>
+                </Form.Group>
+
+                <Form.Group className="mb-3 inputs" >
+                    <Form.Control type="text" placeholder="Height(Cm)" value={Height} onChange={(e)=> setHeight(e.target.value)}/>
                 </Form.Group>
 
                 <Button type="submit" id="editProfile-submit-button" className="outline-dark">
