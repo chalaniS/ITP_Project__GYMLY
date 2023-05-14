@@ -31,15 +31,6 @@ import PromoApproval from '../pages/Membership/PromoApproval'
 import MMdashboard from '../pages/Membership/MMdashboard'
 
 
-// import Employee from '../pages/employeeMgt/Employee'
-// import TblEmpSummary from '../pages/employeeMgt/TblEmpSummary'
-// import EmpRegistration from '../pages/employeeMgt/EmpRegistration'
-// import EmpUpdate from '../pages/employeeMgt/EmpUpdate'
-// import EmpLeave from '../pages/employeeMgt/EmpLeave'
-// import EmpSalary from '../pages/employeeMgt/EmpSalary'
-// import EmpSalaryEdit from '../pages/employeeMgt/EmpSalaryEdit'
-
-
 // import PaymentMethodsandPaymentType from '../pages/Payment/PaymentMethodsandPaymentType'
 // import SaveCard from '../pages/Payment/SaveCard'
 // import Verification from '../pages/Payment/Verification'
@@ -88,13 +79,12 @@ import SupplementOrders from '../pages/Supplier/SupplementOrders'
 import RecivedOrder from '../pages/Supplier/RecivedOrder'
 
 
-import Employee from '../pages/employeeMgt/Employee'
-import TblEmpSummary from '../pages/employeeMgt/TblEmpSummary'
-import EmpRegistration from '../pages/employeeMgt/EmpRegistration'
-import EmpUpdate from '../pages/employeeMgt/EmpUpdate'
-import EmpLeave from '../pages/employeeMgt/EmpLeave'
-import EmpSalary from '../pages/employeeMgt/EmpSalary'
-import EmpSalaryEdit from '../pages/employeeMgt/EmpSalaryEdit'
+import EmployeeForm from '../pages/employeeMgt/EmployeeForm'
+import EmployeeTable from '../pages/employeeMgt/EmployeeTable'
+import EmployeeLeave from '../pages/employeeMgt/EmployeeLeave'
+import EmployeeFormEdit from '../pages/employeeMgt/EmployeeFormEdit'
+import EmployeeSalaryForm from '../pages/employeeMgt/EmployeeSalaryForm'
+import EmployeeSalaryFormEdit from '../pages/employeeMgt/EmployeeSalaryFormEdit'
 
 
 const Router = () => {
@@ -105,21 +95,13 @@ const Router = () => {
             {/* Home */}
             <Route path="/" element={<Navigate to='/index' />} />
 
-            {/* Schedule pages routing */}
-            <Route path="/schedule" element={<Schedule />} />
-            <Route path="/changetimeslot" element={<EditTimeSlot />} />
-            <Route path="/changeinstrutor" element={<EditInstructor />} />
-            <Route path="/trainings" element={<ScheduleTable />} />
-            <Route path="/confirmation" element={<InstructorConfirmOM />} />
-
-            {/* Employee management pages routing */}
-            <Route path="/employee" element={<Employee />} />
-            <Route path="/employee-summary" element={<TblEmpSummary />} />
-            <Route path="/employee-registration" element={<EmpRegistration />} />
-            <Route path="/employee-update" element={<EmpUpdate />} />
-            <Route path="/employee-leave" element={<EmpLeave />} />
-            <Route path="/employee-salary" element={<EmpSalary />} />
-            <Route path="/employee-salary-edit" element={<EmpSalaryEdit />} />
+            {/* Employee Management pages routing */}
+            <Route path="/employeeDashboard" element={<EmployeeTable />} />
+            <Route path="/employeeRegister" element={<EmployeeForm />} />
+            <Route path="/employeeUpdate/:id" element={<EmployeeFormEdit />} />
+            <Route path="/employeeLeave" element={<EmployeeLeave />} />
+            <Route path="/employeeSalary/:id" element={<EmployeeSalaryForm />} />
+            <Route path="/employeeSalaryUpdate/:id" element={<EmployeeSalaryFormEdit />} />
 
 
             {/* package */}
@@ -172,11 +154,6 @@ const Router = () => {
               <Route path="/AboutUs" element={<AboutUs/>} />
               <Route path="/ContactUs" element={<ContactUs />} />
               <Route path="/EditInstructorFeedback/:id" element={<EditInstructorFeedback />} />
-
-
-            {/* Employee Management pages routing */}
-            <Route path="/employee-summary" element={<TblEmpSummary />} />
-            <Route path="/employee-leave" element={<EmpLeave />} />
           
 
             {/*payment*/}

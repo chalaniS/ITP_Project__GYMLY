@@ -35,7 +35,20 @@
     "react-router-use-history": "^1.0.0",
     "react-scripts": "^5.0.1",
     "reactstrap": "^9.1.5",
-    "web-vitals": "^2.1.0"
+    "web-vitals": "^2.1.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.18",
+    "@fortawesome/free-solid-svg-icons": "^5.8.2",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "@material-ui/core": "^4.2.1",
+    "@material-ui/icons": "^4.2.1",
+    "@material-ui/lab": "^4.0.0-alpha.58",
+    "ag-grid-community": "^21.0.1",
+    "ag-grid-react": "^21.0.1",
+    "cross-env": "^7.0.3",
+    "formik": "^2.2.9",
+    "material-table": "^1.69.3",
+    "react-spinners": "^0.5.4",
+    "react-switch": "^5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

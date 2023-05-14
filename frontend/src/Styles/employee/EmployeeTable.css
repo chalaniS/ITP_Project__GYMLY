@@ -1,0 +1,93 @@
+#search-bar{
+    /* margin-left: 15px; */
+    width: 98%;
+    margin:auto;
+    margin-bottom: 5px;
+}
+#search-bar div{
+    /* margin-left: 15px; */
+    width: 100%;
+}
+@media (max-width: 1000px) {
+    #search-bar{
+        width: 95%;
+    }
+  }
+
+.MuiSvgIcon-root path {
+    fill: white; /* Change the fill color to white */
+}
+
+.MuiToolbar-root .MuiInputBase-root {
+    background-color: #f5f5f5;
+}
+
+.MuiToolbar-root .MuiInputBase-input {
+    color: #333;
+}
+
+.MuiTableCell-root {
+    border-bottom: 1px solid rgba(224, 224, 224, 1);
+}
+
+.MuiTypography-h6 {
+    font-size: 1.5rem !important;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight:  bold !important;
+    line-height: 1.6;
+    letter-spacing: 0.0075em;
+    color: white;
+}
+
+.MuiTableSortLabel-root.MuiTableSortLabel-active {
+    color: #0069d9 !important;
+    font-weight: bold !important;
+}
+
+.MuiTableSortLabel-root:hover {
+    color: #0069d9 !important;
+    font-weight: bold !important;
+}
+
+.MuiButtonBase-root {
+    width: max-content;
+}
+
+.MuiButton-label {
+    color: white;
+}
+
+.MuiButton-contained.Mui-disabled {
+    background-color: #0069d9 !important;
+}
+
+.MTableToolbar-spacer-22 {
+    flex: 1 1 10% !important;
+}
+
+.editBtn {
+    transition: all .5s ease;
+    color: #2d68fd;
+    border: 3px solid #0069d9;
+    font-family:"Roboto", "Helvetica", "Arial", sans-serif;
+    text-transform: capitalize;
+    text-align: center;
+    line-height: 1;
+    font-size: 14px;
+    background-color : transparent;
+    padding: 10px;
+    outline: none;
+    border-radius: 4px;
+}
+.editBtn:hover {
+    color: #001F3F;
+    background-color: #0069d9;
+}
+
+.MuiToolbar-root{
+    background-color: #0069d993;
+}
+
+.MuiTableCell-footer{
+    border-bottom: 0px !important;
+}
