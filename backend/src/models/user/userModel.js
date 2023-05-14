@@ -60,6 +60,7 @@ const UserSchema = new Schema({
 },{timestamps: true})
 
 // Hash the password before saving
+/*
 UserSchema.pre('save', async function(next) {
     try {
       const salt = await bcrypt.genSalt(10);
@@ -69,7 +70,7 @@ UserSchema.pre('save', async function(next) {
     } catch (error) {
       next(error);
     }
-  });
+  });*/
 
 // Export the model  
 const User = mongoose.model('User', UserSchema);
