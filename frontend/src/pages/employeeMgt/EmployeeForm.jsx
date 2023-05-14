@@ -23,6 +23,8 @@ const API_URL = 'http://localhost:5000/employee';
       }
       if (!values.NIC) {
         errors.NIC = "*Required";
+      }else if(!/^\d{9}[Vv]?$/.test(values.NIC) && !/^\d{12}$/.test(values.NIC)){
+        errors.NIC = "*Must be in XXXXXXXXXV or XXXXXXXXXXXX format";
       }
       if (!values.role) {
         errors.role = "*Required";

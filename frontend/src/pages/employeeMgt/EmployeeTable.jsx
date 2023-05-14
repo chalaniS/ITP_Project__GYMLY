@@ -81,8 +81,8 @@ function EmployeeTable() {
     const [query, setQuery] = useState('')
 
     const columns = [
-        {title: "_id", field: "_id", hidden: true},
-        {title: "Employee ID", field: "userId", defaultSort: "asc"},
+        {title: "userId", field: "userId", hidden: true},
+        {title: "Employee ID", field: "_id", defaultSort: "asc"},
         {title: "Name", field: "firstName"},
         {title: "Email", field: "email", sorting: false, export: false},
         {title: "Job Role", field: "role"},
@@ -329,7 +329,7 @@ function EmployeeTable() {
                   search:false, 
                   //searchFieldVariant:"outlined",
                   pageSizeOptions:[5,10,20,50,100], 
-                  pageSize:10,
+                  pageSize:5,
                   paginationType:"stepped",
                   //exportButton:true,
                   exportAllData:true,
