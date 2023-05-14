@@ -1,0 +1,31 @@
+#ed {
+    padding-top: 30px;
+}
+
+.om_btn p {
+    text-align: center;
+    color: aliceblue;
+    height: 120px;
+    font-size: 30px;
+    background-color: rgb(59, 58, 58);
+    border-radius: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin: auto;
+    border: 3px solid rgb(0, 0, 0);
+    padding: 10px;
+}
+
+.om_btn a :hover {
+    text-align: center;
+    color: rgb(0, 0, 0);
+    height: 120px;
+    font-size: 30px;
+    background-color: rgb(124, 124, 124);
+    border-radius: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin: auto;
+    border: 3px solid rgb(0, 0, 0);
+    padding: 10px;
+}

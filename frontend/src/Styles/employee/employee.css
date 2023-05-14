@@ -1,0 +1,42 @@
+.filter-button-container {
+    position: relative;
+  }
+  
+.filter-button {
+background-color: #4caf50;
+border: none;
+color: white;
+padding: 8px 16px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+cursor: pointer;
+}
+
+.filter-menu {
+position: absolute;
+top: 100%;
+left: 0;
+z-index: 1;
+background-color: #f1f1f1;
+min-width: 160px;
+box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.filter-menu ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+}
+
+.filter-menu li {
+padding: 8px 16px;
+cursor: pointer;
+}
+
+.filter-menu li:hover {
+background-color: #ddd;
+}
+  

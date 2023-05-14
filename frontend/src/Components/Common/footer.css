@@ -1,12 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Roboto:wght@300&family=Source+Sans+Pro:ital,wght@1,200&display=swap');
-
-body {
-    font-family: 'Nunito', sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
 
 /*Footer Section*/
 footer {
     color: #fff;
+    font-family: 'Nunito', sans-serif;
 }
 
 footer a:hover {
@@ -15,12 +13,6 @@ footer a:hover {
     font-weight: bold;
 }
 
-footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    right: 0;
-}
 
 /*Footer Section*/
 
@@ -28,4 +20,60 @@ footer {
 a {
     text-decoration: none;
     color: #fff;
+}
+
+/*add this to avoid underlining when hover link*/
+.icons {
+    font-size: 25px;
+    margin-top: 5px;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-bottom: 5px;
+    color: lavender;
+}
+
+.icons:hover {
+    color: #fff;
+    font-weight: bold;
+    font-size: 26px;
+}
+
+#social-media-title{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-family: 'Lato', sans-serif;
+
+}
+
+Footer h5 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-family: 'Lato', sans-serif;
+    color: lavender;
+    text-align: start;
+}
+
+footer .list-unstyled{
+    text-align: start;
+    font-size: 17px;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+footer .list-unstyled li{
+    padding-top: 2px;
+}
+
+#moto{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-family: 'Lato', sans-serif;
+    color: white;
+    /*Add outer glow*/
+    text-shadow: 0 0 3px #2314ab, 0 0 5px #0000FF;
+    /*Add inner glow*/
+    -webkit-filter: drop-shadow(0 0 3px #2314ab);
 }
