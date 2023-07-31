@@ -12,6 +12,8 @@ Please go under edit and edit this file as needed for your project
 ### Member 8 - IT21181160 - Thrimavithana V.D. (IT21181160)
 
 #### Brief Description of Project - 
+Gymly Management System is a web-based application designed for gyms, offering customer management, package customization, supplier handling, and supplement management. It features secure client data storage, easy package creation, streamlined inventory tracking, and member feedback collection. 
+
 #### Technologies used - MERN-Stack
 
 
