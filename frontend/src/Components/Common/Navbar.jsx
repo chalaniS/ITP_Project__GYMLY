@@ -7,6 +7,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './header.css';
 import Router from "../../router/Routes";
+import { Link } from "react-router-dom";
+
 const Header = () => {
   return (
     <div>
@@ -25,12 +27,14 @@ const Header = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#">About Us</Nav.Link>
+            <Nav.Link href="/index">Home</Nav.Link>
+              <Nav.Link href="#home me-5">About Us</Nav.Link>
+              <Nav.Link href="#featurss">Fitness Instructors</Nav.Link>
               <Nav.Link href="#features">Suppliment Store</Nav.Link>
-              <Nav.Link href="#pricing">Contact Us</Nav.Link>
+              <Nav.Link href="#">Contact Us</Nav.Link>
             </Nav>
             <Form className="d-flex">
-              <Button variant="outline-primary" id="Button">Sign in</Button>
+              <Button variant="outline-primary" id="Button" onClick={event =>  window.location.href='/loging'} >Sign in</Button>
             </Form>
           </Navbar.Collapse>
         </Container>

@@ -1,26 +1,20 @@
 import "dotenv/config";
 import mongoose from "mongoose";
-// import config from "./configs/config";
 import express from "express";
 import cors from "cors";
-// import { connect } from "./utils/dbconnect"
-
+import ScheduleModel from './models/schedule/ScheduleModel.js'
+import SchedulRouter from './routes/schedule/SchedulRouter.js'
+import User from './routes/Users/userRouters.js' 
 
 const app = express();
 app.use(cors());
+app.use(express.json());
 
-const PORT = process.env.PORT || 5000;
-
-
-//connect with frontend
-app.get("/getData", (req, res) => {
-    res.send("Hello I'm from backend");
-});
+const PORT = process.env.PORT || 5001;
 
 let database;
 
-
-
+//make connection with datahase
 app.listen(PORT, () => {
 
     // Start the server
@@ -36,5 +30,114 @@ app.listen(PORT, () => {
         .catch((err) => {
             console.log(err.message);
         });
+});
+
+//connect with frontend
+app.get("/getData", (req, res) => {
+    res.send("Hello I'm from backend");
+});
+
+
+//throw API to SchedulRouter class
+// app.use('/schedules', SchedulRouter);
+
+
+app.post("/schedules", async (req, res) => {
+
+    const dayscount = req.body.dayscount
+    const date = req.body.date
+    const timeslot = req.body.timeslot
+    const instructor = req.body.instructor
+    const section = req.body.section
+
+    console.log(timeslot + instructor + section)
+
+    const schedule = new ScheduleModel({
+
+        userId: "45821463#23669545",
+        dayscount: dayscount,
+        timeslot: timeslot,
+        date: date,
+        instructor: instructor,
+        section: section
+    });
+
+    try {
+        await schedule.save()
+        console.log("successfully data inserted")
+        res.status(200).send("Data inserted successfully");
+    } catch (err) {
+        console.log(err);
+        res.status(500).send("Error occurred while inserting data");
+    }
+});
+
+app.get("/schedules", async (req, res) => {
+
+    const userId = "45821463#23669545";
+
+    try {
+        const schedules = await ScheduleModel.find({ userId });
+        console.log("'Schedule read successfully'");
+        res.status(200).json(schedules);
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Error occurred while retrieving data');
+    }
 
 });
+
+// read a single schedule by id for update
+app.get('/schedules/:id', async (req, res) => {
+    try {
+        const schedule = await ScheduleModel.findById(req.params.id);
+        console.log('Schedule read successfully for update');
+        res.status(200).json(schedule);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error occurred while retrieving data');
+    }
+});
+
+
+app.put("/schedules/:id", async (req, res) => {
+    const objectId = req.params.id;
+    const { dayscount, date, timeslot, instructor, section } = req.body;
+    try {
+        const updatedSchedule = await ScheduleModel.findByIdAndUpdate(
+            objectId,
+            {
+                dayscount: dayscount,
+                date: date,
+                timeslot: timeslot,
+                instructor: instructor,
+                section: section
+            },
+            { new: true }
+        );
+        res.status(200).send(updatedSchedule);
+        console.log('Schedule updated successfully');
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Error occurred while updating data');
+    }
+});
+
+
+app.delete("/schedules/:id", async (req, res) => {
+    const objectId = req.params.id;
+    try {
+        await ScheduleModel.findByIdAndDelete(objectId);
+        console.log("'Schedule deleted successfully'");
+        res.status(200).send('Schedule deleted successfully');
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Error occurred while deleting data');
+    }
+});
+
+
+
+//lakindu's part
+app.use(User);

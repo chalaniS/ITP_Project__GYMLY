@@ -7,8 +7,10 @@
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */
+    padding-bottom: 20px;
 }
 
+/*Title Section*/
 #title{
     background-image:url('../images/LandingPage/Home-cover.png');
     background-color: #cccccc; /* Used if the image is unavailable */
@@ -23,14 +25,14 @@
     font-size: 120px;
     font-family: 'Anton', sans-serif;
     text-align: center;
-    padding-top: 200px;
+    padding-top: 250px;
     text-shadow: 4px 4px 8px black;
 }
 
 #title-btn-section{
     text-align: center;
     padding-top: 60px;
-    padding-bottom: 150px;
+    padding-bottom: 180px;
 }
 
 #title-button{
@@ -48,9 +50,11 @@
     background-color: #000;
     color: aliceblue;
 }
+/*end of title section*/
 
 
 
+/*About section*/
 .col-centered{
     float: none;
     margin: 0 auto;
@@ -58,14 +62,14 @@
 
 #about{
     padding: 50px;
-    
+    margin: 50px;
 }
 
 #aboutus-texts-section{
     color: white;
     font-family: 'Anton', sans-serif;
     text-align: left;
-    padding-top: 10px;
+    padding-top: 40px;
     text-shadow: 4px 4px 8px black;
 }
 
@@ -85,7 +89,47 @@
     padding-right: 20px;
 }
 
-#boutus-img{
+#aboutus-img{
     width:"500px";
     height:"100%";
 }
+/*end of about section*/
+
+
+/*location section*/
+#location{
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #cccccc;
+    border-radius: 40px;
+}
+
+#location-title{
+    color: black;
+    font-size: 60px;
+    font-family: 'Anton', sans-serif;
+    text-align: left;
+    padding-top: 40px;
+    padding-bottom: 10px;
+}
+
+#contact-info{
+    padding-top: 15px;
+    padding-left: 10px;
+}
+
+#location-discription{
+    color: black;
+    font-size: 25px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+    padding-left: 50px;
+}
+/*location section*/
+
+
+/*quetitons*/
+    
+/*quetitons*/

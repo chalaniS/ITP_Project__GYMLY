@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap'); /*Font of title*/
+
+#userdashboard-section{
+    /*background-image: url("../../../images/LandingPage/Home-cover.png");*/
+    background-color: #000; /* Used if the image is unavailable */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+}
+
+#dashboard-title{
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    background-image: url("https://media3.giphy.com/media/2tNvsKkc0qFdNhJmKk/200w.gif?cid=6c09b952dhl8gvlx2pyzxecnub3i9yxhll0ldfe1aw95bso3&rid=200w.gif&ct=g");
+    font-size: 55px;
+    font-family: 'Anton', sans-serif;
+    padding-top: 20px;
+
+}
+
+
+#cards{
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+
+}
+
+.dbd-title{
+    background: -webkit-linear-gradient(#4880d3, #3361ba, #2143a0, #142484, #090067);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 20px;
+}
+
+.dsbd-cards{
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    background-color: #f5f5f5;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 40px;
+}
+
+#dsbd-cards-icons{
+    padding-top: 30px;
+    padding-bottom:10px;
+    background: -webkit-linear-gradient(#4880d3, #3361ba, #2143a0, #142484, #090067);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+#dsbd-cards-links{
+    padding-bottom: 10px;
+}
+
+
+#dsbd-cards-links-btn
+{
+    margin-top: 15px;
+    color: whitesmoke;
+    font-size: 15px;
+    border-radius: 40px;
+    border: 2px solid #090067;
+    width: 100px;
+    padding: 10px;
+    background-color: #090067;
+}
+
+#dsbd-cards-links-btn:hover{
+    background-color: whitesmoke;
+    color: blue;
+    text-decoration: none;
+}
