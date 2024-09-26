@@ -1,31 +1,13 @@
-import React, { useEffect, useState } from "react";
-import Layout from "./Components/Layout/Layout";
-import Axios from "axios";
+import React from "react";
+import Layout from "./Components/Layout/Layout.jsx";
+import axios from "axios";
+
+import { FaBeer } from "@react-icons/all-files";
+
 
 
 function App() {
-
-    const [data, setData] = useState();
-
-    const getData = async () => {
-        const response = await Axios.get("http://localhost:5000/getData");
-        setData(response.data)
-    }
-
-    useEffect(() => {
-        getData()
-
-    }, []);
-
-    return (
-        <>
-            <Layout />
-            <div>{data}</div>
-
-        </>
-
-
-    );
+    return <Layout />;
 };
 
 export default App;

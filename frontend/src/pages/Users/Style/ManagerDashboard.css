@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+/*Font of title*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+/*Font of body*/
+
+
+
+#ManagerDashboard{
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color:black;
+    padding-bottom: 60px;
+}
+
+#ManagerDashboard #ManagerDashboard-Title{
+    padding-top: 10px;
+    padding-bottom: 0px;
+    font-size: 50px;
+    font-weight: bold;
+    color: aliceblue;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 4px;
+
+    
+}
+
+#ManagerDashboard #ManagerDashboard-search{
+    padding-bottom: 20px;
+}
+
+
+#ManagerDashboard #ManagerDashboard-users-table thead{
+    background-color: #4385c6;
+    color: aliceblue;
+}
+
+#ManagerDashboard #ManagerDashboard-users-table tbody{
+    font-weight: bold;
+}
+
+#ManagerDashboard #ManagerDashboard-users-table button{
+    border-radius: 30px;
+}
+
+#ManagerDashboard #ManagerDashboard-users-table button:hover{
+    color: blue;
+    background-color: aliceblue;
+    border-color: #4385c6;
+}
+
+#ManagerDashboard #ManagerDashboard-user-report{
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+#ManagerDashboard #ManagerDashboard-user-report button{
+    border-radius: 40px;
+    font-size: 20px;
+    padding: 10px;
+}
+
+#ManagerDashboard #ManagerDashboard-user-report button:hover{
+    color: blue;
+    background-color: aliceblue;
+    border-color: #4385c6;
+}

@@ -1,0 +1,25 @@
+#usereditdata{
+    background-image: url("../../../images/LandingPage/DeadLife.png");
+    background-color: #cccccc; /* Used if the image is unavailable */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+    padding:20px;
+}
+
+#EditForm{
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 10px;
+    width: fit-content;
+    border-radius: 50px;
+    background: rgba(0, 0, 0, 0.39);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(21, 1, 1, 0.1);
+    backdrop-filter: blur(14.3px);
+    -webkit-backdrop-filter: blur(14.3px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-family: 'Roboto', sans-serif;
+}

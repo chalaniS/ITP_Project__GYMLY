@@ -1,0 +1,39 @@
+.rejectBtn {
+    transition: all .5s ease;
+    color: #2d68fd;
+    border: 3px solid #e74c3c;
+    font-family:"Roboto", "Helvetica", "Arial", sans-serif;
+    text-transform: capitalize;
+    text-align: center;
+    line-height: 1;
+    font-size: 14px;
+    background-color : transparent;
+    padding: 10px;
+    outline: none;
+    border-radius: 4px;
+    width: 80px;
+}
+.rejectBtn:hover {
+    color: #001F3F;
+    background-color: #e74c3c;
+}
+
+.approveBtn {
+    transition: all .5s ease;
+    color: #2d68fd;
+    border: 3px solid #20a519;
+    font-family:"Roboto", "Helvetica", "Arial", sans-serif;
+    text-transform: capitalize;
+    text-align: center;
+    line-height: 1;
+    font-size: 14px;
+    background-color : transparent;
+    padding: 10px;
+    outline: none;
+    border-radius: 4px;
+    width: 80px;
+}
+.approveBtn:hover {
+    color: #001F3F;
+    background-color: #20a519;
+}

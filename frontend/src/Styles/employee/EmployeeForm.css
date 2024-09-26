@@ -1,0 +1,108 @@
+#form-submit-button button{
+    /* float: left; */
+    transition: all .5s ease;
+    color: white;
+    border: 3px solid white;
+    font-family:"Roboto", "Helvetica", "Arial", sans-serif;
+    text-transform: capitalize;
+    text-align: center;
+    line-height: 1;
+    font-size: 16px;
+    background-color : #0069d9;
+    padding: 10px;
+    outline: none;
+    border-radius: 4px;
+    width: 100px;
+    font-weight: bold
+    
+}
+
+#form-submit-button button:hover{
+    color: white;
+    background-color: #0069d988;
+    border-color: #0069d9;
+}
+#form-cancel-button{
+    /* float: left; */
+    /* float:right; */
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 0px;
+    /* background-color: red; */
+    
+}
+#form-cancel-button button{
+    /* float: left; */
+    /* float:right; */
+    transition: all .5s ease;
+    color: white;
+    border: 3px solid white;
+    font-family:"Roboto", "Helvetica", "Arial", sans-serif;
+    text-transform: capitalize;
+    text-align: center;
+    line-height: 1;
+    font-size: 16px;
+    background-color : #e74c3c;
+    padding: 10px;
+    outline: none;
+    border-radius: 4px;
+    width: 100px;
+    font-weight: bold;
+}
+#form-cancel-button button:hover{
+    color: white;
+    background-color: #e74d3cab;
+    border-color: #e74c3c;
+}
+#form-cancel-button.row{
+    padding-right: 1%;
+}
+#form-cancel-button button:focus{
+    /* float: left; */
+    /* float:right; */
+outline: 0;
+box-shadow: 0;
+}
+#form-cancel-button-inner{
+    /* padding: 0px; */
+}
+#form{
+    /* background-color: blue; */
+    position: relative;
+    margin: 0;
+    font-size: 15px;
+}
+#role-form-outer-div{
+    width: 80%;
+    margin:30px auto;
+}
+.form-input{
+    margin-bottom: 10px;
+}
+
+#role-form-title {
+  margin: 20px;
+  color:rgb(233, 233, 233)
+}
+
+.error{
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(183, 8, 8);
+    margin-top: 2px;
+    margin-bottom: 10px;
+}
+
+/* .form-control{
+    background: transparent !important;
+    color: white !important;
+} */
+
+section.employeeForm{
+    width: 80% !important;
+}
+
+.col-form-label{
+    font-weight: bold;
+}
