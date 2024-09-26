@@ -46,26 +46,62 @@ const EmployeeLeaveForm = () => {
       onSubmit: async(values) => {
         
         showLoadingSpinner();
+        
 
-        try{
-            const response = await fetch(`http://localhost:5000/employeeLeave/addEmployeeLeave`, {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(values),
-            });
-            if(response.ok){
-              hideLoadingSpinner();
-              window.alert('Data has been inserted successfully');
-              window.location = "http://localhost:3000/employeeDashboard";
-              console.log('Successfully added to list');
-            }else{
-              console.error('Failed to submit form:', response.status, response.statusText);
-            }
-          }catch(error){
-            console.error('Error submitting form:', error);
+        try {
+          const response = await fetch(`http://localhost:5000/employeeLeave/addEmployeeLeave`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(values),
+          });
+
+          if (response.ok) {
+            hideLoadingSpinner();
+            showCustomAlert('Data has been inserted successfully'); // Custom alert function
+            window.location = "http://localhost:3000/employeeDashboard";
+            console.log('Successfully added to list');
+          } else {
+            console.error('Failed to submit form:', response.status, response.statusText);
           }
+        } catch (error) {
+          console.error('Error submitting form:', error);
+        }
+
+        // Custom alert function that can be styled and sanitized
+        function showCustomAlert(message) {
+          const alertBox = document.createElement('div');
+          alertBox.className = 'custom-alert'; // Add your styles in CSS
+          alertBox.innerText = message; // Using innerText to avoid XSS
+          document.body.appendChild(alertBox);
+
+          // Optionally, remove the alert after a few seconds
+          setTimeout(() => {
+            alertBox.remove();
+          }, 3000);
+        }
+
+
+        // try{
+        //     const response = await fetch(`http://localhost:5000/employeeLeave/addEmployeeLeave`, {
+        //       method: 'POST',
+        //       headers: {
+        //         'Content-Type': 'application/json'
+        //       },
+        //       body: JSON.stringify(values),
+        //     });
+        //     if(response.ok){
+        //       hideLoadingSpinner();
+        //       window.alert('Data has been inserted successfully');
+        //       window.location = "http://localhost:3000/employeeDashboard";
+        //       console.log('Successfully added to list');
+        //     }else{
+        //       console.error('Failed to submit form:', response.status, response.statusText);
+        //     }
+        //   }catch(error){
+        //     console.error('Error submitting form:', error);
+        //   }
       }
 
     });
