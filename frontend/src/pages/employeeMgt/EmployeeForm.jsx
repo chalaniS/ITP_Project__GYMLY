@@ -297,23 +297,27 @@ const API_URL = 'http://localhost:5000/employee';
                 {formik.touched.email && formik.errors.email ? <div className="error">{formik.errors.email}</div>: null}
               </Col>
             </Form.Group>
-            <Form.Group as={Row}>
-              <Form.Label column sm={2}>
-                Address
-              </Form.Label>
-              <Col sm={10} className="form-input">
-                <Form.Control
-                  type="text"
-                  name="address"
-                  placeholder="Address"
-                  onChange={formik.handleChange}
-                  value={formik.values.address}
-                  onBlur={formik.handleBlur}
-                  required
-                />
-                {formik.touched.address && formik.errors.address ? <div className="error">{formik.errors.address}</div>: null}
-              </Col>
-            </Form.Group>
+                <Form.Group as={Row}>
+                  <Form.Label column sm={2}>
+                    Address
+                  </Form.Label>
+                  <Col sm={10} className="form-input">
+                    <Form.Control
+                      type="text"
+                      name="address"
+                      placeholder="Address"
+                      onChange={(event) => {
+                        const sanitizedValue = event.target.value.replace(/[^a-zA-Z0-9\s,.-]/g, ''); 
+                        formik.setFieldValue("address", sanitizedValue);
+                      }}
+                      value={formik.values.address}
+                      onBlur={formik.handleBlur}
+                      required
+                    />
+                    {formik.touched.address && formik.errors.address ? <div className="error">{formik.errors.address}</div> : null}
+                  </Col>
+                </Form.Group>
+
             <Form.Group as={Row}>
               <Form.Label column sm={2}>
                 Qualifications

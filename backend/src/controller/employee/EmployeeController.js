@@ -131,5 +131,26 @@ export async function deleteEmployee(req, res) {
     }
 }
 
+// Login function for employee
+export async function employeeLogin(req, res) {
+    const email = req.body.email;
+    const password = req.body.password;
+
+    const query = 'SELECT * FROM employees WHERE email = ? AND password = ?';
+    try {
+        const result = await db.query(query, [email, password]); // Safe method
+        if (result.length > 0) {
+            res.status(200).send("Login successful");
+        } else {
+            res.status(401).send("Invalid email or password");
+        }
+    } catch (err) {
+        console.log(err);
+        res.status(500).send("Error occurred during login");
+    }
+}
+
+
+
 // Export all the controller functions as an object
 export default { addEmployee, getAllEmployee, getEmployee, updateEmployee, deleteEmployee };
